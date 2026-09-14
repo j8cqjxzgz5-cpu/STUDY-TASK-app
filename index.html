@@ -4,78 +4,613 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STUDY-TASK</title>
+<title>STUDY</title>
 
 <style>
 
+:root {
+    --bg: #050505;
+    --card: #101010;
+    --card2: #171717;
+    --white: #ffffff;
+    --gray: #8c8c8c;
+    --line: #292929;
+    --green: #35d07f;
+    --yellow: #f2c94c;
+    --red: #ff5b5b;
+}
+
 * {
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
     margin: 0;
-    background: #000;
+    background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+        #050505;
+
+    background-size: 35px 35px;
+
     color: white;
-    padding: 20px;
-}
 
-h1 {
-    text-align: center;
-    margin-bottom: 35px;
-}
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        Arial,
+        sans-serif;
 
-button {
-    width: 100%;
-    padding: 22px;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    background: white;
-    color: black;
-}
-
-button:active {
-    opacity: 0.7;
+    min-height: 100vh;
 }
 
 .page {
     display: none;
+    min-height: 100vh;
+    padding: 22px;
 }
 
-.active {
+.page.active {
     display: block;
+    animation: fade .25s ease;
 }
 
-.task {
-    background: #111;
-    padding: 18px;
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADER */
+
+.header {
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 16px;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 2px;
+}
+
+.logo-text p {
+    margin: 3px 0 0;
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* HOME */
+
+.home-container {
+    max-width: 650px;
+    margin: auto;
+}
+
+.hero {
+    background:
+        linear-gradient(135deg,
+        #161616,
+        #0a0a0a);
+
+    border: 1px solid var(--line);
+
+    border-radius: 28px;
+
+    padding: 28px;
+
+    margin-bottom: 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero::after {
+
+    content: "◢ ◣";
+
+    position: absolute;
+
+    right: 20px;
+    top: 18px;
+
+    color: #333;
+
+    font-size: 70px;
+
+    letter-spacing: -20px;
+
+    transform: rotate(45deg);
+}
+
+.hero small {
+    color: var(--gray);
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin: 12px 0 8px;
+}
+
+.hero p {
+    color: #aaa;
+    margin: 0;
+}
+
+.menu {
+    display: grid;
+    gap: 14px;
+}
+
+.menu-card {
+
+    border: 1px solid var(--line);
+
+    background: rgba(18,18,18,.96);
+
+    border-radius: 25px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.menu-card:active {
+    transform: scale(.97);
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-icon {
+
+    width: 54px;
+    height: 54px;
+
     border-radius: 18px;
-    margin-bottom: 12px;
-    border-left: 7px solid green;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
 }
 
-.yellow {
-    border-left-color: #f5c542;
+.menu-text h3 {
+    margin: 0 0 5px;
+    font-size: 19px;
 }
 
-.red {
-    border-left-color: red;
+.menu-text p {
+    margin: 0;
+    color: var(--gray);
+    font-size: 13px;
 }
 
-.green {
-    border-left-color: #00c853;
+.arrow {
+    font-size: 25px;
+    color: #777;
+}
+
+/* BUTTONS */
+
+button {
+
+    border: none;
+
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+.primary-btn {
+
+    width: 100%;
+
+    padding: 17px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 18px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+
+    transition: .2s;
+}
+
+.primary-btn:active {
+    transform: scale(.97);
+}
+
+.back-btn {
+
+    background: #171717;
+
+    color: white;
+
+    border: 1px solid #303030;
+
+    border-radius: 15px;
+
+    padding: 13px 18px;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+}
+
+/* PAGE TITLE */
+
+.page-title {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    margin-bottom: 20px;
+}
+
+.page-title h2 {
+    margin: 0 0 5px;
+    font-size: 28px;
+}
+
+.page-title p {
+    color: var(--gray);
+    margin: 0;
+}
+
+/* PLAN FORM */
+
+.plan-container {
+
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.form-card {
+
+    background: #111;
+
+    border: 1px solid var(--line);
+
+    border-radius: 25px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+.form-card h3 {
+    margin-top: 0;
+}
+
+label {
+
+    display: block;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    margin: 15px 0 7px;
 }
 
 input {
+
     width: 100%;
+
+    background: #080808;
+
+    border: 1px solid #303030;
+
+    color: white;
+
     padding: 15px;
-    border-radius: 15px;
-    border: none;
-    margin-bottom: 10px;
+
+    border-radius: 14px;
+
     font-size: 16px;
+
+    outline: none;
+}
+
+input:focus {
+
+    border-color: white;
+}
+
+.duration-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 10px;
+}
+
+.duration-grid input {
+    text-align: center;
+}
+
+/* TASK TABLE */
+
+.task-section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 25px 0 12px;
+}
+
+.task-section-title h3 {
+    margin: 0;
+}
+
+.task-count {
+
+    background: #191919;
+
+    border-radius: 20px;
+
+    padding: 7px 12px;
+
+    color: #aaa;
+
+    font-size: 12px;
+}
+
+.task-card {
+
+    background: #111;
+
+    border: 1px solid #282828;
+
+    border-left: 5px solid var(--green);
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    margin-bottom: 12px;
+}
+
+.task-card.yellow {
+    border-left-color: var(--yellow);
+}
+
+.task-card.red {
+    border-left-color: var(--red);
+}
+
+.task-card.done {
+    border-left-color: var(--green);
+    opacity: .65;
+}
+
+.task-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+.task-name {
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.status-badge {
+
+    font-size: 11px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: #1d1d1d;
+}
+
+.task-info {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+.timer {
+
+    margin-top: 15px;
+
+    background: #090909;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.progress {
+
+    height: 5px;
+
+    background: #282828;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 12px;
+}
+
+.progress-bar {
+
+    height: 100%;
+
+    background: var(--green);
+
+    width: 0%;
+
+    transition: .5s;
+}
+
+.progress-bar.yellow {
+    background: var(--yellow);
+}
+
+.progress-bar.red {
+    background: var(--red);
+}
+
+.complete-btn {
+
+    margin-top: 14px;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    color: black;
+
+    font-weight: 700;
+}
+
+.empty {
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #777;
+
+    border: 1px dashed #333;
+
+    border-radius: 20px;
+}
+
+.quick-card {
+
+    background: #151010;
+
+    border: 1px solid #442020;
+
+    border-left: 5px solid var(--red);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+}
+
+.quick-timer {
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    margin-top: 15px;
+
+    letter-spacing: 1px;
+}
+
+.delete-btn {
+
+    margin-top: 12px;
+
+    background: transparent;
+
+    color: #888;
+
+    border: 1px solid #333;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
 }
 
 </style>
@@ -83,229 +618,1191 @@ input {
 
 <body>
 
+
 <!-- HOME -->
 
 <div id="home" class="page active">
 
-<h1>STUDY-TASK</h1>
+<div class="home-container">
 
-<button onclick="openPage('enter')">
-ENTER
-</button>
+<div class="header">
 
-<button onclick="openPage('quick')">
-QUICK CHECK
-</button>
+<div class="logo">
 
-<button onclick="openPage('plan')">
-PLAN
-</button>
+<div class="logo-icon">
+⌬
+</div>
+
+<div class="logo-text">
+
+<h1>STUDY</h1>
+
+<p>ENGINEER YOUR TIME</p>
 
 </div>
+
+</div>
+
+</div>
+
+
+<div class="hero">
+
+<small>STUDY SYSTEM</small>
+
+<h2>Build your day.</h2>
+
+<p>
+Organize your tasks with precision.
+</p>
+
+</div>
+
+
+<div class="menu">
+
+
+<div class="menu-card" onclick="openPage('enter')">
+
+<div class="menu-left">
+
+<div class="menu-icon">
+✓
+</div>
+
+<div class="menu-text">
+
+<h3>ENTER</h3>
+
+<p>View and complete your tasks</p>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+
+
+<div class="menu-card" onclick="openPage('quick')">
+
+<div class="menu-left">
+
+<div class="menu-icon">
+!
+</div>
+
+<div class="menu-text">
+
+<h3>QUICK CHECK</h3>
+
+<p>See urgent tasks instantly</p>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+
+
+<div class="menu-card" onclick="openPage('plan')">
+
+<div class="menu-left">
+
+<div class="menu-icon">
+⌗
+</div>
+
+<div class="menu-text">
+
+<h3>PLAN</h3>
+
+<p>Create and organize your schedule</p>
+
+</div>
+
+</div>
+
+<div class="arrow">
+›
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
 
 
 <!-- ENTER -->
 
 <div id="enter" class="page">
 
-<h1>YOUR TASKS</h1>
+<div class="plan-container">
 
-<div id="taskList"></div>
-
-<button onclick="openPage('home')">
-BACK
+<button class="back-btn" onclick="openPage('home')">
+← BACK
 </button>
 
+<div class="page-title">
+
+<h2>ENTER</h2>
+
+<p>Your current study schedule</p>
+
 </div>
+
+<div id="enterTasks"></div>
+
+</div>
+
+</div>
+
 
 
 <!-- QUICK CHECK -->
 
 <div id="quick" class="page">
 
-<h1>URGENT TASKS</h1>
+<div class="plan-container">
 
-<div id="urgentList"></div>
-
-<button onclick="openPage('home')">
-BACK
+<button class="back-btn" onclick="openPage('home')">
+← BACK
 </button>
 
+<div class="page-title">
+
+<h2>QUICK CHECK</h2>
+
+<p>Only urgent tasks</p>
+
 </div>
+
+<div id="quickTasks"></div>
+
+</div>
+
+</div>
+
 
 
 <!-- PLAN -->
 
 <div id="plan" class="page">
 
-<h1>PLAN YOUR TASK</h1>
+<div class="plan-container">
 
-<input id="taskName" placeholder="Task name">
-
-<input id="taskTime" type="datetime-local">
-
-<button onclick="addTask()">
-ADD TASK
+<button class="back-btn" onclick="openPage('home')">
+← BACK
 </button>
 
-<button onclick="openPage('home')">
-BACK
+
+<div class="page-title">
+
+<h2>PLAN</h2>
+
+<p>Design your time with precision</p>
+
+</div>
+
+
+<div class="form-card">
+
+<h3>NEW TASK</h3>
+
+
+<label>
+TASK NAME
+</label>
+
+<input
+id="taskName"
+placeholder="Example: Mathematics study">
+
+
+<label>
+START DATE & TIME
+</label>
+
+<input
+id="taskStart"
+type="datetime-local">
+
+
+<label>
+TASK DURATION
+</label>
+
+
+<div class="duration-grid">
+
+<div>
+
+<input
+id="days"
+type="number"
+min="0"
+value="0">
+
+<label>
+DAYS
+</label>
+
+</div>
+
+
+<div>
+
+<input
+id="hours"
+type="number"
+min="0"
+value="1">
+
+<label>
+HOURS
+</label>
+
+</div>
+
+
+<div>
+
+<input
+id="minutes"
+type="number"
+min="0"
+value="0">
+
+<label>
+MINUTES
+</label>
+
+</div>
+
+</div>
+
+
+<button
+class="primary-btn"
+onclick="addTask()">
+
+ADD TO PLAN
+
 </button>
 
 </div>
 
 
+
+<div class="task-section-title">
+
+<h3>YOUR PLAN</h3>
+
+<div
+class="task-count"
+id="planCount">
+
+0 TASKS
+
+</div>
+
+</div>
+
+
+<div id="planTasks"></div>
+
+
+</div>
+
+</div>
+
+
+
 <script>
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+/* SOUND */
 
-function openPage(page) {
+function playClick() {
 
-document.querySelectorAll(".page").forEach(p => {
-p.classList.remove("active");
-});
+try {
 
-document.getElementById(page).classList.add("active");
+const AudioContext =
+window.AudioContext ||
+window.webkitAudioContext;
 
-renderTasks();
+const context =
+new AudioContext();
+
+const oscillator =
+context.createOscillator();
+
+const gain =
+context.createGain();
+
+oscillator.connect(gain);
+
+gain.connect(context.destination);
+
+oscillator.frequency.value = 520;
+
+gain.gain.setValueAtTime(
+0.03,
+context.currentTime
+);
+
+gain.gain.exponentialRampToValueAtTime(
+0.001,
+context.currentTime + 0.06
+);
+
+oscillator.start();
+
+oscillator.stop(
+context.currentTime + 0.06
+);
+
+}
+
+catch(e) {}
 
 }
 
 
+/* TASK STORAGE */
+
+let tasks =
+JSON.parse(
+localStorage.getItem("studyTasks")
+) || [];
+
+
+/* PAGE */
+
+function openPage(page) {
+
+playClick();
+
+document
+.querySelectorAll(".page")
+.forEach(p => {
+
+p.classList.remove("active");
+
+});
+
+document
+.getElementById(page)
+.classList.add("active");
+
+renderAll();
+
+}
+
+
+/* ADD TASK */
+
 function addTask() {
 
-let name = document.getElementById("taskName").value;
+playClick();
 
-let time = document.getElementById("taskTime").value;
+let name =
+document
+.getElementById("taskName")
+.value
+.trim();
 
 
-if(name === "" || time === "") {
+let startValue =
+document
+.getElementById("taskStart")
+.value;
 
-alert("Please complete all information");
+
+let days =
+Number(
+document
+.getElementById("days")
+.value
+);
+
+
+let hours =
+Number(
+document
+.getElementById("hours")
+.value
+);
+
+
+let minutes =
+Number(
+document
+.getElementById("minutes")
+.value
+);
+
+
+if(
+!name ||
+!startValue
+) {
+
+alert(
+"Please enter the task and start time."
+);
 
 return;
 
 }
 
 
+let duration =
+
+(days * 86400000) +
+
+(hours * 3600000) +
+
+(minutes * 60000);
+
+
+if(duration <= 0) {
+
+alert(
+"Please select a duration."
+);
+
+return;
+
+}
+
+
+let start =
+new Date(
+startValue
+).getTime();
+
+
 tasks.push({
+
+id: Date.now(),
 
 name: name,
 
-time: new Date(time).getTime(),
+start: start,
+
+duration: duration,
 
 done: false
 
 });
 
 
-localStorage.setItem("tasks", JSON.stringify(tasks));
+saveTasks();
 
 
-document.getElementById("taskName").value = "";
-
-document.getElementById("taskTime").value = "";
-
-
-alert("Task added!");
-
-}
+document
+.getElementById("taskName")
+.value = "";
 
 
-function getStatus(task) {
-
-let now = new Date().getTime();
-
-let remaining = task.time - now;
-
-let hours = remaining / (1000 * 60 * 60);
-
-
-if(task.done) return "green";
-
-if(hours <= 6) return "red";
-
-if(hours <= 24) return "yellow";
-
-return "green";
+renderAll();
 
 }
 
 
-function renderTasks() {
+/* SAVE */
 
-let taskList = document.getElementById("taskList");
+function saveTasks() {
 
-let urgentList = document.getElementById("urgentList");
+localStorage.setItem(
+"studyTasks",
+JSON.stringify(tasks)
+);
 
-
-taskList.innerHTML = "";
-
-urgentList.innerHTML = "";
-
-
-tasks.forEach((task, index) => {
-
-let status = getStatus(task);
-
-let remaining = task.time - new Date().getTime();
+}
 
 
-let minutes = Math.floor(remaining / 60000);
+/* STATUS */
 
-let seconds = Math.floor((remaining % 60000) / 1000);
+function getTaskData(task) {
+
+let now = Date.now();
+
+let end =
+task.start +
+task.duration;
 
 
-let html = `
+let total =
+task.duration;
 
-<div class="task ${status}">
 
-<b>${task.name}</b>
+let remaining =
+end - now;
 
-<br><br>
 
-${minutes} minutes ${seconds} seconds
+let elapsed =
+now - task.start;
 
-<br><br>
 
-${task.done ? "✅ COMPLETED" :
+let percent =
+(elapsed / total) * 100;
 
-`<button onclick="completeTask(${index})">
-COMPLETE
-</button>`}
+
+if(task.done) {
+
+return {
+
+status: "done",
+
+label: "COMPLETED",
+
+remaining: 0,
+
+percent: 100
+
+};
+
+}
+
+
+if(now < task.start) {
+
+return {
+
+status: "green",
+
+label: "NOT STARTED",
+
+remaining:
+end - now,
+
+percent: 0
+
+};
+
+}
+
+
+if(remaining <= 0) {
+
+return {
+
+status: "red",
+
+label: "TIME ENDED",
+
+remaining: 0,
+
+percent: 100
+
+};
+
+}
+
+
+/*
+GREEN:
+First half
+
+YELLOW:
+Second half
+
+RED:
+Last 20%
+*/
+
+
+if(percent >= 80) {
+
+return {
+
+status: "red",
+
+label: "URGENT",
+
+remaining,
+
+percent
+
+};
+
+}
+
+
+if(percent >= 50) {
+
+return {
+
+status: "yellow",
+
+label: "WARNING",
+
+remaining,
+
+percent
+
+};
+
+}
+
+
+return {
+
+status: "green",
+
+label: "ON TRACK",
+
+remaining,
+
+percent
+
+};
+
+}
+
+
+/* FORMAT TIME */
+
+function formatTime(ms) {
+
+if(ms < 0) ms = 0;
+
+
+let days =
+Math.floor(
+ms / 86400000
+);
+
+
+let hours =
+Math.floor(
+(ms % 86400000) /
+3600000
+);
+
+
+let minutes =
+Math.floor(
+(ms % 3600000) /
+60000
+);
+
+
+let seconds =
+Math.floor(
+(ms % 60000) /
+1000
+);
+
+
+let result = "";
+
+
+if(days > 0)
+result += days + "d ";
+
+
+if(hours > 0 || days > 0)
+result += hours + "h ";
+
+
+result +=
+minutes + "m " +
+seconds + "s";
+
+
+return result;
+
+}
+
+
+/* FORMAT DATE */
+
+function formatDate(time) {
+
+let date =
+new Date(time);
+
+return date.toLocaleString(
+"en-GB",
+{
+day: "2-digit",
+month: "short",
+hour: "2-digit",
+minute: "2-digit"
+}
+);
+
+}
+
+
+/* COMPLETE */
+
+function completeTask(id) {
+
+playClick();
+
+tasks =
+tasks.map(task => {
+
+if(task.id === id) {
+
+task.done = true;
+
+}
+
+return task;
+
+});
+
+
+saveTasks();
+
+renderAll();
+
+}
+
+
+/* DELETE */
+
+function deleteTask(id) {
+
+playClick();
+
+tasks =
+tasks.filter(
+task =>
+task.id !== id
+);
+
+
+saveTasks();
+
+renderAll();
+
+}
+
+
+/* TASK CARD */
+
+function createTaskCard(
+task,
+mode
+) {
+
+let data =
+getTaskData(task);
+
+
+let progress =
+Math.min(
+Math.max(
+data.percent,
+0
+),
+100
+);
+
+
+let button = "";
+
+
+if(
+mode === "enter" &&
+!task.done
+) {
+
+button =
+
+`
+<button
+class="complete-btn"
+onclick="completeTask(${task.id})">
+
+COMPLETE TASK ✓
+
+</button>
+`;
+
+}
+
+
+let deleteButton = "";
+
+
+if(
+mode === "plan"
+) {
+
+deleteButton =
+
+`
+<button
+class="delete-btn"
+onclick="deleteTask(${task.id})">
+
+REMOVE
+
+</button>
+`;
+
+}
+
+
+return `
+
+<div
+class="task-card ${data.status}">
+
+<div class="task-top">
+
+<div>
+
+<div class="task-name">
+
+${task.name}
+
+</div>
+
+</div>
+
+
+<div
+class="status-badge">
+
+${data.label}
+
+</div>
+
+</div>
+
+
+<div class="task-info">
+
+<div>
+
+START
+
+<br>
+
+<b>
+
+${formatDate(task.start)}
+
+</b>
+
+</div>
+
+
+<div>
+
+DURATION
+
+<br>
+
+<b>
+
+${formatTime(task.duration)}
+
+</b>
+
+</div>
+
+</div>
+
+
+<div class="timer">
+
+${task.done
+?
+"✓ TASK COMPLETED"
+:
+"TIME LEFT: " +
+formatTime(
+data.remaining
+)
+}
+
+</div>
+
+
+<div class="progress">
+
+<div
+class="progress-bar ${data.status}"
+style="
+width:${progress}%
+">
+
+</div>
+
+</div>
+
+
+${button}
+
+${deleteButton}
+
 
 </div>
 
 `;
 
+}
 
-taskList.innerHTML += html;
+
+/* RENDER PLAN */
+
+function renderPlan() {
+
+let container =
+document
+.getElementById("planTasks");
 
 
-if(status === "red" && !task.done) {
+let count =
+document
+.getElementById("planCount");
 
-urgentList.innerHTML += html;
+
+if(!container)
+return;
+
+
+let sorted =
+[...tasks]
+.sort(
+(a,b) =>
+a.start - b.start
+);
+
+
+count.innerText =
+tasks.length +
+(tasks.length === 1
+? " TASK"
+: " TASKS");
+
+
+if(tasks.length === 0) {
+
+container.innerHTML =
+
+`
+<div class="empty">
+
+No tasks yet.
+
+<br><br>
+
+Create your first task above.
+
+</div>
+`;
+
+return;
 
 }
+
+
+container.innerHTML =
+sorted
+.map(task =>
+createTaskCard(
+task,
+"plan"
+)
+)
+.join("");
+
+}
+
+
+/* RENDER ENTER */
+
+function renderEnter() {
+
+let container =
+document
+.getElementById("enterTasks");
+
+
+if(!container)
+return;
+
+
+let sorted =
+[...tasks]
+.sort(
+(a,b) => {
+
+let aData =
+getTaskData(a);
+
+let bData =
+getTaskData(b);
+
+return
+aData.remaining -
+bData.remaining;
+
+}
+);
+
+
+if(tasks.length === 0) {
+
+container.innerHTML =
+
+`
+<div class="empty">
+
+Your schedule is empty.
+
+</div>
+`;
+
+return;
+
+}
+
+
+container.innerHTML =
+sorted
+.map(task =>
+createTaskCard(
+task,
+"enter"
+)
+)
+.join("");
+
+}
+
+
+/* RENDER QUICK */
+
+function renderQuick() {
+
+let container =
+document
+.getElementById("quickTasks");
+
+
+if(!container)
+return;
+
+
+let urgent =
+tasks.filter(task => {
+
+let data =
+getTaskData(task);
+
+return
+data.status === "red" &&
+!task.done;
 
 });
 
+
+if(urgent.length === 0) {
+
+container.innerHTML =
+
+`
+<div class="empty">
+
+✓ NO URGENT TASKS
+
+<br><br>
+
+Everything is under control.
+
+</div>
+`;
+
+return;
+
 }
 
 
-function completeTask(index) {
+container.innerHTML =
+urgent
+.map(task => {
 
-tasks[index].done = true;
+let data =
+getTaskData(task);
 
-localStorage.setItem("tasks", JSON.stringify(tasks));
+return `
 
-renderTasks();
+<div class="quick-card">
+
+<div
+class="task-name">
+
+${task.name}
+
+</div>
+
+
+<div class="quick-timer">
+
+${formatTime(
+data.remaining
+)}
+
+</div>
+
+</div>
+
+`;
+
+})
+.join("");
 
 }
 
 
-setInterval(renderTasks, 1000);
+/* RENDER ALL */
+
+function renderAll() {
+
+renderPlan();
+
+renderEnter();
+
+renderQuick();
+
+}
+
+
+/* UPDATE TIME */
+
+setInterval(
+renderAll,
+1000
+);
+
+
+renderAll();
+
 
 </script>
 
