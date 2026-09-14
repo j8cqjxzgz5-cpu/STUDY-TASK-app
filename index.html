@@ -6,547 +6,322 @@
 <title>STUDY</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent
-}
-
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#050505;
-  --card:#111;
-  --line:#292929;
-  --gray:#929292;
-  --green:#35d07f;
-  --yellow:#f5c542;
-  --orange:#ff8c42;
-  --red:#ff4d4d;
+--bg:#050505;--card:#111;--line:#292929;--gray:#929292;
+--green:#35d07f;--yellow:#f5c542;--orange:#ff8c42;--red:#ff4d4d;
 }
-
 body{
-  margin:0;
-  background:var(--bg);
-  color:white;
-  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif
+margin:0;background:var(--bg);color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
 }
-
-.app{
-  max-width:650px;
-  margin:auto;
-  padding-bottom:100px
-}
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
+.app{max-width:650px;margin:auto;padding-bottom:100px}
+.hidden{display:none!important}
 
 .header{
-  padding:28px 20px 20px
+padding:26px 20px 18px;
+border-bottom:1px solid var(--line)
+}
+.logo{font-size:32px;font-weight:800;letter-spacing:.5px}
+.subtitle{color:var(--gray);margin-top:6px}
+.username{
+margin-top:12px;display:inline-block;
+background:#171717;border:1px solid var(--line);
+padding:8px 13px;border-radius:14px;font-size:13px
 }
 
-.logo{
-  font-size:32px;
-  font-weight:800
-}
-
-.subtitle{
-  color:var(--gray);
-  margin-top:6px
-}
-
-.page{
-  display:none;
-  padding:0 16px;
-  opacity:0;
-  transform:translateY(12px)
-}
-
-.page.active{
-  display:block;
-  animation:pageIn .35s cubic-bezier(.2,.8,.2,1) forwards
-}
-
-@keyframes pageIn{
-  to{
-    opacity:1;
-    transform:translateY(0)
-  }
-}
+.page{display:none;padding:18px 16px}
+.page.active{display:block}
 
 .hero,.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:22px;
-  margin-bottom:16px
+background:var(--card);border:1px solid var(--line);
+border-radius:25px;padding:22px;margin-bottom:16px
 }
-
-.hero{
-  padding:28px
-}
-
-.hero h1{
-  margin:10px 0
-}
-
-.hero p,.subtitle,.sub{
-  color:var(--gray)
-}
-
+.hero{padding:28px}
+.hero h1{margin:12px 0 8px}
+.hero p,.subtitle,.sub{color:var(--gray)}
 .hero-icon{
-  width:58px;
-  height:58px;
-  border-radius:18px;
-  background:white;
-  color:black;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px
+width:58px;height:58px;border-radius:18px;
+background:#fff;color:#000;
+display:flex;align-items:center;justify-content:center;font-size:25px
 }
 
 .big-btn,.settings-btn,.btn{
-  width:100%;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:19px;
-  color:white;
-  font:inherit;
-  font-size:17px;
-  text-align:left;
-  margin-bottom:11px;
-  transition:.2s ease
+width:100%;background:var(--card);border:1px solid var(--line);
+border-radius:20px;padding:19px;color:#fff;font:inherit;
+font-size:17px;text-align:left;margin-bottom:11px
 }
-
-.big-btn:hover,.settings-btn:hover{
-  border-color:#555;
-  transform:translateY(-2px)
-}
-
-.big-btn{
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-
+.big-btn{display:flex;justify-content:space-between;align-items:center}
 .big-btn span:last-child{
-  background:#222;
-  padding:9px 14px;
-  border-radius:13px
+background:#222;padding:8px 13px;border-radius:13px
 }
 
-button{
-  cursor:pointer;
-  transition:transform .12s ease,opacity .2s ease
-}
-
-button:active{
-  transform:scale(.96)
-}
-
-.title{
-  font-size:25px;
-  font-weight:800;
-  margin:10px 0 5px
-}
-
-.sub{
-  margin-bottom:20px
-}
+.title{font-size:26px;font-weight:800;margin:4px 0 5px}
+.sub{margin-bottom:20px}
 
 label{
-  font-size:12px;
-  color:var(--gray);
-  display:block;
-  margin:13px 0 7px
+font-size:12px;color:var(--gray);
+display:block;margin:13px 0 7px
 }
-
 input,textarea{
-  width:100%;
-  background:#080808;
-  border:1px solid #333;
-  color:white;
-  border-radius:14px;
-  padding:14px;
-  font:inherit;
-  font-size:15px
+width:100%;background:#080808;border:1px solid #333;
+color:#fff;border-radius:14px;padding:14px;
+font-size:15px
 }
-
-input:focus,textarea:focus{
-  outline:none;
-  border-color:#666
-}
-
-textarea{
-  min-height:90px
-}
+textarea{min-height:90px;resize:vertical}
 
 .primary{
-  width:100%;
-  border:0;
-  border-radius:14px;
-  padding:15px;
-  background:white;
-  color:black;
-  font-weight:800;
-  margin-top:15px
+width:100%;border:0;border-radius:14px;padding:15px;
+background:#fff;color:#000;font-weight:800;margin-top:15px
+}
+.more{
+width:100%;background:#222;color:#fff;border:0;
+border-radius:14px;padding:14px;margin-top:14px
+}
+.back{
+background:#222;color:#fff;border:0;padding:12px 15px;
+border-radius:12px;margin-bottom:15px
 }
 
 .task{
-  position:relative;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:16px;
-  margin-top:12px;
-  animation:taskIn .3s ease
+background:var(--card);border:1px solid var(--line);
+border-radius:18px;padding:16px;margin-top:12px
 }
+.task.done-task{border-color:#276344}
+.task.failed-task{border-color:#672525}
 
-@keyframes taskIn{
-  from{
-    opacity:0;
-    transform:scale(.96) translateY(8px)
-  }
-  to{
-    opacity:1;
-    transform:scale(1) translateY(0)
-  }
-}
-
-.task.done-task{
-  border-color:var(--green)
-}
-
-.task.failed-task{
-  border-color:var(--red)
-}
-
-.tasktop{
-  display:flex;
-  justify-content:space-between;
-  gap:10px
-}
-
-.taskname{
-  font-weight:800
-}
-
+.tasktop{display:flex;justify-content:space-between;gap:10px}
+.taskname{font-weight:800;font-size:16px}
 .status{
-  padding:6px 9px;
-  border-radius:15px;
-  font-size:11px;
-  font-weight:bold
+padding:6px 9px;border-radius:15px;
+font-size:11px;font-weight:bold;white-space:nowrap
 }
+.green{background:#163c28;color:var(--green)}
+.yellow{background:#423916;color:var(--yellow)}
+.orange{background:#482b18;color:var(--orange)}
+.red{background:#451b1b;color:var(--red)}
 
-.green{
-  background:#163c28;
-  color:var(--green)
-}
-
-.yellow{
-  background:#423916;
-  color:var(--yellow)
-}
-
-.orange{
-  background:#482b18;
-  color:var(--orange)
-}
-
-.red{
-  background:#451b1b;
-  color:var(--red)
-}
-
-.desc{
-  color:var(--gray);
-  margin-top:8px;
-  font-size:14px
-}
-
-.date{
-  color:#aaa;
-  font-size:12px;
-  margin-top:10px
-}
-
+.desc{color:var(--gray);margin-top:8px;font-size:14px}
+.date{color:#aaa;font-size:12px;margin-top:10px}
 .countdown{
-  margin-top:12px;
-  padding:10px;
-  background:#090909;
-  border-radius:12px;
-  font-size:13px;
-  color:white
+margin-top:12px;padding:11px;border-radius:12px;
+background:#090909;color:#fff;font-size:13px;font-weight:700
 }
 
-.actions{
-  display:flex;
-  gap:7px;
-  margin-top:14px
-}
-
+.actions{display:flex;gap:7px;margin-top:14px}
 .actions button{
-  flex:1;
-  border:0;
-  border-radius:11px;
-  padding:11px;
-  font-weight:bold
+flex:1;border:0;border-radius:11px;padding:11px;font-weight:bold
 }
+.done{background:#163c28;color:var(--green)}
+.fail{background:#451b1b;color:var(--red)}
+.cancel{background:#292929;color:#fff}
 
-.done{
-  background:#163c28;
-  color:var(--green)
+.record{
+position:relative;background:#101010;
+border-radius:18px;padding:16px;margin-top:12px
 }
-
-.fail{
-  background:#451b1b;
-  color:var(--red)
+.record.done-record{border:1px solid #276344}
+.record.failed-record{border:1px solid #672525}
+.record-title{
+font-weight:800;text-decoration:line-through
 }
+.record.done-record .record-title{color:var(--green)}
+.record.failed-record .record-title{color:var(--red)}
 
-.cancel{
-  background:#292929;
-  color:white
-}
-
-.hide-task{
-  position:absolute;
-  right:10px;
-  top:10px;
-  width:28px;
-  height:28px;
-  border-radius:9px;
-  border:0;
-  background:#292929;
-  color:white;
-  font-weight:bold
+.record-x{
+position:absolute;right:12px;top:12px;
+width:30px;height:30px;border:0;
+border-radius:10px;background:#222;color:#fff;font-size:17px
 }
 
 .money{
-  font-size:42px;
-  font-weight:800;
-  margin:10px 0
+font-size:42px;font-weight:800;margin:10px 0
 }
-
-.stats{
-  display:flex;
-  gap:10px
-}
-
+.stats{display:flex;gap:10px}
 .stat{
-  flex:1;
-  background:#090909;
-  border-radius:15px;
-  padding:13px
+flex:1;background:#090909;border-radius:15px;padding:13px
 }
-
-.stat small{
-  display:block;
-  color:var(--gray)
-}
+.stat small{display:block;color:var(--gray)}
 
 .progress-bg{
-  height:10px;
-  background:#292929;
-  border-radius:20px;
-  margin-top:20px;
-  overflow:hidden
+height:10px;background:#292929;
+border-radius:20px;margin-top:20px;overflow:hidden
 }
+.progress{height:100%}
 
-.progress{
-  height:100%;
-  transition:.5s ease
-}
-
-.money-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px
-}
-
+.money-actions{display:flex;gap:8px;margin-top:12px}
 .money-actions button{
-  flex:1;
-  padding:14px;
-  border:0;
-  border-radius:13px;
-  font-weight:bold
+flex:1;padding:14px;border:0;border-radius:13px;font-weight:bold
 }
-
-.add{
-  background:var(--green)
-}
-
-.spend{
-  background:var(--red);
-  color:white
-}
+.add{background:var(--green)}
+.spend{background:var(--red);color:#fff}
 
 .history-item{
-  display:flex;
-  justify-content:space-between;
-  padding:14px 0;
-  border-bottom:1px solid var(--line)
+display:flex;justify-content:space-between;
+gap:10px;padding:14px 0;border-bottom:1px solid var(--line)
 }
-
-.history-item small{
-  color:var(--gray);
-  display:block;
-  margin-top:4px
-}
+.history-item small{color:var(--gray);display:block;margin-top:4px}
 
 .danger{
-  background:#451b1b;
-  color:var(--red);
-  padding:15px;
-  border-radius:15px;
-  font-weight:bold;
-  margin-bottom:15px
-}
-
-.more{
-  width:100%;
-  background:#222;
-  color:white;
-  border:0;
-  border-radius:14px;
-  padding:14px;
-  margin-top:14px
+background:#451b1b;color:var(--red);padding:15px;
+border-radius:15px;font-weight:bold;margin-bottom:15px
 }
 
 .menu{
-  display:flex;
-  justify-content:space-between;
-  align-items:center
+display:flex;justify-content:space-between;align-items:center;gap:10px
 }
-
 .menu button{
-  background:#222;
-  color:white;
-  border:0;
-  border-radius:11px;
-  padding:9px 13px
-}
-
-.back{
-  background:#222;
-  color:white;
-  border:0;
-  padding:12px 15px;
-  border-radius:12px;
-  margin-bottom:15px
+background:#222;color:#fff;border:0;
+border-radius:11px;padding:9px 13px
 }
 
 canvas{
-  width:100%;
-  height:auto;
-  background:#090909;
-  border-radius:18px;
-  border:1px solid var(--line)
+display:block;width:100%;height:420px;
+background:#090909;border-radius:18px;
+border:1px solid var(--line)
 }
 
-.report{
-  line-height:1.7;
-  color:#ddd
-}
+.report{line-height:1.7;color:#ddd}
 
 .bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:rgba(10,10,10,.97);
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:center;
-  z-index:20
+position:fixed;bottom:0;left:0;width:100%;
+background:rgba(10,10,10,.98);
+border-top:1px solid var(--line);
+display:flex;justify-content:center
 }
-
 .nav{
-  max-width:650px;
-  width:100%;
-  display:flex;
-  justify-content:space-around
+max-width:650px;width:100%;
+display:flex;justify-content:space-around
 }
-
 .nav button{
-  background:none;
-  border:0;
-  color:var(--gray);
-  padding:15px 7px;
-  font:inherit;
-  font-size:11px
+background:none;border:0;color:var(--gray);
+padding:14px 7px;font:inherit;font-size:11px
 }
-
-.nav button.active{
-  color:white
-}
+.nav button.active{color:#fff}
 
 .xo{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin:18px 0
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:8px;margin:18px 0
 }
-
 .xo button{
-  aspect-ratio:1;
-  background:#090909;
-  color:white;
-  border:1px solid #333;
-  border-radius:18px;
-  font-size:34px;
-  font-weight:bold
+aspect-ratio:1;background:#090909;color:#fff;
+border:1px solid #333;border-radius:18px;
+font-size:34px;font-weight:bold
 }
-
 .score{
-  display:flex;
-  justify-content:space-around;
-  text-align:center;
-  background:#090909;
-  padding:15px;
-  border-radius:16px
+display:flex;justify-content:space-around;
+text-align:center;background:#090909;
+padding:15px;border-radius:16px
+}
+.score small{display:block;color:var(--gray)}
+
+.account-screen{
+min-height:100vh;display:flex;
+align-items:center;justify-content:center;padding:20px
+}
+.account-box{
+width:100%;max-width:460px;
+background:#111;border:1px solid #292929;
+border-radius:30px;padding:30px
+}
+.welcome-icon{
+width:70px;height:70px;background:#fff;color:#000;
+border-radius:23px;display:flex;
+align-items:center;justify-content:center;
+font-size:30px;margin-bottom:18px
+}
+.made{
+text-align:center;color:#666;font-size:12px;margin-top:25px
 }
 
-.score small{
-  display:block;
-  color:var(--gray)
+.account-info{
+background:#090909;border-radius:18px;padding:16px;
+margin-bottom:14px
 }
+.account-info small{color:var(--gray);display:block;margin-bottom:5px}
 
-.number-game{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:18px
-}
+.footer{text-align:center;color:#555;font-size:11px;padding:25px}
 
-.number-game button{
-  padding:22px;
-  border-radius:16px;
-  background:#171717;
-  color:white;
-  border:1px solid #333;
-  font-size:22px;
-  font-weight:bold
-}
-
-.footer{
-  text-align:center;
-  color:#555;
-  font-size:11px;
-  padding:25px
-}
-
-.records-title{
-  margin-top:30px;
-  font-size:20px;
-  font-weight:800
+@media(max-width:400px){
+.money{font-size:34px}
+canvas{height:350px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= ACCOUNT SYSTEM ================= -->
+
+<div id="authScreen" class="account-screen">
+
+<div class="account-box">
+
+<div class="welcome-icon">◆</div>
+
+<h1 id="authTitle">Welcome to STUDY</h1>
+
+<p id="authSub" class="sub">
+Create your personal account and organize your work.
+</p>
+
+<div id="createAccountBox">
+
+<label>USERNAME</label>
+<input id="createUsername" placeholder="Choose your username" autocomplete="username">
+
+<label>PASSWORD</label>
+<input id="createPassword" type="password" placeholder="Choose password" autocomplete="new-password">
+
+<label>CONFIRM PASSWORD</label>
+<input id="confirmPassword" type="password" placeholder="Confirm password" autocomplete="new-password">
+
+<button class="primary" onclick="createAccount()">
+Create Account
+</button>
+
+</div>
+
+<div id="loginBox" class="hidden">
+
+<label>USERNAME</label>
+<input id="loginUsername" placeholder="Username" autocomplete="username">
+
+<label>PASSWORD</label>
+<input id="loginPassword" type="password" placeholder="Password" autocomplete="current-password">
+
+<button class="primary" onclick="login()">
+Login
+</button>
+
+<button class="more" onclick="showCreateAccount()">
+Create New Account
+</button>
+
+</div>
+
+<div class="made">
+🇹🇳 Made in Tunisia by Jasser Naouili
+</div>
+
+</div>
+</div>
+
+
+<!-- ================= APP ================= -->
+
+<div id="mainApp" class="hidden">
+
 <div class="app">
 
 <div class="header">
 <div class="logo">STUDY</div>
 <div class="subtitle">Focus. Plan. Complete.</div>
+<div class="username" id="headerUsername">👤 User</div>
 </div>
+
 
 <!-- HOME -->
 
@@ -554,7 +329,7 @@ canvas{
 
 <div class="hero">
 <div class="hero-icon">◆</div>
-<h1>Ready to focus?</h1>
+<h1 id="homeWelcome">Ready to focus?</h1>
 <p>Organize your work and stay motivated every day.</p>
 </div>
 
@@ -574,7 +349,9 @@ canvas{
 <span>Settings</span><span>⚙</span>
 </button>
 
-<div class="footer">by Jasser Naouili</div>
+<div class="footer">
+Made in Tunisia by Jasser Naouili
+</div>
 
 </div>
 
@@ -584,15 +361,11 @@ canvas{
 <div id="quick" class="page">
 
 <div class="title">Quick Check</div>
-<div class="sub">Check your tasks and confirm your progress.</div>
+<div class="sub">Complete your work or mark it as failed.</div>
 
 <div id="debtAlert"></div>
 
 <div id="quickTasks"></div>
-
-<div class="records-title">Records</div>
-
-<div id="taskRecords"></div>
 
 </div>
 
@@ -612,14 +385,35 @@ canvas{
 <label>DESCRIPTION</label>
 <textarea id="taskDesc" placeholder="Write details..."></textarea>
 
-<label>DATE & TIME</label>
-<input id="taskDate" type="datetime-local">
+<label>DATE</label>
+<input id="taskDate" type="date">
 
-<button class="primary" onclick="addTask()">Add to Plan</button>
+<label>TIME</label>
+<input id="taskTime" type="time">
+
+<button class="primary" onclick="addTask()">
+Add to Plan
+</button>
 
 </div>
 
+
+<div class="title" style="font-size:21px">
+Active Tasks
+</div>
+
 <div id="planTasks"></div>
+
+
+<div class="title" style="font-size:21px;margin-top:30px">
+Task Records
+</div>
+
+<div class="sub">
+Completed and failed tasks.
+</div>
+
+<div id="taskRecords"></div>
 
 </div>
 
@@ -640,7 +434,9 @@ canvas{
 <div class="money" id="balance">0 DT</div>
 </div>
 
-<button onclick="showPage('data')">Data</button>
+<button onclick="showPage('data')">
+Data
+</button>
 
 </div>
 
@@ -670,7 +466,7 @@ canvas{
 <div class="card">
 
 <label>AMOUNT</label>
-<input id="amount" type="number" placeholder="Example: 10">
+<input id="amount" type="number" step="0.01" placeholder="Example: 10">
 
 <label>DESCRIPTION</label>
 <input id="moneyDesc" placeholder="Example: Food">
@@ -693,7 +489,10 @@ Reset Pocket Money
 
 </div>
 
-<div class="title" style="font-size:20px">History</div>
+
+<div class="title" style="font-size:20px">
+History
+</div>
 
 <div id="history"></div>
 
@@ -713,10 +512,13 @@ More
 </button>
 
 <div class="title">Money Data</div>
-<div class="sub">Your financial activity and balance growth.</div>
+
+<div class="sub">
+Your balance development over time.
+</div>
 
 <div class="card">
-<canvas id="chart" width="800" height="500"></canvas>
+<canvas id="chart"></canvas>
 </div>
 
 <div class="card report" id="report"></div>
@@ -736,11 +538,15 @@ More
 </button>
 
 <button class="settings-btn" onclick="showPage('note')">
-📝 NOTE
+📝 PRIVATE NOTE
 </button>
 
 <button class="settings-btn" onclick="showPage('employees')">
 👥 EMPLOYEES
+</button>
+
+<button class="settings-btn" onclick="showPage('account')">
+👤 ACCOUNT
 </button>
 
 </div>
@@ -771,6 +577,43 @@ This feature will be available in the next update.
 </div>
 
 
+<!-- ACCOUNT -->
+
+<div id="account" class="page">
+
+<button class="back" onclick="showPage('settings')">
+← Back
+</button>
+
+<div class="title">Account</div>
+<div class="sub">Manage your personal account.</div>
+
+<div class="account-info">
+
+<small>USERNAME</small>
+<b id="accountUsername"></b>
+
+</div>
+
+<div class="card">
+
+<button class="settings-btn" onclick="changePassword()">
+🔐 Change Password
+</button>
+
+<button class="settings-btn" onclick="toggleLock()">
+🔒 <span id="lockText">Lock App</span>
+</button>
+
+<button class="settings-btn" onclick="logout()">
+🚪 Logout
+</button>
+
+</div>
+
+</div>
+
+
 <!-- PLAY -->
 
 <div id="play" class="page">
@@ -780,20 +623,16 @@ This feature will be available in the next update.
 </button>
 
 <div class="title">Play</div>
-<div class="sub">Fun games for two players.</div>
+<div class="sub">Fun for two players.</div>
 
 <button class="settings-btn" onclick="showPage('xo')">
 ⭕ X / O
 </button>
 
-<button class="settings-btn" onclick="showPage('numberGame')">
-🎯 NUMBER DUEL
-</button>
-
 </div>
 
 
-<!-- X O -->
+<!-- XO -->
 
 <div id="xo" class="page">
 
@@ -835,67 +674,6 @@ New Round
 </div>
 
 
-<!-- NUMBER GAME -->
-
-<div id="numberGame" class="page">
-
-<button class="back" onclick="showPage('play')">
-← Back
-</button>
-
-<div class="title">Number Duel</div>
-
-<div class="sub">
-Take turns choosing numbers. Highest total wins!
-</div>
-
-<div class="score">
-
-<div>
-<small>PLAYER 1</small>
-<b id="n1">0</b>
-</div>
-
-<div>
-<small>ROUND</small>
-<b id="round">1</b>
-</div>
-
-<div>
-<small>PLAYER 2</small>
-<b id="n2">0</b>
-</div>
-
-</div>
-
-<div class="card" style="text-align:center">
-
-<h2 id="numberTurn">PLAYER 1 TURN</h2>
-
-<p class="sub">
-Choose one number. After 6 rounds, the strongest wins.
-</p>
-
-<div class="number-game">
-
-<button onclick="numberMove(1)">1</button>
-<button onclick="numberMove(2)">2</button>
-<button onclick="numberMove(3)">3</button>
-<button onclick="numberMove(4)">4</button>
-<button onclick="numberMove(5)">5</button>
-<button onclick="numberMove(6)">6</button>
-
-</div>
-
-</div>
-
-<button class="more" onclick="resetNumberGame()">
-New Game
-</button>
-
-</div>
-
-
 <!-- NOTE -->
 
 <div id="note" class="page">
@@ -929,10 +707,6 @@ New Game
 Save Note
 </button>
 
-<button class="more" onclick="changePassword()">
-Change Password
-</button>
-
 </div>
 
 <div id="notes"></div>
@@ -942,7 +716,7 @@ Change Password
 </div>
 
 
-<!-- NAV -->
+<!-- BOTTOM NAV -->
 
 <div class="bottom">
 
@@ -968,150 +742,446 @@ Change Password
 
 </div>
 
+</div>
+
 
 <script>
 
-/* STORAGE */
+/* =========================================
+   ACCOUNT SYSTEM
+========================================= */
 
-let tasks = JSON.parse(localStorage.getItem("studyTasks")) || [];
+let currentUser = null;
 
-let money = JSON.parse(localStorage.getItem("studyMoney")) || {
+function getAccounts(){
+return JSON.parse(localStorage.getItem("studyAccounts")) || {};
+}
+
+function saveAccounts(accounts){
+localStorage.setItem("studyAccounts",JSON.stringify(accounts));
+}
+
+function showCreateAccount(){
+
+document.getElementById("authTitle").textContent="Welcome to STUDY";
+
+document.getElementById("authSub").textContent=
+"Create your personal account and keep your information private.";
+
+document.getElementById("createAccountBox").classList.remove("hidden");
+
+document.getElementById("loginBox").classList.add("hidden");
+
+}
+
+function showLogin(){
+
+document.getElementById("authTitle").textContent="Welcome Back";
+
+document.getElementById("authSub").textContent=
+"Login to continue to your personal STUDY account.";
+
+document.getElementById("createAccountBox").classList.add("hidden");
+
+document.getElementById("loginBox").classList.remove("hidden");
+
+}
+
+function createAccount(){
+
+let username=document.getElementById("createUsername").value.trim();
+let password=document.getElementById("createPassword").value;
+let confirmPassword=document.getElementById("confirmPassword").value;
+
+if(!username || !password || !confirmPassword){
+alert("Please complete all fields.");
+return;
+}
+
+if(password!==confirmPassword){
+alert("Passwords do not match.");
+return;
+}
+
+if(username.length<3){
+alert("Username must contain at least 3 characters.");
+return;
+}
+
+let accounts=getAccounts();
+
+if(accounts[username]){
+alert("This username already exists.");
+return;
+}
+
+accounts[username]={
+password:password,
+locked:false,
+createdAt:Date.now()
+};
+
+saveAccounts(accounts);
+
+localStorage.setItem("studyLastUser",username);
+
+currentUser=username;
+
+loadUserData();
+
+document.getElementById("authScreen").classList.add("hidden");
+document.getElementById("mainApp").classList.remove("hidden");
+
+updateUserInterface();
+
+sound();
+
+}
+
+function login(){
+
+let username=document.getElementById("loginUsername").value.trim();
+let password=document.getElementById("loginPassword").value;
+
+let accounts=getAccounts();
+
+if(!accounts[username]){
+alert("Account not found.");
+return;
+}
+
+if(accounts[username].password!==password){
+alert("Wrong password.");
+return;
+}
+
+currentUser=username;
+
+localStorage.setItem("studyLastUser",username);
+
+loadUserData();
+
+document.getElementById("authScreen").classList.add("hidden");
+document.getElementById("mainApp").classList.remove("hidden");
+
+updateUserInterface();
+
+sound();
+
+}
+
+function autoLogin(){
+
+let lastUser=localStorage.getItem("studyLastUser");
+
+let accounts=getAccounts();
+
+if(lastUser && accounts[lastUser]){
+
+if(!accounts[lastUser].locked){
+
+currentUser=lastUser;
+
+loadUserData();
+
+document.getElementById("authScreen").classList.add("hidden");
+document.getElementById("mainApp").classList.remove("hidden");
+
+updateUserInterface();
+
+return;
+}
+
+showLogin();
+
+document.getElementById("loginUsername").value=lastUser;
+
+return;
+}
+
+showCreateAccount();
+
+}
+
+function logout(){
+
+if(!confirm("Logout from this account?")) return;
+
+currentUser=null;
+
+document.getElementById("mainApp").classList.add("hidden");
+document.getElementById("authScreen").classList.remove("hidden");
+
+document.getElementById("loginUsername").value="";
+document.getElementById("loginPassword").value="";
+
+showLogin();
+
+}
+
+function toggleLock(){
+
+let accounts=getAccounts();
+
+if(!accounts[currentUser]) return;
+
+accounts[currentUser].locked=!accounts[currentUser].locked;
+
+saveAccounts(accounts);
+
+document.getElementById("lockText").textContent=
+accounts[currentUser].locked ?
+"Unlock Auto Login" :
+"Lock App";
+
+alert(
+accounts[currentUser].locked ?
+"App will require login next time." :
+"Automatic login enabled."
+);
+
+}
+
+function changePassword(){
+
+let oldPassword=prompt("Current password:");
+
+let accounts=getAccounts();
+
+if(!accounts[currentUser] ||
+oldPassword!==accounts[currentUser].password){
+alert("Wrong password.");
+return;
+}
+
+let newPassword=prompt("New password:");
+
+if(!newPassword) return;
+
+let confirmPassword=prompt("Confirm new password:");
+
+if(newPassword!==confirmPassword){
+alert("Passwords do not match.");
+return;
+}
+
+accounts[currentUser].password=newPassword;
+
+saveAccounts(accounts);
+
+alert("Password changed successfully.");
+
+}
+
+function updateUserInterface(){
+
+document.getElementById("headerUsername").textContent=
+"👤 "+currentUser;
+
+document.getElementById("homeWelcome").textContent=
+"Welcome back, "+currentUser+" 👋";
+
+document.getElementById("accountUsername").textContent=
+currentUser;
+
+let accounts=getAccounts();
+
+document.getElementById("lockText").textContent=
+accounts[currentUser]?.locked ?
+"Unlock Auto Login" :
+"Lock App";
+
+}
+
+
+/* =========================================
+   USER DATA
+========================================= */
+
+let tasks=[];
+let money={added:0,spent:0,history:[]};
+let notes=[];
+let notePassword="";
+let historyLimit=5;
+
+function userKey(name){
+return "study_"+currentUser+"_"+name;
+}
+
+function loadUserData(){
+
+tasks=JSON.parse(localStorage.getItem(userKey("tasks"))) || [];
+
+money=JSON.parse(localStorage.getItem(userKey("money"))) || {
 added:0,
 spent:0,
 history:[]
 };
 
-let historyLimit = 5;
+notes=JSON.parse(localStorage.getItem(userKey("notes"))) || [];
 
-let notes = JSON.parse(localStorage.getItem("notes")) || [];
+notePassword=
+localStorage.getItem(userKey("notePassword")) || "";
 
-let password = localStorage.getItem("notePassword") || "";
+historyLimit=5;
+
+renderTasks();
+renderMoney();
+
+}
+
+function saveTasks(){
+localStorage.setItem(userKey("tasks"),JSON.stringify(tasks));
+}
+
+function saveMoneyStorage(){
+localStorage.setItem(userKey("money"),JSON.stringify(money));
+}
+
+function saveNotesStorage(){
+localStorage.setItem(userKey("notes"),JSON.stringify(notes));
+}
 
 
-/* SOUND */
-
-let audioContext;
+/* =========================================
+   SOUND
+========================================= */
 
 function sound(){
 
 try{
 
-if(!audioContext){
+let AudioCtx=window.AudioContext||window.webkitAudioContext;
 
-audioContext = new(
-window.AudioContext ||
-window.webkitAudioContext
-)();
+let a=new AudioCtx();
 
-}
+let o=a.createOscillator();
+let g=a.createGain();
 
-let oscillator = audioContext.createOscillator();
-let gain = audioContext.createGain();
+o.connect(g);
+g.connect(a.destination);
 
-oscillator.connect(gain);
-gain.connect(audioContext.destination);
+o.type="sine";
+o.frequency.setValueAtTime(700,a.currentTime);
 
-oscillator.type = "sine";
-oscillator.frequency.setValueAtTime(
-650,
-audioContext.currentTime
+g.gain.setValueAtTime(.025,a.currentTime);
+
+g.gain.exponentialRampToValueAtTime(
+.001,
+a.currentTime+.05
 );
 
-gain.gain.setValueAtTime(
-0.018,
-audioContext.currentTime
-);
-
-gain.gain.exponentialRampToValueAtTime(
-0.001,
-audioContext.currentTime + 0.08
-);
-
-oscillator.start();
-
-oscillator.stop(
-audioContext.currentTime + 0.08
-);
+o.start();
+o.stop(a.currentTime+.05);
 
 }catch(e){}
 
 }
 
 
-/* PAGE */
+/* =========================================
+   PAGE
+========================================= */
 
 function showPage(id){
 
 sound();
 
-document
-.querySelectorAll(".page")
-.forEach(x=>x.classList.remove("active"));
+document.querySelectorAll(".page").forEach(
+x=>x.classList.remove("active")
+);
 
-document
-.getElementById(id)
-.classList.add("active");
+document.getElementById(id).classList.add("active");
 
-document
-.querySelectorAll(".nav button")
-.forEach(x=>x.classList.remove("active"));
+document.querySelectorAll(".nav button").forEach(
+x=>x.classList.remove("active")
+);
 
-let nav = document.getElementById("nav-"+id);
+let nav=document.getElementById("nav-"+id);
 
 if(nav)nav.classList.add("active");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo(0,0);
 
 renderTasks();
 renderMoney();
 
 if(id==="data")renderData();
+
 if(id==="xo")renderXO();
-if(id==="numberGame")renderNumberGame();
+
 if(id==="note")renderNote();
+
 if(id==="noteEditor")renderNotes();
+
+if(id==="account")updateUserInterface();
 
 }
 
 
-/* TASKS */
+/* =========================================
+   HELPERS
+========================================= */
+
+function esc(t){
+
+let d=document.createElement("div");
+
+d.textContent=t || "";
+
+return d.innerHTML;
+
+}
+
+function formatTime(timestamp){
+
+let date=new Date(timestamp);
+
+return date.toLocaleString(undefined,{
+year:"numeric",
+month:"short",
+day:"numeric",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
+});
+
+}
+
+function now(){
+return formatTime(Date.now());
+}
+
+
+/* =========================================
+   TASKS
+========================================= */
 
 function addTask(){
 
-let name =
-document.getElementById("taskName").value.trim();
+let name=document.getElementById("taskName").value.trim();
 
-let desc =
-document.getElementById("taskDesc").value.trim();
+let desc=document.getElementById("taskDesc").value.trim();
 
-let date =
-document.getElementById("taskDate").value;
+let date=document.getElementById("taskDate").value;
 
-if(!name || !date){
+let time=document.getElementById("taskTime").value;
 
-alert("Enter work name and date");
-
+if(!name || !date || !time){
+alert("Enter work name, date and time.");
 return;
-
 }
 
 tasks.push({
-
 id:Date.now(),
-
 name:name,
-
 desc:desc,
-
 date:date,
-
+time:time,
 status:"pending",
-
-hidden:false
-
+hidden:false,
+createdAt:Date.now(),
+completedAt:null
 });
 
 saveTasks();
@@ -1119,6 +1189,7 @@ saveTasks();
 document.getElementById("taskName").value="";
 document.getElementById("taskDesc").value="";
 document.getElementById("taskDate").value="";
+document.getElementById("taskTime").value="";
 
 renderTasks();
 
@@ -1126,163 +1197,128 @@ sound();
 
 }
 
+function taskDeadline(task){
 
-function saveTasks(){
-
-localStorage.setItem(
-"studyTasks",
-JSON.stringify(tasks)
-);
+return new Date(task.date+"T"+task.time+":00");
 
 }
 
+function getCountdown(task){
 
-function esc(t){
+let nowDate=new Date();
 
-let d=document.createElement("div");
+let target=taskDeadline(task);
 
-d.textContent=t;
+let difference=target-nowDate;
 
-return d.innerHTML;
+let expired=difference<0;
 
-}
+difference=Math.abs(difference);
 
-
-function getCountdown(date){
-
-let now=new Date().getTime();
-
-let target=new Date(date).getTime();
-
-let diff=target-now;
-
-if(diff<=0){
-
-return {
-text:"Time is over",
-className:"red"
-};
-
-}
-
-let days=Math.floor(
-diff/(1000*60*60*24)
-);
+let days=Math.floor(difference/86400000);
 
 let hours=Math.floor(
-(diff%(1000*60*60*24))/
-(1000*60*60)
+(difference%86400000)/3600000
 );
 
 let minutes=Math.floor(
-(diff%(1000*60*60))/
-(1000*60)
+(difference%3600000)/60000
 );
 
 let seconds=Math.floor(
-(diff%(1000*60))/1000
+(difference%60000)/1000
 );
 
-return {
+if(expired){
+return "Deadline passed";
+}
 
-text:
+return (
 days+"d "+
 String(hours).padStart(2,"0")+"h "+
 String(minutes).padStart(2,"0")+"m "+
-String(seconds).padStart(2,"0")+"s",
-
-className:
-days<=0?"red":
-days<=1?"yellow":
-"green"
-
-};
+String(seconds).padStart(2,"0")+"s left"
+);
 
 }
 
+function taskStatus(task){
+
+let difference=taskDeadline(task)-new Date();
+
+if(difference<0)return["red","Overdue"];
+
+let hours=difference/3600000;
+
+if(hours<=24)return["red","Urgent"];
+
+if(hours<=48)return["yellow","Soon"];
+
+return["green","Active"];
+
+}
 
 function renderTasks(){
 
-let plan =
-document.getElementById("planTasks");
+let plan=document.getElementById("planTasks");
 
-let quick =
-document.getElementById("quickTasks");
+let quick=document.getElementById("quickTasks");
 
-let records =
-document.getElementById("taskRecords");
+let records=document.getElementById("taskRecords");
 
 plan.innerHTML="";
 quick.innerHTML="";
 records.innerHTML="";
 
-
-let activeTasks =
-tasks.filter(t=>t.status==="pending");
-
+let activeTasks=tasks
+.filter(t=>t.status==="pending")
+.sort((a,b)=>taskDeadline(a)-taskDeadline(b));
 
 if(!activeTasks.length){
 
 plan.innerHTML=
-'<div class="sub">No work added yet.</div>';
+'<div class="sub">No active tasks.</div>';
 
-quick.innerHTML=
-'<div class="sub">✓ Everything is under control.</div>';
+}
 
-}else{
+activeTasks.forEach(t=>{
 
-activeTasks
-.sort((a,b)=>new Date(a.date)-new Date(b.date))
-.forEach(t=>{
-
-let countdown=getCountdown(t.date);
-
-let base=`
-
-<div class="tasktop">
-
-<div class="taskname">
-${esc(t.name)}
-</div>
-
-<div class="status ${countdown.className}">
-${countdown.text}
-</div>
-
-</div>
-
-${t.desc?
-`<div class="desc">${esc(t.desc)}</div>`
-:""}
-
-<div class="date">
-📅 ${new Date(t.date).toLocaleString()}
-</div>
-
-<div class="countdown">
-⏳ ${countdown.text}
-</div>
-
-`;
-
-
-/* PLAN ONLY DELETE */
+let status=taskStatus(t);
 
 plan.innerHTML+=`
 
 <div class="task">
 
-${base}
+<div class="tasktop">
+
+<div class="taskname">
+${esc(t.name)}
+</div>
+
+<div class="status ${status[0]}">
+${status[1]}
+</div>
+
+</div>
+
+${t.desc ?
+`<div class="desc">${esc(t.desc)}</div>` :
+""}
+
+<div class="date">
+📅 ${t.date} — ${t.time}
+</div>
+
+<div class="countdown"
+data-countdown="${t.id}">
+${getCountdown(t)}
+</div>
 
 <div class="actions">
 
-<button
-class="cancel"
-onclick="taskDelete(${t.id})"
->
-
+<button class="cancel"
+onclick="taskDelete(${t.id})">
 Delete
-
 </button>
 
 </div>
@@ -1291,86 +1327,25 @@ Delete
 
 `;
 
+});
 
-/* QUICK DONE FAILED */
 
-if(!t.hidden){
+let quickList=activeTasks.filter(t=>!t.hidden);
+
+if(!quickList.length){
+
+quick.innerHTML=
+'<div class="sub">✓ Everything is under control.</div>';
+
+}
+
+quickList.forEach(t=>{
+
+let status=taskStatus(t);
 
 quick.innerHTML+=`
 
 <div class="task">
-
-${base}
-
-<div class="actions">
-
-<button
-class="done"
-onclick="taskUpdate(${t.id},'done')"
->
-
-✓ Done
-
-</button>
-
-<button
-class="fail"
-onclick="taskUpdate(${t.id},'failed')"
->
-
-✕ Failed
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
-
-});
-
-}
-
-
-/* RECORDS */
-
-let completed=
-tasks.filter(t=>
-t.status==="done" ||
-t.status==="failed"
-);
-
-if(!completed.length){
-
-records.innerHTML=
-'<div class="sub">No completed records yet.</div>';
-
-}else{
-
-completed
-.sort((a,b)=>b.id-a.id)
-.forEach(t=>{
-
-let isDone=t.status==="done";
-
-let hiddenClass=
-t.hidden?"":"";
-
-records.innerHTML+=`
-
-<div class="task ${isDone?"done-task":"failed-task"} ${hiddenClass}">
-
-<button
-class="hide-task"
-onclick="hideTask(${t.id})"
->
-
-X
-
-</button>
 
 <div class="tasktop">
 
@@ -1378,21 +1353,41 @@ X
 ${esc(t.name)}
 </div>
 
-<div class="status ${isDone?"green":"red"}">
-
-${isDone?"Completed":"Failed"}
-
+<div class="status ${status[0]}">
+${status[1]}
 </div>
 
 </div>
 
-${t.desc?
-`<div class="desc">${esc(t.desc)}</div>`
-:""}
+${t.desc ?
+`<div class="desc">${esc(t.desc)}</div>` :
+""}
 
 <div class="date">
+📅 ${t.date} — ${t.time}
+</div>
 
-📅 ${new Date(t.date).toLocaleString()}
+<div class="countdown"
+data-countdown="${t.id}">
+${getCountdown(t)}
+</div>
+
+<div class="actions">
+
+<button class="done"
+onclick="taskUpdate(${t.id},'done')">
+✓ Done
+</button>
+
+<button class="fail"
+onclick="taskUpdate(${t.id},'failed')">
+✕ Failed
+</button>
+
+<button class="cancel"
+onclick="hideQuickTask(${t.id})">
+X
+</button>
 
 </div>
 
@@ -1402,44 +1397,105 @@ ${t.desc?
 
 });
 
-}
+
+let completed=tasks
+.filter(t=>
+(t.status==="done" || t.status==="failed")
+&& !t.recordHidden
+)
+.sort((a,b)=>
+(b.completedAt||0)-(a.completedAt||0)
+);
+
+if(!completed.length){
+
+records.innerHTML=
+'<div class="sub">No task records yet.</div>';
 
 }
+
+completed.forEach(t=>{
+
+let isDone=t.status==="done";
+
+records.innerHTML+=`
+
+<div class="record ${
+isDone ? "done-record":"failed-record"
+}">
+
+<button class="record-x"
+onclick="hideRecord(${t.id})">
+X
+</button>
+
+<div class="record-title">
+${esc(t.name)}
+</div>
+
+<div class="status ${
+isDone ? "green":"red"
+}" style="display:inline-block;margin-top:10px">
+
+${isDone ? "✓ Completed":"✕ Failed"}
+
+</div>
+
+${t.desc ?
+`<div class="desc">${esc(t.desc)}</div>` :
+""}
+
+<div class="date">
+${t.date} — ${t.time}
+</div>
+
+<div class="date">
+Recorded: ${formatTime(t.completedAt)}
+</div>
+
+</div>
+
+`;
+
+});
+
+updateCountdowns();
+
+}
+
+function updateCountdowns(){
+
+document.querySelectorAll("[data-countdown]")
+.forEach(element=>{
+
+let id=Number(element.dataset.countdown);
+
+let task=tasks.find(t=>t.id===id);
+
+if(task && task.status==="pending"){
+element.textContent=getCountdown(task);
+}
+
+});
+
+}
+
+setInterval(updateCountdowns,1000);
 
 
 function taskUpdate(id,status){
 
-tasks=tasks.map(t=>{
-
-if(t.id===id){
-
-return {
+tasks=tasks.map(t=>
+t.id===id ?
+{
 ...t,
 status:status,
-hidden:false
-};
-
+hidden:true,
+completedAt:Date.now(),
+recordHidden:false
 }
-
-return t;
-
-});
-
-saveTasks();
-
-renderTasks();
-
-sound();
-
-}
-
-
-function hideTask(id){
-
-tasks=tasks.map(t=>
-t.id===id?
-{...t,hidden:true}
-:t
+:
+t
 );
 
 saveTasks();
@@ -1450,13 +1506,45 @@ sound();
 
 }
 
+function hideQuickTask(id){
+
+tasks=tasks.map(t=>
+t.id===id ?
+{...t,hidden:true}
+:
+t
+);
+
+saveTasks();
+
+renderTasks();
+
+sound();
+
+}
+
+function hideRecord(id){
+
+tasks=tasks.map(t=>
+t.id===id ?
+{...t,recordHidden:true}
+:
+t
+);
+
+saveTasks();
+
+renderTasks();
+
+sound();
+
+}
 
 function taskDelete(id){
 
-if(confirm("Delete this task permanently?")){
+if(!confirm("Delete this task?"))return;
 
-tasks=
-tasks.filter(t=>t.id!==id);
+tasks=tasks.filter(t=>t.id!==id);
 
 saveTasks();
 
@@ -1466,49 +1554,10 @@ sound();
 
 }
 
-}
 
-
-/* LIVE COUNTDOWN */
-
-setInterval(()=>{
-
-let activePage=
-document.querySelector(".page.active");
-
-if(
-activePage &&
-(
-activePage.id==="plan" ||
-activePage.id==="quick"
-)
-){
-
-renderTasks();
-
-}
-
-},1000);
-
-
-/* MONEY */
-
-function now(){
-
-return new Date().toLocaleString(
-undefined,
-{
-year:"numeric",
-month:"short",
-day:"numeric",
-hour:"2-digit",
-minute:"2-digit",
-second:"2-digit"
-}
-);
-
-}
-
+/* =========================================
+   MONEY
+========================================= */
 
 function addMoney(){
 
@@ -1516,16 +1565,20 @@ let amount=Number(
 document.getElementById("amount").value
 );
 
-let desc=
-document.getElementById("moneyDesc").value.trim();
+let desc=document.getElementById("moneyDesc").value.trim();
 
 if(!amount || amount<=0){
-
-return alert("Enter valid amount");
-
+alert("Enter valid amount.");
+return;
 }
 
 money.added+=amount;
+
+let previousBalance=
+money.added-money.spent-amount;
+
+let newBalance=
+money.added-money.spent;
 
 money.history.unshift({
 
@@ -1537,7 +1590,11 @@ desc:desc || "Money Added",
 
 time:now(),
 
-timestamp:Date.now()
+timestamp:Date.now(),
+
+balanceBefore:previousBalance,
+
+balanceAfter:newBalance
 
 });
 
@@ -1545,23 +1602,26 @@ saveMoney();
 
 }
 
-
 function spendMoney(){
 
 let amount=Number(
 document.getElementById("amount").value
 );
 
-let desc=
-document.getElementById("moneyDesc").value.trim();
+let desc=document.getElementById("moneyDesc").value.trim();
 
 if(!amount || amount<=0){
-
-return alert("Enter valid amount");
-
+alert("Enter valid amount.");
+return;
 }
 
+let previousBalance=
+money.added-money.spent;
+
 money.spent+=amount;
+
+let newBalance=
+money.added-money.spent;
 
 money.history.unshift({
 
@@ -1573,7 +1633,11 @@ desc:desc || "No Description",
 
 time:now(),
 
-timestamp:Date.now()
+timestamp:Date.now(),
+
+balanceBefore:previousBalance,
+
+balanceAfter:newBalance
 
 });
 
@@ -1581,16 +1645,11 @@ saveMoney();
 
 }
 
-
 function saveMoney(){
 
-localStorage.setItem(
-"studyMoney",
-JSON.stringify(money)
-);
+saveMoneyStorage();
 
 document.getElementById("amount").value="";
-
 document.getElementById("moneyDesc").value="";
 
 renderMoney();
@@ -1599,14 +1658,11 @@ sound();
 
 }
 
-
 function resetMoney(){
 
-if(
-!confirm(
+if(!confirm(
 "Reset all Pocket Money and History?"
-)
-)return;
+))return;
 
 money={
 added:0,
@@ -1614,7 +1670,9 @@ spent:0,
 history:[]
 };
 
-localStorage.removeItem("studyMoney");
+saveMoneyStorage();
+
+historyLimit=5;
 
 renderMoney();
 
@@ -1622,11 +1680,9 @@ sound();
 
 }
 
-
 function renderMoney(){
 
-let remaining=
-money.added-money.spent;
+let remaining=money.added-money.spent;
 
 document.getElementById("balance").textContent=
 remaining.toFixed(2)+" DT";
@@ -1637,27 +1693,21 @@ money.added.toFixed(2)+" DT";
 document.getElementById("spent").textContent=
 money.spent.toFixed(2)+" DT";
 
-let percent=
-money.added?
-remaining/money.added*100
-:0;
 
-let progress=
-document.getElementById("progress");
+let percent=money.added ?
+remaining/money.added*100 : 0;
 
-let danger=
-document.getElementById("danger");
+let progress=document.getElementById("progress");
 
+let danger=document.getElementById("danger");
 
 if(remaining<0){
 
 progress.style.width="100%";
 
-progress.style.background=
-"var(--red)";
+progress.style.background="var(--red)";
 
 danger.innerHTML=
-
 '<div class="danger">⚠️ DANGER — YOU ARE IN DEBT</div>';
 
 }else{
@@ -1665,47 +1715,29 @@ danger.innerHTML=
 danger.innerHTML="";
 
 progress.style.width=
-Math.max(
-0,
-Math.min(100,percent)
-)+"%";
+Math.max(0,Math.min(100,percent))+"%";
 
 if(percent<25){
-
-progress.style.background=
-"var(--red)";
-
-}else if(percent<50){
-
-progress.style.background=
-"var(--yellow)";
-
-}else if(percent<75){
-
-progress.style.background=
-"var(--orange)";
-
-}else{
-
-progress.style.background=
-"var(--green)";
-
+progress.style.background="var(--red)";
+}
+else if(percent<50){
+progress.style.background="var(--yellow)";
+}
+else if(percent<75){
+progress.style.background="var(--orange)";
+}
+else{
+progress.style.background="var(--green)";
 }
 
 }
 
 
-let h=
-document.getElementById("history");
+let h=document.getElementById("history");
 
 h.innerHTML="";
 
-let list=
-money.history.slice(
-0,
-historyLimit
-);
-
+let list=money.history.slice(0,historyLimit);
 
 if(!list.length){
 
@@ -1713,7 +1745,6 @@ h.innerHTML=
 '<div class="sub">No activity yet.</div>';
 
 }
-
 
 list.forEach(x=>{
 
@@ -1724,11 +1755,9 @@ h.innerHTML+=`
 <div>
 
 <b>
-
-${x.type==="added"?
-"Money Added":
+${x.type==="added" ?
+"Money Added" :
 "Money Spent"}
-
 </b>
 
 <div class="desc">
@@ -1741,14 +1770,13 @@ ${x.time}
 
 </div>
 
-<b style="
-color:
-${x.type==="added"?
-"var(--green)":
-"var(--red)"}
-">
+<b style="color:${
+x.type==="added" ?
+"var(--green)" :
+"var(--red)"
+}">
 
-${x.type==="added"?"+":"-"}
+${x.type==="added" ? "+" : "-"}
 ${Number(x.amount).toFixed(2)} DT
 
 </b>
@@ -1763,7 +1791,6 @@ renderDebt();
 
 }
 
-
 function moreHistory(){
 
 historyLimit+=10;
@@ -1772,306 +1799,277 @@ renderMoney();
 
 }
 
-
 function renderDebt(){
 
-let d=
-document.getElementById("debtAlert");
+let d=document.getElementById("debtAlert");
 
 if(!d)return;
 
-let r=
-money.added-money.spent;
+let remaining=money.added-money.spent;
 
 d.innerHTML=
-r<0?
+remaining<0 ?
 
 `<div class="danger">
-
 ⚠️ DANGER — YOU ARE IN DEBT<br>
-
-You owe
-${Math.abs(r).toFixed(2)}
-DT
-
+You owe ${Math.abs(remaining).toFixed(2)} DT
 </div>`
 
-:"";
+:
+
+"";
 
 }
 
 
-/* DATA CHART */
+/* =========================================
+   REAL BALANCE CHART
+========================================= */
 
 function renderData(){
 
-let canvas=
-document.getElementById("chart");
+let canvas=document.getElementById("chart");
 
-let ctx=
-canvas.getContext("2d");
+let rect=canvas.getBoundingClientRect();
 
-let w=canvas.width;
+let ratio=window.devicePixelRatio||1;
 
-let h=canvas.height;
+canvas.width=rect.width*ratio;
+
+canvas.height=420*ratio;
+
+let ctx=canvas.getContext("2d");
+
+ctx.scale(ratio,ratio);
+
+let w=rect.width;
+
+let h=420;
 
 ctx.clearRect(0,0,w,h);
 
 
-let history=
-[...money.history]
-.sort((a,b)=>
-a.timestamp-b.timestamp
-);
+let operations=[...money.history]
+.reverse();
 
 
-let balance=0;
-
-let points=[];
-
-
-if(!history.length){
-
-points=[
+let points=[
 {
-time:Date.now(),
-balance:0
+timestamp:null,
+balance:0,
+label:"Start"
 }
 ];
 
+
+let running=0;
+
+operations.forEach(operation=>{
+
+if(operation.type==="added"){
+running+=Number(operation.amount);
 }else{
-
-history.forEach(x=>{
-
-if(x.type==="added"){
-
-balance+=Number(x.amount);
-
-}else{
-
-balance-=Number(x.amount);
-
+running-=Number(operation.amount);
 }
 
 points.push({
-
-time:x.timestamp,
-
-balance:balance
-
+timestamp:operation.timestamp,
+balance:running,
+label:new Date(operation.timestamp)
 });
 
 });
+
+
+let balances=points.map(p=>p.balance);
+
+let min=Math.min(...balances,0);
+
+let max=Math.max(...balances,10);
+
+let range=max-min || 10;
+
+let padding={
+left:58,
+right:20,
+top:35,
+bottom:65
+};
+
+let graphW=w-padding.left-padding.right;
+
+let graphH=h-padding.top-padding.bottom;
+
+
+function getX(index){
+
+if(points.length===1){
+return padding.left;
+}
+
+return padding.left+
+(index/(points.length-1))*graphW;
 
 }
 
 
-let balances=
-points.map(p=>p.balance);
+function getY(value){
 
-let min=
-Math.min(...balances,0);
+return padding.top+
+(max-value)/range*graphH;
 
-let max=
-Math.max(...balances,10);
-
-if(max===min)max=min+10;
-
-
-let padL=85;
-let padR=35;
-let padT=45;
-let padB=70;
-
-let graphW=
-w-padL-padR;
-
-let graphH=
-h-padT-padB;
+}
 
 
 /* GRID */
 
-ctx.strokeStyle="#252525";
-
 ctx.lineWidth=1;
-
-ctx.font="15px Arial";
 
 for(let i=0;i<5;i++){
 
 let y=
-padT+
-(graphH/4)*i;
+padding.top+
+(i/4)*graphH;
+
+ctx.strokeStyle="#292929";
 
 ctx.beginPath();
 
-ctx.moveTo(padL,y);
+ctx.moveTo(padding.left,y);
 
-ctx.lineTo(
-w-padR,
-y
-);
+ctx.lineTo(w-padding.right,y);
 
 ctx.stroke();
 
 
 let value=
-
-max-
-((max-min)/4)*i;
-
+(max-(range*i/4))
+.toFixed(0);
 
 ctx.fillStyle="#888";
 
+ctx.font="11px Arial";
+
 ctx.fillText(
-
-value.toFixed(2)+" DT",
-
-10,
-
-y+5
-
+value+" DT",
+5,
+y+4
 );
 
 }
 
 
-/* X LABELS */
+/* ZERO LINE */
 
-let step=
-points.length>1?
-graphW/(points.length-1)
-:0;
+if(min<=0 && max>=0){
+
+let zeroY=getY(0);
+
+ctx.strokeStyle="#555";
+
+ctx.beginPath();
+
+ctx.moveTo(padding.left,zeroY);
+
+ctx.lineTo(w-padding.right,zeroY);
+
+ctx.stroke();
+
+}
 
 
 /* LINE */
 
+if(points.length>1){
+
 ctx.beginPath();
 
-points.forEach((p,i)=>{
+points.forEach((point,index)=>{
 
-let x=
-points.length===1?
-padL+graphW/2:
-padL+i*step;
+let x=getX(index);
 
-let y=
+let y=getY(point.balance);
 
-padT+
-
-(max-p.balance)/
-(max-min)*graphH;
-
-
-if(i===0){
-
+if(index===0){
 ctx.moveTo(x,y);
-
 }else{
-
 ctx.lineTo(x,y);
-
 }
 
 });
 
 ctx.strokeStyle="#35d07f";
 
-ctx.lineWidth=5;
-
-ctx.lineJoin="round";
-
-ctx.lineCap="round";
+ctx.lineWidth=3;
 
 ctx.stroke();
 
+}
 
-/* POINTS */
 
-points.forEach((p,i)=>{
+/* POINTS + DATE */
 
-let x=
-points.length===1?
-padL+graphW/2:
-padL+i*step;
+points.forEach((point,index)=>{
 
-let y=
+let x=getX(index);
 
-padT+
-
-(max-p.balance)/
-(max-min)*graphH;
-
+let y=getY(point.balance);
 
 ctx.fillStyle=
-
-p.balance>=0?
-"#35d07f":
-"#ff4d4d";
-
+point.balance<0 ?
+"#ff4d4d" :
+"#35d07f";
 
 ctx.beginPath();
 
-ctx.arc(
-x,
-y,
-7,
-0,
-Math.PI*2
-);
+ctx.arc(x,y,5,0,Math.PI*2);
 
 ctx.fill();
 
 
-ctx.fillStyle="#aaa";
+if(index>0){
 
-ctx.font="12px Arial";
+ctx.fillStyle="#888";
 
-let date=
-new Date(p.time);
+ctx.font="10px Arial";
 
-let label=
+let date=new Date(point.timestamp);
 
-date.getDate()+"/"+
-(date.getMonth()+1);
-
-ctx.fillText(
-
-label,
-
-x-12,
-
-h-28
-
+let label=date.toLocaleDateString(
+undefined,
+{
+month:"short",
+day:"numeric"
+}
 );
+
+ctx.save();
+
+ctx.translate(x,h-25);
+
+ctx.rotate(-Math.PI/5);
+
+ctx.fillText(label,0,0);
+
+ctx.restore();
+
+}
 
 });
 
 
-let totalAdded=
-money.history
-.filter(x=>x.type==="added")
-.reduce(
-(s,x)=>s+Number(x.amount),
-0
-);
+/* CURRENT BALANCE */
 
-let totalSpent=
-money.history
-.filter(x=>x.type==="spent")
-.reduce(
-(s,x)=>s+Number(x.amount),
-0
-);
+let remaining=money.added-money.spent;
 
-let remaining=
-money.added-money.spent;
+let totalAdded=money.added;
+
+let totalSpent=money.spent;
 
 
-document.getElementById("report").innerHTML=
+document.getElementById("report").innerHTML=`
 
-`<b>FINANCIAL REPORT</b>
+<b>FINANCIAL REPORT</b>
 
 <br><br>
 
@@ -2090,15 +2088,16 @@ Current Balance:
 
 <br><br>
 
-The graph shows your real balance movement.
-Every new saving or spending operation updates the graph automatically.
+The chart shows your real balance after every saving or spending operation.
 
 `;
 
 }
 
 
-/* X O GAME */
+/* =========================================
+   X / O
+========================================= */
 
 let xo=[
 "","","",
@@ -2109,30 +2108,28 @@ let xo=[
 let turn="X";
 
 let xs=0;
-
 let os=0;
-
 let ds=0;
 
+let gameFinished=false;
 
 function renderXO(){
 
-let board=
-document.getElementById("xoBoard");
+let board=document.getElementById("xoBoard");
 
 board.innerHTML="";
 
+xo.forEach((value,index)=>{
 
-xo.forEach((v,i)=>{
+let button=document.createElement("button");
 
-board.innerHTML+=
+button.textContent=value;
 
-`<button onclick="xoMove(${i})">
-${v}
-</button>`;
+button.onclick=()=>xoMove(index);
+
+board.appendChild(button);
 
 });
-
 
 document.getElementById("xs").textContent=xs;
 
@@ -2141,113 +2138,88 @@ document.getElementById("os").textContent=os;
 document.getElementById("ds").textContent=ds;
 
 document.getElementById("xoTurn").textContent=
-
+gameFinished ?
+"ROUND FINISHED" :
 "PLAYER "+turn+" TURN";
 
 }
 
+function xoMove(index){
 
-function xoMove(i){
+if(xo[index] || gameFinished)return;
 
-if(xo[i])return;
-
-xo[i]=turn;
+xo[index]=turn;
 
 let wins=[
-
 [0,1,2],
-
 [3,4,5],
-
 [6,7,8],
-
 [0,3,6],
-
 [1,4,7],
-
 [2,5,8],
-
 [0,4,8],
-
 [2,4,6]
-
 ];
 
 let winner=null;
 
-
-wins.forEach(a=>{
+wins.forEach(line=>{
 
 if(
-
-xo[a[0]] &&
-
-xo[a[0]]===xo[a[1]] &&
-
-xo[a[1]]===xo[a[2]]
-
+xo[line[0]] &&
+xo[line[0]]===xo[line[1]] &&
+xo[line[1]]===xo[line[2]]
 ){
-
-winner=xo[a[0]];
-
+winner=xo[line[0]];
 }
 
 });
 
-
 if(winner){
 
-winner==="X"?
-xs++:
+gameFinished=true;
+
+if(winner==="X"){
+xs++;
+}else{
 os++;
+}
 
 renderXO();
 
 setTimeout(()=>{
-
-alert(
-"PLAYER "+winner+" WINS!"
-);
-
+alert("PLAYER "+winner+" WINS!");
 resetXO();
-
-},200);
+},50);
 
 return;
 
 }
 
-
 if(!xo.includes("")){
+
+gameFinished=true;
 
 ds++;
 
 renderXO();
 
 setTimeout(()=>{
-
 alert("DRAW!");
-
 resetXO();
-
-},200);
+},50);
 
 return;
 
 }
 
-
-turn=
-turn==="X"?
-"O":
-"X";
+turn=turn==="X"?"O":"X";
 
 renderXO();
 
 sound();
 
 }
-
 
 function resetXO(){
 
@@ -2259,272 +2231,126 @@ xo=[
 
 turn="X";
 
+gameFinished=false;
+
 renderXO();
 
-sound();
-
 }
 
 
-/* NUMBER DUEL */
-
-let numberTurn=1;
-
-let numberScore1=0;
-
-let numberScore2=0;
-
-let numberRound=1;
-
-let moves=0;
-
-
-function renderNumberGame(){
-
-document.getElementById("n1").textContent=
-numberScore1;
-
-document.getElementById("n2").textContent=
-numberScore2;
-
-document.getElementById("round").textContent=
-numberRound;
-
-document.getElementById("numberTurn").textContent=
-
-"PLAYER "+
-numberTurn+
-" TURN";
-
-}
-
-
-function numberMove(num){
-
-if(moves>=12)return;
-
-
-if(numberTurn===1){
-
-numberScore1+=num;
-
-}else{
-
-numberScore2+=num;
-
-}
-
-
-moves++;
-
-
-numberTurn=
-numberTurn===1?
-2:
-1;
-
-
-if(numberTurn===1){
-
-numberRound++;
-
-}
-
-
-sound();
-
-
-if(moves>=12){
-
-setTimeout(()=>{
-
-let result=
-
-numberScore1>numberScore2?
-"PLAYER 1 WINS!":
-
-numberScore2>numberScore1?
-"PLAYER 2 WINS!":
-
-"DRAW!";
-
-
-alert(
-
-"GAME FINISHED!\n\n"+
-
-"PLAYER 1: "+
-numberScore1+
-
-"\nPLAYER 2: "+
-numberScore2+
-
-"\n\n"+
-result
-
-);
-
-resetNumberGame();
-
-},150);
-
-}
-
-
-renderNumberGame();
-
-}
-
-
-function resetNumberGame(){
-
-numberTurn=1;
-
-numberScore1=0;
-
-numberScore2=0;
-
-numberRound=1;
-
-moves=0;
-
-renderNumberGame();
-
-sound();
-
-}
-
-
-/* NOTES */
+/* =========================================
+   NOTES
+========================================= */
 
 function renderNote(){
 
-let box=
-document.getElementById("noteLogin");
+let box=document.getElementById("noteLogin");
 
+if(!notePassword){
 
-if(!password){
+box.innerHTML=`
 
-box.innerHTML=
+<div class="card">
 
-`<div class="card">
+<label>CREATE NOTE PASSWORD</label>
 
-<label>CREATE PASSWORD</label>
-
-<input
-id="newPass"
+<input id="newNotePass"
 type="password"
-placeholder="Choose password"
->
+placeholder="Choose password">
 
-<button
-class="primary"
-onclick="createPassword()"
->
+<button class="primary"
+onclick="createNotePassword()">
 
 Create Private Note
 
 </button>
 
-</div>`;
+</div>
+
+`;
 
 }else{
 
-box.innerHTML=
+box.innerHTML=`
 
-`<div class="card">
+<div class="card">
 
-<label>ENTER PASSWORD</label>
+<label>ENTER NOTE PASSWORD</label>
 
-<input
-id="loginPass"
+<input id="noteLoginPass"
 type="password"
-placeholder="Password"
->
+placeholder="Password">
 
-<button
-class="primary"
-onclick="openNotes()"
->
+<button class="primary"
+onclick="openNotes()">
 
 Open Notes
 
 </button>
 
-</div>`;
+</div>
+
+`;
 
 }
 
 }
 
+function createNotePassword(){
 
-function createPassword(){
+let input=
+document.getElementById("newNotePass");
 
-let p=
-document.getElementById("newPass").value;
+let password=input.value;
 
-if(!p){
-
-return alert("Enter password");
-
+if(!password){
+alert("Enter password.");
+return;
 }
 
-password=p;
+notePassword=password;
 
 localStorage.setItem(
-"notePassword",
-password
+userKey("notePassword"),
+notePassword
 );
 
 showPage("noteEditor");
 
 }
-
 
 function openNotes(){
 
-let p=
-document.getElementById("loginPass").value;
+let input=
+document.getElementById("noteLoginPass");
 
-if(p!==password){
-
-return alert("Wrong password");
-
+if(input.value!==notePassword){
+alert("Wrong password.");
+return;
 }
 
 showPage("noteEditor");
 
 }
 
-
 function saveNote(){
 
-let text=
-document.getElementById("noteText")
-.value
-.trim();
+let input=
+document.getElementById("noteText");
+
+let text=input.value.trim();
 
 if(!text)return;
 
-
 notes.unshift({
-
 id:Date.now(),
-
 text:text,
-
 time:now()
-
 });
 
+saveNotesStorage();
 
-localStorage.setItem(
-"notes",
-JSON.stringify(notes)
-);
-
-
-document.getElementById("noteText").value="";
+input.value="";
 
 renderNotes();
 
@@ -2532,14 +2358,11 @@ sound();
 
 }
 
-
 function renderNotes(){
 
-let box=
-document.getElementById("notes");
+let box=document.getElementById("notes");
 
 box.innerHTML="";
-
 
 if(!notes.length){
 
@@ -2550,44 +2373,42 @@ return;
 
 }
 
+notes.forEach(note=>{
 
-notes.forEach(n=>{
+box.innerHTML+=`
 
-box.innerHTML+=
+<div class="task">
 
-`<div class="task">
-
-<b>${esc(n.text)}</b>
+<b>
+${esc(note.text)}
+</b>
 
 <div class="date">
-${n.time}
+${note.time}
 </div>
 
-<button
-class="more"
-onclick="deleteNote(${n.id})"
->
+<button class="more"
+onclick="deleteNote(${note.id})">
 
 Delete
 
 </button>
 
-</div>`;
+</div>
+
+`;
 
 });
 
 }
 
-
 function deleteNote(id){
 
-notes=
-notes.filter(n=>n.id!==id);
-
-localStorage.setItem(
-"notes",
-JSON.stringify(notes)
+notes=notes.filter(
+note=>note.id!==id
 );
+
+saveNotesStorage();
 
 renderNotes();
 
@@ -2596,46 +2417,13 @@ sound();
 }
 
 
-function changePassword(){
-
-let old=
-prompt("Current password:");
-
-if(old!==password){
-
-return alert("Wrong password");
-
-}
-
-
-let next=
-prompt("New password:");
-
-if(next){
-
-password=next;
-
-localStorage.setItem(
-"notePassword",
-password
-);
-
-alert("Password changed!");
-
-}
-
-}
-
-
-/* START */
-
-renderTasks();
-
-renderMoney();
+/* =========================================
+   START
+========================================= */
 
 renderXO();
 
-renderNumberGame();
+autoLogin();
 
 </script>
 
