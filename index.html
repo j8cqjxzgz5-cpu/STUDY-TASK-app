@@ -2,1959 +2,4811 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
 <title>STUDY</title>
 
 <style>
-
-:root {
-    --bg: #050505;
-    --card: #101010;
-    --card2: #171717;
-    --white: #ffffff;
-    --gray: #8c8c8c;
-    --line: #292929;
-    --green: #35d07f;
-    --yellow: #f2c94c;
-    --red: #ff5b5b;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+:root{
+  --bg:#050505;
+  --surface:#101010;
+  --surface2:#151515;
+  --line:#292929;
+  --text:#f5f5f5;
+  --muted:#8b8b8b;
+  --green:#35d07f;
+  --yellow:#f3c74b;
+  --orange:#ff984d;
+  --red:#ff5050;
 }
 
-body {
-    margin: 0;
-    background:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
-        #050505;
-
-    background-size: 35px 35px;
-
-    color: white;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        Arial,
-        sans-serif;
-
-    min-height: 100vh;
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
-.page {
-    display: none;
-    min-height: 100vh;
-    padding: 22px;
+body{
+  min-height:100vh;
 }
 
-.page.active {
-    display: block;
-    animation: fade .25s ease;
+button,
+input,
+textarea{
+  font:inherit;
 }
 
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+button{
+  cursor:pointer;
 }
 
-/* HEADER */
-
-.header {
-    max-width: 650px;
-    margin: auto;
-    margin-bottom: 30px;
+button:active{
+  opacity:.75;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+input,
+textarea{
+  outline:none;
 }
 
-.logo-icon {
-    width: 48px;
-    height: 48px;
-
-    border-radius: 16px;
-
-    background: white;
-
-    color: black;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 23px;
+.hidden{
+  display:none!important;
 }
 
-.logo-text h1 {
-    margin: 0;
-    font-size: 26px;
-    letter-spacing: 2px;
+/* =========================
+   SPLASH
+========================= */
+
+#splash{
+  position:fixed;
+  inset:0;
+  background:#050505;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.logo-text p {
-    margin: 3px 0 0;
-    color: var(--gray);
-    font-size: 13px;
+.splash-inner{
+  width:100%;
+  padding:30px;
 }
 
-/* HOME */
-
-.home-container {
-    max-width: 650px;
-    margin: auto;
+.splash-logo{
+  width:88px;
+  height:88px;
+  margin:0 auto 22px;
+  border-radius:27px;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  font-weight:950;
 }
 
-.hero {
-    background:
-        linear-gradient(135deg,
-        #161616,
-        #0a0a0a);
-
-    border: 1px solid var(--line);
-
-    border-radius: 28px;
-
-    padding: 28px;
-
-    margin-bottom: 20px;
-
-    position: relative;
-
-    overflow: hidden;
+.splash-title{
+  font-size:38px;
+  font-weight:950;
+  letter-spacing:3px;
 }
 
-.hero::after {
-
-    content: "◢ ◣";
-
-    position: absolute;
-
-    right: 20px;
-    top: 18px;
-
-    color: #333;
-
-    font-size: 70px;
-
-    letter-spacing: -20px;
-
-    transform: rotate(45deg);
+.splash-sub{
+  color:var(--muted);
+  margin-top:8px;
+  font-size:14px;
 }
 
-.hero small {
-    color: var(--gray);
-    letter-spacing: 2px;
+.splash-made{
+  color:#666;
+  font-size:12px;
+  line-height:1.6;
+  margin-top:35px;
 }
 
-.hero h2 {
-    font-size: 30px;
-    margin: 12px 0 8px;
+/* =========================
+   USER SETUP
+========================= */
+
+#userSetup{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
 }
 
-.hero p {
-    color: #aaa;
-    margin: 0;
+.setup-card{
+  width:100%;
+  max-width:440px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:28px;
 }
 
-.menu {
-    display: grid;
-    gap: 14px;
+.setup-logo{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  font-weight:950;
+  margin-bottom:20px;
 }
 
-.menu-card {
-
-    border: 1px solid var(--line);
-
-    background: rgba(18,18,18,.96);
-
-    border-radius: 25px;
-
-    padding: 22px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    cursor: pointer;
-
-    transition: .2s;
+.setup-title{
+  font-size:29px;
+  font-weight:950;
 }
 
-.menu-card:active {
-    transform: scale(.97);
+.setup-description{
+  color:var(--muted);
+  margin-top:8px;
+  line-height:1.5;
 }
 
-.menu-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+label{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin:18px 0 8px;
 }
 
-.menu-icon {
-
-    width: 54px;
-    height: 54px;
-
-    border-radius: 18px;
-
-    background: white;
-
-    color: black;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 23px;
+input,
+textarea{
+  width:100%;
+  background:#080808;
+  border:1px solid #333;
+  border-radius:14px;
+  color:#fff;
+  padding:14px;
 }
 
-.menu-text h3 {
-    margin: 0 0 5px;
-    font-size: 19px;
+textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
-.menu-text p {
-    margin: 0;
-    color: var(--gray);
-    font-size: 13px;
+.primary{
+  width:100%;
+  margin-top:15px;
+  padding:15px;
+  border:0;
+  border-radius:14px;
+  background:#fff;
+  color:#000;
+  font-weight:900;
 }
 
-.arrow {
-    font-size: 25px;
-    color: #777;
+/* =========================
+   APP
+========================= */
+
+.app{
+  width:100%;
+  max-width:680px;
+  margin:auto;
+  padding-bottom:105px;
 }
 
-/* BUTTONS */
-
-button {
-
-    border: none;
-
-    font-family: inherit;
-
-    cursor: pointer;
+.header{
+  padding:22px 17px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
 }
 
-.primary-btn {
-
-    width: 100%;
-
-    padding: 17px;
-
-    background: white;
-
-    color: black;
-
-    border-radius: 18px;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    margin-top: 10px;
-
-    transition: .2s;
+.brand{
+  font-size:29px;
+  font-weight:950;
+  letter-spacing:1px;
 }
 
-.primary-btn:active {
-    transform: scale(.97);
+.brand-sub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
 }
 
-.back-btn {
-
-    background: #171717;
-
-    color: white;
-
-    border: 1px solid #303030;
-
-    border-radius: 15px;
-
-    padding: 13px 18px;
-
-    margin-bottom: 25px;
-
-    font-size: 14px;
+.user-chip{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:7px 10px 7px 7px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  max-width:145px;
+  cursor:pointer;
 }
 
-/* PAGE TITLE */
-
-.page-title {
-
-    max-width: 750px;
-
-    margin: auto;
-
-    margin-bottom: 20px;
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:950;
+  flex-shrink:0;
 }
 
-.page-title h2 {
-    margin: 0 0 5px;
-    font-size: 28px;
+.user-chip-name{
+  font-size:12px;
+  font-weight:800;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
-.page-title p {
-    color: var(--gray);
-    margin: 0;
+/* =========================
+   PAGES
+========================= */
+
+.page{
+  display:none;
+  padding:0 16px;
 }
 
-/* PLAN FORM */
-
-.plan-container {
-
-    max-width: 750px;
-
-    margin: auto;
+.page.active{
+  display:block;
 }
 
-.form-card {
-
-    background: #111;
-
-    border: 1px solid var(--line);
-
-    border-radius: 25px;
-
-    padding: 20px;
-
-    margin-bottom: 20px;
+.page-title{
+  font-size:28px;
+  font-weight:950;
+  margin:8px 0 5px;
 }
 
-.form-card h3 {
-    margin-top: 0;
+.page-sub{
+  color:var(--muted);
+  margin-bottom:20px;
+  font-size:14px;
 }
 
-label {
+/* =========================
+   CARDS
+========================= */
 
-    display: block;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    margin: 15px 0 7px;
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:19px;
+  margin-bottom:14px;
 }
 
-input {
-
-    width: 100%;
-
-    background: #080808;
-
-    border: 1px solid #303030;
-
-    color: white;
-
-    padding: 15px;
-
-    border-radius: 14px;
-
-    font-size: 16px;
-
-    outline: none;
+.hero{
+  padding:25px;
+  background:linear-gradient(145deg,#151515,#0d0d0d);
 }
 
-input:focus {
-
-    border-color: white;
+.hero-symbol{
+  width:55px;
+  height:55px;
+  border-radius:17px;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:950;
 }
 
-.duration-grid {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-
-    gap: 10px;
+.hero h1{
+  font-size:27px;
+  margin:14px 0 8px;
 }
 
-.duration-grid input {
-    text-align: center;
+.hero p{
+  color:var(--muted);
+  line-height:1.5;
+  margin:0;
 }
 
-/* TASK TABLE */
+/* =========================
+   DASHBOARD
+========================= */
 
-.task-section-title {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin: 25px 0 12px;
+.dashboard{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:15px;
 }
 
-.task-section-title h3 {
-    margin: 0;
+.dash-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px;
 }
 
-.task-count {
-
-    background: #191919;
-
-    border-radius: 20px;
-
-    padding: 7px 12px;
-
-    color: #aaa;
-
-    font-size: 12px;
+.dash-card small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.8px;
+  margin-bottom:8px;
 }
 
-.task-card {
-
-    background: #111;
-
-    border: 1px solid #282828;
-
-    border-left: 5px solid var(--green);
-
-    border-radius: 18px;
-
-    padding: 16px;
-
-    margin-bottom: 12px;
+.dash-card strong{
+  font-size:21px;
 }
 
-.task-card.yellow {
-    border-left-color: var(--yellow);
+.green-text{
+  color:var(--green);
 }
 
-.task-card.red {
-    border-left-color: var(--red);
+.red-text{
+  color:var(--red);
 }
 
-.task-card.done {
-    border-left-color: var(--green);
-    opacity: .65;
+.yellow-text{
+  color:var(--yellow);
 }
 
-.task-top {
+/* =========================
+   MENU BUTTONS
+========================= */
 
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    align-items: flex-start;
+.menu-button{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:17px;
+  margin-bottom:10px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--surface);
+  color:#fff;
+  text-align:left;
 }
 
-.task-name {
-
-    font-size: 17px;
-
-    font-weight: 700;
+.menu-button-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.status-badge {
-
-    font-size: 11px;
-
-    padding: 6px 10px;
-
-    border-radius: 20px;
-
-    background: #1d1d1d;
+.menu-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:#202020;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.task-info {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
-
-    margin-top: 15px;
-
-    color: #999;
-
-    font-size: 12px;
+.menu-arrow{
+  color:#777;
 }
 
-.timer {
+/* =========================
+   TASKS
+========================= */
 
-    margin-top: 15px;
-
-    background: #090909;
-
-    padding: 12px;
-
-    border-radius: 13px;
-
-    font-size: 15px;
-
-    font-weight: 600;
+.task{
+  position:relative;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:16px;
+  margin-bottom:11px;
 }
 
-.progress {
-
-    height: 5px;
-
-    background: #282828;
-
-    border-radius: 10px;
-
-    overflow: hidden;
-
-    margin-top: 12px;
+.task-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  padding-right:25px;
 }
 
-.progress-bar {
-
-    height: 100%;
-
-    background: var(--green);
-
-    width: 0%;
-
-    transition: .5s;
+.task-name{
+  font-size:16px;
+  font-weight:900;
+  line-height:1.35;
 }
 
-.progress-bar.yellow {
-    background: var(--yellow);
+.status{
+  font-size:9px;
+  font-weight:900;
+  border-radius:10px;
+  padding:6px 8px;
+  white-space:nowrap;
 }
 
-.progress-bar.red {
-    background: var(--red);
+.status-green{
+  color:var(--green);
+  background:#123322;
 }
 
-.complete-btn {
-
-    margin-top: 14px;
-
-    width: 100%;
-
-    padding: 12px;
-
-    border-radius: 13px;
-
-    background: white;
-
-    color: black;
-
-    font-weight: 700;
+.status-yellow{
+  color:var(--yellow);
+  background:#3a3213;
 }
 
-.empty {
-
-    text-align: center;
-
-    padding: 45px 20px;
-
-    color: #777;
-
-    border: 1px dashed #333;
-
-    border-radius: 20px;
+.status-orange{
+  color:var(--orange);
+  background:#3c2515;
 }
 
-.quick-card {
-
-    background: #151010;
-
-    border: 1px solid #442020;
-
-    border-left: 5px solid var(--red);
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    margin-bottom: 12px;
+.status-red{
+  color:var(--red);
+  background:#3b1717;
 }
 
-.quick-timer {
-
-    font-size: 27px;
-
-    font-weight: 700;
-
-    margin-top: 15px;
-
-    letter-spacing: 1px;
+.task-description{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+  margin-top:8px;
 }
 
-.delete-btn {
-
-    margin-top: 12px;
-
-    background: transparent;
-
-    color: #888;
-
-    border: 1px solid #333;
-
-    padding: 8px 12px;
-
-    border-radius: 10px;
-
-    font-size: 12px;
+.task-date{
+  color:#888;
+  font-size:11px;
+  margin-top:10px;
 }
 
+.countdown{
+  font-size:12px;
+  font-weight:900;
+  margin-top:8px;
+}
+
+.countdown.green{
+  color:var(--green);
+}
+
+.countdown.yellow{
+  color:var(--yellow);
+}
+
+.countdown.orange{
+  color:var(--orange);
+}
+
+.countdown.red{
+  color:var(--red);
+}
+
+.task-actions{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+
+.task-actions button{
+  flex:1;
+  border:0;
+  border-radius:11px;
+  padding:11px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.done-button{
+  background:#123322;
+  color:var(--green);
+}
+
+.failed-button{
+  background:#3b1717;
+  color:var(--red);
+}
+
+.hide-button{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:27px;
+  height:27px;
+  padding:0;
+  border:0;
+  border-radius:8px;
+  background:#202020;
+  color:#aaa;
+}
+
+.record-completed{
+  border-color:#1b4e32;
+}
+
+.record-failed{
+  border-color:#542020;
+}
+
+.section-title{
+  font-size:20px;
+  font-weight:950;
+  margin:25px 0 10px;
+}
+
+.empty{
+  color:#666;
+  text-align:center;
+  padding:25px 10px;
+  font-size:13px;
+}
+
+/* =========================
+   MONEY
+========================= */
+
+.money-balance{
+  font-size:41px;
+  font-weight:950;
+  margin:6px 0 20px;
+}
+
+.money-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.money-stat{
+  background:#090909;
+  border-radius:15px;
+  padding:13px;
+}
+
+.money-stat small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-bottom:6px;
+}
+
+.money-stat strong{
+  font-size:16px;
+}
+
+.progress-track{
+  width:100%;
+  height:9px;
+  background:#292929;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:18px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+}
+
+.money-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.money-actions button{
+  border:0;
+  padding:14px;
+  border-radius:13px;
+  font-weight:900;
+}
+
+.add-money{
+  background:var(--green);
+  color:#000;
+}
+
+.spend-money{
+  background:var(--red);
+  color:#fff;
+}
+
+.secondary{
+  width:100%;
+  background:#202020;
+  color:#fff;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  margin-top:10px;
+}
+
+.debt{
+  background:#3b1717;
+  color:var(--red);
+  border-radius:14px;
+  padding:13px;
+  font-size:12px;
+  font-weight:900;
+  margin-top:14px;
+}
+
+.money-history{
+  border-bottom:1px solid var(--line);
+  padding:14px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.money-history-title{
+  font-weight:800;
+  font-size:13px;
+}
+
+.money-history-desc{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.money-history-date{
+  color:#666;
+  font-size:10px;
+  margin-top:5px;
+}
+
+.money-history-amount{
+  font-weight:950;
+  white-space:nowrap;
+}
+
+/* =========================
+   CHART
+========================= */
+
+.chart-card{
+  padding:12px;
+  overflow:hidden;
+}
+
+#moneyChart{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  background:#090909;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  text-align:center;
+}
+
+.profile-avatar{
+  width:88px;
+  height:88px;
+  border-radius:50%;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  font-weight:950;
+  margin:10px auto 13px;
+}
+
+.profile-name{
+  font-size:24px;
+  font-weight:950;
+}
+
+.profile-sub{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* =========================
+   GAMES
+========================= */
+
+.scoreboard{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  background:#090909;
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  margin-bottom:15px;
+}
+
+.scoreboard small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-bottom:6px;
+}
+
+.scoreboard strong{
+  font-size:19px;
+}
+
+.xo-board{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.xo-cell{
+  aspect-ratio:1;
+  border:1px solid #333;
+  background:#090909;
+  color:#fff;
+  border-radius:17px;
+  font-size:34px;
+  font-weight:950;
+}
+
+.game-status{
+  text-align:center;
+  padding:15px;
+  background:#090909;
+  border-radius:15px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.big-number{
+  text-align:center;
+  font-size:56px;
+  font-weight:950;
+  background:#090909;
+  border-radius:20px;
+  padding:25px;
+  margin:15px 0;
+}
+
+.higher-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.higher-buttons button{
+  padding:16px;
+  border:1px solid #333;
+  border-radius:15px;
+  background:#181818;
+  color:#fff;
+  font-weight:900;
+}
+
+/* =========================
+   NOTES
+========================= */
+
+.note-tools{
+  display:flex;
+  gap:8px;
+}
+
+.note-tools input{
+  flex:1;
+}
+
+.note{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:11px;
+}
+
+.note-content{
+  white-space:pre-wrap;
+  line-height:1.55;
+  font-size:14px;
+}
+
+.note-date{
+  color:#666;
+  font-size:10px;
+  margin-top:10px;
+}
+
+.note-buttons{
+  display:flex;
+  gap:8px;
+  margin-top:13px;
+}
+
+.note-buttons button{
+  flex:1;
+  border:0;
+  padding:10px;
+  border-radius:11px;
+  color:#fff;
+  font-weight:800;
+}
+
+.note-edit{
+  background:#262626;
+}
+
+.note-delete{
+  background:#3b1717;
+  color:var(--red)!important;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+  position:fixed;
+  z-index:500;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(8,8,8,.98);
+  border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+.nav-inner{
+  width:100%;
+  max-width:680px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.nav-button{
+  border:0;
+  background:none;
+  color:#666;
+  padding:12px 5px 10px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.nav-button.active{
+  color:#fff;
+}
+
+.nav-icon{
+  font-size:18px;
+  margin-bottom:3px;
+}
+
+.footer{
+  text-align:center;
+  color:#555;
+  font-size:10px;
+  padding:25px 10px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:380px){
+
+  .header{
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .page{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .brand{
+    font-size:26px;
+  }
+
+  .user-chip{
+    max-width:125px;
+  }
+
+  .dashboard{
+    gap:7px;
+  }
+
+  .dash-card{
+    padding:13px;
+  }
+
+}
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     SPLASH
+========================= -->
 
-<!-- HOME -->
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-logo">S</div>
+    <div class="splash-title">STUDY</div>
+    <div class="splash-sub">Focus. Plan. Complete.</div>
 
-<div id="home" class="page active">
-
-<div class="home-container">
-
-<div class="header">
-
-<div class="logo">
-
-<div class="logo-icon">
-⌬
-</div>
-
-<div class="logo-text">
-
-<h1>STUDY</h1>
-
-<p>ENGINEER YOUR TIME</p>
-
-</div>
-
-</div>
-
+    <div class="splash-made">
+      Made in Tunisia 🇹🇳<br>
+      by Jasser Nouaili
+    </div>
+  </div>
 </div>
 
 
-<div class="hero">
+<!-- =========================
+     USER NAME
+========================= -->
 
-<small>STUDY SYSTEM</small>
+<div id="userSetup" class="hidden">
 
-<h2>Build your day.</h2>
+  <div class="setup-card">
 
-<p>
-Organize your tasks with precision.
-</p>
+    <div class="setup-logo">S</div>
 
-</div>
+    <div class="setup-title">
+      Welcome to STUDY
+    </div>
 
+    <div class="setup-description">
+      Enter your name to personalize your STUDY workspace.
+    </div>
 
-<div class="menu">
+    <label>USER NAME</label>
 
+    <input
+      id="userNameInput"
+      type="text"
+      maxlength="30"
+      placeholder="Your name"
+      autocomplete="off"
+    >
 
-<div class="menu-card" onclick="openPage('enter')">
+    <button
+      class="primary"
+      onclick="startWithName()"
+    >
+      Enter STUDY
+    </button>
 
-<div class="menu-left">
-
-<div class="menu-icon">
-✓
-</div>
-
-<div class="menu-text">
-
-<h3>ENTER</h3>
-
-<p>View and complete your tasks</p>
-
-</div>
-
-</div>
-
-<div class="arrow">
-›
-</div>
+  </div>
 
 </div>
 
 
+<!-- =========================
+     APPLICATION
+========================= -->
 
-<div class="menu-card" onclick="openPage('quick')">
+<div id="app" class="app hidden">
 
-<div class="menu-left">
+  <header class="header">
 
-<div class="menu-icon">
-!
+    <div>
+      <div class="brand">STUDY</div>
+      <div class="brand-sub">Focus. Plan. Complete.</div>
+    </div>
+
+    <div
+      class="user-chip"
+      onclick="showPage('profile')"
+    >
+
+      <div
+        class="avatar"
+        id="topAvatar"
+      >J</div>
+
+      <div
+        class="user-chip-name"
+        id="topUsername"
+      >User</div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HOME
+  ========================= -->
+
+  <section
+    id="home"
+    class="page active"
+  >
+
+    <div class="hero card">
+
+      <div class="hero-symbol">◆</div>
+
+      <h1 id="welcomeText">
+        Welcome 👋
+      </h1>
+
+      <p>
+        Your personal workspace to organize tasks,
+        money, notes and daily progress.
+      </p>
+
+    </div>
+
+
+    <div class="dashboard">
+
+      <div class="dash-card">
+        <small>ACTIVE TASKS</small>
+        <strong id="dashActive">0</strong>
+      </div>
+
+      <div class="dash-card">
+        <small>SUCCESS RATE</small>
+        <strong id="dashSuccess">0%</strong>
+      </div>
+
+      <div class="dash-card">
+        <small>POCKET MONEY</small>
+        <strong
+          id="dashMoney"
+          class="green-text"
+        >0 DT</strong>
+      </div>
+
+      <div class="dash-card">
+        <small>COMPLETED</small>
+        <strong id="dashCompleted">0</strong>
+      </div>
+
+    </div>
+
+
+    <div id="homeNextTask"></div>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('quick')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">✓</span>
+        <span>
+          <b>Quick Check</b><br>
+          <small style="color:#777">
+            Check today's active work
+          </small>
+        </span>
+      </span>
+
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('plan')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">▦</span>
+        <span>
+          <b>Plan</b><br>
+          <small style="color:#777">
+            Organize your tasks
+          </small>
+        </span>
+      </span>
+
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('money')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">◉</span>
+        <span>
+          <b>Pocket Money</b><br>
+          <small style="color:#777">
+            Track your money
+          </small>
+        </span>
+      </span>
+
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('settings')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">⚙</span>
+        <span>
+          <b>Settings</b><br>
+          <small style="color:#777">
+            More STUDY tools
+          </small>
+        </span>
+      </span>
+
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <div class="footer">
+      Made in Tunisia 🇹🇳<br>
+      by Jasser Nouaili
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       QUICK CHECK
+  ========================= -->
+
+  <section
+    id="quick"
+    class="page"
+  >
+
+    <div class="page-title">
+      Quick Check
+    </div>
+
+    <div class="page-sub">
+      Your current active tasks.
+    </div>
+
+    <div id="quickDebt"></div>
+
+    <div id="quickTasks"></div>
+
+  </section>
+
+
+  <!-- =========================
+       PLAN
+  ========================= -->
+
+  <section
+    id="plan"
+    class="page"
+  >
+
+    <div class="page-title">
+      Plan
+    </div>
+
+    <div class="page-sub">
+      Create tasks and keep your work organized.
+    </div>
+
+
+    <div class="card">
+
+      <label>WORK NAME</label>
+
+      <input
+        id="taskName"
+        type="text"
+        maxlength="80"
+        placeholder="Example: Mathematics"
+      >
+
+
+      <label>DESCRIPTION</label>
+
+      <textarea
+        id="taskDescription"
+        maxlength="300"
+        placeholder="What do you need to do?"
+      ></textarea>
+
+
+      <label>DATE & TIME</label>
+
+      <input
+        id="taskDate"
+        type="datetime-local"
+      >
+
+
+      <button
+        class="primary"
+        onclick="addTask()"
+      >
+        + Add Task
+      </button>
+
+    </div>
+
+
+    <div class="section-title">
+      Active Tasks
+    </div>
+
+    <div id="activeTasks"></div>
+
+
+    <div class="section-title">
+      Task Records
+    </div>
+
+    <div class="page-sub">
+      Finished and failed tasks are stored here.
+    </div>
+
+    <div id="taskRecords"></div>
+
+  </section>
+
+
+  <!-- =========================
+       MONEY
+  ========================= -->
+
+  <section
+    id="money"
+    class="page"
+  >
+
+    <div class="page-title">
+      Pocket Money
+    </div>
+
+    <div class="page-sub">
+      Keep a clear record of your money.
+    </div>
+
+
+    <div class="card">
+
+      <small style="color:#777">
+        CURRENT BALANCE
+      </small>
+
+      <div
+        id="moneyBalance"
+        class="money-balance"
+      >
+        0 DT
+      </div>
+
+
+      <div class="money-stats">
+
+        <div class="money-stat">
+          <small>TOTAL ADDED</small>
+          <strong
+            id="moneyAdded"
+            class="green-text"
+          >0 DT</strong>
+        </div>
+
+        <div class="money-stat">
+          <small>TOTAL SPENT</small>
+          <strong
+            id="moneySpent"
+            class="red-text"
+          >0 DT</strong>
+        </div>
+
+      </div>
+
+
+      <div class="progress-track">
+        <div
+          id="moneyProgress"
+          class="progress-bar"
+        ></div>
+      </div>
+
+
+      <div id="debtWarning"></div>
+
+    </div>
+
+
+    <div class="card">
+
+      <label>AMOUNT</label>
+
+      <input
+        id="moneyAmount"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Example: 20"
+      >
+
+
+      <label>DESCRIPTION</label>
+
+      <input
+        id="moneyDescription"
+        type="text"
+        maxlength="100"
+        placeholder="Example: Lunch"
+      >
+
+
+      <div class="money-actions">
+
+        <button
+          class="add-money"
+          onclick="addMoney()"
+        >
+          + Add Money
+        </button>
+
+        <button
+          class="spend-money"
+          onclick="spendMoney()"
+        >
+          − Spend
+        </button>
+
+      </div>
+
+
+      <button
+        class="secondary"
+        onclick="resetMoney()"
+      >
+        Reset Pocket Money
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+      ">
+
+        <div class="section-title" style="
+          margin:0;
+        ">
+          Money History
+        </div>
+
+        <button
+          class="secondary"
+          style="
+            width:auto;
+            margin:0;
+            padding:9px 12px;
+          "
+          onclick="showPage('data')"
+        >
+          Data
+        </button>
+
+      </div>
+
+      <div id="moneyHistory"></div>
+
+      <button
+        id="moreHistoryButton"
+        class="secondary"
+        onclick="showMoreHistory()"
+      >
+        Show More
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DATA
+  ========================= -->
+
+  <section
+    id="data"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('money')"
+    >
+      ← Back
+    </button>
+
+    <div class="page-title">
+      Money Data
+    </div>
+
+    <div class="page-sub">
+      A clear view of your financial progress.
+    </div>
+
+
+    <div class="card chart-card">
+
+      <canvas
+        id="moneyChart"
+        width="900"
+        height="450"
+      ></canvas>
+
+    </div>
+
+
+    <div
+      id="moneyReport"
+      class="card"
+    ></div>
+
+  </section>
+
+
+  <!-- =========================
+       SETTINGS
+  ========================= -->
+
+  <section
+    id="settings"
+    class="page"
+  >
+
+    <div class="page-title">
+      Settings
+    </div>
+
+    <div class="page-sub">
+      Your STUDY tools.
+    </div>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('profile')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">👤</span>
+        <b>Profile</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('play')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">🎮</span>
+        <b>Play</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('notes')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">📝</span>
+        <b>Private Notes</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('employees')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">👥</span>
+        <b>Employees</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       PROFILE
+  ========================= -->
+
+  <section
+    id="profile"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
+    >
+      ← Back
+    </button>
+
+
+    <div class="card profile">
+
+      <div
+        id="profileAvatar"
+        class="profile-avatar"
+      >
+        J
+      </div>
+
+      <div
+        id="profileName"
+        class="profile-name"
+      >
+        User
+      </div>
+
+      <div class="profile-sub">
+        STUDY User
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <label>USER NAME</label>
+
+      <input
+        id="newUsername"
+        maxlength="30"
+        placeholder="Change your name"
+      >
+
+      <button
+        class="primary"
+        onclick="changeUsername()"
+      >
+        Save Name
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <b>Workspace</b>
+
+      <div class="page-sub" style="margin:8px 0 0">
+        Your STUDY information is stored locally
+        in this browser.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       EMPLOYEES
+  ========================= -->
+
+  <section
+    id="employees"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
+    >
+      ← Back
+    </button>
+
+    <div class="page-title">
+      Employees
+    </div>
+
+    <div class="page-sub">
+      Management tools.
+    </div>
+
+
+    <div class="card" style="text-align:center;padding:45px 20px">
+
+      <div style="font-size:45px">
+        👥
+      </div>
+
+      <h2>
+        Coming Soon
+      </h2>
+
+      <div class="page-sub">
+        Employee management will be added
+        without changing your current STUDY data.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PLAY
+  ========================= -->
+
+  <section
+    id="play"
+    class="page"
+  >
+
+    <div class="page-title">
+      Play
+    </div>
+
+    <div class="page-sub">
+      Simple games when you need a break.
+    </div>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('xo')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">⭕</span>
+        <b>X / O</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('higher')"
+    >
+      <span class="menu-button-left">
+        <span class="menu-icon">🔢</span>
+        <b>Higher or Lower</b>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       XO
+  ========================= -->
+
+  <section
+    id="xo"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('play')"
+    >
+      ← Back
+    </button>
+
+    <div class="page-title">
+      X / O
+    </div>
+
+
+    <div class="scoreboard">
+
+      <div>
+        <small>PLAYER X</small>
+        <strong id="xoXScore">0</strong>
+      </div>
+
+      <div>
+        <small>DRAWS</small>
+        <strong id="xoDrawScore">0</strong>
+      </div>
+
+      <div>
+        <small>PLAYER O</small>
+        <strong id="xoOScore">0</strong>
+      </div>
+
+    </div>
+
+
+    <div
+      id="xoStatus"
+      class="game-status"
+    >
+      PLAYER X TURN
+    </div>
+
+
+    <div
+      id="xoBoard"
+      class="xo-board"
+    ></div>
+
+
+    <button
+      class="secondary"
+      onclick="resetXO()"
+    >
+      New Round
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       HIGHER
+  ========================= -->
+
+  <section
+    id="higher"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('play')"
+    >
+      ← Back
+    </button>
+
+    <div class="page-title">
+      Higher or Lower
+    </div>
+
+    <div class="page-sub">
+      Guess whether the next number is higher or lower.
+    </div>
+
+
+    <div class="scoreboard">
+
+      <div>
+        <small>PLAYER 1</small>
+        <strong id="higherScore1">0</strong>
+      </div>
+
+      <div>
+        <small>ROUND</small>
+        <strong id="higherRound">1</strong>
+      </div>
+
+      <div>
+        <small>PLAYER 2</small>
+        <strong id="higherScore2">0</strong>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div
+        id="higherStatus"
+        class="game-status"
+      >
+        PLAYER 1 TURN
+      </div>
+
+      <div
+        id="higherNumber"
+        class="big-number"
+      >
+        50
+      </div>
+
+      <div class="higher-buttons">
+
+        <button
+          onclick="higherGuess('higher')"
+        >
+          ↑ HIGHER
+        </button>
+
+        <button
+          onclick="higherGuess('lower')"
+        >
+          ↓ LOWER
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="secondary"
+      onclick="resetHigher()"
+    >
+      Reset Game
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       NOTES
+  ========================= -->
+
+  <section
+    id="notes"
+    class="page"
+  >
+
+    <div class="page-title">
+      Private Notes
+    </div>
+
+    <div class="page-sub">
+      Personal notes stored in your STUDY workspace.
+    </div>
+
+
+    <div class="card">
+
+      <textarea
+        id="noteInput"
+        maxlength="2000"
+        placeholder="Write a note..."
+      ></textarea>
+
+      <button
+        class="primary"
+        onclick="saveNote()"
+      >
+        Save Note
+      </button>
+
+    </div>
+
+
+    <div class="card">
+
+      <input
+        id="noteSearch"
+        type="text"
+        placeholder="🔍 Search notes..."
+        oninput="renderNotes()"
+      >
+
+    </div>
+
+
+    <div id="notesList"></div>
+
+  </section>
+
 </div>
 
-<div class="menu-text">
 
-<h3>QUICK CHECK</h3>
-
-<p>See urgent tasks instantly</p>
-
-</div>
-
-</div>
-
-<div class="arrow">
-›
-</div>
-
-</div>
-
-
-
-<div class="menu-card" onclick="openPage('plan')">
-
-<div class="menu-left">
-
-<div class="menu-icon">
-⌗
-</div>
-
-<div class="menu-text">
-
-<h3>PLAN</h3>
-
-<p>Create and organize your schedule</p>
-
-</div>
-
-</div>
-
-<div class="arrow">
-›
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ENTER -->
-
-<div id="enter" class="page">
-
-<div class="plan-container">
-
-<button class="back-btn" onclick="openPage('home')">
-← BACK
-</button>
-
-<div class="page-title">
-
-<h2>ENTER</h2>
-
-<p>Your current study schedule</p>
-
-</div>
-
-<div id="enterTasks"></div>
-
-</div>
-
-</div>
-
-
-
-<!-- QUICK CHECK -->
-
-<div id="quick" class="page">
-
-<div class="plan-container">
-
-<button class="back-btn" onclick="openPage('home')">
-← BACK
-</button>
-
-<div class="page-title">
-
-<h2>QUICK CHECK</h2>
-
-<p>Only urgent tasks</p>
-
-</div>
-
-<div id="quickTasks"></div>
-
-</div>
-
-</div>
-
-
-
-<!-- PLAN -->
-
-<div id="plan" class="page">
-
-<div class="plan-container">
-
-<button class="back-btn" onclick="openPage('home')">
-← BACK
-</button>
-
-
-<div class="page-title">
-
-<h2>PLAN</h2>
-
-<p>Design your time with precision</p>
-
-</div>
-
-
-<div class="form-card">
-
-<h3>NEW TASK</h3>
-
-
-<label>
-TASK NAME
-</label>
-
-<input
-id="taskName"
-placeholder="Example: Mathematics study">
-
-
-<label>
-START DATE & TIME
-</label>
-
-<input
-id="taskStart"
-type="datetime-local">
-
-
-<label>
-TASK DURATION
-</label>
-
-
-<div class="duration-grid">
-
-<div>
-
-<input
-id="days"
-type="number"
-min="0"
-value="0">
-
-<label>
-DAYS
-</label>
-
-</div>
-
-
-<div>
-
-<input
-id="hours"
-type="number"
-min="0"
-value="1">
-
-<label>
-HOURS
-</label>
-
-</div>
-
-
-<div>
-
-<input
-id="minutes"
-type="number"
-min="0"
-value="0">
-
-<label>
-MINUTES
-</label>
-
-</div>
-
-</div>
-
-
-<button
-class="primary-btn"
-onclick="addTask()">
-
-ADD TO PLAN
-
-</button>
-
-</div>
-
-
-
-<div class="task-section-title">
-
-<h3>YOUR PLAN</h3>
+<!-- =========================
+     BOTTOM NAV
+========================= -->
 
 <div
-class="task-count"
-id="planCount">
+  id="bottomNav"
+  class="bottom-nav hidden"
+>
 
-0 TASKS
+  <div class="nav-inner">
+
+    <button
+      id="nav-home"
+      class="nav-button active"
+      onclick="showPage('home')"
+    >
+      <div class="nav-icon">⌂</div>
+      Home
+    </button>
+
+    <button
+      id="nav-quick"
+      class="nav-button"
+      onclick="showPage('quick')"
+    >
+      <div class="nav-icon">✓</div>
+      Quick
+    </button>
+
+    <button
+      id="nav-plan"
+      class="nav-button"
+      onclick="showPage('plan')"
+    >
+      <div class="nav-icon">▦</div>
+      Plan
+    </button>
+
+    <button
+      id="nav-money"
+      class="nav-button"
+      onclick="showPage('money')"
+    >
+      <div class="nav-icon">◉</div>
+      Money
+    </button>
+
+  </div>
 
 </div>
-
-</div>
-
-
-<div id="planTasks"></div>
-
-
-</div>
-
-</div>
-
 
 
 <script>
 
-
 /* =========================================================
-   SOUNDS
-   ========================================================= */
-
-let audioContext = null;
-
-
-/* Create/reuse the audio context */
-
-function getAudioContext() {
-
-try {
-
-if (!audioContext) {
-
-const AudioContext =
-window.AudioContext ||
-window.webkitAudioContext;
-
-if (!AudioContext)
-return null;
-
-audioContext =
-new AudioContext();
-
-}
-
-if (
-audioContext.state === "suspended"
-) {
-
-audioContext.resume();
-
-}
-
-return audioContext;
-
-}
-
-catch(e) {
-
-return null;
-
-}
-
-}
-
-
-/* Soft iPhone-like click */
-
-function playClick() {
-
-try {
-
-const context =
-getAudioContext();
-
-if (!context)
-return;
-
-
-/* Main soft click */
-
-const oscillator =
-context.createOscillator();
-
-const gain =
-context.createGain();
-
-oscillator.type = "sine";
-
-oscillator.frequency.setValueAtTime(
-720,
-context.currentTime
-);
-
-oscillator.frequency.exponentialRampToValueAtTime(
-520,
-context.currentTime + 0.045
-);
-
-oscillator.connect(gain);
-
-gain.connect(
-context.destination
-);
-
-
-/* Very low volume */
-
-gain.gain.setValueAtTime(
-0.0001,
-context.currentTime
-);
-
-gain.gain.exponentialRampToValueAtTime(
-0.018,
-context.currentTime + 0.006
-);
-
-gain.gain.exponentialRampToValueAtTime(
-0.0001,
-context.currentTime + 0.055
-);
-
-oscillator.start(
-context.currentTime
-);
-
-oscillator.stop(
-context.currentTime + 0.055
-);
-
-
-/* Tiny second tone for a delicate tactile feel */
-
-const oscillator2 =
-context.createOscillator();
-
-const gain2 =
-context.createGain();
-
-oscillator2.type = "sine";
-
-oscillator2.frequency.setValueAtTime(
-1050,
-context.currentTime
-);
-
-oscillator2.frequency.exponentialRampToValueAtTime(
-780,
-context.currentTime + 0.035
-);
-
-oscillator2.connect(gain2);
-
-gain2.connect(
-context.destination
-);
-
-gain2.gain.setValueAtTime(
-0.0001,
-context.currentTime
-);
-
-gain2.gain.exponentialRampToValueAtTime(
-0.006,
-context.currentTime + 0.004
-);
-
-gain2.gain.exponentialRampToValueAtTime(
-0.0001,
-context.currentTime + 0.04
-);
-
-oscillator2.start(
-context.currentTime
-);
-
-oscillator2.stop(
-context.currentTime + 0.04
-);
-
-}
-
-catch(e) {}
-
-}
-
-
-/* =========================================================
-   TASK STORAGE
-   ========================================================= */
-
-let tasks =
-JSON.parse(
-localStorage.getItem("studyTasks")
-) || [];
-
-
-/* =========================================================
-   PAGE
-   ========================================================= */
-
-function openPage(page) {
-
-playClick();
-
-document
-.querySelectorAll(".page")
-.forEach(p => {
-
-p.classList.remove("active");
-
-});
-
-document
-.getElementById(page)
-.classList.add("active");
-
-renderAll();
-
-}
-
-
-/* =========================================================
-   ADD TASK
-   ========================================================= */
-
-function addTask() {
-
-playClick();
-
-let name =
-document
-.getElementById("taskName")
-.value
-.trim();
-
-
-let startValue =
-document
-.getElementById("taskStart")
-.value;
-
-
-let days =
-Number(
-document
-.getElementById("days")
-.value
-);
-
-
-let hours =
-Number(
-document
-.getElementById("hours")
-.value
-);
-
-
-let minutes =
-Number(
-document
-.getElementById("minutes")
-.value
-);
-
-
-if(
-!name ||
-!startValue
-) {
-
-alert(
-"Please enter the task and start time."
-);
-
-return;
-
-}
-
-
-let duration =
-
-(days * 86400000) +
-
-(hours * 3600000) +
-
-(minutes * 60000);
-
-
-if(duration <= 0) {
-
-alert(
-"Please select a duration."
-);
-
-return;
-
-}
-
-
-let start =
-new Date(
-startValue
-).getTime();
-
-
-tasks.push({
-
-id: Date.now(),
-
-name: name,
-
-start: start,
-
-duration: duration,
-
-done: false
-
-});
-
-
-saveTasks();
-
-
-document
-.getElementById("taskName")
-.value = "";
-
-
-renderAll();
-
-}
-
-
-/* =========================================================
-   SAVE
-   ========================================================= */
-
-function saveTasks() {
-
-localStorage.setItem(
-"studyTasks",
-JSON.stringify(tasks)
-);
-
-}
-
-
-/* =========================================================
-   STATUS
-   ========================================================= */
-
-function getTaskData(task) {
-
-let now = Date.now();
-
-let end =
-task.start +
-task.duration;
-
-
-let total =
-task.duration;
-
-
-let remaining =
-end - now;
-
-
-let elapsed =
-now - task.start;
-
-
-let percent =
-(elapsed / total) * 100;
-
-
-if(task.done) {
-
-return {
-
-status: "done",
-
-label: "COMPLETED",
-
-remaining: 0,
-
-percent: 100
-
+   STUDY FINAL
+   No accounts / no passwords.
+   User name is only a local profile name.
+========================================================= */
+
+
+/* =========================
+   STORAGE KEYS
+========================= */
+
+const STORAGE={
+  username:"study_username",
+  tasks:"study_tasks",
+  money:"study_money",
+  notes:"study_notes",
+  quickHidden:"study_quick_hidden",
+  xo:"study_xo",
+  higher:"study_higher"
 };
 
-}
 
+/* =========================
+   STATE
+========================= */
 
-if(now < task.start) {
+let username="";
 
-return {
+let tasks=[];
+let quickHidden=[];
 
-status: "green",
-
-label: "NOT STARTED",
-
-remaining:
-end - now,
-
-percent: 0
-
+let money={
+  added:0,
+  spent:0,
+  history:[]
 };
 
-}
+let notes=[];
+
+let moneyHistoryLimit=5;
 
 
-if(remaining <= 0) {
+/* =========================
+   GAMES
+========================= */
 
-return {
+let xoBoard=[
+  "","","",
+  "","","",
+  "","",""
+];
 
-status: "red",
+let xoTurn="X";
+let xoXScore=0;
+let xoOScore=0;
+let xoDrawScore=0;
 
-label: "TIME ENDED",
-
-remaining: 0,
-
-percent: 100
-
-};
-
-}
-
-
-/*
-GREEN:
-First half
-
-YELLOW:
-Second half
-
-RED:
-Last 20%
-*/
+let higherNumber=50;
+let higherPlayer=1;
+let higherScoreOne=0;
+let higherScoreTwo=0;
+let higherRoundNumber=1;
 
 
-if(percent >= 80) {
+/* =========================
+   SAFE JSON
+========================= */
 
-return {
+function loadJSON(key,fallback){
 
-status: "red",
+  try{
 
-label: "URGENT",
+    const value=localStorage.getItem(key);
 
-remaining,
+    if(!value){
+      return fallback;
+    }
 
-percent
+    return JSON.parse(value);
 
-};
+  }catch(error){
 
-}
+    return fallback;
 
-
-if(percent >= 50) {
-
-return {
-
-status: "yellow",
-
-label: "WARNING",
-
-remaining,
-
-percent
-
-};
+  }
 
 }
 
 
-return {
+function saveJSON(key,value){
 
-status: "green",
-
-label: "ON TRACK",
-
-remaining,
-
-percent
-
-};
+  localStorage.setItem(
+    key,
+    JSON.stringify(value)
+  );
 
 }
 
 
-/* =========================================================
-   FORMAT TIME
-   ========================================================= */
+/* =========================
+   ESCAPE HTML
+========================= */
 
-function formatTime(ms) {
+function escapeHTML(value){
 
-if(ms < 0) ms = 0;
+  const div=document.createElement("div");
+
+  div.textContent=String(value ?? "");
+
+  return div.innerHTML;
+
+}
 
 
-let days =
-Math.floor(
-ms / 86400000
+/* =========================
+   SOUND
+========================= */
+
+let audioContext=null;
+
+function clickSound(){
+
+  try{
+
+    if(!audioContext){
+
+      audioContext=
+        new(
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+    }
+
+    if(audioContext.state==="suspended"){
+      audioContext.resume();
+    }
+
+    const oscillator=
+      audioContext.createOscillator();
+
+    const gain=
+      audioContext.createGain();
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.frequency.value=650;
+
+    gain.gain.setValueAtTime(
+      .025,
+      audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      audioContext.currentTime+.05
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+      audioContext.currentTime+.05
+    );
+
+  }catch(error){}
+
+}
+
+
+/* =========================
+   INITIALIZATION
+========================= */
+
+window.addEventListener(
+  "DOMContentLoaded",
+  initialize
 );
 
 
-let hours =
-Math.floor(
-(ms % 86400000) /
-3600000
-);
+function initialize(){
 
+  setTimeout(()=>{
 
-let minutes =
-Math.floor(
-(ms % 3600000) /
-60000
-);
+    document.getElementById("splash")
+      .style.display="none";
 
+    loadApplication();
 
-let seconds =
-Math.floor(
-(ms % 60000) /
-1000
-);
-
-
-let result = "";
-
-
-if(days > 0)
-result += days + "d ";
-
-
-if(hours > 0 || days > 0)
-result += hours + "h ";
-
-
-result +=
-minutes + "m " +
-seconds + "s";
-
-
-return result;
+  },1100);
 
 }
 
 
-/* =========================================================
-   FORMAT DATE
-   ========================================================= */
+function loadApplication(){
 
-function formatDate(time) {
+  username=
+    localStorage.getItem(
+      STORAGE.username
+    ) || "";
 
-let date =
-new Date(time);
+  if(!username){
 
-return date.toLocaleString(
-"en-GB",
-{
-day: "2-digit",
-month: "short",
-hour: "2-digit",
-minute: "2-digit"
-}
-);
+    document.getElementById("userSetup")
+      .classList.remove("hidden");
 
-}
+    document.getElementById("app")
+      .classList.add("hidden");
 
+    return;
 
-/* =========================================================
-   COMPLETE
-   ========================================================= */
+  }
 
-function completeTask(id) {
-
-playClick();
-
-tasks =
-tasks.map(task => {
-
-if(task.id === id) {
-
-task.done = true;
-
-}
-
-return task;
-
-});
-
-
-saveTasks();
-
-renderAll();
+  openApplication();
 
 }
 
 
-/* =========================================================
-   DELETE
-   ========================================================= */
+/* =========================
+   USER SETUP
+========================= */
 
-function deleteTask(id) {
+function startWithName(){
 
-playClick();
+  const input=
+    document.getElementById("userNameInput");
 
-tasks =
-tasks.filter(
-task =>
-task.id !== id
-);
+  const value=
+    input.value.trim();
 
+  if(value.length<1){
 
-saveTasks();
+    alert("Please enter your name.");
 
-renderAll();
+    input.focus();
+
+    return;
+
+  }
+
+  username=value.slice(0,30);
+
+  localStorage.setItem(
+    STORAGE.username,
+    username
+  );
+
+  document.getElementById("userSetup")
+    .classList.add("hidden");
+
+  openApplication();
+
+  clickSound();
 
 }
 
 
-/* =========================================================
+/* =========================
+   OPEN APP
+========================= */
+
+function openApplication(){
+
+  loadAllData();
+
+  document.getElementById("app")
+    .classList.remove("hidden");
+
+  document.getElementById("bottomNav")
+    .classList.remove("hidden");
+
+  updateUserUI();
+
+  showPage("home");
+
+}
+
+
+/* =========================
+   LOAD DATA
+========================= */
+
+function loadAllData(){
+
+  tasks=
+    loadJSON(
+      STORAGE.tasks,
+      []
+    );
+
+  quickHidden=
+    loadJSON(
+      STORAGE.quickHidden,
+      []
+    );
+
+  money=
+    loadJSON(
+      STORAGE.money,
+      {
+        added:0,
+        spent:0,
+        history:[]
+      }
+    );
+
+  notes=
+    loadJSON(
+      STORAGE.notes,
+      []
+    );
+
+  const xoData=
+    loadJSON(
+      STORAGE.xo,
+      null
+    );
+
+  if(xoData){
+
+    xoBoard=xoData.board || xoBoard;
+    xoTurn=xoData.turn || "X";
+    xoXScore=Number(xoData.x)||0;
+    xoOScore=Number(xoData.o)||0;
+    xoDrawScore=Number(xoData.d)||0;
+
+  }
+
+  const higherData=
+    loadJSON(
+      STORAGE.higher,
+      null
+    );
+
+  if(higherData){
+
+    higherNumber=
+      Number(higherData.number)||50;
+
+    higherPlayer=
+      Number(higherData.player)||1;
+
+    higherScoreOne=
+      Number(higherData.p1)||0;
+
+    higherScoreTwo=
+      Number(higherData.p2)||0;
+
+    higherRoundNumber=
+      Number(higherData.round)||1;
+
+  }
+
+}
+
+
+/* =========================
+   USER UI
+========================= */
+
+function updateUserUI(){
+
+  if(!username)return;
+
+  const initial=
+    username.charAt(0).toUpperCase();
+
+  document.getElementById("topUsername")
+    .textContent=username;
+
+  document.getElementById("topAvatar")
+    .textContent=initial;
+
+  document.getElementById("profileName")
+    .textContent=username;
+
+  document.getElementById("profileAvatar")
+    .textContent=initial;
+
+  document.getElementById("welcomeText")
+    .textContent=
+      "Welcome, "+username+" 👋";
+
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(pageId){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+      page.classList.remove("active");
+    });
+
+  const page=
+    document.getElementById(pageId);
+
+  if(!page)return;
+
+  page.classList.add("active");
+
+
+  document
+    .querySelectorAll(".nav-button")
+    .forEach(button=>{
+      button.classList.remove("active");
+    });
+
+
+  const nav=
+    document.getElementById(
+      "nav-"+pageId
+    );
+
+  if(nav){
+    nav.classList.add("active");
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"auto"
+  });
+
+
+  renderDashboard();
+  renderTasks();
+  renderMoney();
+
+  if(pageId==="data"){
+    drawMoneyChart();
+  }
+
+  if(pageId==="xo"){
+    renderXO();
+  }
+
+  if(pageId==="higher"){
+    renderHigher();
+  }
+
+  if(pageId==="notes"){
+    renderNotes();
+  }
+
+}
+
+
+/* =========================
+   TASK ADD
+========================= */
+
+function addTask(){
+
+  const name=
+    document.getElementById("taskName")
+      .value.trim();
+
+  const description=
+    document.getElementById("taskDescription")
+      .value.trim();
+
+  const date=
+    document.getElementById("taskDate")
+      .value;
+
+  if(!name){
+
+    alert("Enter a task name.");
+
+    return;
+
+  }
+
+  if(!date){
+
+    alert("Choose a date.");
+
+    return;
+
+  }
+
+
+  const task={
+
+    id:Date.now()+Math.random(),
+
+    name:name,
+
+    description:description,
+
+    date:date,
+
+    status:"active",
+
+    createdAt:Date.now(),
+
+    completedAt:null
+
+  };
+
+
+  tasks.push(task);
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  document.getElementById("taskName")
+    .value="";
+
+  document.getElementById("taskDescription")
+    .value="";
+
+  document.getElementById("taskDate")
+    .value="";
+
+
+  renderTasks();
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+function countdownInfo(date){
+
+  const difference=
+    new Date(date).getTime()
+    -
+    Date.now();
+
+
+  if(difference<=0){
+
+    return{
+      text:"OVERDUE",
+      color:"red"
+    };
+
+  }
+
+
+  const seconds=
+    Math.floor(
+      difference/1000
+    );
+
+  const days=
+    Math.floor(
+      seconds/86400
+    );
+
+  const hours=
+    Math.floor(
+      (seconds%86400)/3600
+    );
+
+  const minutes=
+    Math.floor(
+      (seconds%3600)/60
+    );
+
+  const secs=
+    seconds%60;
+
+
+  let text="";
+
+  if(days>0){
+    text+=days+"d ";
+  }
+
+  text+=
+    String(hours).padStart(2,"0")+"h "
+    +
+    String(minutes).padStart(2,"0")+"m "
+    +
+    String(secs).padStart(2,"0")+"s";
+
+
+  let color="green";
+
+  if(difference<=3600000){
+
+    color="red";
+
+  }else if(difference<=86400000){
+
+    color="orange";
+
+  }else if(difference<=172800000){
+
+    color="yellow";
+
+  }
+
+
+  return{
+    text:text,
+    color:color
+  };
+
+}
+
+
+/* =========================
    TASK CARD
-   ========================================================= */
+========================= */
 
-function createTaskCard(
-task,
-mode
-) {
+function activeTaskHTML(task,showHideButton){
 
-let data =
-getTaskData(task);
+  const info=
+    countdownInfo(task.date);
+
+  return `
+
+    <div
+      class="task"
+      data-task-id="${task.id}"
+    >
+
+      ${
+        showHideButton
+        ?
+        `
+        <button
+          class="hide-button"
+          title="Hide from Quick Check"
+          onclick="hideQuickTask('${task.id}')"
+        >
+          ×
+        </button>
+        `
+        :
+        ""
+      }
 
 
-let progress =
-Math.min(
-Math.max(
-data.percent,
-0
-),
-100
-);
+      <div class="task-top">
+
+        <div class="task-name">
+          ${escapeHTML(task.name)}
+        </div>
+
+        <div
+          class="status status-${info.color}"
+          data-task-status="${task.id}"
+        >
+          ACTIVE
+        </div>
+
+      </div>
 
 
-let button = "";
+      ${
+        task.description
+        ?
+        `
+        <div class="task-description">
+          ${escapeHTML(task.description)}
+        </div>
+        `
+        :
+        ""
+      }
 
 
-if(
-mode === "enter" &&
-!task.done
-) {
+      <div class="task-date">
+        📅 ${escapeHTML(
+          new Date(task.date).toLocaleString()
+        )}
+      </div>
 
-button =
 
-`
-<button
-class="complete-btn"
-onclick="completeTask(${task.id})">
+      <div
+        class="countdown ${info.color}"
+        data-countdown="${task.id}"
+      >
+        ⏳ ${info.text}
+      </div>
 
-COMPLETE TASK ✓
 
-</button>
-`;
+      <div class="task-actions">
+
+        <button
+          class="done-button"
+          onclick="finishTask('${task.id}','done')"
+        >
+          ✓ Done
+        </button>
+
+        <button
+          class="failed-button"
+          onclick="finishTask('${task.id}','failed')"
+        >
+          ✕ Failed
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
-let deleteButton = "";
+/* =========================
+   RECORD CARD
+========================= */
+
+function recordTaskHTML(task){
+
+  const completed=
+    task.status==="done";
+
+  return `
+
+    <div
+      class="task ${
+        completed
+        ?
+        "record-completed"
+        :
+        "record-failed"
+      }"
+    >
+
+      <button
+        class="hide-button"
+        onclick="deleteRecord('${task.id}')"
+        title="Delete record"
+      >
+        ×
+      </button>
 
 
-if(
-mode === "plan"
-) {
+      <div class="task-top">
 
-deleteButton =
+        <div class="task-name">
+          ${escapeHTML(task.name)}
+        </div>
 
-`
-<button
-class="delete-btn"
-onclick="deleteTask(${task.id})">
+        <div class="
+          status
+          ${
+            completed
+            ?
+            "status-green"
+            :
+            "status-red"
+          }
+        ">
+          ${
+            completed
+            ?
+            "COMPLETED"
+            :
+            "FAILED"
+          }
+        </div>
 
-REMOVE
-
-</button>
-`;
-
-}
-
-
-return `
-
-<div
-class="task-card ${data.status}">
-
-<div class="task-top">
-
-<div>
-
-<div class="task-name">
-
-${task.name}
-
-</div>
-
-</div>
+      </div>
 
 
-<div
-class="status-badge">
-
-${data.label}
-
-</div>
-
-</div>
-
-
-<div class="task-info">
-
-<div>
-
-START
-
-<br>
-
-<b>
-
-${formatDate(task.start)}
-
-</b>
-
-</div>
+      ${
+        task.description
+        ?
+        `
+        <div class="task-description">
+          ${escapeHTML(task.description)}
+        </div>
+        `
+        :
+        ""
+      }
 
 
-<div>
-
-DURATION
-
-<br>
-
-<b>
-
-${formatTime(task.duration)}
-
-</b>
-
-</div>
-
-</div>
+      <div class="task-date">
+        Original date:
+        ${escapeHTML(
+          new Date(task.date).toLocaleString()
+        )}
+      </div>
 
 
-<div class="timer">
+      <div class="task-date">
+        Recorded:
+        ${task.completedAt
+          ?
+          escapeHTML(
+            new Date(
+              task.completedAt
+            ).toLocaleString()
+          )
+          :
+          "-"
+        }
+      </div>
 
-${task.done
-?
-"✓ TASK COMPLETED"
-:
-"TIME LEFT: " +
-formatTime(
-data.remaining
-)
-}
+    </div>
 
-</div>
-
-
-<div class="progress">
-
-<div
-class="progress-bar ${data.status}"
-style="
-width:${progress}%
-">
-
-</div>
-
-</div>
-
-
-${button}
-
-${deleteButton}
-
-
-</div>
-
-`;
+  `;
 
 }
 
 
-/* =========================================================
-   RENDER PLAN
-   ========================================================= */
+/* =========================
+   RENDER TASKS
+========================= */
 
-function renderPlan() {
+function renderTasks(){
 
-let container =
-document
-.getElementById("planTasks");
+  const activeBox=
+    document.getElementById(
+      "activeTasks"
+    );
 
+  const recordsBox=
+    document.getElementById(
+      "taskRecords"
+    );
 
-let count =
-document
-.getElementById("planCount");
-
-
-if(!container)
-return;
-
-
-let sorted =
-[...tasks]
-.sort(
-(a,b) =>
-a.start - b.start
-);
+  const quickBox=
+    document.getElementById(
+      "quickTasks"
+    );
 
 
-count.innerText =
-tasks.length +
-(tasks.length === 1
-? " TASK"
-: " TASKS");
+  if(!activeBox||
+     !recordsBox||
+     !quickBox)return;
 
 
-if(tasks.length === 0) {
+  const active=
+    tasks
+      .filter(task=>
+        task.status==="active"
+      )
+      .sort(
+        (a,b)=>
+          new Date(a.date)
+          -
+          new Date(b.date)
+      );
 
-container.innerHTML =
 
-`
-<div class="empty">
+  const records=
+    tasks
+      .filter(task=>
+        task.status==="done"||
+        task.status==="failed"
+      )
+      .slice()
+      .reverse();
 
-No tasks yet.
 
-<br><br>
+  /* ACTIVE PLAN */
 
-Create your first task above.
+  if(!active.length){
 
-</div>
-`;
+    activeBox.innerHTML=
+      `<div class="empty">
+        No active tasks.
+      </div>`;
 
-return;
+  }else{
+
+    activeBox.innerHTML=
+      active
+        .map(task=>
+          activeTaskHTML(
+            task,
+            false
+          )
+        )
+        .join("");
+
+  }
+
+
+  /* RECORDS */
+
+  if(!records.length){
+
+    recordsBox.innerHTML=
+      `<div class="empty">
+        No task records yet.
+      </div>`;
+
+  }else{
+
+    recordsBox.innerHTML=
+      records
+        .map(task=>
+          recordTaskHTML(task)
+        )
+        .join("");
+
+  }
+
+
+  /* QUICK CHECK */
+
+  const quickTasks=
+    active.filter(task=>
+      !quickHidden.includes(
+        String(task.id)
+      )
+    );
+
+
+  if(!quickTasks.length){
+
+    if(active.length){
+
+      quickBox.innerHTML=
+        `<div class="empty">
+          All active tasks are hidden from Quick Check.
+        </div>`;
+
+    }else{
+
+      quickBox.innerHTML=
+        `<div class="empty">
+          ✓ No active tasks.
+        </div>`;
+
+    }
+
+  }else{
+
+    quickBox.innerHTML=
+      quickTasks
+        .map(task=>
+          activeTaskHTML(
+            task,
+            true
+          )
+        )
+        .join("");
+
+  }
 
 }
 
 
-container.innerHTML =
-sorted
-.map(task =>
-createTaskCard(
-task,
-"plan"
-)
-)
-.join("");
+/* =========================
+   HIDE QUICK TASK
+========================= */
+
+function hideQuickTask(id){
+
+  const stringId=String(id);
+
+  if(!quickHidden.includes(stringId)){
+
+    quickHidden.push(stringId);
+
+  }
+
+  saveJSON(
+    STORAGE.quickHidden,
+    quickHidden
+  );
+
+
+  renderTasks();
+
+  clickSound();
 
 }
 
 
-/* =========================================================
-   RENDER ENTER
-   ========================================================= */
+/* =========================
+   FINISH TASK
+========================= */
 
-function renderEnter() {
+function finishTask(id,status){
 
-let container =
-document
-.getElementById("enterTasks");
+  const task=
+    tasks.find(
+      item=>String(item.id)===String(id)
+    );
 
+  if(!task)return;
 
-if(!container)
-return;
-
-
-let sorted =
-[...tasks]
-.sort(
-(a,b) => {
-
-let aData =
-getTaskData(a);
-
-let bData =
-getTaskData(b);
-
-return
-aData.remaining -
-bData.remaining;
-
-}
-);
+  if(task.status!=="active")return;
 
 
-if(tasks.length === 0) {
+  task.status=status;
 
-container.innerHTML =
+  task.completedAt=Date.now();
 
-`
-<div class="empty">
 
-Your schedule is empty.
+  quickHidden=
+    quickHidden.filter(
+      hiddenId=>
+        String(hiddenId)!==String(id)
+    );
 
-</div>
-`;
 
-return;
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+  saveJSON(
+    STORAGE.quickHidden,
+    quickHidden
+  );
+
+
+  renderTasks();
+  renderDashboard();
+
+  clickSound();
 
 }
 
 
-container.innerHTML =
-sorted
-.map(task =>
-createTaskCard(
-task,
-"enter"
-)
-)
-.join("");
+/* =========================
+   DELETE RECORD
+========================= */
+
+function deleteRecord(id){
+
+  if(!confirm(
+    "Delete this task record?"
+  ))return;
+
+
+  tasks=
+    tasks.filter(
+      task=>
+        String(task.id)!==String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  renderTasks();
+  renderDashboard();
+
+  clickSound();
 
 }
 
 
-/* =========================================================
-   RENDER QUICK
-   ========================================================= */
+/* =========================
+   COUNTDOWN ONLY
+   IMPORTANT:
+   This does NOT rebuild task cards.
+========================= */
 
-function renderQuick() {
+function updateCountdowns(){
 
-let container =
-document
-.getElementById("quickTasks");
+  document
+    .querySelectorAll(
+      "[data-countdown]"
+    )
+    .forEach(element=>{
 
+      const id=
+        element.dataset.countdown;
 
-if(!container)
-return;
-
-
-let urgent =
-tasks.filter(task => {
-
-let data =
-getTaskData(task);
-
-return
-data.status === "red" &&
-!task.done;
-
-});
+      const task=
+        tasks.find(
+          item=>
+            String(item.id)===String(id)
+        );
 
 
-if(urgent.length === 0) {
+      if(!task||
+         task.status!=="active"){
 
-container.innerHTML =
+        return;
 
-`
-<div class="empty">
-
-✓ NO URGENT TASKS
-
-<br><br>
-
-Everything is under control.
-
-</div>
-`;
-
-return;
-
-}
+      }
 
 
-container.innerHTML =
-urgent
-.map(task => {
-
-let data =
-getTaskData(task);
-
-return `
-
-<div class="quick-card">
-
-<div
-class="task-name">
-
-${task.name}
-
-</div>
+      const info=
+        countdownInfo(task.date);
 
 
-<div class="quick-timer">
+      element.textContent=
+        "⏳ "+info.text;
 
-${formatTime(
-data.remaining
-)}
 
-</div>
+      element.className=
+        "countdown "+info.color;
 
-</div>
 
-`;
+      const status=
+        document.querySelector(
+          `[data-task-status="${CSS.escape(String(id))}"]`
+        );
 
-})
-.join("");
+
+      if(status){
+
+        status.className=
+          "status status-"+info.color;
+
+        status.textContent="ACTIVE";
+
+      }
+
+    });
 
 }
 
-
-/* =========================================================
-   RENDER ALL
-   ========================================================= */
-
-function renderAll() {
-
-renderPlan();
-
-renderEnter();
-
-renderQuick();
-
-}
-
-
-/* =========================================================
-   UPDATE TIME
-   ========================================================= */
 
 setInterval(
-renderAll,
-1000
+  updateCountdowns,
+  1000
 );
 
 
-renderAll();
+/* =========================
+   DASHBOARD
+========================= */
 
+function renderDashboard(){
+
+  const active=
+    tasks.filter(
+      task=>task.status==="active"
+    );
+
+  const completed=
+    tasks.filter(
+      task=>task.status==="done"
+    );
+
+  const finished=
+    tasks.filter(
+      task=>
+        task.status==="done"||
+        task.status==="failed"
+    );
+
+
+  const successRate=
+    finished.length
+    ?
+    Math.round(
+      completed.length/
+      finished.length*
+      100
+    )
+    :
+    0;
+
+
+  const balance=
+    money.added-money.spent;
+
+
+  document.getElementById(
+    "dashActive"
+  ).textContent=
+    active.length;
+
+
+  document.getElementById(
+    "dashCompleted"
+  ).textContent=
+    completed.length;
+
+
+  document.getElementById(
+    "dashSuccess"
+  ).textContent=
+    successRate+"%";
+
+
+  const moneyElement=
+    document.getElementById(
+      "dashMoney"
+    );
+
+  moneyElement.textContent=
+    balance.toFixed(2)+" DT";
+
+
+  moneyElement.className=
+    balance<0
+    ?
+    "red-text"
+    :
+    "green-text";
+
+
+  const box=
+    document.getElementById(
+      "homeNextTask"
+    );
+
+
+  if(!active.length){
+
+    box.innerHTML=`
+
+      <div class="card">
+
+        <b>🎯 No active tasks</b>
+
+        <div class="page-sub"
+             style="margin:7px 0 0">
+          Your workspace is clear.
+        </div>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const next=
+    active
+      .slice()
+      .sort(
+        (a,b)=>
+          new Date(a.date)
+          -
+          new Date(b.date)
+      )[0];
+
+
+  const info=
+    countdownInfo(next.date);
+
+
+  box.innerHTML=`
+
+    <div class="card">
+
+      <small style="color:#777">
+        NEXT TASK
+      </small>
+
+      <div style="
+        font-size:17px;
+        font-weight:900;
+        margin-top:7px;
+      ">
+        ${escapeHTML(next.name)}
+      </div>
+
+      <div class="
+        countdown ${info.color}
+      "
+      data-countdown="${next.id}">
+        ⏳ ${info.text}
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   MONEY
+========================= */
+
+function addMoney(){
+
+  const amount=
+    Number(
+      document.getElementById(
+        "moneyAmount"
+      ).value
+    );
+
+  const description=
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
+
+
+  if(!amount||amount<=0){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+
+  money.added+=amount;
+
+
+  money.history.unshift({
+
+    id:Date.now()+Math.random(),
+
+    type:"added",
+
+    amount:amount,
+
+    description:
+      description||"Money added",
+
+    date:Date.now()
+
+  });
+
+
+  saveMoney();
+
+}
+
+
+/* =========================
+   SPEND MONEY
+========================= */
+
+function spendMoney(){
+
+  const amount=
+    Number(
+      document.getElementById(
+        "moneyAmount"
+      ).value
+    );
+
+  const description=
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
+
+
+  if(!amount||amount<=0){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+
+  money.spent+=amount;
+
+
+  money.history.unshift({
+
+    id:Date.now()+Math.random(),
+
+    type:"spent",
+
+    amount:amount,
+
+    description:
+      description||"Money spent",
+
+    date:Date.now()
+
+  });
+
+
+  saveMoney();
+
+}
+
+
+/* =========================
+   SAVE MONEY
+========================= */
+
+function saveMoney(){
+
+  saveJSON(
+    STORAGE.money,
+    money
+  );
+
+
+  document.getElementById(
+    "moneyAmount"
+  ).value="";
+
+  document.getElementById(
+    "moneyDescription"
+  ).value="";
+
+
+  renderMoney();
+  renderDashboard();
+
+  if(
+    document
+      .getElementById("data")
+      .classList.contains("active")
+  ){
+
+    drawMoneyChart();
+
+  }
+
+  clickSound();
+
+}
+
+
+/* =========================
+   RENDER MONEY
+========================= */
+
+function renderMoney(){
+
+  const balance=
+    money.added-money.spent;
+
+
+  document.getElementById(
+    "moneyBalance"
+  ).textContent=
+    balance.toFixed(2)+" DT";
+
+
+  document.getElementById(
+    "moneyBalance"
+  ).style.color=
+    balance<0
+    ?
+    "var(--red)"
+    :
+    "var(--green)";
+
+
+  document.getElementById(
+    "moneyAdded"
+  ).textContent=
+    money.added.toFixed(2)+" DT";
+
+
+  document.getElementById(
+    "moneySpent"
+  ).textContent=
+    money.spent.toFixed(2)+" DT";
+
+
+  const progress=
+    document.getElementById(
+      "moneyProgress"
+    );
+
+
+  if(money.added<=0){
+
+    progress.style.width="0%";
+
+  }else{
+
+    const percent=
+      Math.max(
+        0,
+        Math.min(
+          100,
+          balance/money.added*100
+        )
+      );
+
+    progress.style.width=
+      percent+"%";
+
+  }
+
+
+  if(balance<0){
+
+    progress.style.background=
+      "var(--red)";
+
+  }else if(balance/money.added<.25){
+
+    progress.style.background=
+      "var(--red)";
+
+  }else if(balance/money.added<.5){
+
+    progress.style.background=
+      "var(--yellow)";
+
+  }else{
+
+    progress.style.background=
+      "var(--green)";
+
+  }
+
+
+  const debt=
+    document.getElementById(
+      "debtWarning"
+    );
+
+
+  if(balance<0){
+
+    debt.innerHTML=`
+
+      <div class="debt">
+
+        ⚠ YOU ARE IN DEBT
+
+        <br>
+
+        ${Math.abs(balance).toFixed(2)} DT
+
+      </div>
+
+    `;
+
+  }else{
+
+    debt.innerHTML="";
+
+  }
+
+
+  const historyBox=
+    document.getElementById(
+      "moneyHistory"
+    );
+
+
+  if(!historyBox)return;
+
+
+  const list=
+    money.history
+      .slice(
+        0,
+        moneyHistoryLimit
+      );
+
+
+  if(!list.length){
+
+    historyBox.innerHTML=
+      `<div class="empty">
+        No money activity yet.
+      </div>`;
+
+  }else{
+
+    historyBox.innerHTML=
+      list.map(item=>`
+
+        <div class="money-history">
+
+          <div>
+
+            <div class="money-history-title">
+              ${
+                item.type==="added"
+                ?
+                "Money Added"
+                :
+                "Money Spent"
+              }
+            </div>
+
+            <div class="money-history-desc">
+              ${escapeHTML(
+                item.description
+              )}
+            </div>
+
+            <div class="money-history-date">
+              ${new Date(
+                item.date
+              ).toLocaleString()}
+            </div>
+
+          </div>
+
+          <div
+            class="money-history-amount"
+            style="
+              color:${
+                item.type==="added"
+                ?
+                "var(--green)"
+                :
+                "var(--red)"
+              };
+            "
+          >
+            ${
+              item.type==="added"
+              ?
+              "+"
+              :
+              "-"
+            }${Number(
+              item.amount
+            ).toFixed(2)} DT
+          </div>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  const moreButton=
+    document.getElementById(
+      "moreHistoryButton"
+    );
+
+
+  if(
+    money.history.length>
+    moneyHistoryLimit
+  ){
+
+    moreButton.style.display="block";
+
+  }else{
+
+    moreButton.style.display="none";
+
+  }
+
+}
+
+
+/* =========================
+   MORE MONEY HISTORY
+========================= */
+
+function showMoreHistory(){
+
+  moneyHistoryLimit+=10;
+
+  renderMoney();
+
+}
+
+
+/* =========================
+   RESET MONEY
+========================= */
+
+function resetMoney(){
+
+  if(!confirm(
+    "Reset all Pocket Money data?"
+  ))return;
+
+
+  money={
+    added:0,
+    spent:0,
+    history:[]
+  };
+
+
+  moneyHistoryLimit=5;
+
+
+  saveJSON(
+    STORAGE.money,
+    money
+  );
+
+
+  renderMoney();
+  renderDashboard();
+
+  drawMoneyChart();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   CHART
+========================= */
+
+function drawMoneyChart(){
+
+  const canvas=
+    document.getElementById(
+      "moneyChart"
+    );
+
+  if(!canvas)return;
+
+
+  const rect=
+    canvas.getBoundingClientRect();
+
+
+  const cssWidth=
+    Math.max(
+      280,
+      Math.floor(rect.width||600)
+    );
+
+
+  const cssHeight=
+    Math.max(
+      300,
+      Math.floor(cssWidth*.5)
+    );
+
+
+  const dpr=
+    window.devicePixelRatio||1;
+
+
+  canvas.width=
+    cssWidth*dpr;
+
+  canvas.height=
+    cssHeight*dpr;
+
+
+  canvas.style.height=
+    cssHeight+"px";
+
+
+  const ctx=
+    canvas.getContext("2d");
+
+
+  ctx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+
+
+  ctx.clearRect(
+    0,
+    0,
+    cssWidth,
+    cssHeight
+  );
+
+
+  const left=55;
+  const right=20;
+  const top=25;
+  const bottom=45;
+
+
+  const graphWidth=
+    cssWidth-left-right;
+
+  const graphHeight=
+    cssHeight-top-bottom;
+
+
+  const history=
+    money.history
+      .slice()
+      .reverse();
+
+
+  if(!history.length){
+
+    ctx.fillStyle="#777";
+
+    ctx.font="15px Arial";
+
+    ctx.textAlign="center";
+
+    ctx.fillText(
+      "No financial data yet",
+      cssWidth/2,
+      cssHeight/2
+    );
+
+
+    renderMoneyReport();
+
+    return;
+
+  }
+
+
+  let running=0;
+
+  const points=[];
+
+
+  history.forEach(item=>{
+
+    if(item.type==="added"){
+
+      running+=Number(item.amount);
+
+    }else{
+
+      running-=Number(item.amount);
+
+    }
+
+
+    points.push({
+      balance:running,
+      date:item.date
+    });
+
+  });
+
+
+  const values=
+    points.map(
+      point=>point.balance
+    );
+
+
+  let max=
+    Math.max(
+      ...values,
+      10
+    );
+
+  let min=
+    Math.min(
+      ...values,
+      0
+    );
+
+
+  if(max===min){
+
+    max+=10;
+    min-=10;
+
+  }
+
+
+  const range=max-min;
+
+
+  /* GRID */
+
+  ctx.strokeStyle="#242424";
+  ctx.lineWidth=1;
+
+
+  for(let i=0;i<=4;i++){
+
+    const y=
+      top+
+      graphHeight/4*i;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      left,
+      y
+    );
+
+    ctx.lineTo(
+      cssWidth-right,
+      y
+    );
+
+    ctx.stroke();
+
+
+    const value=
+      max-
+      range/4*i;
+
+
+    ctx.fillStyle="#777";
+
+    ctx.font="10px Arial";
+
+    ctx.textAlign="right";
+
+    ctx.fillText(
+      value.toFixed(0),
+      left-8,
+      y+4
+    );
+
+  }
+
+
+  /* LINE */
+
+  const step=
+    points.length===1
+    ?
+    0
+    :
+    graphWidth/
+    (points.length-1);
+
+
+  ctx.beginPath();
+
+
+  points.forEach(
+    (point,index)=>{
+
+      const x=
+        points.length===1
+        ?
+        left+graphWidth/2
+        :
+        left+
+        index*step;
+
+
+      const y=
+        top+
+        (
+          max-point.balance
+        )/
+        range*
+        graphHeight;
+
+
+      if(index===0){
+
+        ctx.moveTo(x,y);
+
+      }else{
+
+        ctx.lineTo(x,y);
+
+      }
+
+    }
+  );
+
+
+  ctx.strokeStyle=
+    "#35d07f";
+
+  ctx.lineWidth=3;
+
+  ctx.stroke();
+
+
+  /* POINTS */
+
+  points.forEach(
+    (point,index)=>{
+
+      const x=
+        points.length===1
+        ?
+        left+graphWidth/2
+        :
+        left+
+        index*step;
+
+
+      const y=
+        top+
+        (
+          max-point.balance
+        )/
+        range*
+        graphHeight;
+
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        y,
+        4,
+        0,
+        Math.PI*2
+      );
+
+
+      ctx.fillStyle=
+        point.balance<0
+        ?
+        "#ff5050"
+        :
+        "#35d07f";
+
+      ctx.fill();
+
+
+      if(
+        index===0||
+        index===points.length-1
+      ){
+
+        ctx.fillStyle="#777";
+
+        ctx.font="9px Arial";
+
+        ctx.textAlign="center";
+
+        ctx.fillText(
+          new Date(
+            point.date
+          ).toLocaleDateString(
+            undefined,
+            {
+              day:"2-digit",
+              month:"short"
+            }
+          ),
+          x,
+          cssHeight-18
+        );
+
+      }
+
+    }
+  );
+
+
+  renderMoneyReport();
+
+}
+
+
+/* =========================
+   REPORT
+========================= */
+
+function renderMoneyReport(){
+
+  const box=
+    document.getElementById(
+      "moneyReport"
+    );
+
+  if(!box)return;
+
+
+  const balance=
+    money.added-money.spent;
+
+
+  const transactions=
+    money.history.length;
+
+
+  box.innerHTML=`
+
+    <b>FINANCIAL REPORT</b>
+
+    <div class="page-sub"
+         style="margin:10px 0 0">
+
+      Added:
+      <strong>
+        ${money.added.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spent:
+      <strong>
+        ${money.spent.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Current balance:
+      <strong
+        style="
+          color:${
+            balance<0
+            ?
+            "var(--red)"
+            :
+            "var(--green)"
+          }
+        "
+      >
+        ${balance.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Transactions:
+      <strong>${transactions}</strong>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   RESPONSIVE CHART
+========================= */
+
+let chartResizeTimer=null;
+
+window.addEventListener(
+  "resize",
+  ()=>{
+
+    clearTimeout(
+      chartResizeTimer
+    );
+
+    chartResizeTimer=
+      setTimeout(
+        ()=>{
+
+          const dataPage=
+            document.getElementById(
+              "data"
+            );
+
+          if(
+            dataPage &&
+            dataPage.classList.contains(
+              "active"
+            )
+          ){
+
+            drawMoneyChart();
+
+          }
+
+        },
+        100
+      );
+
+  }
+);
+
+
+/* =========================
+   PROFILE / USER NAME
+========================= */
+
+function changeUsername(){
+
+  const input=
+    document.getElementById(
+      "newUsername"
+    );
+
+  const value=
+    input.value.trim();
+
+
+  if(!value){
+
+    alert("Enter a name.");
+
+    return;
+
+  }
+
+
+  username=value.slice(0,30);
+
+
+  localStorage.setItem(
+    STORAGE.username,
+    username
+  );
+
+
+  input.value="";
+
+  updateUserUI();
+
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+function saveNote(){
+
+  const input=
+    document.getElementById(
+      "noteInput"
+    );
+
+
+  const text=
+    input.value.trim();
+
+
+  if(!text){
+
+    alert("Write something first.");
+
+    return;
+
+  }
+
+
+  notes.unshift({
+
+    id:Date.now()+Math.random(),
+
+    text:text,
+
+    date:Date.now()
+
+  });
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  input.value="";
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   RENDER NOTES
+========================= */
+
+function renderNotes(){
+
+  const box=
+    document.getElementById(
+      "notesList"
+    );
+
+  if(!box)return;
+
+
+  const search=
+    (
+      document.getElementById(
+        "noteSearch"
+      )?.value || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  const filtered=
+    notes.filter(
+      note=>
+        note.text
+          .toLowerCase()
+          .includes(search)
+    );
+
+
+  if(!filtered.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No notes found.
+      </div>`;
+
+    return;
+
+  }
+
+
+  box.innerHTML=
+    filtered.map(note=>`
+
+      <div class="note">
+
+        <div class="note-content">
+          ${escapeHTML(note.text)}
+        </div>
+
+        <div class="note-date">
+          ${new Date(
+            note.date
+          ).toLocaleString()}
+        </div>
+
+        <div class="note-buttons">
+
+          <button
+            class="note-edit"
+            onclick="editNote('${note.id}')"
+          >
+            Edit
+          </button>
+
+          <button
+            class="note-delete"
+            onclick="deleteNote('${note.id}')"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* =========================
+   EDIT NOTE
+========================= */
+
+function editNote(id){
+
+  const note=
+    notes.find(
+      item=>
+        String(item.id)===String(id)
+    );
+
+
+  if(!note)return;
+
+
+  const next=
+    prompt(
+      "Edit your note:",
+      note.text
+    );
+
+
+  if(next===null)return;
+
+
+  if(!next.trim()){
+
+    alert("A note cannot be empty.");
+
+    return;
+
+  }
+
+
+  note.text=
+    next.trim();
+
+
+  note.date=Date.now();
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   DELETE NOTE
+========================= */
+
+function deleteNote(id){
+
+  if(!confirm(
+    "Delete this note?"
+  ))return;
+
+
+  notes=
+    notes.filter(
+      note=>
+        String(note.id)!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   XO SAVE
+========================= */
+
+function saveXO(){
+
+  saveJSON(
+    STORAGE.xo,
+    {
+      board:xoBoard,
+      turn:xoTurn,
+      x:xoXScore,
+      o:xoOScore,
+      d:xoDrawScore
+    }
+  );
+
+}
+
+
+/* =========================
+   XO RENDER
+========================= */
+
+function renderXO(){
+
+  const board=
+    document.getElementById(
+      "xoBoard"
+    );
+
+  if(!board)return;
+
+
+  board.innerHTML=
+    xoBoard.map(
+      (value,index)=>`
+
+        <button
+          class="xo-cell"
+          onclick="xoMove(${index})"
+        >
+          ${value}
+        </button>
+
+      `
+    ).join("");
+
+
+  document.getElementById(
+    "xoXScore"
+  ).textContent=xoXScore;
+
+
+  document.getElementById(
+    "xoOScore"
+  ).textContent=xoOScore;
+
+
+  document.getElementById(
+    "xoDrawScore"
+  ).textContent=xoDrawScore;
+
+
+  document.getElementById(
+    "xoStatus"
+  ).textContent=
+    "PLAYER "+xoTurn+" TURN";
+
+}
+
+
+/* =========================
+   XO MOVE
+========================= */
+
+function xoMove(index){
+
+  if(xoBoard[index])return;
+
+
+  xoBoard[index]=xoTurn;
+
+
+  const winner=
+    checkXOWinner();
+
+
+  if(winner){
+
+    if(winner==="X"){
+      xoXScore++;
+    }else{
+      xoOScore++;
+    }
+
+
+    saveXO();
+
+    renderXO();
+
+    setTimeout(
+      ()=>{
+        alert(
+          "PLAYER "+winner+" WINS!"
+        );
+
+        resetXO();
+
+      },
+      20
+    );
+
+    return;
+
+  }
+
+
+  if(!xoBoard.includes("")){
+
+    xoDrawScore++;
+
+    saveXO();
+
+    renderXO();
+
+    setTimeout(
+      ()=>{
+        alert("DRAW!");
+
+        resetXO();
+
+      },
+      20
+    );
+
+    return;
+
+  }
+
+
+  xoTurn=
+    xoTurn==="X"
+    ?
+    "O"
+    :
+    "X";
+
+
+  saveXO();
+  renderXO();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   XO WINNER
+========================= */
+
+function checkXOWinner(){
+
+  const wins=[
+
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+
+    [0,4,8],
+    [2,4,6]
+
+  ];
+
+
+  for(
+    const combination of wins
+  ){
+
+    const[a,b,c]=combination;
+
+
+    if(
+      xoBoard[a] &&
+      xoBoard[a]===xoBoard[b] &&
+      xoBoard[b]===xoBoard[c]
+    ){
+
+      return xoBoard[a];
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =========================
+   RESET XO
+========================= */
+
+function resetXO(){
+
+  xoBoard=[
+    "","","",
+    "","","",
+    "","",""
+  ];
+
+  xoTurn="X";
+
+
+  saveXO();
+  renderXO();
+
+}
+
+
+/* =========================
+   HIGHER SAVE
+========================= */
+
+function saveHigher(){
+
+  saveJSON(
+    STORAGE.higher,
+    {
+      number:higherNumber,
+      player:higherPlayer,
+      p1:higherScoreOne,
+      p2:higherScoreTwo,
+      round:higherRoundNumber
+    }
+  );
+
+}
+
+
+/* =========================
+   HIGHER RENDER
+========================= */
+
+function renderHigher(){
+
+  document.getElementById(
+    "higherNumber"
+  ).textContent=
+    higherNumber;
+
+
+  document.getElementById(
+    "higherStatus"
+  ).textContent=
+    "PLAYER "+higherPlayer+" TURN";
+
+
+  document.getElementById(
+    "higherScore1"
+  ).textContent=
+    higherScoreOne;
+
+
+  document.getElementById(
+    "higherScore2"
+  ).textContent=
+    higherScoreTwo;
+
+
+  document.getElementById(
+    "higherRound"
+  ).textContent=
+    higherRoundNumber;
+
+}
+
+
+/* =========================
+   HIGHER GUESS
+========================= */
+
+function higherGuess(choice){
+
+  const next=
+    Math.floor(
+      Math.random()*100
+    )+1;
+
+
+  const correct=
+    choice==="higher"
+    ?
+    next>higherNumber
+    :
+    next<higherNumber;
+
+
+  if(correct){
+
+    if(higherPlayer===1){
+      higherScoreOne++;
+    }else{
+      higherScoreTwo++;
+    }
+
+  }
+
+
+  const result=
+    correct
+    ?
+    "Correct! 🎉"
+    :
+    "Wrong!";
+
+
+  higherNumber=next;
+
+
+  higherPlayer=
+    higherPlayer===1
+    ?
+    2
+    :
+    1;
+
+
+  if(higherPlayer===1){
+
+    higherRoundNumber++;
+
+  }
+
+
+  saveHigher();
+  renderHigher();
+
+
+  setTimeout(
+    ()=>{
+      alert(
+        result+
+        "\n\nNext number: "+
+        next
+      );
+    },
+    20
+  );
+
+
+  clickSound();
+
+}
+
+
+/* =========================
+   RESET HIGHER
+========================= */
+
+function resetHigher(){
+
+  higherNumber=50;
+  higherPlayer=1;
+  higherScoreOne=0;
+  higherScoreTwo=0;
+  higherRoundNumber=1;
+
+
+  saveHigher();
+  renderHigher();
+
+}
+
+
+/* =========================
+   KEYBOARD SHORTCUT
+========================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key==="Enter" &&
+      document.activeElement?.id===
+      "userNameInput"
+    ){
+
+      startWithName();
+
+    }
+
+  }
+);
 
 </script>
 
