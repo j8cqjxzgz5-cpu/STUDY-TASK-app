@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>STUDY</title>
 
 <style>
-
-/* ================================
-   GLOBAL
-================================ */
-
 *{
 box-sizing:border-box;
 -webkit-tap-highlight-color:transparent;
@@ -19,35 +13,25 @@ box-sizing:border-box;
 
 :root{
 --bg:#050505;
---card:#111111;
---card2:#0b0b0b;
+--card:#111;
 --line:#292929;
 --gray:#929292;
 --green:#35d07f;
 --yellow:#f5c542;
 --orange:#ff8c42;
 --red:#ff4d4d;
---blue:#5b8cff;
 }
 
 body{
 margin:0;
 background:var(--bg);
-color:white;
+color:#fff;
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-button,input,textarea{
-font-family:inherit;
-}
-
-button{
-cursor:pointer;
-}
-
-button:active{
-transform:scale(.98);
-}
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
+button:active{transform:scale(.98)}
 
 .app{
 max-width:650px;
@@ -55,10 +39,7 @@ margin:auto;
 padding-bottom:95px;
 }
 
-/* ================================
-   SPLASH
-================================ */
-
+/* SPLASH */
 #splash{
 position:fixed;
 inset:0;
@@ -70,23 +51,25 @@ z-index:9999;
 text-align:center;
 }
 
-.splash-box{
-padding:30px;
+.splash-box{padding:30px}
+
+.splash-logo,
+.auth-logo,
+.hero-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+background:#fff;
+color:#000;
+font-weight:900;
 }
 
 .splash-logo{
 width:90px;
 height:90px;
-margin:auto;
+margin:auto auto 20px;
 border-radius:28px;
-background:white;
-color:black;
-display:flex;
-align-items:center;
-justify-content:center;
 font-size:38px;
-font-weight:900;
-margin-bottom:20px;
 }
 
 .splash-title{
@@ -106,10 +89,7 @@ font-size:13px;
 color:#777;
 }
 
-/* ================================
-   AUTH
-================================ */
-
+/* AUTH */
 #auth{
 display:none;
 min-height:100vh;
@@ -130,14 +110,8 @@ padding:28px;
 .auth-logo{
 width:65px;
 height:65px;
-background:white;
-color:black;
 border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:center;
 font-size:26px;
-font-weight:900;
 margin-bottom:20px;
 }
 
@@ -148,8 +122,7 @@ font-weight:900;
 
 .auth-sub{
 color:var(--gray);
-margin-top:8px;
-margin-bottom:20px;
+margin:8px 0 20px;
 }
 
 .auth-switch{
@@ -160,15 +133,12 @@ font-size:14px;
 }
 
 .auth-switch span{
-color:white;
+color:#fff;
 font-weight:bold;
 cursor:pointer;
 }
 
-/* ================================
-   HEADER
-================================ */
-
+/* HEADER */
 .header{
 padding:25px 20px 18px;
 display:flex;
@@ -203,8 +173,8 @@ cursor:pointer;
 width:35px;
 height:35px;
 border-radius:50%;
-background:white;
-color:black;
+background:#fff;
+color:#000;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -220,18 +190,13 @@ text-overflow:ellipsis;
 white-space:nowrap;
 }
 
-/* ================================
-   PAGES
-================================ */
-
+/* PAGES */
 .page{
 display:none;
 padding:0 16px;
 }
 
-.page.active{
-display:block;
-}
+.page.active{display:block}
 
 .title{
 font-size:27px;
@@ -244,8 +209,7 @@ color:var(--gray);
 margin-bottom:20px;
 }
 
-.hero,
-.card{
+.hero,.card{
 background:var(--card);
 border:1px solid var(--line);
 border-radius:25px;
@@ -253,19 +217,12 @@ padding:20px;
 margin-bottom:16px;
 }
 
-.hero{
-padding:25px;
-}
+.hero{padding:25px}
 
 .hero-icon{
 width:58px;
 height:58px;
 border-radius:18px;
-background:white;
-color:black;
-display:flex;
-align-items:center;
-justify-content:center;
 font-size:25px;
 }
 
@@ -279,10 +236,7 @@ color:var(--gray);
 margin-bottom:0;
 }
 
-/* ================================
-   BUTTONS
-================================ */
-
+/* BUTTONS */
 .big-btn,
 .settings-btn,
 .btn{
@@ -291,7 +245,7 @@ background:var(--card);
 border:1px solid var(--line);
 border-radius:20px;
 padding:18px;
-color:white;
+color:#fff;
 font-size:16px;
 text-align:left;
 margin-bottom:11px;
@@ -314,8 +268,8 @@ width:100%;
 border:0;
 border-radius:14px;
 padding:15px;
-background:white;
-color:black;
+background:#fff;
+color:#000;
 font-weight:900;
 margin-top:15px;
 font-size:15px;
@@ -324,7 +278,7 @@ font-size:15px;
 .more{
 width:100%;
 background:#222;
-color:white;
+color:#fff;
 border:0;
 border-radius:14px;
 padding:14px;
@@ -333,17 +287,14 @@ margin-top:14px;
 
 .back{
 background:#222;
-color:white;
+color:#fff;
 border:0;
 padding:11px 15px;
 border-radius:12px;
 margin-bottom:15px;
 }
 
-/* ================================
-   INPUTS
-================================ */
-
+/* INPUTS */
 label{
 font-size:11px;
 color:var(--gray);
@@ -353,12 +304,11 @@ font-weight:bold;
 letter-spacing:.5px;
 }
 
-input,
-textarea{
+input,textarea{
 width:100%;
 background:#080808;
 border:1px solid #333;
-color:white;
+color:#fff;
 border-radius:14px;
 padding:14px;
 font-size:15px;
@@ -370,10 +320,7 @@ min-height:90px;
 resize:vertical;
 }
 
-/* ================================
-   DASHBOARD
-================================ */
-
+/* DASHBOARD */
 .dashboard-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -394,18 +341,10 @@ color:var(--gray);
 margin-bottom:8px;
 }
 
-.dashboard-card b{
-font-size:21px;
-}
+.dashboard-card b{font-size:21px}
+.dashboard-money{color:var(--green)}
 
-.dashboard-money{
-color:var(--green);
-}
-
-/* ================================
-   TASKS
-================================ */
-
+/* TASKS */
 .task{
 background:var(--card);
 border:1px solid var(--line);
@@ -415,13 +354,8 @@ margin-bottom:12px;
 position:relative;
 }
 
-.task.completed{
-border-color:#1e5638;
-}
-
-.task.failed{
-border-color:#5a2020;
-}
+.task.completed{border-color:#1e5638}
+.task.failed{border-color:#5a2020}
 
 .tasktop{
 display:flex;
@@ -443,25 +377,10 @@ font-weight:bold;
 white-space:nowrap;
 }
 
-.green{
-background:#163c28;
-color:var(--green);
-}
-
-.yellow{
-background:#423916;
-color:var(--yellow);
-}
-
-.orange{
-background:#482b18;
-color:var(--orange);
-}
-
-.red{
-background:#451b1b;
-color:var(--red);
-}
+.green{background:#163c28;color:var(--green)}
+.yellow{background:#423916;color:var(--yellow)}
+.orange{background:#482b18;color:var(--orange)}
+.red{background:#451b1b;color:var(--red)}
 
 .desc{
 color:var(--gray);
@@ -511,7 +430,7 @@ position:absolute;
 right:10px;
 top:10px;
 background:#222;
-color:white;
+color:#fff;
 border:0;
 width:28px;
 height:28px;
@@ -525,10 +444,7 @@ font-weight:900;
 margin:25px 0 12px;
 }
 
-/* ================================
-   MONEY
-================================ */
-
+/* MONEY */
 .money{
 font-size:42px;
 font-weight:900;
@@ -543,7 +459,7 @@ align-items:center;
 
 .menu button{
 background:#222;
-color:white;
+color:#fff;
 border:0;
 border-radius:11px;
 padding:9px 13px;
@@ -576,9 +492,7 @@ margin-top:20px;
 overflow:hidden;
 }
 
-.progress{
-height:100%;
-}
+.progress{height:100%}
 
 .money-actions{
 display:flex;
@@ -596,12 +510,12 @@ font-weight:bold;
 
 .add{
 background:var(--green);
-color:black;
+color:#000;
 }
 
 .spend{
 background:var(--red);
-color:white;
+color:#fff;
 }
 
 .history-item{
@@ -628,27 +542,22 @@ font-weight:bold;
 margin-bottom:15px;
 }
 
-/* ================================
-   CHART
-================================ */
-
+/* CHART */
 .chart-wrap{
 width:100%;
-overflow-x:auto;
+overflow:hidden;
 }
 
 canvas{
+display:block;
 width:100%;
-min-height:350px;
+height:auto;
 background:#090909;
 border-radius:18px;
 border:1px solid var(--line);
 }
 
-/* ================================
-   PROFILE
-================================ */
-
+/* PROFILE */
 .profile-head{
 text-align:center;
 padding:15px 0;
@@ -659,8 +568,8 @@ width:90px;
 height:90px;
 margin:auto;
 border-radius:50%;
-background:white;
-color:black;
+background:#fff;
+color:#000;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -680,10 +589,7 @@ font-size:13px;
 margin-top:5px;
 }
 
-/* ================================
-   GAMES
-================================ */
-
+/* GAMES */
 .xo{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -694,7 +600,7 @@ margin:18px 0;
 .xo button{
 aspect-ratio:1;
 background:#090909;
-color:white;
+color:#fff;
 border:1px solid #333;
 border-radius:18px;
 font-size:34px;
@@ -717,9 +623,7 @@ font-size:10px;
 margin-bottom:5px;
 }
 
-.game-center{
-text-align:center;
-}
+.game-center{text-align:center}
 
 .number-box{
 font-size:55px;
@@ -739,17 +643,14 @@ gap:10px;
 .choice button{
 padding:18px;
 background:#171717;
-color:white;
+color:#fff;
 border:1px solid #333;
 border-radius:16px;
 font-size:16px;
 font-weight:bold;
 }
 
-/* ================================
-   NOTES
-================================ */
-
+/* NOTES */
 .note-item{
 background:var(--card);
 border:1px solid var(--line);
@@ -774,22 +675,16 @@ flex:1;
 border:0;
 padding:11px;
 border-radius:11px;
-color:white;
+color:#fff;
 }
 
-.edit-note{
-background:#292929;
-}
-
+.edit-note{background:#292929}
 .delete-note{
 background:#451b1b;
 color:var(--red)!important;
 }
 
-/* ================================
-   BOTTOM NAV
-================================ */
-
+/* NAV */
 .bottom{
 position:fixed;
 bottom:0;
@@ -817,9 +712,7 @@ padding:13px 7px;
 font-size:11px;
 }
 
-.nav button.active{
-color:white;
-}
+.nav button.active{color:#fff}
 
 .footer{
 text-align:center;
@@ -828,297 +721,150 @@ font-size:11px;
 padding:25px;
 }
 
-.hidden{
-display:none!important;
-}
-
+.hidden{display:none!important}
 </style>
 </head>
 
 <body>
 
-
-<!-- ================================
-     SPLASH
-================================ -->
-
+<!-- SPLASH -->
 <div id="splash">
-
 <div class="splash-box">
-
 <div class="splash-logo">S</div>
-
 <div class="splash-title">STUDY</div>
-
-<div class="splash-sub">
-Focus. Plan. Complete.
-</div>
-
+<div class="splash-sub">Focus. Plan. Complete.</div>
 <div class="splash-made">
 Made in Tunisia 🇹🇳<br>
 by Jasser Nouaili
 </div>
-
+</div>
 </div>
 
-</div>
-
-
-<!-- ================================
-     AUTH
-================================ -->
-
+<!-- AUTH -->
 <div id="auth">
-
 <div class="auth-box">
-
 <div class="auth-logo">S</div>
-
 <div id="authContent"></div>
-
+</div>
 </div>
 
-</div>
-
-
-<!-- ================================
-     APP
-================================ -->
-
+<!-- APP -->
 <div id="app" class="app hidden">
 
-
-<!-- HEADER -->
-
 <div class="header">
-
 <div>
-
 <div class="logo">STUDY</div>
-
-<div class="subtitle">
-Focus. Plan. Complete.
-</div>
-
+<div class="subtitle">Focus. Plan. Complete.</div>
 </div>
 
 <div class="user-top" onclick="showPage('profile')">
-
-<div class="avatar" id="topAvatar">
-J
+<div class="avatar" id="topAvatar">J</div>
+<div class="user-name-top" id="topUsername">User</div>
+</div>
 </div>
 
-<div class="user-name-top" id="topUsername">
-User
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ================================
-     HOME
-================================ -->
-
+<!-- HOME -->
 <div id="home" class="page active">
 
 <div class="hero">
-
 <div class="hero-icon">◆</div>
-
-<h1 id="welcomeText">
-Ready to focus?
-</h1>
-
+<h1 id="welcomeText">Ready to focus?</h1>
 <p id="motivationText">
 Organize your work and stay motivated every day.
 </p>
-
 </div>
-
 
 <div class="dashboard-grid">
 
 <div class="dashboard-card">
-
 <small>ACTIVE TASKS</small>
-
-<b id="dashActive">
-0
-</b>
-
+<b id="dashActive">0</b>
 </div>
 
-
 <div class="dashboard-card">
-
 <small>SUCCESS RATE</small>
-
-<b id="dashSuccess">
-0%
-</b>
-
+<b id="dashSuccess">0%</b>
 </div>
 
-
 <div class="dashboard-card">
-
 <small>POCKET MONEY</small>
-
-<b class="dashboard-money" id="dashMoney">
-0 DT
-</b>
-
+<b class="dashboard-money" id="dashMoney">0 DT</b>
 </div>
-
 
 <div class="dashboard-card">
-
 <small>COMPLETED</small>
-
-<b id="dashCompleted">
-0
-</b>
-
+<b id="dashCompleted">0</b>
 </div>
 
 </div>
-
 
 <div id="nearestTask"></div>
 
-
 <button class="big-btn" onclick="showPage('plan')">
-
 <span>Plan</span>
-
 <span>+</span>
-
 </button>
-
 
 <button class="big-btn" onclick="showPage('quick')">
-
 <span>Quick Check</span>
-
 <span>✓</span>
-
 </button>
-
 
 <button class="big-btn" onclick="showPage('money')">
-
 <span>Pocket Money</span>
-
 <span>DT</span>
-
 </button>
-
 
 <button class="big-btn" onclick="showPage('settings')">
-
 <span>Settings</span>
-
 <span>⚙</span>
-
 </button>
 
-
 <div class="footer">
-
 Made in Tunisia 🇹🇳<br>
 by Jasser Nouaili
-
 </div>
 
 </div>
 
-
-<!-- ================================
-     QUICK CHECK
-================================ -->
-
+<!-- QUICK CHECK -->
 <div id="quick" class="page">
 
-<div class="title">
-Quick Check
-</div>
-
-<div class="sub">
-Your active tasks and urgent work.
-</div>
+<div class="title">Quick Check</div>
+<div class="sub">Your active tasks and urgent work.</div>
 
 <div id="debtAlert"></div>
-
 <div id="quickTasks"></div>
 
 </div>
 
-
-<!-- ================================
-     PLAN
-================================ -->
-
+<!-- PLAN -->
 <div id="plan" class="page">
 
-<div class="title">
-Plan
-</div>
-
-<div class="sub">
-Create and organize your work.
-</div>
-
+<div class="title">Plan</div>
+<div class="sub">Create and organize your work.</div>
 
 <div class="card">
 
 <label>WORK NAME</label>
-
-<input
-id="taskName"
-placeholder="Example: Study"
->
-
+<input id="taskName" placeholder="Example: Study">
 
 <label>DESCRIPTION</label>
-
-<textarea
-id="taskDesc"
-placeholder="Write details..."
-></textarea>
-
+<textarea id="taskDesc" placeholder="Write details..."></textarea>
 
 <label>DATE</label>
+<input id="taskDate" type="datetime-local">
 
-<input
-id="taskDate"
-type="datetime-local"
->
-
-
-<button
-class="primary"
-onclick="addTask()"
->
-
+<button class="primary" onclick="addTask()">
 Add to Plan
-
 </button>
 
 </div>
 
-
-<div class="section-title">
-Active Tasks
-</div>
-
+<div class="section-title">Active Tasks</div>
 <div id="activeTasks"></div>
 
-
-<div class="section-title">
-Task Records
-</div>
+<div class="section-title">Task Records</div>
 
 <div class="sub">
 Completed and failed tasks.
@@ -1128,418 +874,188 @@ Completed and failed tasks.
 
 </div>
 
-
-<!-- ================================
-     MONEY
-================================ -->
-
+<!-- MONEY -->
 <div id="money" class="page">
 
-<div class="title">
-Pocket Money
-</div>
-
-<div class="sub">
-Track your money in a modern way.
-</div>
-
+<div class="title">Pocket Money</div>
+<div class="sub">Track your money in a modern way.</div>
 
 <div class="card">
 
 <div class="menu">
-
 <div>
-
-<small style="color:#929292">
-MONEY REMAINING
-</small>
-
-<div class="money" id="balance">
-0 DT
+<small style="color:#929292">MONEY REMAINING</small>
+<div class="money" id="balance">0 DT</div>
 </div>
 
+<button onclick="showPage('data')">Data</button>
 </div>
-
-
-<button onclick="showPage('data')">
-Data
-</button>
-
-</div>
-
 
 <div class="stats">
 
 <div class="stat">
-
 <small>TOTAL ADDED</small>
-
-<b id="added">
-0 DT
-</b>
-
+<b id="added">0 DT</b>
 </div>
-
 
 <div class="stat">
-
 <small>TOTAL SPENT</small>
-
-<b id="spent">
-0 DT
-</b>
-
+<b id="spent">0 DT</b>
 </div>
 
 </div>
-
 
 <div class="progress-bg">
-
-<div
-class="progress"
-id="progress"
-></div>
-
+<div class="progress" id="progress"></div>
 </div>
-
 
 <div id="danger"></div>
 
 </div>
 
-
 <div class="card">
 
 <label>AMOUNT</label>
-
-<input
-id="amount"
-type="number"
-step="0.01"
-placeholder="Example: 10"
->
-
+<input id="amount" type="number" step="0.01" placeholder="Example: 10">
 
 <label>DESCRIPTION</label>
-
-<input
-id="moneyDesc"
-placeholder="Example: Food"
->
-
+<input id="moneyDesc" placeholder="Example: Food">
 
 <div class="money-actions">
 
-<button
-class="add"
-onclick="addMoney()"
->
-
-Add Money
-
-</button>
-
-
-<button
-class="spend"
-onclick="spendMoney()"
->
-
-Spend
-
-</button>
+<button class="add" onclick="addMoney()">Add Money</button>
+<button class="spend" onclick="spendMoney()">Spend</button>
 
 </div>
 
-
-<button
-class="more"
-onclick="resetMoney()"
->
-
+<button class="more" onclick="resetMoney()">
 Reset Pocket Money
-
 </button>
 
 </div>
 
-
-<div class="section-title">
-History
-</div>
-
+<div class="section-title">History</div>
 <div id="history"></div>
 
-
-<button
-class="more"
-onclick="moreHistory()"
->
-
-More
-
-</button>
+<button class="more" onclick="moreHistory()">More</button>
 
 </div>
 
-
-<!-- ================================
-     DATA
-================================ -->
-
+<!-- DATA -->
 <div id="data" class="page">
 
-<button
-class="back"
-onclick="showPage('money')"
->
+<button class="back" onclick="showPage('money')">
 ← Back
 </button>
 
-
-<div class="title">
-Money Data
-</div>
-
-<div class="sub">
-Your financial activity and balance.
-</div>
-
+<div class="title">Money Data</div>
+<div class="sub">Your financial activity and balance.</div>
 
 <div class="card">
 
 <div class="chart-wrap">
 
-<canvas
-id="chart"
-width="900"
-height="450"
-></canvas>
+<canvas id="chart" width="900" height="450"></canvas>
 
 </div>
 
 </div>
 
-
-<div
-class="card report"
-id="report"
-></div>
+<div class="card report" id="report"></div>
 
 </div>
 
-
-<!-- ================================
-     SETTINGS
-================================ -->
-
+<!-- SETTINGS -->
 <div id="settings" class="page">
 
-<div class="title">
-Settings
-</div>
+<div class="title">Settings</div>
+<div class="sub">Manage your account and features.</div>
 
-<div class="sub">
-Manage your account and features.
-</div>
-
-
-<button
-class="settings-btn"
-onclick="showPage('profile')"
->
-
+<button class="settings-btn" onclick="showPage('profile')">
 👤 PROFILE
-
 </button>
 
-
-<button
-class="settings-btn"
-onclick="showPage('play')"
->
-
+<button class="settings-btn" onclick="showPage('play')">
 🎮 PLAY
-
 </button>
 
-
-<button
-class="settings-btn"
-onclick="showPage('note')"
->
-
+<button class="settings-btn" onclick="showPage('note')">
 📝 PRIVATE NOTE
-
 </button>
 
-
-<button
-class="settings-btn"
-onclick="showPage('employees')"
->
-
+<button class="settings-btn" onclick="showPage('employees')">
 👥 EMPLOYEES
-
 </button>
 
-
-<button
-class="settings-btn"
-onclick="logout()"
->
-
+<button class="settings-btn" onclick="logout()">
 🚪 LOGOUT
-
 </button>
 
 </div>
 
-
-<!-- ================================
-     PROFILE
-================================ -->
-
+<!-- PROFILE -->
 <div id="profile" class="page">
 
-<button
-class="back"
-onclick="showPage('settings')"
->
+<button class="back" onclick="showPage('settings')">
 ← Back
 </button>
 
-
 <div class="profile-head">
 
-<div
-class="profile-avatar"
-id="profileAvatar"
->
-J
-</div>
+<div class="profile-avatar" id="profileAvatar">J</div>
 
+<div class="profile-name" id="profileUsername">User</div>
 
-<div
-class="profile-name"
-id="profileUsername"
->
-User
-</div>
+<div class="profile-member">STUDY Member</div>
 
-
-<div class="profile-member">
-
-STUDY Member
+<div class="profile-member" id="memberSince"></div>
 
 </div>
-
-
-<div
-class="profile-member"
-id="memberSince"
-></div>
-
-</div>
-
 
 <div class="card">
 
 <label>CHANGE USERNAME</label>
+<input id="changeUsernameInput" placeholder="New username">
 
-<input
-id="changeUsernameInput"
-placeholder="New username"
->
-
-
-<button
-class="primary"
-onclick="changeUsername()"
->
-
+<button class="primary" onclick="changeUsername()">
 Change Username
-
 </button>
 
 </div>
-
 
 <div class="card">
 
 <label>CURRENT PASSWORD</label>
-
-<input
-id="oldPasswordInput"
-type="password"
-placeholder="Current password"
->
-
+<input id="oldPasswordInput" type="password">
 
 <label>NEW PASSWORD</label>
-
-<input
-id="newPasswordInput"
-type="password"
-placeholder="New password"
->
-
+<input id="newPasswordInput" type="password">
 
 <label>CONFIRM NEW PASSWORD</label>
+<input id="confirmPasswordInput" type="password">
 
-<input
-id="confirmPasswordInput"
-type="password"
-placeholder="Confirm new password"
->
-
-
-<button
-class="primary"
-onclick="changePassword()"
->
-
+<button class="primary" onclick="changePassword()">
 Change Password
-
 </button>
 
 </div>
 
 </div>
 
-
-<!-- ================================
-     EMPLOYEES
-================================ -->
-
+<!-- EMPLOYEES -->
 <div id="employees" class="page">
 
-<button
-class="back"
-onclick="showPage('settings')"
->
+<button class="back" onclick="showPage('settings')">
 ← Back
 </button>
 
+<div class="title">Employees</div>
 
-<div class="title">
-Employees
-</div>
+<div class="card" style="text-align:center;padding:50px 20px">
 
+<div style="font-size:45px">👥</div>
 
-<div
-class="card"
-style="text-align:center;padding:50px 20px"
->
-
-<div style="font-size:45px">
-👥
-</div>
-
-<h2>
-Coming Soon
-</h2>
+<h2>Coming Soon</h2>
 
 <p class="sub">
 This feature will be available in the next update.
@@ -1549,312 +1065,165 @@ This feature will be available in the next update.
 
 </div>
 
-
-<!-- ================================
-     PLAY
-================================ -->
-
+<!-- PLAY -->
 <div id="play" class="page">
 
-<button
-class="back"
-onclick="showPage('settings')"
->
+<button class="back" onclick="showPage('settings')">
 ← Back
 </button>
 
+<div class="title">Play</div>
+<div class="sub">Fun games for two players.</div>
 
-<div class="title">
-Play
-</div>
-
-<div class="sub">
-Fun games for two players.
-</div>
-
-
-<button
-class="settings-btn"
-onclick="showPage('xo')"
->
-
+<button class="settings-btn" onclick="showPage('xo')">
 ⭕ X / O
-
 </button>
 
-
-<button
-class="settings-btn"
-onclick="showPage('higher')"
->
-
+<button class="settings-btn" onclick="showPage('higher')">
 🔢 HIGHER OR LOWER
-
 </button>
 
 </div>
 
-
-<!-- ================================
-     XO
-================================ -->
-
+<!-- XO -->
 <div id="xo" class="page">
 
-<button
-class="back"
-onclick="showPage('play')"
->
+<button class="back" onclick="showPage('play')">
 ← Back
 </button>
 
-
-<div class="title">
-X / O
-</div>
-
+<div class="title">X / O</div>
 
 <div class="score">
 
 <div>
-
 <small>PLAYER X</small>
-
 <b id="xs">0</b>
-
 </div>
 
-
 <div>
-
 <small>DRAW</small>
-
 <b id="ds">0</b>
-
 </div>
-
 
 <div>
-
 <small>PLAYER O</small>
-
 <b id="os">0</b>
-
 </div>
 
 </div>
 
-
-<div
-class="card game-center"
-id="xoTurn"
->
+<div class="card game-center" id="xoTurn">
 PLAYER X TURN
 </div>
 
+<div class="xo" id="xoBoard"></div>
 
-<div
-class="xo"
-id="xoBoard"
-></div>
-
-
-<button
-class="more"
-onclick="resetXO()"
->
-
+<button class="more" onclick="resetXO()">
 New Round
-
 </button>
 
 </div>
 
-
-<!-- ================================
-     HIGHER LOWER
-================================ -->
-
+<!-- HIGHER -->
 <div id="higher" class="page">
 
-<button
-class="back"
-onclick="showPage('play')"
->
+<button class="back" onclick="showPage('play')">
 ← Back
 </button>
 
-
-<div class="title">
-Higher or Lower
-</div>
+<div class="title">Higher or Lower</div>
 
 <div class="sub">
 Take turns and guess the next number.
 </div>
 
-
 <div class="score">
 
 <div>
-
 <small>PLAYER 1</small>
-
-<b id="higherP1">
-0
-</b>
-
+<b id="higherP1">0</b>
 </div>
 
-
 <div>
-
 <small>ROUND</small>
-
-<b id="higherRound">
-1
-</b>
-
+<b id="higherRound">1</b>
 </div>
-
 
 <div>
-
 <small>PLAYER 2</small>
-
-<b id="higherP2">
-0
-</b>
-
+<b id="higherP2">0</b>
 </div>
 
 </div>
-
 
 <div class="card game-center">
 
-<div id="higherTurn">
+<div id="higherTurn">PLAYER 1 TURN</div>
 
-PLAYER 1 TURN
-
-</div>
-
-
-<div
-class="number-box"
-id="currentNumber"
->
+<div class="number-box" id="currentNumber">
 50
 </div>
 
-
 <div class="sub">
-
 Will the next number be higher or lower?
-
 </div>
-
 
 <div class="choice">
 
 <button onclick="higherGuess('higher')">
-
 ↑ HIGHER
-
 </button>
-
 
 <button onclick="higherGuess('lower')">
-
 ↓ LOWER
-
 </button>
 
 </div>
 
 </div>
 
-
-<button
-class="more"
-onclick="resetHigher()"
->
-
+<button class="more" onclick="resetHigher()">
 Reset Game
-
 </button>
 
 </div>
 
-
-<!-- ================================
-     NOTES LOGIN
-================================ -->
-
+<!-- NOTE LOGIN -->
 <div id="note" class="page">
 
-<button
-class="back"
-onclick="showPage('settings')"
->
+<button class="back" onclick="showPage('settings')">
 ← Back
 </button>
 
+<div class="title">Private Note</div>
 
-<div class="title">
-Private Note
-</div>
-
-<div
-class="sub"
->
+<div class="sub">
 Your private notes are protected.
 </div>
-
 
 <div id="noteLogin"></div>
 
 </div>
 
-
-<!-- ================================
-     NOTES EDITOR
-================================ -->
-
+<!-- NOTE EDITOR -->
 <div id="noteEditor" class="page">
 
-<button
-class="back"
-onclick="showPage('settings')"
->
+<button class="back" onclick="showPage('settings')">
 ← Back
 </button>
 
-
-<div class="title">
-My Notes
-</div>
-
+<div class="title">My Notes</div>
 
 <div class="card">
 
-<textarea
-id="noteText"
-placeholder="Write anything..."
-></textarea>
+<textarea id="noteText" placeholder="Write anything..."></textarea>
 
-
-<button
-class="primary"
-onclick="saveNote()"
->
-
+<button class="primary" onclick="saveNote()">
 Save Note
-
 </button>
 
 </div>
-
 
 <input
 id="noteSearch"
@@ -1863,66 +1232,36 @@ oninput="renderNotes()"
 style="margin-bottom:15px"
 >
 
-
 <div id="notes"></div>
 
 </div>
 
-
 </div>
 
-
-<!-- ================================
-     BOTTOM NAV
-================================ -->
-
-<div
-class="bottom"
-id="bottomNav"
->
+<!-- NAV -->
+<div class="bottom hidden" id="bottomNav">
 
 <div class="nav">
 
-<button
-class="active"
-id="nav-home"
-onclick="showPage('home')"
->
-⌂<br>
-Home
+<button id="nav-home" class="active" onclick="showPage('home')">
+⌂<br>Home
 </button>
 
-
-<button
-id="nav-quick"
-onclick="showPage('quick')"
->
-✓<br>
-Quick
+<button id="nav-quick" onclick="showPage('quick')">
+✓<br>Quick
 </button>
 
-
-<button
-id="nav-plan"
-onclick="showPage('plan')"
->
-▦<br>
-Plan
+<button id="nav-plan" onclick="showPage('plan')">
+▦<br>Plan
 </button>
 
-
-<button
-id="nav-money"
-onclick="showPage('money')"
->
-◉<br>
-Money
+<button id="nav-money" onclick="showPage('money')">
+◉<br>Money
 </button>
 
 </div>
 
 </div>
-
 
 <script>
 
@@ -1933,9 +1272,13 @@ Money
 let currentUser=null;
 
 let tasks=[];
-let money={added:0,spent:0,history:[]};
-let notes=[];
+let money={
+added:0,
+spent:0,
+history:[]
+};
 
+let notes=[];
 let historyLimit=5;
 
 let xo=["","","","","","","","",""];
@@ -1968,11 +1311,9 @@ let oscillator=audio.createOscillator();
 let gain=audio.createGain();
 
 oscillator.connect(gain);
-
 gain.connect(audio.destination);
 
 oscillator.frequency.value=650;
-
 gain.gain.value=.02;
 
 oscillator.start();
@@ -1980,7 +1321,6 @@ oscillator.start();
 setTimeout(()=>{
 
 oscillator.stop();
-
 audio.close();
 
 },35);
@@ -1991,17 +1331,20 @@ audio.close();
 
 
 /* =================================
-   ACCOUNT STORAGE
+   ACCOUNTS
 ================================= */
 
 function getAccounts(){
 
+try{
 return JSON.parse(
 localStorage.getItem("studyAccounts")
 )||[];
-
+}catch(e){
+return [];
 }
 
+}
 
 function saveAccounts(accounts){
 
@@ -2011,7 +1354,6 @@ JSON.stringify(accounts)
 );
 
 }
-
 
 function userKey(key){
 
@@ -2040,25 +1382,20 @@ startApp();
 function startApp(){
 
 let savedUser=
-
 localStorage.getItem("studyCurrentUser");
 
 if(savedUser){
 
 let accounts=getAccounts();
 
-let user=
-
-accounts.find(
+let user=accounts.find(
 x=>x.username===savedUser
 );
 
 if(user){
 
 currentUser=user;
-
 openApplication();
-
 return;
 
 }
@@ -2077,64 +1414,76 @@ showAuthLogin();
 function showAuthLogin(){
 
 document.getElementById("auth").style.display="flex";
-
 document.getElementById("app").classList.add("hidden");
-
 document.getElementById("bottomNav").classList.add("hidden");
 
+document.getElementById("authContent").innerHTML=`
+
+<div class="auth-title">Welcome Back</div>
+
+<div class="auth-sub">
+Sign in to continue to your personal STUDY account.
+</div>
+
+<label>USERNAME</label>
+
+<input id="loginUsername" placeholder="Username">
+
+<label>PASSWORD</label>
+
+<input id="loginPassword" type="password" placeholder="Password">
+
+<button class="primary" onclick="login()">
+Login
+</button>
+
+<div class="auth-switch">
+Don't have an account?
+<span onclick="showRegister()">Create Account</span>
+</div>
+
+`;
+
+}
+
+
+/* =================================
+   REGISTER PAGE
+================================= */
+
+function showRegister(){
+
+document.getElementById("auth").style.display="flex";
 
 document.getElementById("authContent").innerHTML=`
 
 <div class="auth-title">
-
-Welcome Back
-
+Create Account
 </div>
 
 <div class="auth-sub">
-
-Sign in to continue to your personal STUDY account.
-
+Create your personal STUDY space.
 </div>
-
 
 <label>USERNAME</label>
 
-<input
-id="loginUsername"
-placeholder="Username"
->
-
+<input id="registerUsername" placeholder="Choose username">
 
 <label>PASSWORD</label>
 
-<input
-id="loginPassword"
-type="password"
-placeholder="Password"
->
+<input id="registerPassword" type="password" placeholder="Choose password">
 
+<label>CONFIRM PASSWORD</label>
 
-<button
-class="primary"
-onclick="login()"
->
+<input id="registerConfirm" type="password" placeholder="Confirm password">
 
-Login
-
+<button class="primary" onclick="register()">
+Create Account
 </button>
 
-
 <div class="auth-switch">
-
-Don't have an account?
-
-<span onclick="showRegister()">
-
-Create Account
-
-</span>
-
+Already have an account?
+<span onclick="showAuthLogin()">Login</span>
 </div>
 
 `;
@@ -2146,181 +1495,65 @@ Create Account
    REGISTER
 ================================= */
 
-function showRegister(){
-
-document.getElementById("authContent").innerHTML=`
-
-<div class="auth-title">
-
-Create Account
-
-</div>
-
-<div class="auth-sub">
-
-Create your personal STUDY space.
-
-</div>
-
-
-<label>USERNAME</label>
-
-<input
-id="registerUsername"
-placeholder="Choose username"
->
-
-
-<label>PASSWORD</label>
-
-<input
-id="registerPassword"
-type="password"
-placeholder="Choose password"
->
-
-
-<label>CONFIRM PASSWORD</label>
-
-<input
-id="registerConfirm"
-type="password"
-placeholder="Confirm password"
->
-
-
-<button
-class="primary"
-onclick="register()"
->
-
-Create Account
-
-</button>
-
-
-<div class="auth-switch">
-
-Already have an account?
-
-<span onclick="showAuthLogin()">
-
-Login
-
-</span>
-
-</div>
-
-`;
-
-}
-
-
-/* =================================
-   REGISTER FUNCTION
-================================= */
-
 function register(){
 
-let username=
+const username=
+document.getElementById("registerUsername").value.trim();
 
-document.getElementById(
-"registerUsername"
-).value.trim();
+const password=
+document.getElementById("registerPassword").value;
 
-
-let password=
-
-document.getElementById(
-"registerPassword"
-).value;
-
-
-let confirm=
-
-document.getElementById(
-"registerConfirm"
-).value;
-
+const confirm=
+document.getElementById("registerConfirm").value;
 
 if(username.length<3){
 
-alert(
-"Username must contain at least 3 characters"
-);
-
+alert("Username must contain at least 3 characters");
 return;
 
 }
-
 
 if(password.length<4){
 
-alert(
-"Password must contain at least 4 characters"
-);
-
+alert("Password must contain at least 4 characters");
 return;
 
 }
-
 
 if(password!==confirm){
 
-alert(
-"Passwords do not match"
-);
-
+alert("Passwords do not match");
 return;
 
 }
-
 
 let accounts=getAccounts();
 
+if(accounts.some(
+x=>x.username.toLowerCase()===username.toLowerCase()
+)){
 
-if(
-
-accounts.some(
-x=>x.username.toLowerCase()===
-username.toLowerCase()
-)
-
-){
-
-alert(
-"This username already exists"
-);
-
+alert("This username already exists");
 return;
 
 }
 
-
 let user={
-
 username:username,
-
 password:password,
-
 createdAt:new Date().toISOString()
-
 };
-
 
 accounts.push(user);
 
 saveAccounts(accounts);
 
-
 currentUser=user;
-
 
 localStorage.setItem(
 "studyCurrentUser",
 username
 );
-
 
 openApplication();
 
@@ -2333,58 +1566,41 @@ openApplication();
 
 function login(){
 
-let username=
+const username=
+document.getElementById("loginUsername").value.trim();
 
-document.getElementById(
-"loginUsername"
-).value.trim();
+const password=
+document.getElementById("loginPassword").value;
 
+if(!username||!password){
 
-let password=
-
-document.getElementById(
-"loginPassword"
-).value;
-
-
-let accounts=getAccounts();
-
-
-let user=
-
-accounts.find(
-
-x=>
-
-x.username.toLowerCase()===
-username.toLowerCase()
-
-&&
-
-x.password===password
-
-);
-
-
-if(!user){
-
-alert(
-"Wrong username or password"
-);
-
+alert("Please enter username and password");
 return;
 
 }
 
+let accounts=getAccounts();
+
+let user=accounts.find(
+x=>
+x.username.toLowerCase()===username.toLowerCase()
+&&
+x.password===password
+);
+
+if(!user){
+
+alert("Wrong username or password");
+return;
+
+}
 
 currentUser=user;
-
 
 localStorage.setItem(
 "studyCurrentUser",
 user.username
 );
-
 
 openApplication();
 
@@ -2397,32 +1613,14 @@ openApplication();
 
 function logout(){
 
-if(
+if(!confirm("Are you sure you want to logout?"))return;
 
-!confirm(
-"Are you sure you want to logout?"
-)
-
-)return;
-
-
-localStorage.removeItem(
-"studyCurrentUser"
-);
-
+localStorage.removeItem("studyCurrentUser");
 
 currentUser=null;
 
-
-document.getElementById(
-"app"
-).classList.add("hidden");
-
-
-document.getElementById(
-"bottomNav"
-).classList.add("hidden");
-
+document.getElementById("app").classList.add("hidden");
+document.getElementById("bottomNav").classList.add("hidden");
 
 showAuthLogin();
 
@@ -2435,26 +1633,14 @@ showAuthLogin();
 
 function openApplication(){
 
-document.getElementById(
-"auth"
-).style.display="none";
+document.getElementById("auth").style.display="none";
 
+document.getElementById("app").classList.remove("hidden");
 
-document.getElementById(
-"app"
-).classList.remove("hidden");
-
-
-document.getElementById(
-"bottomNav"
-).classList.remove("hidden");
-
+document.getElementById("bottomNav").classList.remove("hidden");
 
 loadUserData();
-
-
 updateUserUI();
-
 
 showPage("home");
 
@@ -2462,83 +1648,82 @@ showPage("home");
 
 
 /* =================================
-   LOAD USER DATA
+   USER DATA
 ================================= */
 
 function loadUserData(){
 
-tasks=
+if(!currentUser)return;
 
-JSON.parse(
-localStorage.getItem(
-userKey("tasks")
-)
+try{
+
+tasks=JSON.parse(
+localStorage.getItem(userKey("tasks"))
 )||[];
 
-
-money=
-
-JSON.parse(
-localStorage.getItem(
-userKey("money")
-)
+money=JSON.parse(
+localStorage.getItem(userKey("money"))
 )||{
 added:0,
 spent:0,
 history:[]
 };
 
-
-notes=
-
-JSON.parse(
-localStorage.getItem(
-userKey("notes")
-)
+notes=JSON.parse(
+localStorage.getItem(userKey("notes"))
 )||[];
+
+}catch(e){
+
+tasks=[];
+money={added:0,spent:0,history:[]};
+notes=[];
+
+}
 
 }
 
 
 /* =================================
-   SAVE DATA
+   SAVE
 ================================= */
 
 function saveTasks(){
 
+if(currentUser){
+
 localStorage.setItem(
-
 userKey("tasks"),
-
 JSON.stringify(tasks)
-
 );
 
 }
 
+}
 
 function saveMoneyStorage(){
 
+if(currentUser){
+
 localStorage.setItem(
-
 userKey("money"),
-
 JSON.stringify(money)
-
 );
 
 }
 
+}
 
 function saveNotesStorage(){
 
+if(currentUser){
+
 localStorage.setItem(
-
 userKey("notes"),
-
 JSON.stringify(notes)
-
 );
+
+}
 
 }
 
@@ -2549,54 +1734,27 @@ JSON.stringify(notes)
 
 function updateUserUI(){
 
+if(!currentUser)return;
+
 let name=currentUser.username;
 
-document.getElementById(
-"topUsername"
-).textContent=name;
+document.getElementById("topUsername").textContent=name;
 
-
-document.getElementById(
-"topAvatar"
-).textContent=
-
+document.getElementById("topAvatar").textContent=
 name.charAt(0).toUpperCase();
 
+document.getElementById("profileUsername").textContent=name;
 
-document.getElementById(
-"profileUsername"
-).textContent=name;
-
-
-document.getElementById(
-"profileAvatar"
-).textContent=
-
+document.getElementById("profileAvatar").textContent=
 name.charAt(0).toUpperCase();
 
-
-document.getElementById(
-"welcomeText"
-).textContent=
-
+document.getElementById("welcomeText").textContent=
 "Welcome, "+name+" 👋";
 
+let created=new Date(currentUser.createdAt);
 
-let created=
-
-new Date(
-currentUser.createdAt
-);
-
-
-document.getElementById(
-"memberSince"
-).textContent=
-
-"Member since "+
-
-created.toLocaleDateString();
-
+document.getElementById("memberSince").textContent=
+"Member since "+created.toLocaleDateString();
 
 }
 
@@ -2607,113 +1765,44 @@ created.toLocaleDateString();
 
 function showPage(id){
 
-sound();
+if(!currentUser)return;
 
+document.querySelectorAll(".page")
+.forEach(x=>x.classList.remove("active"));
 
-document.querySelectorAll(
-".page"
-).forEach(
+let page=document.getElementById(id);
 
-x=>x.classList.remove("active")
+if(page)page.classList.add("active");
 
-);
+document.querySelectorAll(".nav button")
+.forEach(x=>x.classList.remove("active"));
 
+let nav=document.getElementById("nav-"+id);
 
-let page=
+if(nav)nav.classList.add("active");
 
-document.getElementById(id);
-
-
-if(page){
-
-page.classList.add("active");
-
-}
-
-
-document.querySelectorAll(
-".nav button"
-).forEach(
-
-x=>x.classList.remove("active")
-
-);
-
-
-let nav=
-
-document.getElementById(
-"nav-"+id
-);
-
-
-if(nav){
-
-nav.classList.add("active");
-
-}
-
-
-window.scrollTo(
-0,
-0
-);
-
+window.scrollTo(0,0);
 
 renderTasks();
-
 renderMoney();
-
 renderDashboard();
 
-
-if(id==="data"){
-
-renderData();
-
-}
-
-
-if(id==="xo"){
-
-renderXO();
-
-}
-
-
-if(id==="higher"){
-
-renderHigher();
-
-}
-
-
-if(id==="note"){
-
-renderNote();
-
-}
-
-
-if(id==="noteEditor"){
-
-renderNotes();
-
-}
+if(id==="data")renderData();
+if(id==="xo")renderXO();
+if(id==="higher")renderHigher();
+if(id==="note")renderNote();
+if(id==="noteEditor")renderNotes();
 
 }
 
 
 /* =================================
-   ESCAPE HTML
+   ESCAPE
 ================================= */
 
 function esc(text){
 
-let div=
-
-document.createElement("div");
-
+let div=document.createElement("div");
 div.textContent=text;
 
 return div.innerHTML;
@@ -2722,84 +1811,46 @@ return div.innerHTML;
 
 
 /* =================================
-   ADD TASK
+   TASK ADD
 ================================= */
 
 function addTask(){
 
 let name=
-
-document.getElementById(
-"taskName"
-).value.trim();
-
+document.getElementById("taskName").value.trim();
 
 let desc=
-
-document.getElementById(
-"taskDesc"
-).value.trim();
-
+document.getElementById("taskDesc").value.trim();
 
 let date=
-
-document.getElementById(
-"taskDate"
-).value;
-
+document.getElementById("taskDate").value;
 
 if(!name||!date){
 
-alert(
-"Enter work name and date"
-);
-
+alert("Enter work name and date");
 return;
 
 }
 
-
 tasks.push({
 
 id:Date.now(),
-
 name:name,
-
 desc:desc,
-
 date:date,
-
 status:"active",
-
-hidden:false,
-
 completedAt:null
 
 });
 
-
 saveTasks();
 
-
-document.getElementById(
-"taskName"
-).value="";
-
-
-document.getElementById(
-"taskDesc"
-).value="";
-
-
-document.getElementById(
-"taskDate"
-).value="";
-
+document.getElementById("taskName").value="";
+document.getElementById("taskDesc").value="";
+document.getElementById("taskDate").value="";
 
 renderTasks();
-
 renderDashboard();
-
 sound();
 
 }
@@ -2811,95 +1862,171 @@ sound();
 
 function getCountdown(date){
 
-let now=new Date();
-
-let target=new Date(date);
-
-let diff=
-
-target-now;
-
+let diff=new Date(date)-new Date();
 
 if(diff<=0){
 
 return{
-
 text:"OVERDUE",
-
 class:"red"
-
 };
 
 }
 
+let days=Math.floor(diff/86400000);
 
-let days=
-
-Math.floor(
-diff/86400000
-);
-
-
-let hours=
-
-Math.floor(
+let hours=Math.floor(
 (diff%86400000)/3600000
 );
 
-
-let minutes=
-
-Math.floor(
+let minutes=Math.floor(
 (diff%3600000)/60000
 );
 
-
-let seconds=
-
-Math.floor(
+let seconds=Math.floor(
 (diff%60000)/1000
 );
 
-
 let text="";
 
+if(days>0)text+=days+"d ";
 
-if(days>0){
-
-text+=
-days+"d ";
-
-}
-
-
-text+=
-
-hours+"h "+
-minutes+"m "+
-seconds+"s";
-
+text+=hours+"h "+minutes+"m "+seconds+"s";
 
 let color="green";
 
+if(days===0)color="red";
+else if(days<=2)color="yellow";
 
-if(days===0){
-
-color="red";
-
-}else if(days<=2){
-
-color="yellow";
+return{
+text:text,
+class:color
+};
 
 }
 
 
-return{
+/* =================================
+   TASK HTML
+================================= */
 
-text:text,
+function taskActiveHTML(t,quick=false){
 
-class:color
+let countdown=getCountdown(t.date);
 
-};
+return `
+
+<div class="task">
+
+<div class="tasktop">
+
+<div class="taskname">
+${esc(t.name)}
+</div>
+
+<div class="status ${countdown.class}">
+ACTIVE
+</div>
+
+</div>
+
+${t.desc?`
+
+<div class="desc">
+${esc(t.desc)}
+</div>
+
+`:""}
+
+<div class="date">
+📅 ${new Date(t.date).toLocaleString()}
+</div>
+
+<div
+class="countdown"
+data-countdown="${t.id}"
+>
+⏳ ${countdown.text}
+</div>
+
+<div class="actions">
+
+<button
+class="done"
+onclick="finishTask(${t.id},'done')"
+>
+✓ Done
+</button>
+
+<button
+class="fail"
+onclick="finishTask(${t.id},'failed')"
+>
+✕ Failed
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =================================
+   RECORD HTML
+================================= */
+
+function taskRecordHTML(t){
+
+let completed=t.status==="done";
+
+return `
+
+<div class="task ${completed?"completed":"failed"}">
+
+<button
+class="hide-task"
+onclick="hideRecord(${t.id})"
+>
+×
+</button>
+
+<div class="tasktop">
+
+<div class="taskname">
+${esc(t.name)}
+</div>
+
+<div class="status ${completed?"green":"red"}">
+${completed?"COMPLETED":"FAILED"}
+</div>
+
+</div>
+
+${t.desc?`
+
+<div class="desc">
+${esc(t.desc)}
+</div>
+
+`:""}
+
+<div class="date">
+
+${t.completedAt
+?
+"Recorded: "+
+new Date(t.completedAt).toLocaleString()
+:
+""}
+
+</div>
+
+</div>
+
+`;
 
 }
 
@@ -2910,367 +2037,61 @@ class:color
 
 function renderTasks(){
 
-let activeBox=
+if(!currentUser)return;
 
-document.getElementById(
-"activeTasks"
-);
+let activeBox=document.getElementById("activeTasks");
+let recordBox=document.getElementById("taskRecords");
+let quickBox=document.getElementById("quickTasks");
 
-
-let recordBox=
-
-document.getElementById(
-"taskRecords"
-);
-
-
-let quickBox=
-
-document.getElementById(
-"quickTasks"
-);
-
-
-if(!activeBox)return;
-
+if(!activeBox||!recordBox||!quickBox)return;
 
 activeBox.innerHTML="";
-
 recordBox.innerHTML="";
-
 quickBox.innerHTML="";
 
+let active=tasks
+.filter(t=>t.status==="active")
+.sort((a,b)=>new Date(a.date)-new Date(b.date));
 
-let active=
-
-tasks.filter(
-
-t=>t.status==="active"
-
-);
-
-
-let records=
-
-tasks.filter(
-
-t=>
-
-t.status==="done"
-
-||
-
-t.status==="failed"
-
-);
-
+let records=tasks
+.filter(t=>t.status==="done"||t.status==="failed")
+.slice()
+.reverse();
 
 if(!active.length){
 
 activeBox.innerHTML=
-
 '<div class="sub">No active tasks.</div>';
 
-}
+quickBox.innerHTML=
+'<div class="sub">✓ Everything is under control.</div>';
 
+}else{
 
-active
+active.forEach(t=>{
 
-.sort(
+activeBox.innerHTML+=taskActiveHTML(t,false);
 
-(a,b)=>
-
-new Date(a.date)-
-new Date(b.date)
-
-)
-
-.forEach(t=>{
-
-
-let countdown=
-
-getCountdown(t.date);
-
-
-let taskHTML=`
-
-<div class="task">
-
-<div class="tasktop">
-
-<div class="taskname">
-
-${esc(t.name)}
-
-</div>
-
-<div class="status ${countdown.class}">
-
-ACTIVE
-
-</div>
-
-</div>
-
-
-${
-
-t.desc?
-
-`
-
-<div class="desc">
-
-${esc(t.desc)}
-
-</div>
-
-`
-
-:""
-
-
-}
-
-
-<div class="date">
-
-📅 ${new Date(t.date).toLocaleString()}
-
-</div>
-
-
-<div class="countdown">
-
-⏳ ${countdown.text}
-
-</div>
-
-
-<div class="actions">
-
-<button
-class="done"
-onclick="finishTask(${t.id},'done')"
->
-
-✓ Done
-
-</button>
-
-
-<button
-class="fail"
-onclick="finishTask(${t.id},'failed')"
->
-
-✕ Failed
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-
-activeBox.innerHTML+=taskHTML;
-
-
-if(!t.hidden){
-
-quickBox.innerHTML+=`
-
-<div class="task">
-
-<div class="tasktop">
-
-<div class="taskname">
-
-${esc(t.name)}
-
-</div>
-
-<div class="status ${countdown.class}">
-
-ACTIVE
-
-</div>
-
-</div>
-
-
-${
-
-t.desc?
-
-`
-
-<div class="desc">
-
-${esc(t.desc)}
-
-</div>
-
-`
-
-:""
-
-
-}
-
-
-<div class="date">
-
-📅 ${new Date(t.date).toLocaleString()}
-
-</div>
-
-
-<div class="countdown">
-
-⏳ ${countdown.text}
-
-</div>
-
-
-<div class="actions">
-
-<button
-class="done"
-onclick="finishTask(${t.id},'done')"
->
-
-✓ Done
-
-</button>
-
-
-<button
-class="fail"
-onclick="finishTask(${t.id},'failed')"
->
-
-✕ Failed
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-}
+quickBox.innerHTML+=taskActiveHTML(t,true);
 
 });
 
-
-if(!quickBox.innerHTML){
-
-quickBox.innerHTML=
-
-'<div class="sub">✓ Everything is under control.</div>';
-
 }
-
 
 if(!records.length){
 
 recordBox.innerHTML=
-
 '<div class="sub">No task records yet.</div>';
 
-}
+}else{
 
+records.forEach(t=>{
 
-records
-
-.slice()
-
-.reverse()
-
-.forEach(t=>{
-
-
-let completed=
-
-t.status==="done";
-
-
-recordBox.innerHTML+=`
-
-<div class="task ${completed?"completed":"failed"}">
-
-<button
-class="hide-task"
-onclick="hideRecord(${t.id})"
->
-
-×
-</button>
-
-
-<div class="tasktop">
-
-<div class="taskname">
-
-${esc(t.name)}
-
-</div>
-
-
-<div class="status ${completed?"green":"red"}">
-
-${completed?"COMPLETED":"FAILED"}
-
-</div>
-
-</div>
-
-
-${
-
-t.desc?
-
-`
-
-<div class="desc">
-
-${esc(t.desc)}
-
-</div>
-
-`
-
-:""
-
-}
-
-
-<div class="date">
-
-${
-
-t.completedAt?
-
-new Date(
-t.completedAt
-).toLocaleString()
-
-:""
-
-}
-
-</div>
-
-</div>
-
-`;
+recordBox.innerHTML+=taskRecordHTML(t);
 
 });
+
+}
 
 }
 
@@ -3281,40 +2102,16 @@ t.completedAt
 
 function finishTask(id,status){
 
-tasks=
+let task=tasks.find(t=>t.id===id);
 
-tasks.map(
+if(!task||task.status!=="active")return;
 
-t=>{
-
-if(t.id===id){
-
-return{
-
-...t,
-
-status:status,
-
-hidden:true,
-
-completedAt:Date.now()
-
-};
-
-}
-
-return t;
-
-}
-
-);
-
+task.status=status;
+task.completedAt=Date.now();
 
 saveTasks();
 
-
 renderTasks();
-
 renderDashboard();
 
 sound();
@@ -3323,25 +2120,16 @@ sound();
 
 
 /* =================================
-   HIDE RECORD
+   DELETE RECORD
 ================================= */
 
 function hideRecord(id){
 
-tasks=
-
-tasks.filter(
-
-t=>t.id!==id
-
-);
-
+tasks=tasks.filter(t=>t.id!==id);
 
 saveTasks();
 
-
 renderTasks();
-
 renderDashboard();
 
 sound();
@@ -3350,20 +2138,32 @@ sound();
 
 
 /* =================================
-   LIVE TASK UPDATE
+   ONLY UPDATE COUNTDOWN
+   NO REBUILD
 ================================= */
 
-setInterval(()=>{
+function updateCountdowns(){
 
-if(currentUser){
+if(!currentUser)return;
 
-renderTasks();
+document.querySelectorAll("[data-countdown]")
+.forEach(element=>{
 
-renderDashboard();
+let id=Number(element.dataset.countdown);
+
+let task=tasks.find(t=>t.id===id);
+
+if(!task||task.status!=="active")return;
+
+let countdown=getCountdown(task.date);
+
+element.textContent="⏳ "+countdown.text;
+
+});
 
 }
 
-},1000);
+setInterval(updateCountdowns,1000);
 
 
 /* =================================
@@ -3374,93 +2174,43 @@ function renderDashboard(){
 
 if(!currentUser)return;
 
-
-let active=
-
-tasks.filter(
-
+let active=tasks.filter(
 t=>t.status==="active"
-
 );
 
-
-let completed=
-
-tasks.filter(
-
+let completed=tasks.filter(
 t=>t.status==="done"
-
 );
 
-
-let finished=
-
-tasks.filter(
-
-t=>
-
-t.status==="done"
-
-||
-
+let finished=tasks.filter(
+t=>t.status==="done"||
 t.status==="failed"
-
 );
 
-
-let rate=
-
-finished.length?
-
+let rate=finished.length
+?
 Math.round(
-
-completed.length/
-finished.length*100
-
+completed.length/finished.length*100
 )
-
 :0;
 
-
-document.getElementById(
-"dashActive"
-).textContent=
-
+document.getElementById("dashActive").textContent=
 active.length;
 
-
-document.getElementById(
-"dashCompleted"
-).textContent=
-
+document.getElementById("dashCompleted").textContent=
 completed.length;
 
-
-document.getElementById(
-"dashSuccess"
-).textContent=
-
+document.getElementById("dashSuccess").textContent=
 rate+"%";
 
-
 let remaining=
-
 money.added-money.spent;
 
-
-document.getElementById(
-"dashMoney"
-).textContent=
-
+document.getElementById("dashMoney").textContent=
 remaining.toFixed(2)+" DT";
 
-
 let nearestBox=
-
-document.getElementById(
-"nearestTask"
-);
-
+document.getElementById("nearestTask");
 
 if(!active.length){
 
@@ -3471,9 +2221,7 @@ nearestBox.innerHTML=`
 <b>🎉 No upcoming tasks</b>
 
 <div class="desc">
-
 Enjoy your free time!
-
 </div>
 
 </div>
@@ -3484,67 +2232,35 @@ return;
 
 }
 
-
-let nearest=
-
-active
-
+let nearest=active
 .slice()
-
 .sort(
-
-(a,b)=>
-
-new Date(a.date)-
-new Date(b.date)
-
+(a,b)=>new Date(a.date)-new Date(b.date)
 )[0];
 
-
-let countdown=
-
-getCountdown(nearest.date);
-
+let countdown=getCountdown(nearest.date);
 
 nearestBox.innerHTML=`
 
 <div class="card">
 
 <small style="color:#929292">
-
 NEXT TASK
-
 </small>
 
-
 <h3 style="margin-bottom:5px">
-
 ${esc(nearest.name)}
-
 </h3>
 
-
 <div class="desc">
-
-${
-
-nearest.desc?
-
-esc(nearest.desc)
-
-:
-
-"No description"
-
-}
-
+${nearest.desc?esc(nearest.desc):"No description"}
 </div>
 
-
-<div class="countdown">
-
+<div
+class="countdown"
+data-countdown="${nearest.id}"
+>
 ⏳ ${countdown.text}
-
 </div>
 
 </div>
@@ -3555,7 +2271,7 @@ esc(nearest.desc)
 
 
 /* =================================
-   MONEY TIME
+   MONEY
 ================================= */
 
 function now(){
@@ -3563,21 +2279,13 @@ function now(){
 return new Date().toLocaleString(
 undefined,
 {
-
 year:"numeric",
-
 month:"short",
-
 day:"numeric",
-
 hour:"2-digit",
-
 minute:"2-digit",
-
 second:"2-digit"
-
 }
-
 );
 
 }
@@ -3589,50 +2297,31 @@ second:"2-digit"
 
 function addMoney(){
 
-let amount=
-
-Number(
-document.getElementById(
-"amount"
-).value
+let amount=Number(
+document.getElementById("amount").value
 );
 
-
 let desc=
-
-document.getElementById(
-"moneyDesc"
-).value.trim();
-
+document.getElementById("moneyDesc").value.trim();
 
 if(!amount||amount<=0){
 
-alert(
-"Enter valid amount"
-);
-
+alert("Enter valid amount");
 return;
 
 }
 
-
 money.added+=amount;
-
 
 money.history.unshift({
 
 type:"added",
-
 amount:amount,
-
 desc:desc||"Money Added",
-
 time:now(),
-
 timestamp:Date.now()
 
 });
-
 
 saveMoney();
 
@@ -3645,50 +2334,31 @@ saveMoney();
 
 function spendMoney(){
 
-let amount=
-
-Number(
-document.getElementById(
-"amount"
-).value
+let amount=Number(
+document.getElementById("amount").value
 );
 
-
 let desc=
-
-document.getElementById(
-"moneyDesc"
-).value.trim();
-
+document.getElementById("moneyDesc").value.trim();
 
 if(!amount||amount<=0){
 
-alert(
-"Enter valid amount"
-);
-
+alert("Enter valid amount");
 return;
 
 }
 
-
 money.spent+=amount;
-
 
 money.history.unshift({
 
 type:"spent",
-
 amount:amount,
-
 desc:desc||"No Description",
-
 time:now(),
-
 timestamp:Date.now()
 
 });
-
 
 saveMoney();
 
@@ -3703,19 +2373,10 @@ function saveMoney(){
 
 saveMoneyStorage();
 
-
-document.getElementById(
-"amount"
-).value="";
-
-
-document.getElementById(
-"moneyDesc"
-).value="";
-
+document.getElementById("amount").value="";
+document.getElementById("moneyDesc").value="";
 
 renderMoney();
-
 renderDashboard();
 
 sound();
@@ -3729,31 +2390,19 @@ sound();
 
 function resetMoney(){
 
-if(
-
-!confirm(
+if(!confirm(
 "Reset all Pocket Money and History?"
-)
-
-)return;
-
+))return;
 
 money={
-
 added:0,
-
 spent:0,
-
 history:[]
-
 };
-
 
 saveMoneyStorage();
 
-
 renderMoney();
-
 renderDashboard();
 
 sound();
@@ -3769,136 +2418,73 @@ function renderMoney(){
 
 if(!currentUser)return;
 
-
 let remaining=
-
 money.added-money.spent;
 
-
-document.getElementById(
-"balance"
-).textContent=
-
+document.getElementById("balance").textContent=
 remaining.toFixed(2)+" DT";
 
-
-document.getElementById(
-"added"
-).textContent=
-
+document.getElementById("added").textContent=
 money.added.toFixed(2)+" DT";
 
-
-document.getElementById(
-"spent"
-).textContent=
-
+document.getElementById("spent").textContent=
 money.spent.toFixed(2)+" DT";
 
-
 let percent=
-
-money.added?
-
+money.added
+?
 remaining/money.added*100
-
 :0;
 
-
 let progress=
-
-document.getElementById(
-"progress"
-);
-
+document.getElementById("progress");
 
 let danger=
-
-document.getElementById(
-"danger"
-);
-
+document.getElementById("danger");
 
 if(remaining<0){
 
 progress.style.width="100%";
-
 progress.style.background="var(--red)";
 
-
 danger.innerHTML=
-
 '<div class="danger">⚠ DANGER — YOU ARE IN DEBT</div>';
 
 }else{
 
 danger.innerHTML="";
 
-
 progress.style.width=
-
 Math.max(
 0,
-Math.min(
-100,
-percent
-)
+Math.min(100,percent)
 )+"%";
 
-
-if(percent<25){
-
+if(percent<25)
 progress.style.background="var(--red)";
-
-}
-
-else if(percent<50){
-
+else if(percent<50)
 progress.style.background="var(--yellow)";
-
-}
-
-else if(percent<75){
-
+else if(percent<75)
 progress.style.background="var(--orange)";
-
-}
-
-else{
-
+else
 progress.style.background="var(--green)";
 
 }
 
-}
-
-
 let history=
-
-document.getElementById(
-"history"
-);
-
+document.getElementById("history");
 
 history.innerHTML="";
 
-
 let list=
-
-money.history.slice(
-0,
-historyLimit
-);
-
+money.history.slice(0,historyLimit);
 
 if(!list.length){
 
 history.innerHTML=
-
 '<div class="sub">No activity yet.</div>';
 
 }
-
 
 list.forEach(x=>{
 
@@ -3909,60 +2495,24 @@ history.innerHTML+=`
 <div>
 
 <b>
-
-${
-
-x.type==="added"?
-
-"Money Added"
-
-:
-
-"Money Spent"
-
-}
-
+${x.type==="added"?"Money Added":"Money Spent"}
 </b>
 
-
 <div class="desc">
-
 ${esc(x.desc)}
-
 </div>
 
-
-<small>
-
-${x.time}
-
-</small>
+<small>${x.time}</small>
 
 </div>
-
 
 <b style="color:${
-x.type==="added"?
-
-"var(--green)"
-
-:
-
-"var(--red)"
+x.type==="added"
+?"var(--green)"
+:"var(--red)"
 }">
 
-${
-
-x.type==="added"?
-
-"+"
-
-:
-
-"-"
-
-}
-
+${x.type==="added"?"+":"-"}
 ${Number(x.amount).toFixed(2)} DT
 
 </b>
@@ -3972,7 +2522,6 @@ ${Number(x.amount).toFixed(2)} DT
 `;
 
 });
-
 
 renderDebt();
 
@@ -3998,25 +2547,15 @@ renderMoney();
 
 function renderDebt(){
 
-let box=
-
-document.getElementById(
-"debtAlert"
-);
-
+let box=document.getElementById("debtAlert");
 
 if(!box)return;
 
-
 let remaining=
-
 money.added-money.spent;
 
-
-box.innerHTML=
-
-remaining<0?
-
+box.innerHTML=remaining<0
+?
 `
 
 <div class="danger">
@@ -4026,13 +2565,11 @@ remaining<0?
 <br>
 
 You owe
-
 ${Math.abs(remaining).toFixed(2)} DT
 
 </div>
 
 `
-
 :"";
 
 }
@@ -4044,356 +2581,179 @@ ${Math.abs(remaining).toFixed(2)} DT
 
 function renderData(){
 
-let canvas=
+let canvas=document.getElementById("chart");
 
-document.getElementById(
-"chart"
-);
+if(!canvas)return;
 
+let ctx=canvas.getContext("2d");
 
-let ctx=
+let width=900;
+let height=450;
 
-canvas.getContext("2d");
-
-
-let width=
-
-canvas.width;
-
-
-let height=
-
-canvas.height;
-
-
-ctx.clearRect(
-0,
-0,
-width,
-height
-);
-
-
-/* Get activity */
+ctx.clearRect(0,0,width,height);
 
 let history=
-
-money.history
-
-.slice()
-
-.reverse();
-
+money.history.slice().reverse();
 
 let points=[];
-
-
 let running=0;
-
-
-/* Start balance from history */
 
 history.forEach(item=>{
 
 running+=
-
-item.type==="added"?
-
+item.type==="added"
+?
 Number(item.amount)
-
 :
-
 -Number(item.amount);
-
 
 points.push({
 
 balance:running,
 
-date:new Date(
-item.timestamp
-)
+date:new Date(item.timestamp)
 
 });
 
 });
-
 
 if(!points.length){
 
 ctx.fillStyle="#777";
-
 ctx.font="24px Arial";
-
 ctx.textAlign="center";
 
 ctx.fillText(
-
 "No financial data yet",
-
 width/2,
-
 height/2
-
 );
+
+document.getElementById("report").innerHTML=`
+<b>FINANCIAL REPORT</b>
+<br><br>
+No financial activity yet.
+`;
 
 return;
 
 }
 
-
-/* Padding */
-
 let left=80;
-
 let right=35;
-
 let top=40;
-
 let bottom=70;
 
-
-let graphW=
-
-width-left-right;
-
-
-let graphH=
-
-height-top-bottom;
-
-
-/* Range */
+let graphW=width-left-right;
+let graphH=height-top-bottom;
 
 let values=
+points.map(x=>x.balance);
 
-points.map(
-x=>x.balance
-);
+let max=Math.max(...values,10);
+let min=Math.min(...values,0);
 
+let range=max-min||10;
 
-let max=
-
-Math.max(
-...values,
-10
-);
-
-
-let min=
-
-Math.min(
-...values,
-0
-);
-
-
-let range=
-
-max-min||10;
-
-
-/* Grid */
+/* GRID */
 
 ctx.strokeStyle="#252525";
-
 ctx.lineWidth=1;
 
+for(let i=0;i<=5;i++){
 
-for(
-
-let i=0;
-
-i<=5;
-
-i++
-
-){
-
-let y=
-
-top+
-(graphH/5*i);
-
+let y=top+(graphH/5*i);
 
 ctx.beginPath();
-
-ctx.moveTo(
-left,
-y
-);
-
-ctx.lineTo(
-width-right,
-y
-);
-
+ctx.moveTo(left,y);
+ctx.lineTo(width-right,y);
 ctx.stroke();
 
-
-let value=
-
-max-
-(range/5*i);
-
+let value=max-(range/5*i);
 
 ctx.fillStyle="#888";
-
 ctx.font="13px Arial";
-
 ctx.textAlign="right";
 
 ctx.fillText(
-
 value.toFixed(0)+" DT",
-
 left-12,
-
 y+5
-
 );
 
 }
 
-
-/* X points */
+/* LINE */
 
 let step=
-
-points.length===1?
-
+points.length===1
+?
 0
-
 :
-
-graphW/
-(points.length-1);
-
-
-/* Draw line */
+graphW/(points.length-1);
 
 ctx.beginPath();
 
-
-points.forEach(
-
-(point,i)=>{
+points.forEach((point,i)=>{
 
 let x=
-
-points.length===1?
-
+points.length===1
+?
 left+graphW/2
-
 :
-
 left+i*step;
 
-
 let y=
-
 top+
+((max-point.balance)/range)*graphH;
 
-(
-
-(max-point.balance)/range
-
-)*graphH;
-
-
-if(i===0){
-
+if(i===0)
 ctx.moveTo(x,y);
-
-}
-
-else{
-
+else
 ctx.lineTo(x,y);
 
-}
-
-}
-
-);
-
+});
 
 ctx.strokeStyle="#35d07f";
-
 ctx.lineWidth=4;
-
 ctx.stroke();
 
+/* POINTS */
 
-/* Dots */
-
-points.forEach(
-
-(point,i)=>{
+points.forEach((point,i)=>{
 
 let x=
-
-points.length===1?
-
+points.length===1
+?
 left+graphW/2
-
 :
-
 left+i*step;
 
-
 let y=
-
 top+
-
-(
-
-(max-point.balance)/range
-
-)*graphH;
-
+((max-point.balance)/range)*graphH;
 
 ctx.fillStyle=
-
-point.balance<0?
-
+point.balance<0
+?
 "#ff4d4d"
-
 :
-
 "#35d07f";
-
 
 ctx.beginPath();
 
 ctx.arc(
-x,
-y,
-7,
-0,
-Math.PI*2
+x,y,7,0,Math.PI*2
 );
 
 ctx.fill();
 
-
-/* Date */
-
 ctx.fillStyle="#888";
-
 ctx.font="11px Arial";
-
 ctx.textAlign="center";
 
-
-let date=
-
-point.date;
-
-
 let label=
-
-date.toLocaleDateString(
+point.date.toLocaleDateString(
 undefined,
 {
 day:"2-digit",
@@ -4401,82 +2761,43 @@ month:"short"
 }
 );
 
-
 ctx.fillText(
-
 label,
-
 x,
-
 height-35
-
 );
 
-}
+});
 
-);
+/* REPORT */
 
-
-/* Report */
-
-let totalAdded=
-
-money.added;
-
-
-let totalSpent=
-
-money.spent;
-
-
+let totalAdded=money.added;
+let totalSpent=money.spent;
 let remaining=
-
 money.added-money.spent;
 
+document.getElementById("report").innerHTML=`
 
-document.getElementById(
-"report"
-).innerHTML=`
-
-<b>
-
-FINANCIAL REPORT
-
-</b>
+<b>FINANCIAL REPORT</b>
 
 <br><br>
 
 Total Added:
-
-<b>
-
-${totalAdded.toFixed(2)} DT
-
-</b>
+<b>${totalAdded.toFixed(2)} DT</b>
 
 <br>
 
 Total Spent:
-
-<b>
-
-${totalSpent.toFixed(2)} DT
-
-</b>
+<b>${totalSpent.toFixed(2)} DT</b>
 
 <br>
 
 Current Balance:
-
-<b>
-
-${remaining.toFixed(2)} DT
-
-</b>
+<b>${remaining.toFixed(2)} DT</b>
 
 <br><br>
 
-The graph shows your real balance after every new saving or spending operation.
+The graph shows your real balance after every saving or spending operation.
 
 `;
 
@@ -4484,59 +2805,34 @@ The graph shows your real balance after every new saving or spending operation.
 
 
 /* =================================
-   X O
+   XO
 ================================= */
 
 function renderXO(){
 
-let board=
+let board=document.getElementById("xoBoard");
 
-document.getElementById(
-"xoBoard"
-);
-
+if(!board)return;
 
 board.innerHTML="";
 
-
-xo.forEach(
-(v,i)=>{
+xo.forEach((v,i)=>{
 
 board.innerHTML+=`
 
-<button
-onclick="xoMove(${i})"
->
-
+<button onclick="xoMove(${i})">
 ${v}
-
 </button>
 
 `;
 
-}
-);
+});
 
+document.getElementById("xs").textContent=xs;
+document.getElementById("os").textContent=os;
+document.getElementById("ds").textContent=ds;
 
-document.getElementById(
-"xs"
-).textContent=xs;
-
-
-document.getElementById(
-"os"
-).textContent=os;
-
-
-document.getElementById(
-"ds"
-).textContent=ds;
-
-
-document.getElementById(
-"xoTurn"
-).textContent=
-
+document.getElementById("xoTurn").textContent=
 "PLAYER "+turn+" TURN";
 
 }
@@ -4546,48 +2842,29 @@ function xoMove(i){
 
 if(xo[i])return;
 
-
 xo[i]=turn;
-
 
 let wins=[
 
 [0,1,2],
-
 [3,4,5],
-
 [6,7,8],
-
 [0,3,6],
-
 [1,4,7],
-
 [2,5,8],
-
 [0,4,8],
-
 [2,4,6]
 
 ];
 
-
 let winner=null;
-
 
 wins.forEach(a=>{
 
 if(
-
-xo[a[0]]
-
-&&
-
-xo[a[0]]===xo[a[1]]
-
-&&
-
+xo[a[0]]&&
+xo[a[0]]===xo[a[1]]&&
 xo[a[1]]===xo[a[2]]
-
 ){
 
 winner=xo[a[0]];
@@ -4596,31 +2873,18 @@ winner=xo[a[0]];
 
 });
 
-
 if(winner){
 
-if(winner==="X"){
+if(winner==="X")xs++;
+else os++;
 
-xs++;
-
-}else{
-
-os++;
-
-}
-
-
-alert(
-"PLAYER "+winner+" WINS!"
-);
-
+alert("PLAYER "+winner+" WINS!");
 
 resetXO();
 
 return;
 
 }
-
 
 if(!xo.includes("")){
 
@@ -4634,20 +2898,9 @@ return;
 
 }
 
-
-turn=
-
-turn==="X"?
-
-"O"
-
-:
-
-"X";
-
+turn=turn==="X"?"O":"X";
 
 renderXO();
-
 sound();
 
 }
@@ -4655,21 +2908,8 @@ sound();
 
 function resetXO(){
 
-xo=[
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-""
-];
-
-
+xo=["","","","","","","","",""];
 turn="X";
-
 
 renderXO();
 
@@ -4682,38 +2922,19 @@ renderXO();
 
 function renderHigher(){
 
-document.getElementById(
-"currentNumber"
-).textContent=
-
+document.getElementById("currentNumber").textContent=
 higherNumber;
 
-
-document.getElementById(
-"higherTurn"
-).textContent=
-
+document.getElementById("higherTurn").textContent=
 "PLAYER "+higherTurn+" TURN";
 
-
-document.getElementById(
-"higherP1"
-).textContent=
-
+document.getElementById("higherP1").textContent=
 higherScore1;
 
-
-document.getElementById(
-"higherP2"
-).textContent=
-
+document.getElementById("higherP2").textContent=
 higherScore2;
 
-
-document.getElementById(
-"higherRound"
-).textContent=
-
+document.getElementById("higherRound").textContent=
 higherRound;
 
 }
@@ -4722,76 +2943,47 @@ higherRound;
 function higherGuess(choice){
 
 let next=
-
-Math.floor(
-Math.random()*100
-)+1;
-
+Math.floor(Math.random()*100)+1;
 
 let correct=
-
-choice==="higher"?
-
+choice==="higher"
+?
 next>higherNumber
-
 :
-
 next<higherNumber;
-
 
 if(correct){
 
-if(higherTurn===1){
-
+if(higherTurn===1)
 higherScore1++;
-
-}else{
-
+else
 higherScore2++;
 
-}
-
-
 alert(
-
 "Correct! 🎉\n\nNext number: "+next
-
 );
 
 }else{
 
 alert(
-
 "Wrong!\n\nNext number: "+next
-
 );
 
 }
-
 
 higherNumber=next;
 
-
 higherTurn=
-
-higherTurn===1?
-
+higherTurn===1
+?
 2
-
 :
-
 1;
 
-
-if(higherTurn===1){
-
+if(higherTurn===1)
 higherRound++;
 
-}
-
-
 renderHigher();
-
 sound();
 
 }
@@ -4800,15 +2992,10 @@ sound();
 function resetHigher(){
 
 higherNumber=50;
-
 higherTurn=1;
-
 higherScore1=0;
-
 higherScore2=0;
-
 higherRound=1;
-
 
 renderHigher();
 
@@ -4816,28 +3003,20 @@ renderHigher();
 
 
 /* =================================
-   NOTES LOGIN
+   NOTES
 ================================= */
 
 function renderNote(){
 
-let box=
+let box=document.getElementById("noteLogin");
 
-document.getElementById(
-"noteLogin"
-);
-
+if(!box)return;
 
 box.innerHTML=`
 
 <div class="card">
 
-<label>
-
-ENTER ACCOUNT PASSWORD
-
-</label>
-
+<label>ENTER ACCOUNT PASSWORD</label>
 
 <input
 id="notePassword"
@@ -4845,14 +3024,8 @@ type="password"
 placeholder="Your account password"
 >
 
-
-<button
-class="primary"
-onclick="openNotes()"
->
-
+<button class="primary" onclick="openNotes()">
 Open Notes
-
 </button>
 
 </div>
@@ -4865,120 +3038,69 @@ Open Notes
 function openNotes(){
 
 let pass=
-
-document.getElementById(
-"notePassword"
-).value;
-
+document.getElementById("notePassword").value;
 
 if(pass!==currentUser.password){
 
-alert(
-"Wrong password"
-);
-
+alert("Wrong password");
 return;
 
 }
 
-
-showPage(
-"noteEditor"
-);
+showPage("noteEditor");
 
 }
 
 
-/* =================================
-   SAVE NOTE
-================================= */
-
 function saveNote(){
 
 let text=
-
-document.getElementById(
-"noteText"
-).value.trim();
-
+document.getElementById("noteText").value.trim();
 
 if(!text)return;
-
 
 notes.unshift({
 
 id:Date.now(),
-
 text:text,
-
 time:now()
 
 });
 
-
 saveNotesStorage();
 
-
-document.getElementById(
-"noteText"
-).value="";
-
+document.getElementById("noteText").value="";
 
 renderNotes();
-
 sound();
 
 }
 
 
-/* =================================
-   RENDER NOTES
-================================= */
-
 function renderNotes(){
 
-let box=
-
-document.getElementById(
-"notes"
-);
-
+let box=document.getElementById("notes");
 
 if(!box)return;
 
-
 let search=
-
-document.getElementById(
-"noteSearch"
-)?.value.toLowerCase()||"";
-
+document.getElementById("noteSearch")
+?.value.toLowerCase()||"";
 
 box.innerHTML="";
 
-
-let filtered=
-
-notes.filter(
-
-n=>
-
-n.text.toLowerCase()
-.includes(search)
-
+let filtered=notes.filter(
+n=>n.text.toLowerCase().includes(search)
 );
-
 
 if(!filtered.length){
 
 box.innerHTML=
-
 '<div class="sub">No notes found.</div>';
 
 return;
 
 }
-
 
 filtered.forEach(n=>{
 
@@ -4987,18 +3109,12 @@ box.innerHTML+=`
 <div class="note-item">
 
 <div class="note-text">
-
 ${esc(n.text)}
-
 </div>
-
 
 <div class="date">
-
 ${n.time}
-
 </div>
-
 
 <div class="note-actions">
 
@@ -5006,19 +3122,14 @@ ${n.time}
 class="edit-note"
 onclick="editNote(${n.id})"
 >
-
 Edit
-
 </button>
-
 
 <button
 class="delete-note"
 onclick="deleteNote(${n.id})"
 >
-
 Delete
-
 </button>
 
 </div>
@@ -5032,80 +3143,38 @@ Delete
 }
 
 
-/* =================================
-   EDIT NOTE
-================================= */
-
 function editNote(id){
 
-let note=
-
-notes.find(
-n=>n.id===id
-);
-
+let note=notes.find(n=>n.id===id);
 
 if(!note)return;
 
-
-let next=
-
-prompt(
+let next=prompt(
 "Edit your note:",
 note.text
 );
 
-
 if(next===null)return;
-
 
 if(!next.trim())return;
 
-
-note.text=
-
-next.trim();
-
+note.text=next.trim();
 
 saveNotesStorage();
-
-
 renderNotes();
-
 sound();
 
 }
 
 
-/* =================================
-   DELETE NOTE
-================================= */
-
 function deleteNote(id){
 
-if(
+if(!confirm("Delete this note?"))return;
 
-!confirm(
-"Delete this note?"
-)
-
-)return;
-
-
-notes=
-
-notes.filter(
-
-n=>n.id!==id
-
-);
-
+notes=notes.filter(n=>n.id!==id);
 
 saveNotesStorage();
-
-
 renderNotes();
-
 sound();
 
 }
@@ -5118,11 +3187,8 @@ sound();
 function changeUsername(){
 
 let next=
-
-document.getElementById(
-"changeUsernameInput"
-).value.trim();
-
+document.getElementById("changeUsernameInput")
+.value.trim();
 
 if(next.length<3){
 
@@ -5134,175 +3200,108 @@ return;
 
 }
 
+let accounts=getAccounts();
 
-let accounts=
-
-getAccounts();
-
-
-if(
-
-accounts.some(
-
+if(accounts.some(
 x=>
-
-x.username.toLowerCase()===
-next.toLowerCase()
-
+x.username.toLowerCase()===next.toLowerCase()
 &&
-
 x.username!==currentUser.username
+)){
 
-)
-
-){
-
-alert(
-"This username already exists"
-);
-
+alert("This username already exists");
 return;
 
 }
 
-
-/* Move personal data */
-
-let oldUsername=
-
-currentUser.username;
-
+let oldUsername=currentUser.username;
 
 let oldTasks=
-
 localStorage.getItem(
 "study_"+oldUsername+"_tasks"
 );
 
-
 let oldMoney=
-
 localStorage.getItem(
 "study_"+oldUsername+"_money"
 );
 
-
 let oldNotes=
-
 localStorage.getItem(
 "study_"+oldUsername+"_notes"
 );
-
 
 if(oldTasks){
 
 localStorage.setItem(
-
 "study_"+next+"_tasks",
-
 oldTasks
-
 );
 
 localStorage.removeItem(
-
 "study_"+oldUsername+"_tasks"
-
 );
 
 }
-
 
 if(oldMoney){
 
 localStorage.setItem(
-
 "study_"+next+"_money",
-
 oldMoney
-
 );
 
 localStorage.removeItem(
-
 "study_"+oldUsername+"_money"
-
 );
 
 }
-
 
 if(oldNotes){
 
 localStorage.setItem(
-
 "study_"+next+"_notes",
-
 oldNotes
-
 );
 
 localStorage.removeItem(
-
 "study_"+oldUsername+"_notes"
-
 );
 
 }
 
+accounts=accounts.map(user=>{
 
-accounts=
-
-accounts.map(
-
-user=>{
-
-if(
-
-user.username===oldUsername
-
-){
+if(user.username===oldUsername){
 
 return{
-
 ...user,
-
 username:next
-
 };
 
 }
 
 return user;
 
-}
-
-);
-
+});
 
 saveAccounts(accounts);
 
-
 currentUser=
-
 accounts.find(
 x=>x.username===next
 );
-
 
 localStorage.setItem(
 "studyCurrentUser",
 next
 );
 
-
 document.getElementById(
 "changeUsernameInput"
 ).value="";
 
-
 updateUserUI();
-
 
 alert(
 "Username changed successfully!"
@@ -5320,36 +3319,20 @@ sound();
 function changePassword(){
 
 let oldPass=
-
-document.getElementById(
-"oldPasswordInput"
-).value;
-
+document.getElementById("oldPasswordInput").value;
 
 let newPass=
-
-document.getElementById(
-"newPasswordInput"
-).value;
-
+document.getElementById("newPasswordInput").value;
 
 let confirm=
-
-document.getElementById(
-"confirmPasswordInput"
-).value;
-
+document.getElementById("confirmPasswordInput").value;
 
 if(oldPass!==currentUser.password){
 
-alert(
-"Current password is wrong"
-);
-
+alert("Current password is wrong");
 return;
 
 }
-
 
 if(newPass.length<4){
 
@@ -5361,7 +3344,6 @@ return;
 
 }
 
-
 if(newPass!==confirm){
 
 alert(
@@ -5372,83 +3354,39 @@ return;
 
 }
 
+let accounts=getAccounts();
 
-let accounts=
+accounts=accounts.map(user=>{
 
-getAccounts();
-
-
-accounts=
-
-accounts.map(
-
-user=>{
-
-if(
-
-user.username===currentUser.username
-
-){
+if(user.username===currentUser.username){
 
 return{
-
 ...user,
-
 password:newPass
-
 };
 
 }
 
 return user;
 
-}
-
-);
-
+});
 
 saveAccounts(accounts);
 
-
 currentUser=
-
 accounts.find(
-
-x=>
-
-x.username===
-currentUser.username
-
+x=>x.username===currentUser.username
 );
 
+document.getElementById("oldPasswordInput").value="";
+document.getElementById("newPasswordInput").value="";
+document.getElementById("confirmPasswordInput").value="";
 
-document.getElementById(
-"oldPasswordInput"
-).value="";
-
-
-document.getElementById(
-"newPasswordInput"
-).value="";
-
-
-document.getElementById(
-"confirmPasswordInput"
-).value="";
-
-
-alert(
-"Password changed successfully!"
-);
+alert("Password changed successfully!");
 
 sound();
 
 }
-
-
-/* =================================
-   START RENDER
-================================= */
 
 </script>
 
