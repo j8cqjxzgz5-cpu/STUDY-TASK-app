@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME CONTROLE</title>
+
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+:root{
+--bg:#050505;
+--card:#111111;
+--card2:#181818;
+--line:#292929;
+--white:#fff;
+--gray:#8c8c8c;
+--green:#35d07f;
+--yellow:#f5c542;
+--orange:#ff8c42;
+--red:#ff4d4d;
+}
+
+body{
+margin:0;
+background:var(--bg);
+color:white;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
+}
+
+.app{
+max-width:600px;
+margin:auto;
+min-height:100vh;
+padding-bottom:100px;
+}
+
+.header{
+padding:28px 20px 20px;
+}
+
+.header-brand{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.header-logo{
+width:72px;
+height:72px;
+border-radius:22px;
+background:#fff;
+color:#050505;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+font-weight:900;
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+letter-spacing:-1px;
+}
+
+.subtitle{
+color:var(--gray);
+margin-top:7px;
+font-size:15px;
+}
+
+.page{
+display:none;
+padding:0 16px;
+}
+
+.page.active{
+display:block;
+}
+
+/* HOME */
+
+.hero{
+background:linear-gradient(145deg,#161616,#0b0b0b);
+border:1px solid var(--line);
+border-radius:28px;
+padding:28px;
+margin-bottom:20px;
+}
+
+.hero-icon{
+width:58px;
+height:58px;
+border-radius:20px;
+background:white;
+color:black;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+margin-bottom:20px;
+}
+
+.hero h1{
+margin:0;
+font-size:30px;
+}
+
+.hero p{
+color:var(--gray);
+line-height:1.5;
+}
+
+/* BUTTONS */
+
+.big-button,
+.button{
+border:none;
+color:white;
+font-family:inherit;
+cursor:pointer;
+}
+
+.big-button{
+width:100%;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:22px;
+padding:21px;
+margin-bottom:12px;
+text-align:left;
+display:flex;
+align-items:center;
+justify-content:space-between;
+font-size:19px;
+font-weight:650;
+}
+
+.big-button:active,
+.button:active,
+.nav-item:active{
+transform:scale(.97);
+}
+
+.button-icon{
+width:42px;
+height:42px;
+background:#222;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* SECTIONS */
+
+.section-title{
+font-size:25px;
+font-weight:750;
+margin:10px 4px 20px;
+}
+
+.section-subtitle{
+color:var(--gray);
+margin:-12px 4px 20px;
+}
+
+/* TASKS */
+
+.task{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+padding:17px;
+margin-bottom:12px;
+}
+
+.task-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.task-name{
+font-size:17px;
+font-weight:700;
+}
+
+.status{
+padding:6px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
+white-space:nowrap;
+}
+
+.task-description{
+color:var(--gray);
+margin-top:8px;
+font-size:14px;
+}
+
+.task-date{
+color:#aaa;
+font-size:13px;
+margin-top:12px;
+}
+
+.deadline-countdown{
+font-size:13px;
+font-weight:750;
+margin-top:8px;
+font-variant-numeric:tabular-nums;
+}
+
+.price-line{
+margin-top:9px;
+color:#ddd;
+font-size:13px;
+}
+
+.price-line strong{
+color:var(--orange);
+}
+
+.green{
+background:rgba(53,208,127,.15);
+color:var(--green);
+}
+
+.yellow{
+background:rgba(245,197,66,.15);
+color:var(--yellow);
+}
+
+.red{
+background:rgba(255,77,77,.15);
+color:var(--red);
+}
+
+.orange{
+background:rgba(255,140,66,.15);
+color:var(--orange);
+}
+
+/* PLAN */
+
+.plan-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:24px;
+padding:20px;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+label{
+display:block;
+font-size:13px;
+color:var(--gray);
+margin-bottom:8px;
+}
+
+input,
+textarea{
+width:100%;
+background:#080808;
+border:1px solid #303030;
+color:white;
+border-radius:15px;
+padding:15px;
+font-family:inherit;
+font-size:16px;
+outline:none;
+}
+
+textarea{
+min-height:90px;
+resize:none;
+}
+
+.add-button{
+width:100%;
+padding:16px;
+background:white;
+color:black;
+font-weight:750;
+border-radius:16px;
+margin-top:5px;
+}
+
+/* ACTIONS */
+
+.plan-actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.action-button{
+flex:1;
+padding:12px;
+border-radius:13px;
+border:none;
+font-family:inherit;
+font-weight:700;
+}
+
+.done{
+background:rgba(53,208,127,.15);
+color:var(--green);
+}
+
+.delete{
+background:#222;
+color:white;
+}
+
+/* MONEY */
+
+.money-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:28px;
+padding:24px;
+}
+
+.money-card.low{
+border-color:var(--red);
+}
+
+.money-label{
+color:var(--gray);
+font-size:14px;
+}
+
+.money-value{
+font-size:42px;
+font-weight:800;
+margin-top:8px;
+letter-spacing:-1px;
+}
+
+.money-percent{
+color:var(--gray);
+font-size:15px;
+margin-top:8px;
+}
+
+.money-stats{
+display:flex;
+gap:10px;
+margin-top:22px;
+}
+
+.stat{
+flex:1;
+background:#0a0a0a;
+border-radius:17px;
+padding:14px;
+}
+
+.stat span{
+display:block;
+color:var(--gray);
+font-size:12px;
+}
+
+.stat strong{
+margin-top:7px;
+display:block;
+}
+
+.progress-bg{
+height:8px;
+background:#292929;
+border-radius:20px;
+overflow:hidden;
+margin-top:22px;
+}
+
+.progress{
+height:100%;
+border-radius:20px;
+transition:.3s;
+}
+
+.money-input-card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:24px;
+padding:18px;
+margin-top:18px;
+}
+
+.money-input-card label{
+margin-top:12px;
+}
+
+.money-input-card label:first-child{
+margin-top:0;
+}
+
+.money-buttons{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.money-buttons button{
+flex:1;
+border:none;
+padding:14px;
+border-radius:14px;
+font-family:inherit;
+font-weight:750;
+}
+
+.add-money{
+background:var(--green);
+}
+
+.spend-money{
+background:var(--red);
+color:white;
+}
+
+/* HISTORY */
+
+.history{
+margin-top:20px;
+}
+
+.history-title{
+font-size:20px;
+font-weight:750;
+margin:25px 4px 12px;
+}
+
+.history-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid var(--line);
+gap:15px;
+}
+
+.history-left{
+min-width:0;
+}
+
+.history-left strong{
+display:block;
+}
+
+.history-left small{
+color:var(--gray);
+display:block;
+margin-top:4px;
+}
+
+.completed{
+opacity:.78;
+}
+
+.completed .task-name{
+text-decoration:line-through;
+text-decoration-color:#555;
+}
+
+/* QUICK */
+
+.quick-banner{
+border:1px solid rgba(255,77,77,.55);
+background:rgba(255,77,77,.06);
+color:var(--red);
+border-radius:20px;
+padding:15px;
+margin-bottom:14px;
+}
+
+/* NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(10,10,10,.96);
+backdrop-filter:blur(20px);
+border-top:1px solid var(--line);
+display:flex;
+justify-content:center;
+z-index:10;
+}
+
+.nav-container{
+width:100%;
+max-width:600px;
+display:flex;
+justify-content:space-around;
+}
+
+.nav-item{
+background:none;
+border:none;
+color:var(--gray);
+padding:15px 8px 18px;
+font-family:inherit;
+font-size:11px;
+}
+
+.nav-item.active{
+color:white;
+}
+
+.nav-icon{
+font-size:22px;
+display:block;
+margin-bottom:5px;
+}
+
+.empty{
+color:var(--gray);
+text-align:center;
+padding:40px 10px;
+}
+
+.more-button{
+width:100%;
+padding:14px;
+background:#1b1b1b;
+color:white;
+border:1px solid var(--line);
+border-radius:15px;
+margin-top:15px;
+font-family:inherit;
+}
+
+@media(max-width:430px){
+
+.header{
+padding:22px 16px 18px;
+}
+
+.header-logo{
+width:62px;
+height:62px;
+border-radius:20px;
+}
+
+.logo{
+font-size:29px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="header-brand">
+
+<div class="header-logo">⌂</div>
+
+<div>
+<div class="logo">HOME CONTROLE</div>
+<div class="subtitle">Organize. Control. Complete.</div>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-icon">⌂</div>
+
+<h1>Build your home.</h1>
+
+<p>
+Organize household tasks, control deadlines and keep your pocket money under control.
+</p>
+
+</div>
+
+
+<button class="big-button" onclick="showPage('enter')">
+
+<span>Enter</span>
+
+<div class="button-icon">✓</div>
+
+</button>
+
+
+<button class="big-button" onclick="showPage('quick')">
+
+<span>Quick Check</span>
+
+<div class="button-icon">!</div>
+
+</button>
+
+
+<button class="big-button" onclick="showPage('plan')">
+
+<span>Plan</span>
+
+<div class="button-icon">＋</div>
+
+</button>
+
+
+<button class="big-button" onclick="showPage('money')">
+
+<span>Pocket Money</span>
+
+<div class="button-icon">DT</div>
+
+</button>
+
+</div>
+
+
+<!-- ENTER -->
+
+<div id="enter" class="page">
+
+<div class="section-title">
+Enter
+</div>
+
+<div class="section-subtitle">
+View and complete your home tasks.
+</div>
+
+<div id="enterTasks"></div>
+
+<div class="history-title">
+COMPLETED HISTORY
+</div>
+
+<div id="taskHistory"></div>
+
+</div>
+
+
+<!-- QUICK CHECK -->
+
+<div id="quick" class="page">
+
+<div class="section-title">
+Quick Check
+</div>
+
+<div class="section-subtitle">
+Urgent tasks appear here automatically.
+</div>
+
+<div id="quickTasks"></div>
+
+</div>
+
+
+<!-- PLAN -->
+
+<div id="plan" class="page">
+
+<div class="section-title">
+Plan
+</div>
+
+<div class="section-subtitle">
+Create your home tasks with precise Date + Time.
+</div>
+
+
+<div class="plan-card">
+
+<div class="form-group">
+
+<label>TASK NAME</label>
+
+<input
+id="taskName"
+placeholder="Example: Clean the room">
+
+</div>
+
+
+<div class="form-group">
+
+<label>DESCRIPTION</label>
+
+<textarea
+id="taskDescription"
+placeholder="Example: Arrange and clean the room...">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>DATE + TIME</label>
+
+<input
+id="taskDateTime"
+type="datetime-local">
+
+</div>
+
+
+<div class="form-group">
+
+<label>PRIX (DT) — OPTIONAL</label>
+
+<input
+id="taskPrice"
+type="number"
+min="0"
+step="0.001"
+inputmode="decimal"
+placeholder="Example: 20">
+
+</div>
+
+
+<button
+class="button add-button"
+onclick="addTask()">
+
+ADD TO PLAN
+
+</button>
+
+</div>
+
+
+<div id="planTasks"></div>
+
+</div>
+
+
+<!-- MONEY -->
+
+<div id="money" class="page">
+
+<div class="section-title">
+Pocket Money
+</div>
+
+<div class="section-subtitle">
+Know exactly where your money goes.
+</div>
+
+
+<div class="money-card" id="moneyCard">
+
+<div class="money-label">
+MONEY REMAINING
+</div>
+
+<div
+class="money-value"
+id="remainingMoney">
+0.000 DT
+</div>
+
+<div
+class="money-percent"
+id="moneyPercent">
+0% remaining
+</div>
+
+
+<div class="money-stats">
+
+<div class="stat">
+
+<span>
+TOTAL ADDED
+</span>
+
+<strong id="totalAdded">
+0.000 DT
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<span>
+TOTAL SPENT
+</span>
+
+<strong id="totalSpent">
+0.000 DT
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="progress-bg">
+
+<div
+class="progress"
+id="moneyProgress">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="money-input-card">
+
+<label>
+AMOUNT (DT)
+</label>
+
+<input
+id="moneyAmount"
+type="number"
+min="0"
+step="0.001"
+inputmode="decimal"
+placeholder="Example: 10">
+
+
+<label>
+DESCRIPTION
+</label>
+
+<input
+id="moneyDescription"
+placeholder="Example: Food, transport...">
+
+
+<div class="money-buttons">
+
+<button
+class="add-money"
+onclick="addMoney()">
+
+＋ ADD MONEY
+
+</button>
+
+
+<button
+class="spend-money"
+onclick="spendMoney()">
+
+− SPENT
+
+</button>
+
+</div>
+
+
+<button
+class="more-button"
+onclick="resetMoney()">
+
+↻ RESET POCKET MONEY
+
+</button>
+
+</div>
+
+
+<div class="history">
+
+<div
+class="section-title"
+style="font-size:20px;margin-top:25px">
+
+MONEY HISTORY
+
+</div>
+
+<div id="moneyHistory"></div>
+
+<button
+id="moreHistory"
+class="more-button"
+onclick="showMoreHistory()">
+
+More
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+<div class="nav-container">
+
+
+<button
+class="nav-item active"
+onclick="showPage('home')"
+id="nav-home">
+
+<span class="nav-icon">⌂</span>
+
+Home
+
+</button>
+
+
+<button
+class="nav-item"
+onclick="showPage('enter')"
+id="nav-enter">
+
+<span class="nav-icon">✓</span>
+
+Enter
+
+</button>
+
+
+<button
+class="nav-item"
+onclick="showPage('quick')"
+id="nav-quick">
+
+<span class="nav-icon">!</span>
+
+Quick
+
+</button>
+
+
+<button
+class="nav-item"
+onclick="showPage('plan')"
+id="nav-plan">
+
+<span class="nav-icon">▦</span>
+
+Plan
+
+</button>
+
+
+<button
+class="nav-item"
+onclick="showPage('money')"
+id="nav-money">
+
+<span class="nav-icon">DT</span>
+
+Money
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==================================
+   HOME CONTROLE
+================================== */
+
+const TASK_STORAGE = "homeControleTasks";
+
+const MONEY_STORAGE = "homeControleMoney";
+
+
+let tasks =
+JSON.parse(
+localStorage.getItem(TASK_STORAGE)
+) || [];
+
+
+let moneyData =
+JSON.parse(
+localStorage.getItem(MONEY_STORAGE)
+) || {
+
+added:0,
+
+spent:0,
+
+history:[]
+
+};
+
+
+let historyLimit = 5;
+
+
+/* ==================================
+   SAVE
+================================== */
+
+function saveTasks(){
+
+localStorage.setItem(
+TASK_STORAGE,
+JSON.stringify(tasks)
+);
+
+}
+
+
+function saveMoney(){
+
+localStorage.setItem(
+MONEY_STORAGE,
+JSON.stringify(moneyData)
+);
+
+}
+
+
+/* ==================================
+   SECURITY
+================================== */
+
+function escapeHTML(value){
+
+return String(value).replace(
+/[&<>"']/g,
+
+char => ({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[char])
+
+);
+
+}
+
+
+/* ==================================
+   SOUND
+================================== */
+
+function clickSound(){
+
+try{
+
+const audio = new AudioContext();
+
+const oscillator =
+audio.createOscillator();
+
+const gain =
+audio.createGain();
+
+oscillator.connect(gain);
+
+gain.connect(audio.destination);
+
+oscillator.frequency.value = 500;
+
+gain.gain.value = 0.03;
+
+oscillator.start();
+
+setTimeout(()=>{
+
+oscillator.stop();
+
+audio.close();
+
+},50);
+
+}catch(e){}
+
+}
+
+
+/* ==================================
+   MONEY FORMAT
+================================== */
+
+function formatMoney(amount){
+
+return Number(amount || 0).toFixed(3) + " DT";
+
+}
+
+
+/* ==================================
+   DATE FORMAT
+================================== */
+
+function formatDateTime(value){
+
+const d = new Date(value);
+
+return d.toLocaleString([],{
+
+day:"2-digit",
+
+month:"2-digit",
+
+year:"numeric",
+
+hour:"2-digit",
+
+minute:"2-digit"
+
+});
+
+}
+
+
+/* ==================================
+   COUNTDOWN
+================================== */
+
+function formatDuration(ms){
+
+const total =
+Math.floor(Math.abs(ms)/1000);
+
+const days =
+Math.floor(total/86400);
+
+const hours =
+Math.floor((total%86400)/3600);
+
+const minutes =
+Math.floor((total%3600)/60);
+
+const seconds =
+total%60;
+
+
+if(days > 0){
+
+return days + "d " +
+
+String(hours).padStart(2,"0") +
+"h " +
+
+String(minutes).padStart(2,"0") +
+"m";
+
+}
+
+
+return String(hours).padStart(2,"0") +
+"h " +
+
+String(minutes).padStart(2,"0") +
+"m " +
+
+String(seconds).padStart(2,"0") +
+"s";
+
+}
+
+
+/* ==================================
+   NAVIGATION
+================================== */
+
+function showPage(page){
+
+clickSound();
+
+
+document.querySelectorAll(".page")
+.forEach(p => {
+
+p.classList.remove("active");
+
+});
+
+
+document.getElementById(page)
+.classList.add("active");
+
+
+document.querySelectorAll(".nav-item")
+.forEach(n => {
+
+n.classList.remove("active");
+
+});
+
+
+const nav =
+document.getElementById("nav-"+page);
+
+if(nav){
+
+nav.classList.add("active");
+
+}
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+renderTasks();
+
+renderMoney();
+
+}
+
+
+/* ==================================
+   ADD TASK
+================================== */
+
+function addTask(){
+
+const name =
+document.getElementById("taskName")
+.value.trim();
+
+
+const description =
+document.getElementById("taskDescription")
+.value.trim();
+
+
+const dateTime =
+document.getElementById("taskDateTime")
+.value;
+
+
+const price =
+Number(
+document.getElementById("taskPrice").value
+) || 0;
+
+
+if(!name || !dateTime){
+
+alert(
+"Please enter a task name and Date + Time."
+);
+
+return;
+
+}
+
+
+const deadline =
+new Date(dateTime);
+
+
+if(isNaN(deadline.getTime())){
+
+alert(
+"Please enter a valid Date + Time."
+);
+
+return;
+
+}
+
+
+tasks.push({
+
+id:Date.now()+Math.random(),
+
+name:name,
+
+description:description,
+
+deadline:deadline.toISOString(),
+
+price:Math.max(0,price),
+
+status:"pending",
+
+createdAt:new Date().toISOString(),
+
+completedAt:null,
+
+/*
+This prevents the same task
+from charging money twice.
+*/
+
+charged:false
+
+});
+
+
+saveTasks();
+
+
+document.getElementById("taskName")
+.value="";
+
+
+document.getElementById("taskDescription")
+.value="";
+
+
+document.getElementById("taskDateTime")
+.value="";
+
+
+document.getElementById("taskPrice")
+.value="";
+
+
+clickSound();
+
+renderTasks();
+
+}
+
+
+/* ==================================
+   TASK STATUS
+
+   > 48H = GREEN
+   24-48H = YELLOW
+   < 24H = RED
+================================== */
+
+function getTaskStatus(task){
+
+if(task.status === "done"){
+
+return {
+
+class:"green",
+
+text:"Completed"
+
+};
+
+}
+
+
+const diff =
+new Date(task.deadline).getTime()
+- Date.now();
+
+
+if(diff < 24*60*60*1000){
+
+return {
+
+class:"red",
+
+text:"URGENT!"
+
+};
+
+}
+
+
+if(diff <= 48*60*60*1000){
+
+return {
+
+class:"yellow",
+
+text:"24–48H"
+
+};
+
+}
+
+
+return {
+
+class:"green",
+
+text:"48H+"
+
+};
+
+}
+
+
+/* ==================================
+   COUNTDOWN TEXT
+================================== */
+
+function getCountdown(task){
+
+const diff =
+new Date(task.deadline).getTime()
+- Date.now();
+
+
+if(diff <= 0){
+
+return "🚨 URGENT! • OVERDUE • "
++ formatDuration(diff);
+
+}
+
+
+return "⏳ " +
+formatDuration(diff);
+
+}
+
+
+/* ==================================
+   TASK CARD
+================================== */
+
+function taskHTML(task){
+
+const status =
+getTaskStatus(task);
+
+
+const completed =
+task.status === "done";
+
+
+return `
+
+<div class="task ${completed ? "completed" : ""}">
+
+<div class="task-top">
+
+<div class="task-name">
+
+${escapeHTML(task.name)}
+
+</div>
+
+
+<div class="status ${status.class}">
+
+${status.text}
+
+</div>
+
+</div>
+
+
+${
+task.description
+
+?
+
+`<div class="task-description">
+
+${escapeHTML(task.description)}
+
+</div>`
+
+:
+
+""
+
+}
+
+
+<div class="task-date">
+
+📅 ${formatDateTime(task.deadline)}
+
+</div>
+
+
+${
+!completed
+
+?
+
+`<div
+class="deadline-countdown ${status.class}">
+
+${getCountdown(task)}
+
+</div>`
+
+:
+
+`<div
+class="deadline-countdown green">
+
+✓ Completed at
+${formatDateTime(task.completedAt)}
+
+</div>`
+
+}
+
+
+${
+Number(task.price) > 0
+
+?
+
+`<div class="price-line">
+
+💰 Prix:
+
+<strong>
+${formatMoney(task.price)}
+</strong>
+
+</div>`
+
+:
+
+""
+
+}
+
+
+${
+!completed
+
+?
+
+`
+
+<div class="plan-actions">
+
+<button
+class="action-button done"
+onclick="completeTask(${task.id})">
+
+✓ COMPLETE
+
+</button>
+
+
+<button
+class="action-button delete"
+onclick="deleteTask(${task.id})">
+
+Delete
+
+</button>
+
+</div>
+
+`
+
+:
+
+""
+
+}
+
+</div>
+
+`;
+
+}
+
+
+/* ==================================
+   COMPLETE TASK
+================================== */
+
+function completeTask(id){
+
+const task =
+tasks.find(t => t.id === id);
+
+
+if(!task){
+
+return;
+
+}
+
+
+/*
+Important:
+If task is already completed,
+nothing happens.
+*/
+
+if(task.status === "done"){
+
+return;
+
+}
+
+
+task.status = "done";
+
+task.completedAt =
+new Date().toISOString();
+
+
+/*
+PRICE DEDUCTION
+ONLY ONCE
+*/
+
+if(
+!task.charged &&
+Number(task.price) > 0
+){
+
+moneyData.spent +=
+Number(task.price);
+
+
+moneyData.history.unshift({
+
+type:"task",
+
+amount:Number(task.price),
+
+description:
+"Task: " + task.name,
+
+time:task.completedAt
+
+});
+
+
+task.charged = true;
+
+}
+
+
+saveTasks();
+
+saveMoney();
+
+
+clickSound();
+
+renderTasks();
+
+renderMoney();
+
+}
+
+
+/* ==================================
+   DELETE TASK
+================================== */
+
+function deleteTask(id){
+
+clickSound();
+
+
+tasks =
+tasks.filter(
+task => task.id !== id
+);
+
+
+saveTasks();
+
+renderTasks();
+
+}
+
+
+/* ==================================
+   RENDER TASKS
+================================== */
+
+function renderTasks(){
+
+const active =
+tasks
+
+.filter(
+task => task.status !== "done"
+)
+
+.sort(
+(a,b) =>
+new Date(a.deadline)
+-
+new Date(b.deadline)
+);
+
+
+const completed =
+tasks
+
+.filter(
+task => task.status === "done"
+)
+
+.sort(
+(a,b) =>
+new Date(b.completedAt)
+-
+new Date(a.completedAt)
+);
+
+
+const urgent =
+active.filter(task =>
+
+getTaskStatus(task).class === "red"
+
+);
+
+
+/* ENTER */
+
+document.getElementById("enterTasks")
+.innerHTML =
+
+active.length
+
+?
+
+active
+.map(task => taskHTML(task))
+.join("")
+
+:
+
+'<div class="empty">No active tasks.</div>';
+
+
+/* PLAN */
+
+document.getElementById("planTasks")
+.innerHTML =
+
+tasks.length
+
+?
+
+[...tasks]
+
+.sort(
+(a,b) =>
+new Date(a.deadline)
+-
+new Date(b.deadline)
+)
+
+.map(task => taskHTML(task))
+.join("")
+
+:
+
+'<div class="empty">No tasks yet.</div>';
+
+
+/* HISTORY */
+
+document.getElementById("taskHistory")
+.innerHTML =
+
+completed.length
+
+?
+
+completed.map(task => `
+
+<div class="history-item">
+
+<div class="history-left">
+
+<strong>
+${escapeHTML(task.name)}
+</strong>
+
+<small>
+
+Completed:
+${formatDateTime(task.completedAt)}
+
+</small>
+
+</div>
+
+
+<strong
+style="color:${
+Number(task.price)>0
+? "var(--red)"
+: "var(--green)"
+}">
+
+${
+Number(task.price)>0
+
+?
+
+"−" +
+formatMoney(task.price)
+
+:
+
+"✓ DONE"
+
+}
+
+</strong>
+
+</div>
+
+`).join("")
+
+:
+
+'<div class="empty">No completed tasks yet.</div>';
+
+
+/* QUICK CHECK */
+
+if(!urgent.length){
+
+document.getElementById("quickTasks")
+.innerHTML =
+
+'<div class="empty">✓ No urgent tasks right now.</div>';
+
+}
+
+else{
+
+document.getElementById("quickTasks")
+.innerHTML = `
+
+<div class="quick-banner">
+
+<strong>
+🚨 URGENT!
+</strong>
+
+<div
+style="color:var(--gray);margin-top:5px">
+
+${urgent.length}
+
+${
+urgent.length === 1
+? "task needs"
+: "tasks need"
+}
+
+your attention.
+
+</div>
+
+</div>
+
+
+${urgent
+.map(task => taskHTML(task))
+.join("")}
+
+`;
+
+}
+
+}
+
+
+/* ==================================
+   ADD MONEY
+================================== */
+
+function addMoney(){
+
+const amount =
+Number(
+document.getElementById("moneyAmount").value
+);
+
+
+const description =
+document.getElementById("moneyDescription")
+.value.trim()
+
+||
+
+"Money Added";
+
+
+if(!amount || amount <= 0){
+
+alert("Enter a valid amount.");
+
+return;
+
+}
+
+
+moneyData.added += amount;
+
+
+moneyData.history.unshift({
+
+type:"added",
+
+amount:amount,
+
+description:description,
+
+time:new Date().toISOString()
+
+});
+
+
+saveMoney();
+
+
+clearMoneyInputs();
+
+clickSound();
+
+renderMoney();
+
+}
+
+
+/* ==================================
+   SPEND MONEY
+================================== */
+
+function spendMoney(){
+
+const amount =
+Number(
+document.getElementById("moneyAmount").value
+);
+
+
+const description =
+document.getElementById("moneyDescription")
+.value.trim()
+
+||
+
+"Money Spent";
+
+
+if(!amount || amount <= 0){
+
+alert("Enter a valid amount.");
+
+return;
+
+}
+
+
+moneyData.spent += amount;
+
+
+moneyData.history.unshift({
+
+type:"spent",
+
+amount:amount,
+
+description:description,
+
+time:new Date().toISOString()
+
+});
+
+
+saveMoney();
+
+
+clearMoneyInputs();
+
+clickSound();
+
+renderMoney();
+
+}
+
+
+/* ==================================
+   CLEAR MONEY INPUTS
+================================== */
+
+function clearMoneyInputs(){
+
+document.getElementById("moneyAmount")
+.value="";
+
+
+document.getElementById("moneyDescription")
+.value="";
+
+}
+
+
+/* ==================================
+   RESET MONEY
+================================== */
+
+function resetMoney(){
+
+if(
+!confirm(
+"Reset all Pocket Money data?"
+)
+){
+
+return;
+
+}
+
+
+moneyData = {
+
+added:0,
+
+spent:0,
+
+history:[]
+
+};
+
+
+saveMoney();
+
+clickSound();
+
+renderMoney();
+
+}
+
+
+/* ==================================
+   RENDER MONEY
+================================== */
+
+function renderMoney(){
+
+const remaining =
+moneyData.added -
+moneyData.spent;
+
+
+let percentage =
+
+moneyData.added > 0
+
+?
+
+(
+remaining /
+moneyData.added
+) * 100
+
+:
+
+0;
+
+
+percentage =
+Math.max(0,percentage);
+
+
+document.getElementById(
+"remainingMoney"
+).textContent =
+formatMoney(remaining);
+
+
+document.getElementById(
+"totalAdded"
+).textContent =
+formatMoney(moneyData.added);
+
+
+document.getElementById(
+"totalSpent"
+).textContent =
+formatMoney(moneyData.spent);
+
+
+document.getElementById(
+"moneyPercent"
+).textContent =
+
+Math.round(percentage)
++ "% remaining";
+
+
+const progress =
+document.getElementById(
+"moneyProgress"
+);
+
+
+progress.style.width =
+
+Math.min(
+percentage,
+100
+)
++ "%";
+
+
+if(percentage < 25){
+
+progress.style.background =
+"var(--red)";
+
+}
+
+else if(percentage < 50){
+
+progress.style.background =
+"var(--yellow)";
+
+}
+
+else if(percentage < 75){
+
+progress.style.background =
+"var(--orange)";
+
+}
+
+else{
+
+progress.style.background =
+"var(--green)";
+
+}
+
+
+document.getElementById("moneyCard")
+.classList.toggle(
+"low",
+percentage < 25
+);
+
+
+renderHistory();
+
+}
+
+
+/* ==================================
+   MONEY HISTORY
+================================== */
+
+function renderHistory(){
+
+const container =
+document.getElementById(
+"moneyHistory"
+);
+
+
+const visible =
+moneyData.history
+.slice(0,historyLimit);
+
+
+if(!visible.length){
+
+container.innerHTML =
+'<div class="empty">No money activity yet.</div>';
+
+document.getElementById(
+"moreHistory"
+).style.display="none";
+
+return;
+
+}
+
+
+container.innerHTML="";
+
+
+visible.forEach(item => {
+
+const isAdded =
+item.type === "added";
+
+
+const isTask =
+item.type === "task";
+
+
+const color =
+
+isAdded
+
+?
+
+"var(--green)"
+
+:
+
+"var(--red)";
+
+
+const title =
+
+isTask
+
+?
+
+"✓ Task Completed"
+
+:
+
+isAdded
+
+?
+
+"Money Added"
+
+:
+
+"Money Spent";
+
+
+container.innerHTML += `
+
+<div class="history-item">
+
+<div class="history-left">
+
+<strong>
+${title}
+</strong>
+
+<small>
+
+${escapeHTML(
+item.description || ""
+)}
+
+<br>
+
+${formatDateTime(item.time)}
+
+</small>
+
+</div>
+
+
+<strong
+style="color:${color}">
+
+${isAdded ? "+" : "−"}
+
+${formatMoney(item.amount)}
+
+</strong>
+
+</div>
+
+`;
+
+});
+
+
+const moreButton =
+document.getElementById(
+"moreHistory"
+);
+
+
+moreButton.style.display =
+
+historyLimit >=
+moneyData.history.length
+
+?
+
+"none"
+
+:
+
+"block";
+
+}
+
+
+/* ==================================
+   MORE HISTORY
+================================== */
+
+function showMoreHistory(){
+
+historyLimit += 10;
+
+clickSound();
+
+renderHistory();
+
+}
+
+
+/* ==================================
+   START
+================================== */
+
+renderTasks();
+
+renderMoney();
+
+
+/*
+Update every second
+so the countdown is live.
+*/
+
+setInterval(() => {
+
+renderTasks();
+
+},1000);
+
+</script>
+
+</body>
+</html>
