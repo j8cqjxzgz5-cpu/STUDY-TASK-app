@@ -6,150 +6,536 @@
 <title>STUDY</title>
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent
+}
+
 :root{
---bg:#050505;--card:#111;--line:#292929;--gray:#929292;
---green:#35d07f;--yellow:#f5c542;--orange:#ff8c42;--red:#ff4d4d;
+  --bg:#050505;
+  --card:#111;
+  --line:#292929;
+  --gray:#929292;
+  --green:#35d07f;
+  --yellow:#f5c542;
+  --orange:#ff8c42;
+  --red:#ff4d4d;
 }
+
 body{
-margin:0;background:var(--bg);color:white;
-font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif
+  margin:0;
+  background:var(--bg);
+  color:white;
+  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif
 }
-.app{max-width:650px;margin:auto;padding-bottom:100px}
-.header{padding:28px 20px 20px}
-.logo{font-size:32px;font-weight:800}
-.subtitle{color:var(--gray);margin-top:6px}
-.page{display:none;padding:0 16px}
-.page.active{display:block}
+
+.app{
+  max-width:650px;
+  margin:auto;
+  padding-bottom:100px
+}
+
+.header{
+  padding:28px 20px 20px
+}
+
+.logo{
+  font-size:32px;
+  font-weight:800
+}
+
+.subtitle{
+  color:var(--gray);
+  margin-top:6px
+}
+
+.page{
+  display:none;
+  padding:0 16px;
+  opacity:0;
+  transform:translateY(12px)
+}
+
+.page.active{
+  display:block;
+  animation:pageIn .35s cubic-bezier(.2,.8,.2,1) forwards
+}
+
+@keyframes pageIn{
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
 .hero,.card{
-background:var(--card);border:1px solid var(--line);
-border-radius:25px;padding:22px;margin-bottom:16px
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:22px;
+  margin-bottom:16px
 }
-.hero{padding:28px}
-.hero h1{margin:10px 0}
-.hero p,.subtitle,.sub{color:var(--gray)}
+
+.hero{
+  padding:28px
+}
+
+.hero h1{
+  margin:10px 0
+}
+
+.hero p,.subtitle,.sub{
+  color:var(--gray)
+}
+
 .hero-icon{
-width:58px;height:58px;border-radius:18px;background:white;color:black;
-display:flex;align-items:center;justify-content:center;font-size:25px
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:white;
+  color:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px
 }
+
 .big-btn,.settings-btn,.btn{
-width:100%;background:var(--card);border:1px solid var(--line);
-border-radius:20px;padding:19px;color:white;font:inherit;
-font-size:17px;text-align:left;margin-bottom:11px
+  width:100%;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:19px;
+  color:white;
+  font:inherit;
+  font-size:17px;
+  text-align:left;
+  margin-bottom:11px;
+  transition:.2s ease
 }
-.big-btn{display:flex;justify-content:space-between;align-items:center}
+
+.big-btn:hover,.settings-btn:hover{
+  border-color:#555;
+  transform:translateY(-2px)
+}
+
+.big-btn{
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
 .big-btn span:last-child{
-background:#222;padding:9px 14px;border-radius:13px
+  background:#222;
+  padding:9px 14px;
+  border-radius:13px
 }
-button:active{transform:scale(.97)}
-.title{font-size:25px;font-weight:800;margin:10px 0 5px}
-.sub{margin-bottom:20px}
-label{font-size:12px;color:var(--gray);display:block;margin:13px 0 7px}
+
+button{
+  cursor:pointer;
+  transition:transform .12s ease,opacity .2s ease
+}
+
+button:active{
+  transform:scale(.96)
+}
+
+.title{
+  font-size:25px;
+  font-weight:800;
+  margin:10px 0 5px
+}
+
+.sub{
+  margin-bottom:20px
+}
+
+label{
+  font-size:12px;
+  color:var(--gray);
+  display:block;
+  margin:13px 0 7px
+}
+
 input,textarea{
-width:100%;background:#080808;border:1px solid #333;color:white;
-border-radius:14px;padding:14px;font:inherit;font-size:15px
+  width:100%;
+  background:#080808;
+  border:1px solid #333;
+  color:white;
+  border-radius:14px;
+  padding:14px;
+  font:inherit;
+  font-size:15px
 }
-textarea{min-height:90px}
+
+input:focus,textarea:focus{
+  outline:none;
+  border-color:#666
+}
+
+textarea{
+  min-height:90px
+}
+
 .primary{
-width:100%;border:0;border-radius:14px;padding:15px;
-background:white;color:black;font-weight:800;margin-top:15px
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  background:white;
+  color:black;
+  font-weight:800;
+  margin-top:15px
 }
+
 .task{
-background:var(--card);border:1px solid var(--line);
-border-radius:18px;padding:16px;margin-top:12px
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  margin-top:12px;
+  animation:taskIn .3s ease
 }
-.tasktop{display:flex;justify-content:space-between;gap:10px}
-.taskname{font-weight:800}
-.status{padding:6px 9px;border-radius:15px;font-size:11px;font-weight:bold}
-.green{background:#163c28;color:var(--green)}
-.yellow{background:#423916;color:var(--yellow)}
-.orange{background:#482b18;color:var(--orange)}
-.red{background:#451b1b;color:var(--red)}
-.desc{color:var(--gray);margin-top:8px;font-size:14px}
-.date{color:#aaa;font-size:12px;margin-top:10px}
-.actions{display:flex;gap:7px;margin-top:14px}
+
+@keyframes taskIn{
+  from{
+    opacity:0;
+    transform:scale(.96) translateY(8px)
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0)
+  }
+}
+
+.task.done-task{
+  border-color:var(--green)
+}
+
+.task.failed-task{
+  border-color:var(--red)
+}
+
+.tasktop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px
+}
+
+.taskname{
+  font-weight:800
+}
+
+.status{
+  padding:6px 9px;
+  border-radius:15px;
+  font-size:11px;
+  font-weight:bold
+}
+
+.green{
+  background:#163c28;
+  color:var(--green)
+}
+
+.yellow{
+  background:#423916;
+  color:var(--yellow)
+}
+
+.orange{
+  background:#482b18;
+  color:var(--orange)
+}
+
+.red{
+  background:#451b1b;
+  color:var(--red)
+}
+
+.desc{
+  color:var(--gray);
+  margin-top:8px;
+  font-size:14px
+}
+
+.date{
+  color:#aaa;
+  font-size:12px;
+  margin-top:10px
+}
+
+.countdown{
+  margin-top:12px;
+  padding:10px;
+  background:#090909;
+  border-radius:12px;
+  font-size:13px;
+  color:white
+}
+
+.actions{
+  display:flex;
+  gap:7px;
+  margin-top:14px
+}
+
 .actions button{
-flex:1;border:0;border-radius:11px;padding:11px;font-weight:bold
+  flex:1;
+  border:0;
+  border-radius:11px;
+  padding:11px;
+  font-weight:bold
 }
-.done{background:#163c28;color:var(--green)}
-.fail{background:#451b1b;color:var(--red)}
-.cancel{background:#292929;color:white}
+
+.done{
+  background:#163c28;
+  color:var(--green)
+}
+
+.fail{
+  background:#451b1b;
+  color:var(--red)
+}
+
+.cancel{
+  background:#292929;
+  color:white
+}
+
+.hide-task{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:28px;
+  height:28px;
+  border-radius:9px;
+  border:0;
+  background:#292929;
+  color:white;
+  font-weight:bold
+}
+
 .money{
-font-size:42px;font-weight:800;margin:10px 0
+  font-size:42px;
+  font-weight:800;
+  margin:10px 0
 }
-.stats{display:flex;gap:10px}
+
+.stats{
+  display:flex;
+  gap:10px
+}
+
 .stat{
-flex:1;background:#090909;border-radius:15px;padding:13px
+  flex:1;
+  background:#090909;
+  border-radius:15px;
+  padding:13px
 }
-.stat small{display:block;color:var(--gray)}
+
+.stat small{
+  display:block;
+  color:var(--gray)
+}
+
 .progress-bg{
-height:10px;background:#292929;border-radius:20px;margin-top:20px;overflow:hidden
+  height:10px;
+  background:#292929;
+  border-radius:20px;
+  margin-top:20px;
+  overflow:hidden
 }
-.progress{height:100%;transition:.4s}
-.money-actions{display:flex;gap:8px;margin-top:12px}
+
+.progress{
+  height:100%;
+  transition:.5s ease
+}
+
+.money-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px
+}
+
 .money-actions button{
-flex:1;padding:14px;border:0;border-radius:13px;font-weight:bold
+  flex:1;
+  padding:14px;
+  border:0;
+  border-radius:13px;
+  font-weight:bold
 }
-.add{background:var(--green)}
-.spend{background:var(--red);color:white}
+
+.add{
+  background:var(--green)
+}
+
+.spend{
+  background:var(--red);
+  color:white
+}
+
 .history-item{
-display:flex;justify-content:space-between;padding:14px 0;
-border-bottom:1px solid var(--line)
+  display:flex;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--line)
 }
-.history-item small{color:var(--gray);display:block;margin-top:4px}
+
+.history-item small{
+  color:var(--gray);
+  display:block;
+  margin-top:4px
+}
+
 .danger{
-background:#451b1b;color:var(--red);padding:15px;border-radius:15px;
-font-weight:bold;margin-bottom:15px
+  background:#451b1b;
+  color:var(--red);
+  padding:15px;
+  border-radius:15px;
+  font-weight:bold;
+  margin-bottom:15px
 }
+
 .more{
-width:100%;background:#222;color:white;border:0;border-radius:14px;padding:14px;margin-top:14px
+  width:100%;
+  background:#222;
+  color:white;
+  border:0;
+  border-radius:14px;
+  padding:14px;
+  margin-top:14px
 }
-.menu{display:flex;justify-content:space-between;align-items:center}
+
+.menu{
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
 .menu button{
-background:#222;color:white;border:0;border-radius:11px;padding:9px 13px
+  background:#222;
+  color:white;
+  border:0;
+  border-radius:11px;
+  padding:9px 13px
 }
+
 .back{
-background:#222;color:white;border:0;padding:12px 15px;border-radius:12px;margin-bottom:15px
+  background:#222;
+  color:white;
+  border:0;
+  padding:12px 15px;
+  border-radius:12px;
+  margin-bottom:15px
 }
+
 canvas{
-width:100%;height:auto;background:#090909;border-radius:18px;
-border:1px solid var(--line)
+  width:100%;
+  height:auto;
+  background:#090909;
+  border-radius:18px;
+  border:1px solid var(--line)
 }
+
 .report{
-line-height:1.7;color:#ddd
+  line-height:1.7;
+  color:#ddd
 }
+
 .bottom{
-position:fixed;bottom:0;left:0;width:100%;
-background:rgba(10,10,10,.97);border-top:1px solid var(--line);
-display:flex;justify-content:center
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:rgba(10,10,10,.97);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:center;
+  z-index:20
 }
+
 .nav{
-max-width:650px;width:100%;display:flex;justify-content:space-around
+  max-width:650px;
+  width:100%;
+  display:flex;
+  justify-content:space-around
 }
+
 .nav button{
-background:none;border:0;color:var(--gray);padding:15px 7px;font:inherit;font-size:11px
+  background:none;
+  border:0;
+  color:var(--gray);
+  padding:15px 7px;
+  font:inherit;
+  font-size:11px
 }
-.nav button.active{color:white}
+
+.nav button.active{
+  color:white
+}
+
 .xo{
-display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:18px 0
 }
+
 .xo button{
-aspect-ratio:1;background:#090909;color:white;border:1px solid #333;
-border-radius:18px;font-size:34px;font-weight:bold
+  aspect-ratio:1;
+  background:#090909;
+  color:white;
+  border:1px solid #333;
+  border-radius:18px;
+  font-size:34px;
+  font-weight:bold
 }
+
 .score{
-display:flex;justify-content:space-around;text-align:center;
-background:#090909;padding:15px;border-radius:16px
+  display:flex;
+  justify-content:space-around;
+  text-align:center;
+  background:#090909;
+  padding:15px;
+  border-radius:16px
 }
-.score small{display:block;color:var(--gray)}
-.choice{
-display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px
+
+.score small{
+  display:block;
+  color:var(--gray)
 }
-.choice button{
-padding:20px;background:#171717;color:white;border:1px solid #333;
-border-radius:16px;font-size:16px
+
+.number-game{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:18px
 }
-.footer{text-align:center;color:#555;font-size:11px;padding:25px}
+
+.number-game button{
+  padding:22px;
+  border-radius:16px;
+  background:#171717;
+  color:white;
+  border:1px solid #333;
+  font-size:22px;
+  font-weight:bold
+}
+
+.footer{
+  text-align:center;
+  color:#555;
+  font-size:11px;
+  padding:25px
+}
+
+.records-title{
+  margin-top:30px;
+  font-size:20px;
+  font-weight:800
+}
 </style>
 </head>
 
@@ -163,74 +549,126 @@ border-radius:16px;font-size:16px
 </div>
 
 <!-- HOME -->
+
 <div id="home" class="page active">
+
 <div class="hero">
 <div class="hero-icon">◆</div>
 <h1>Ready to focus?</h1>
 <p>Organize your work and stay motivated every day.</p>
 </div>
 
-<button class="big-btn" onclick="showPage('plan')"><span>Plan</span><span>+</span></button>
-<button class="big-btn" onclick="showPage('quick')"><span>Quick Check</span><span>✓</span></button>
-<button class="big-btn" onclick="showPage('money')"><span>Pocket Money</span><span>DT</span></button>
-<button class="big-btn" onclick="showPage('settings')"><span>Settings</span><span>⚙</span></button>
+<button class="big-btn" onclick="showPage('plan')">
+<span>Plan</span><span>+</span>
+</button>
+
+<button class="big-btn" onclick="showPage('quick')">
+<span>Quick Check</span><span>✓</span>
+</button>
+
+<button class="big-btn" onclick="showPage('money')">
+<span>Pocket Money</span><span>DT</span>
+</button>
+
+<button class="big-btn" onclick="showPage('settings')">
+<span>Settings</span><span>⚙</span>
+</button>
 
 <div class="footer">by Jasser Naouili</div>
+
 </div>
+
 
 <!-- QUICK -->
+
 <div id="quick" class="page">
+
 <div class="title">Quick Check</div>
-<div class="sub">Your urgent work and alerts.</div>
+<div class="sub">Check your tasks and confirm your progress.</div>
+
 <div id="debtAlert"></div>
+
 <div id="quickTasks"></div>
+
+<div class="records-title">Records</div>
+
+<div id="taskRecords"></div>
+
 </div>
 
+
 <!-- PLAN -->
+
 <div id="plan" class="page">
+
 <div class="title">Plan</div>
 <div class="sub">Create and organize your work.</div>
 
 <div class="card">
+
 <label>WORK NAME</label>
 <input id="taskName" placeholder="Example: Study">
 
 <label>DESCRIPTION</label>
 <textarea id="taskDesc" placeholder="Write details..."></textarea>
 
-<label>DATE</label>
-<input id="taskDate" type="date">
+<label>DATE & TIME</label>
+<input id="taskDate" type="datetime-local">
 
 <button class="primary" onclick="addTask()">Add to Plan</button>
+
 </div>
 
 <div id="planTasks"></div>
+
 </div>
 
+
 <!-- MONEY -->
+
 <div id="money" class="page">
+
 <div class="title">Pocket Money</div>
 <div class="sub">Track your money in a modern way.</div>
 
 <div class="card">
+
 <div class="menu">
+
 <div>
 <small style="color:#929292">MONEY REMAINING</small>
 <div class="money" id="balance">0 DT</div>
 </div>
+
 <button onclick="showPage('data')">Data</button>
+
 </div>
 
 <div class="stats">
-<div class="stat"><small>TOTAL ADDED</small><b id="added">0 DT</b></div>
-<div class="stat"><small>TOTAL SPENT</small><b id="spent">0 DT</b></div>
+
+<div class="stat">
+<small>TOTAL ADDED</small>
+<b id="added">0 DT</b>
 </div>
 
-<div class="progress-bg"><div class="progress" id="progress"></div></div>
-<div id="danger"></div>
+<div class="stat">
+<small>TOTAL SPENT</small>
+<b id="spent">0 DT</b>
 </div>
+
+</div>
+
+<div class="progress-bg">
+<div class="progress" id="progress"></div>
+</div>
+
+<div id="danger"></div>
+
+</div>
+
 
 <div class="card">
+
 <label>AMOUNT</label>
 <input id="amount" type="number" placeholder="Example: 10">
 
@@ -238,183 +676,367 @@ border-radius:16px;font-size:16px
 <input id="moneyDesc" placeholder="Example: Food">
 
 <div class="money-actions">
-<button class="add" onclick="addMoney()">Add Money</button>
-<button class="spend" onclick="spendMoney()">Spend</button>
+
+<button class="add" onclick="addMoney()">
+Add Money
+</button>
+
+<button class="spend" onclick="spendMoney()">
+Spend
+</button>
+
 </div>
 
-<button class="more" onclick="resetMoney()">Reset Pocket Money</button>
+<button class="more" onclick="resetMoney()">
+Reset Pocket Money
+</button>
+
 </div>
 
 <div class="title" style="font-size:20px">History</div>
+
 <div id="history"></div>
-<button class="more" onclick="moreHistory()">More</button>
+
+<button class="more" onclick="moreHistory()">
+More
+</button>
+
 </div>
 
+
 <!-- DATA -->
+
 <div id="data" class="page">
-<button class="back" onclick="showPage('money')">← Back</button>
+
+<button class="back" onclick="showPage('money')">
+← Back
+</button>
+
 <div class="title">Money Data</div>
-<div class="sub">Your financial activity.</div>
+<div class="sub">Your financial activity and balance growth.</div>
 
 <div class="card">
-<canvas id="chart" width="600" height="400"></canvas>
+<canvas id="chart" width="800" height="500"></canvas>
 </div>
 
 <div class="card report" id="report"></div>
+
 </div>
 
+
 <!-- SETTINGS -->
+
 <div id="settings" class="page">
+
 <div class="title">Settings</div>
 <div class="sub">Games and private features.</div>
 
-<button class="settings-btn" onclick="showPage('play')">🎮 PLAY</button>
-<button class="settings-btn" onclick="showPage('note')">📝 NOTE</button>
-<button class="settings-btn" onclick="showPage('employees')">👥 EMPLOYEES</button>
+<button class="settings-btn" onclick="showPage('play')">
+🎮 PLAY
+</button>
+
+<button class="settings-btn" onclick="showPage('note')">
+📝 NOTE
+</button>
+
+<button class="settings-btn" onclick="showPage('employees')">
+👥 EMPLOYEES
+</button>
+
 </div>
+
 
 <!-- EMPLOYEES -->
+
 <div id="employees" class="page">
-<button class="back" onclick="showPage('settings')">← Back</button>
+
+<button class="back" onclick="showPage('settings')">
+← Back
+</button>
+
 <div class="title">Employees</div>
+
 <div class="card" style="text-align:center;padding:50px 20px">
+
 <div style="font-size:45px">👥</div>
+
 <h2>Coming Soon</h2>
-<p class="sub">This feature will be available in the next update.</p>
-</div>
+
+<p class="sub">
+This feature will be available in the next update.
+</p>
+
 </div>
 
+</div>
+
+
 <!-- PLAY -->
+
 <div id="play" class="page">
-<button class="back" onclick="showPage('settings')">← Back</button>
+
+<button class="back" onclick="showPage('settings')">
+← Back
+</button>
+
 <div class="title">Play</div>
 <div class="sub">Fun games for two players.</div>
 
-<button class="settings-btn" onclick="showPage('xo')">⭕ X / O</button>
-<button class="settings-btn" onclick="showPage('battle')">⚔️ BATTLE</button>
-<button class="settings-btn" onclick="showPage('reaction')">⚡ REACTION</button>
+<button class="settings-btn" onclick="showPage('xo')">
+⭕ X / O
+</button>
+
+<button class="settings-btn" onclick="showPage('numberGame')">
+🎯 NUMBER DUEL
+</button>
+
 </div>
 
-<!-- XO -->
+
+<!-- X O -->
+
 <div id="xo" class="page">
-<button class="back" onclick="showPage('play')">← Back</button>
+
+<button class="back" onclick="showPage('play')">
+← Back
+</button>
+
 <div class="title">X / O</div>
 
 <div class="score">
-<div><small>PLAYER X</small><b id="xs">0</b></div>
-<div><small>DRAW</small><b id="ds">0</b></div>
-<div><small>PLAYER O</small><b id="os">0</b></div>
+
+<div>
+<small>PLAYER X</small>
+<b id="xs">0</b>
 </div>
 
-<div class="card" style="text-align:center" id="xoTurn">PLAYER X TURN</div>
+<div>
+<small>DRAW</small>
+<b id="ds">0</b>
+</div>
+
+<div>
+<small>PLAYER O</small>
+<b id="os">0</b>
+</div>
+
+</div>
+
+<div class="card" style="text-align:center" id="xoTurn">
+PLAYER X TURN
+</div>
+
 <div class="xo" id="xoBoard"></div>
-<button class="more" onclick="resetXO()">New Round</button>
+
+<button class="more" onclick="resetXO()">
+New Round
+</button>
+
 </div>
 
-<!-- BATTLE -->
-<div id="battle" class="page">
-<button class="back" onclick="showPage('play')">← Back</button>
-<div class="title">Battle ⚔️</div>
-<div class="sub">Take turns. The strongest wins.</div>
+
+<!-- NUMBER GAME -->
+
+<div id="numberGame" class="page">
+
+<button class="back" onclick="showPage('play')">
+← Back
+</button>
+
+<div class="title">Number Duel</div>
+
+<div class="sub">
+Take turns choosing numbers. Highest total wins!
+</div>
 
 <div class="score">
-<div><small>PLAYER 1</small><b id="battle1">0</b></div>
-<div><small>PLAYER 2</small><b id="battle2">0</b></div>
+
+<div>
+<small>PLAYER 1</small>
+<b id="n1">0</b>
+</div>
+
+<div>
+<small>ROUND</small>
+<b id="round">1</b>
+</div>
+
+<div>
+<small>PLAYER 2</small>
+<b id="n2">0</b>
+</div>
+
 </div>
 
 <div class="card" style="text-align:center">
-<h2 id="battleTurn">PLAYER 1 TURN</h2>
-<p class="sub">Choose your attack!</p>
 
-<div class="choice">
-<button onclick="battleMove('⚔️')">⚔️ Attack</button>
-<button onclick="battleMove('🛡️')">🛡️ Defense</button>
-<button onclick="battleMove('🔥')">🔥 Power</button>
-<button onclick="battleMove('⚡')">⚡ Speed</button>
-</div>
-</div>
+<h2 id="numberTurn">PLAYER 1 TURN</h2>
 
-<button class="more" onclick="resetBattle()">Reset Game</button>
-</div>
+<p class="sub">
+Choose one number. After 6 rounds, the strongest wins.
+</p>
 
-<!-- REACTION -->
-<div id="reaction" class="page">
-<button class="back" onclick="showPage('play')">← Back</button>
-<div class="title">Reaction ⚡</div>
-<div class="sub">Press only when the signal appears!</div>
+<div class="number-game">
 
-<div class="score">
-<div><small>PLAYER 1</small><b id="reaction1">0</b></div>
-<div><small>PLAYER 2</small><b id="reaction2">0</b></div>
+<button onclick="numberMove(1)">1</button>
+<button onclick="numberMove(2)">2</button>
+<button onclick="numberMove(3)">3</button>
+<button onclick="numberMove(4)">4</button>
+<button onclick="numberMove(5)">5</button>
+<button onclick="numberMove(6)">6</button>
+
 </div>
 
-<div class="card" style="text-align:center">
-<h2 id="reactionTurn">PLAYER 1 TURN</h2>
-<div id="reactionMessage" style="font-size:25px;padding:30px">Ready?</div>
-<button class="primary" id="reactionButton" onclick="reactionPress()">START</button>
 </div>
 
-<button class="more" onclick="resetReaction()">Reset Game</button>
+<button class="more" onclick="resetNumberGame()">
+New Game
+</button>
+
 </div>
+
 
 <!-- NOTE -->
+
 <div id="note" class="page">
-<button class="back" onclick="showPage('settings')">← Back</button>
+
+<button class="back" onclick="showPage('settings')">
+← Back
+</button>
+
 <div class="title">Private Note</div>
+
 <div id="noteLogin"></div>
+
 </div>
 
+
+<!-- NOTE EDITOR -->
+
 <div id="noteEditor" class="page">
-<button class="back" onclick="showPage('note')">← Back</button>
+
+<button class="back" onclick="showPage('note')">
+← Back
+</button>
+
 <div class="title">My Notes</div>
 
 <div class="card">
+
 <textarea id="noteText" placeholder="Write anything..."></textarea>
-<button class="primary" onclick="saveNote()">Save Note</button>
-<button class="more" onclick="changePassword()">Change Password</button>
+
+<button class="primary" onclick="saveNote()">
+Save Note
+</button>
+
+<button class="more" onclick="changePassword()">
+Change Password
+</button>
+
 </div>
 
 <div id="notes"></div>
+
 </div>
 
 </div>
+
+
+<!-- NAV -->
 
 <div class="bottom">
+
 <div class="nav">
-<button class="active" id="nav-home" onclick="showPage('home')">⌂<br>Home</button>
-<button id="nav-quick" onclick="showPage('quick')">✓<br>Quick</button>
-<button id="nav-plan" onclick="showPage('plan')">▦<br>Plan</button>
-<button id="nav-money" onclick="showPage('money')">◉<br>Money</button>
+
+<button class="active" id="nav-home" onclick="showPage('home')">
+⌂<br>Home
+</button>
+
+<button id="nav-quick" onclick="showPage('quick')">
+✓<br>Quick
+</button>
+
+<button id="nav-plan" onclick="showPage('plan')">
+▦<br>Plan
+</button>
+
+<button id="nav-money" onclick="showPage('money')">
+◉<br>Money
+</button>
+
 </div>
+
 </div>
+
 
 <script>
 
 /* STORAGE */
 
-let tasks=JSON.parse(localStorage.getItem("studyTasks"))||[];
+let tasks = JSON.parse(localStorage.getItem("studyTasks")) || [];
 
-let money=JSON.parse(localStorage.getItem("studyMoney"))||{
-added:0,spent:0,history:[]
+let money = JSON.parse(localStorage.getItem("studyMoney")) || {
+added:0,
+spent:0,
+history:[]
 };
 
-let historyLimit=5;
+let historyLimit = 5;
 
-let notes=JSON.parse(localStorage.getItem("notes"))||[];
-let password=localStorage.getItem("notePassword")||"";
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+let password = localStorage.getItem("notePassword") || "";
+
 
 /* SOUND */
 
+let audioContext;
+
 function sound(){
+
 try{
-let a=new(window.AudioContext||window.webkitAudioContext)();
-let o=a.createOscillator(),g=a.createGain();
-o.connect(g);g.connect(a.destination);
-o.frequency.value=500;g.gain.value=.03;
-o.start();
-setTimeout(()=>{o.stop();a.close()},50);
-}catch(e){}
+
+if(!audioContext){
+
+audioContext = new(
+window.AudioContext ||
+window.webkitAudioContext
+)();
+
 }
+
+let oscillator = audioContext.createOscillator();
+let gain = audioContext.createGain();
+
+oscillator.connect(gain);
+gain.connect(audioContext.destination);
+
+oscillator.type = "sine";
+oscillator.frequency.setValueAtTime(
+650,
+audioContext.currentTime
+);
+
+gain.gain.setValueAtTime(
+0.018,
+audioContext.currentTime
+);
+
+gain.gain.exponentialRampToValueAtTime(
+0.001,
+audioContext.currentTime + 0.08
+);
+
+oscillator.start();
+
+oscillator.stop(
+audioContext.currentTime + 0.08
+);
+
+}catch(e){}
+
+}
+
 
 /* PAGE */
 
@@ -422,397 +1044,1108 @@ function showPage(id){
 
 sound();
 
-document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
-document.getElementById(id).classList.add("active");
+document
+.querySelectorAll(".page")
+.forEach(x=>x.classList.remove("active"));
 
-document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
-let nav=document.getElementById("nav-"+id);
+document
+.getElementById(id)
+.classList.add("active");
+
+document
+.querySelectorAll(".nav button")
+.forEach(x=>x.classList.remove("active"));
+
+let nav = document.getElementById("nav-"+id);
+
 if(nav)nav.classList.add("active");
 
-window.scrollTo(0,0);
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 renderTasks();
 renderMoney();
 
 if(id==="data")renderData();
 if(id==="xo")renderXO();
-if(id==="battle")renderBattle();
-if(id==="reaction")renderReaction();
+if(id==="numberGame")renderNumberGame();
 if(id==="note")renderNote();
 if(id==="noteEditor")renderNotes();
+
 }
+
 
 /* TASKS */
 
 function addTask(){
 
-let name=taskName.value.trim();
-let desc=taskDesc.value.trim();
-let date=taskDate.value;
+let name =
+document.getElementById("taskName").value.trim();
 
-if(!name||!date){
+let desc =
+document.getElementById("taskDesc").value.trim();
+
+let date =
+document.getElementById("taskDate").value;
+
+if(!name || !date){
+
 alert("Enter work name and date");
+
 return;
+
 }
 
 tasks.push({
-id:Date.now(),name,desc,date,status:"pending"
+
+id:Date.now(),
+
+name:name,
+
+desc:desc,
+
+date:date,
+
+status:"pending",
+
+hidden:false
+
 });
 
 saveTasks();
 
-taskName.value="";
-taskDesc.value="";
-taskDate.value="";
+document.getElementById("taskName").value="";
+document.getElementById("taskDesc").value="";
+document.getElementById("taskDate").value="";
 
 renderTasks();
+
 sound();
+
 }
+
 
 function saveTasks(){
-localStorage.setItem("studyTasks",JSON.stringify(tasks));
+
+localStorage.setItem(
+"studyTasks",
+JSON.stringify(tasks)
+);
+
 }
 
-function taskStatus(date){
-
-let today=new Date();
-today.setHours(0,0,0,0);
-
-let deadline=new Date(date+"T00:00:00");
-let d=Math.ceil((deadline-today)/86400000);
-
-if(d<0)return["red","Overdue"];
-if(d<=1)return["red",d===0?"Today":"1 Day Left"];
-if(d===2)return["yellow","2 Days Left"];
-return["green",d+" Days Left"];
-}
 
 function esc(t){
+
 let d=document.createElement("div");
+
 d.textContent=t;
+
 return d.innerHTML;
+
 }
+
+
+function getCountdown(date){
+
+let now=new Date().getTime();
+
+let target=new Date(date).getTime();
+
+let diff=target-now;
+
+if(diff<=0){
+
+return {
+text:"Time is over",
+className:"red"
+};
+
+}
+
+let days=Math.floor(
+diff/(1000*60*60*24)
+);
+
+let hours=Math.floor(
+(diff%(1000*60*60*24))/
+(1000*60*60)
+);
+
+let minutes=Math.floor(
+(diff%(1000*60*60))/
+(1000*60)
+);
+
+let seconds=Math.floor(
+(diff%(1000*60))/1000
+);
+
+return {
+
+text:
+days+"d "+
+String(hours).padStart(2,"0")+"h "+
+String(minutes).padStart(2,"0")+"m "+
+String(seconds).padStart(2,"0")+"s",
+
+className:
+days<=0?"red":
+days<=1?"yellow":
+"green"
+
+};
+
+}
+
 
 function renderTasks(){
 
-let plan=document.getElementById("planTasks");
-let quick=document.getElementById("quickTasks");
+let plan =
+document.getElementById("planTasks");
+
+let quick =
+document.getElementById("quickTasks");
+
+let records =
+document.getElementById("taskRecords");
 
 plan.innerHTML="";
 quick.innerHTML="";
+records.innerHTML="";
 
-if(!tasks.length){
-plan.innerHTML='<div class="sub">No work added yet.</div>';
-quick.innerHTML='<div class="sub">No urgent work.</div>';
-return;
-}
 
-let urgent=0;
+let activeTasks =
+tasks.filter(t=>t.status==="pending");
 
-[...tasks].sort((a,b)=>new Date(a.date)-new Date(b.date))
+
+if(!activeTasks.length){
+
+plan.innerHTML=
+'<div class="sub">No work added yet.</div>';
+
+quick.innerHTML=
+'<div class="sub">✓ Everything is under control.</div>';
+
+}else{
+
+activeTasks
+.sort((a,b)=>new Date(a.date)-new Date(b.date))
 .forEach(t=>{
 
-let s=taskStatus(t.date);
-let cl=t.status==="done"?"green":t.status==="failed"?"red":s[0];
-let tx=t.status==="done"?"Completed":t.status==="failed"?"Failed":s[1];
+let countdown=getCountdown(t.date);
 
-let html=`
+let base=`
+
 <div class="tasktop">
-<div class="taskname">${esc(t.name)}</div>
-<div class="status ${cl}">${tx}</div>
+
+<div class="taskname">
+${esc(t.name)}
 </div>
-${t.desc?`<div class="desc">${esc(t.desc)}</div>`:""}
-<div class="date">📅 ${t.date}</div>
+
+<div class="status ${countdown.className}">
+${countdown.text}
+</div>
+
+</div>
+
+${t.desc?
+`<div class="desc">${esc(t.desc)}</div>`
+:""}
+
+<div class="date">
+📅 ${new Date(t.date).toLocaleString()}
+</div>
+
+<div class="countdown">
+⏳ ${countdown.text}
+</div>
+
 `;
 
-plan.innerHTML+=`
-<div class="task">
-${html}
-<div class="actions">
-<button class="done" onclick="taskUpdate(${t.id},'done')">✓ Done</button>
-<button class="fail" onclick="taskUpdate(${t.id},'failed')">✕ Failed</button>
-<button class="cancel" onclick="taskDelete(${t.id})">Cancel</button>
-</div>
-</div>`;
 
-if(t.status==="pending"&&(s[0]==="red"||s[0]==="yellow")){
-urgent++;
-quick.innerHTML+=`<div class="task">${html}</div>`;
+/* PLAN ONLY DELETE */
+
+plan.innerHTML+=`
+
+<div class="task">
+
+${base}
+
+<div class="actions">
+
+<button
+class="cancel"
+onclick="taskDelete(${t.id})"
+>
+
+Delete
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+/* QUICK DONE FAILED */
+
+if(!t.hidden){
+
+quick.innerHTML+=`
+
+<div class="task">
+
+${base}
+
+<div class="actions">
+
+<button
+class="done"
+onclick="taskUpdate(${t.id},'done')"
+>
+
+✓ Done
+
+</button>
+
+<button
+class="fail"
+onclick="taskUpdate(${t.id},'failed')"
+>
+
+✕ Failed
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
 }
+
 });
 
-if(!urgent)quick.innerHTML='<div class="sub">✓ Everything is under control.</div>';
 }
+
+
+/* RECORDS */
+
+let completed=
+tasks.filter(t=>
+t.status==="done" ||
+t.status==="failed"
+);
+
+if(!completed.length){
+
+records.innerHTML=
+'<div class="sub">No completed records yet.</div>';
+
+}else{
+
+completed
+.sort((a,b)=>b.id-a.id)
+.forEach(t=>{
+
+let isDone=t.status==="done";
+
+let hiddenClass=
+t.hidden?"":"";
+
+records.innerHTML+=`
+
+<div class="task ${isDone?"done-task":"failed-task"} ${hiddenClass}">
+
+<button
+class="hide-task"
+onclick="hideTask(${t.id})"
+>
+
+X
+
+</button>
+
+<div class="tasktop">
+
+<div class="taskname">
+${esc(t.name)}
+</div>
+
+<div class="status ${isDone?"green":"red"}">
+
+${isDone?"Completed":"Failed"}
+
+</div>
+
+</div>
+
+${t.desc?
+`<div class="desc">${esc(t.desc)}</div>`
+:""}
+
+<div class="date">
+
+📅 ${new Date(t.date).toLocaleString()}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+}
+
 
 function taskUpdate(id,status){
-tasks=tasks.map(t=>t.id===id?{...t,status}:t);
-saveTasks();renderTasks();sound();
+
+tasks=tasks.map(t=>{
+
+if(t.id===id){
+
+return {
+...t,
+status:status,
+hidden:false
+};
+
 }
 
+return t;
+
+});
+
+saveTasks();
+
+renderTasks();
+
+sound();
+
+}
+
+
+function hideTask(id){
+
+tasks=tasks.map(t=>
+t.id===id?
+{...t,hidden:true}
+:t
+);
+
+saveTasks();
+
+renderTasks();
+
+sound();
+
+}
+
+
 function taskDelete(id){
-if(confirm("Delete this task?")){
-tasks=tasks.filter(t=>t.id!==id);
-saveTasks();renderTasks();
+
+if(confirm("Delete this task permanently?")){
+
+tasks=
+tasks.filter(t=>t.id!==id);
+
+saveTasks();
+
+renderTasks();
+
+sound();
+
 }
+
 }
+
+
+/* LIVE COUNTDOWN */
+
+setInterval(()=>{
+
+let activePage=
+document.querySelector(".page.active");
+
+if(
+activePage &&
+(
+activePage.id==="plan" ||
+activePage.id==="quick"
+)
+){
+
+renderTasks();
+
+}
+
+},1000);
+
 
 /* MONEY */
 
 function now(){
-return new Date().toLocaleString(undefined,{
-year:"numeric",month:"short",day:"numeric",
-hour:"2-digit",minute:"2-digit",second:"2-digit"
-});
+
+return new Date().toLocaleString(
+undefined,
+{
+year:"numeric",
+month:"short",
+day:"numeric",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit"
 }
+);
+
+}
+
 
 function addMoney(){
 
-let amount=Number(document.getElementById("amount").value);
-let desc=document.getElementById("moneyDesc").value.trim();
+let amount=Number(
+document.getElementById("amount").value
+);
 
-if(!amount||amount<=0)return alert("Enter valid amount");
+let desc=
+document.getElementById("moneyDesc").value.trim();
+
+if(!amount || amount<=0){
+
+return alert("Enter valid amount");
+
+}
 
 money.added+=amount;
 
 money.history.unshift({
-type:"added",amount,desc:desc||"Money Added",
+
+type:"added",
+
+amount:amount,
+
+desc:desc || "Money Added",
+
 time:now(),
+
 timestamp:Date.now()
+
 });
 
 saveMoney();
+
 }
+
 
 function spendMoney(){
 
-let amount=Number(document.getElementById("amount").value);
-let desc=document.getElementById("moneyDesc").value.trim();
+let amount=Number(
+document.getElementById("amount").value
+);
 
-if(!amount||amount<=0)return alert("Enter valid amount");
+let desc=
+document.getElementById("moneyDesc").value.trim();
+
+if(!amount || amount<=0){
+
+return alert("Enter valid amount");
+
+}
 
 money.spent+=amount;
 
 money.history.unshift({
-type:"spent",amount,desc:desc||"No Description",
+
+type:"spent",
+
+amount:amount,
+
+desc:desc || "No Description",
+
 time:now(),
+
 timestamp:Date.now()
+
 });
 
 saveMoney();
+
 }
 
+
 function saveMoney(){
-localStorage.setItem("studyMoney",JSON.stringify(money));
-amount.value="";
-moneyDesc.value="";
+
+localStorage.setItem(
+"studyMoney",
+JSON.stringify(money)
+);
+
+document.getElementById("amount").value="";
+
+document.getElementById("moneyDesc").value="";
+
 renderMoney();
+
 sound();
+
 }
+
 
 function resetMoney(){
 
-if(!confirm("Reset all Pocket Money and History?"))return;
+if(
+!confirm(
+"Reset all Pocket Money and History?"
+)
+)return;
 
-money={added:0,spent:0,history:[]};
+money={
+added:0,
+spent:0,
+history:[]
+};
+
 localStorage.removeItem("studyMoney");
 
 renderMoney();
+
 sound();
+
 }
+
 
 function renderMoney(){
 
-let remaining=money.added-money.spent;
+let remaining=
+money.added-money.spent;
 
-balance.textContent=remaining.toFixed(2)+" DT";
-added.textContent=money.added.toFixed(2)+" DT";
-spent.textContent=money.spent.toFixed(2)+" DT";
+document.getElementById("balance").textContent=
+remaining.toFixed(2)+" DT";
 
-let percent=money.added?remaining/money.added*100:0;
+document.getElementById("added").textContent=
+money.added.toFixed(2)+" DT";
+
+document.getElementById("spent").textContent=
+money.spent.toFixed(2)+" DT";
+
+let percent=
+money.added?
+remaining/money.added*100
+:0;
+
+let progress=
+document.getElementById("progress");
+
+let danger=
+document.getElementById("danger");
+
 
 if(remaining<0){
+
 progress.style.width="100%";
-progress.style.background="var(--red)";
-danger.innerHTML='<div class="danger">⚠️ DANGER — YOU ARE IN DEBT</div>';
+
+progress.style.background=
+"var(--red)";
+
+danger.innerHTML=
+
+'<div class="danger">⚠️ DANGER — YOU ARE IN DEBT</div>';
+
 }else{
 
 danger.innerHTML="";
-progress.style.width=Math.max(0,Math.min(100,percent))+"%";
 
-if(percent<25)progress.style.background="var(--red)";
-else if(percent<50)progress.style.background="var(--yellow)";
-else if(percent<75)progress.style.background="var(--orange)";
-else progress.style.background="var(--green)";
+progress.style.width=
+Math.max(
+0,
+Math.min(100,percent)
+)+"%";
+
+if(percent<25){
+
+progress.style.background=
+"var(--red)";
+
+}else if(percent<50){
+
+progress.style.background=
+"var(--yellow)";
+
+}else if(percent<75){
+
+progress.style.background=
+"var(--orange)";
+
+}else{
+
+progress.style.background=
+"var(--green)";
+
 }
 
-let h=document.getElementById("history");
+}
+
+
+let h=
+document.getElementById("history");
+
 h.innerHTML="";
 
-let list=money.history.slice(0,historyLimit);
+let list=
+money.history.slice(
+0,
+historyLimit
+);
 
-if(!list.length)h.innerHTML='<div class="sub">No activity yet.</div>';
+
+if(!list.length){
+
+h.innerHTML=
+'<div class="sub">No activity yet.</div>';
+
+}
+
 
 list.forEach(x=>{
+
 h.innerHTML+=`
+
 <div class="history-item">
+
 <div>
-<b>${x.type==="added"?"Money Added":"Money Spent"}</b>
-<div class="desc">${esc(x.desc)}</div>
-<small>${x.time}</small>
-</div>
-<b style="color:${x.type==="added"?"var(--green)":"var(--red)"}">
-${x.type==="added"?"+":"-"}${Number(x.amount).toFixed(2)} DT
+
+<b>
+
+${x.type==="added"?
+"Money Added":
+"Money Spent"}
+
 </b>
-</div>`;
+
+<div class="desc">
+${esc(x.desc)}
+</div>
+
+<small>
+${x.time}
+</small>
+
+</div>
+
+<b style="
+color:
+${x.type==="added"?
+"var(--green)":
+"var(--red)"}
+">
+
+${x.type==="added"?"+":"-"}
+${Number(x.amount).toFixed(2)} DT
+
+</b>
+
+</div>
+
+`;
+
 });
 
 renderDebt();
+
 }
+
 
 function moreHistory(){
+
 historyLimit+=10;
+
 renderMoney();
+
 }
+
 
 function renderDebt(){
-let d=document.getElementById("debtAlert");
+
+let d=
+document.getElementById("debtAlert");
+
 if(!d)return;
 
-let r=money.added-money.spent;
+let r=
+money.added-money.spent;
 
-d.innerHTML=r<0?
-`<div class="danger">⚠️ DANGER — YOU ARE IN DEBT<br>You owe ${Math.abs(r).toFixed(2)} DT</div>`:"";
+d.innerHTML=
+r<0?
+
+`<div class="danger">
+
+⚠️ DANGER — YOU ARE IN DEBT<br>
+
+You owe
+${Math.abs(r).toFixed(2)}
+DT
+
+</div>`
+
+:"";
+
 }
+
 
 /* DATA CHART */
 
 function renderData(){
 
-let canvas=document.getElementById("chart");
-let ctx=canvas.getContext("2d");
+let canvas=
+document.getElementById("chart");
 
-let w=canvas.width,h=canvas.height;
+let ctx=
+canvas.getContext("2d");
+
+let w=canvas.width;
+
+let h=canvas.height;
+
 ctx.clearRect(0,0,w,h);
 
-let days=[];
-let data=[];
 
-for(let i=6;i>=0;i--){
+let history=
+[...money.history]
+.sort((a,b)=>
+a.timestamp-b.timestamp
+);
 
-let d=new Date();
-d.setHours(0,0,0,0);
-d.setDate(d.getDate()-i);
 
-days.push(d);
+let balance=0;
 
-let total=money.history
-.filter(x=>{
-let t=new Date(x.timestamp||Date.now());
-return t.toDateString()===d.toDateString();
-})
-.reduce((sum,x)=>sum+(x.type==="added"?Number(x.amount):-Number(x.amount)),0);
+let points=[];
 
-data.push(total);
+
+if(!history.length){
+
+points=[
+{
+time:Date.now(),
+balance:0
+}
+];
+
+}else{
+
+history.forEach(x=>{
+
+if(x.type==="added"){
+
+balance+=Number(x.amount);
+
+}else{
+
+balance-=Number(x.amount);
+
 }
 
-let max=Math.max(...data.map(Math.abs),10);
-let padL=70,padR=25,padT=35,padB=60;
-let graphH=h-padT-padB;
-let graphW=w-padL-padR;
-let zero=padT+graphH/2;
+points.push({
 
-ctx.strokeStyle="#333";
+time:x.timestamp,
+
+balance:balance
+
+});
+
+});
+
+}
+
+
+let balances=
+points.map(p=>p.balance);
+
+let min=
+Math.min(...balances,0);
+
+let max=
+Math.max(...balances,10);
+
+if(max===min)max=min+10;
+
+
+let padL=85;
+let padR=35;
+let padT=45;
+let padB=70;
+
+let graphW=
+w-padL-padR;
+
+let graphH=
+h-padT-padB;
+
+
+/* GRID */
+
+ctx.strokeStyle="#252525";
+
 ctx.lineWidth=1;
 
+ctx.font="15px Arial";
+
 for(let i=0;i<5;i++){
-let y=padT+i*graphH/4;
+
+let y=
+padT+
+(graphH/4)*i;
+
 ctx.beginPath();
+
 ctx.moveTo(padL,y);
-ctx.lineTo(w-padR,y);
+
+ctx.lineTo(
+w-padR,
+y
+);
+
 ctx.stroke();
 
-let value=(max-(i*max/2)).toFixed(0);
+
+let value=
+
+max-
+((max-min)/4)*i;
+
+
 ctx.fillStyle="#888";
-ctx.font="13px Arial";
-ctx.fillText(value+" DT",8,y+5);
+
+ctx.fillText(
+
+value.toFixed(2)+" DT",
+
+10,
+
+y+5
+
+);
+
 }
 
-ctx.strokeStyle="#555";
+
+/* X LABELS */
+
+let step=
+points.length>1?
+graphW/(points.length-1)
+:0;
+
+
+/* LINE */
+
 ctx.beginPath();
-ctx.moveTo(padL,zero);
-ctx.lineTo(w-padR,zero);
-ctx.stroke();
 
-let step=graphW/6;
+points.forEach((p,i)=>{
 
-ctx.beginPath();
+let x=
+points.length===1?
+padL+graphW/2:
+padL+i*step;
 
-data.forEach((v,i)=>{
-let x=padL+i*step;
-let y=zero-(v/max)*(graphH/2-15);
-if(i===0)ctx.moveTo(x,y);
-else ctx.lineTo(x,y);
+let y=
+
+padT+
+
+(max-p.balance)/
+(max-min)*graphH;
+
+
+if(i===0){
+
+ctx.moveTo(x,y);
+
+}else{
+
+ctx.lineTo(x,y);
+
+}
+
 });
 
 ctx.strokeStyle="#35d07f";
-ctx.lineWidth=4;
+
+ctx.lineWidth=5;
+
+ctx.lineJoin="round";
+
+ctx.lineCap="round";
+
 ctx.stroke();
 
-data.forEach((v,i)=>{
-let x=padL+i*step;
-let y=zero-(v/max)*(graphH/2-15);
 
-ctx.fillStyle=v>=0?"#35d07f":"#ff4d4d";
+/* POINTS */
+
+points.forEach((p,i)=>{
+
+let x=
+points.length===1?
+padL+graphW/2:
+padL+i*step;
+
+let y=
+
+padT+
+
+(max-p.balance)/
+(max-min)*graphH;
+
+
+ctx.fillStyle=
+
+p.balance>=0?
+"#35d07f":
+"#ff4d4d";
+
+
 ctx.beginPath();
-ctx.arc(x,y,6,0,Math.PI*2);
+
+ctx.arc(
+x,
+y,
+7,
+0,
+Math.PI*2
+);
+
 ctx.fill();
 
+
 ctx.fillStyle="#aaa";
+
 ctx.font="12px Arial";
+
+let date=
+new Date(p.time);
+
+let label=
+
+date.getDate()+"/"+
+(date.getMonth()+1);
+
 ctx.fillText(
-days[i].toLocaleDateString(undefined,{weekday:"short"}),
-x-12,h-22
+
+label,
+
+x-12,
+
+h-28
+
 );
+
 });
 
-let weekSpent=money.history
-.filter(x=>x.type==="spent")
-.reduce((s,x)=>s+Number(x.amount),0);
 
-let weekAdded=money.history
+let totalAdded=
+money.history
 .filter(x=>x.type==="added")
-.reduce((s,x)=>s+Number(x.amount),0);
+.reduce(
+(s,x)=>s+Number(x.amount),
+0
+);
 
-let remaining=money.added-money.spent;
+let totalSpent=
+money.history
+.filter(x=>x.type==="spent")
+.reduce(
+(s,x)=>s+Number(x.amount),
+0
+);
 
-report.innerHTML=`
-<b>FINANCIAL REPORT</b><br><br>
-Total Added: <b>${weekAdded.toFixed(2)} DT</b><br>
-Total Spent: <b>${weekSpent.toFixed(2)} DT</b><br>
-Current Balance: <b>${remaining.toFixed(2)} DT</b><br><br>
-The chart updates automatically after every new saving or spending operation.
+let remaining=
+money.added-money.spent;
+
+
+document.getElementById("report").innerHTML=
+
+`<b>FINANCIAL REPORT</b>
+
+<br><br>
+
+Total Added:
+<b>${totalAdded.toFixed(2)} DT</b>
+
+<br>
+
+Total Spent:
+<b>${totalSpent.toFixed(2)} DT</b>
+
+<br>
+
+Current Balance:
+<b>${remaining.toFixed(2)} DT</b>
+
+<br><br>
+
+The graph shows your real balance movement.
+Every new saving or spending operation updates the graph automatically.
+
 `;
+
 }
 
-/* X O */
 
-let xo=["","","","","","","","",""];
+/* X O GAME */
+
+let xo=[
+"","","",
+"","","",
+"","",""
+];
+
 let turn="X";
-let xs=0,os=0,ds=0;
+
+let xs=0;
+
+let os=0;
+
+let ds=0;
+
 
 function renderXO(){
 
-xoBoard.innerHTML="";
+let board=
+document.getElementById("xoBoard");
+
+board.innerHTML="";
+
 
 xo.forEach((v,i)=>{
-xoBoard.innerHTML+=`<button onclick="xoMove(${i})">${v}</button>`;
+
+board.innerHTML+=
+
+`<button onclick="xoMove(${i})">
+${v}
+</button>`;
+
 });
 
+
 document.getElementById("xs").textContent=xs;
+
 document.getElementById("os").textContent=os;
+
 document.getElementById("ds").textContent=ds;
-xoTurn.textContent="PLAYER "+turn+" TURN";
+
+document.getElementById("xoTurn").textContent=
+
+"PLAYER "+turn+" TURN";
+
 }
+
 
 function xoMove(i){
 
@@ -820,252 +2153,491 @@ if(xo[i])return;
 
 xo[i]=turn;
 
-let wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let wins=[
+
+[0,1,2],
+
+[3,4,5],
+
+[6,7,8],
+
+[0,3,6],
+
+[1,4,7],
+
+[2,5,8],
+
+[0,4,8],
+
+[2,4,6]
+
+];
 
 let winner=null;
 
+
 wins.forEach(a=>{
-if(xo[a[0]]&&xo[a[0]]===xo[a[1]]&&xo[a[1]]===xo[a[2]])winner=xo[a[0]];
+
+if(
+
+xo[a[0]] &&
+
+xo[a[0]]===xo[a[1]] &&
+
+xo[a[1]]===xo[a[2]]
+
+){
+
+winner=xo[a[0]];
+
+}
+
 });
 
+
 if(winner){
-winner==="X"?xs++:os++;
-alert("PLAYER "+winner+" WINS!");
+
+winner==="X"?
+xs++:
+os++;
+
+renderXO();
+
+setTimeout(()=>{
+
+alert(
+"PLAYER "+winner+" WINS!"
+);
+
 resetXO();
+
+},200);
+
 return;
+
 }
+
 
 if(!xo.includes("")){
+
 ds++;
+
+renderXO();
+
+setTimeout(()=>{
+
 alert("DRAW!");
+
 resetXO();
+
+},200);
+
 return;
+
 }
 
-turn=turn==="X"?"O":"X";
+
+turn=
+turn==="X"?
+"O":
+"X";
+
 renderXO();
+
 sound();
+
 }
+
 
 function resetXO(){
-xo=["","","","","","","","",""];
+
+xo=[
+"","","",
+"","","",
+"","",""
+];
+
 turn="X";
+
 renderXO();
-}
 
-/* BATTLE GAME */
-
-let battleTurn=1,battleScore1=0,battleScore2=0,battleRounds=0;
-
-function renderBattle(){
-document.getElementById("battle1").textContent=battleScore1;
-document.getElementById("battle2").textContent=battleScore2;
-document.getElementById("battleTurn").textContent="PLAYER "+battleTurn+" TURN";
-}
-
-function battleMove(type){
-
-let power=Math.floor(Math.random()*100)+1;
-
-if(battleTurn===1)battleScore1+=power;
-else battleScore2+=power;
-
-battleRounds++;
-
-alert(type+" POWER: "+power);
-
-battleTurn=battleTurn===1?2:1;
-
-if(battleRounds>=10){
-
-let winner=battleScore1>battleScore2?"PLAYER 1":
-battleScore2>battleScore1?"PLAYER 2":"DRAW";
-
-alert("BATTLE FINISHED!\n\nPLAYER 1: "+battleScore1+
-"\nPLAYER 2: "+battleScore2+"\n\n"+winner+" WINS!");
-
-}
-
-renderBattle();
 sound();
+
 }
 
-function resetBattle(){
-battleTurn=1;battleScore1=0;battleScore2=0;battleRounds=0;
-renderBattle();
+
+/* NUMBER DUEL */
+
+let numberTurn=1;
+
+let numberScore1=0;
+
+let numberScore2=0;
+
+let numberRound=1;
+
+let moves=0;
+
+
+function renderNumberGame(){
+
+document.getElementById("n1").textContent=
+numberScore1;
+
+document.getElementById("n2").textContent=
+numberScore2;
+
+document.getElementById("round").textContent=
+numberRound;
+
+document.getElementById("numberTurn").textContent=
+
+"PLAYER "+
+numberTurn+
+" TURN";
+
 }
 
-/* REACTION */
 
-let reactionTurn=1,r1=0,r2=0;
-let waiting=false,ready=false,reactionTimer;
+function numberMove(num){
 
-function renderReaction(){
-document.getElementById("reaction1").textContent=r1;
-document.getElementById("reaction2").textContent=r2;
-document.getElementById("reactionTurn").textContent="PLAYER "+reactionTurn+" TURN";
+if(moves>=12)return;
+
+
+if(numberTurn===1){
+
+numberScore1+=num;
+
+}else{
+
+numberScore2+=num;
+
 }
 
-function reactionPress(){
 
-let msg=document.getElementById("reactionMessage");
-let btn=document.getElementById("reactionButton");
+moves++;
 
-if(!waiting){
 
-waiting=true;
-ready=false;
+numberTurn=
+numberTurn===1?
+2:
+1;
 
-msg.textContent="WAIT...";
 
-reactionTimer=setTimeout(()=>{
-ready=true;
-msg.textContent="⚡ NOW!";
-btn.textContent="PRESS!";
-},Math.random()*3000+1500);
+if(numberTurn===1){
 
-return;
+numberRound++;
+
 }
 
-if(!ready){
 
-clearTimeout(reactionTimer);
-waiting=false;
-
-alert("Too early! 0 points.");
-
-reactionTurn=reactionTurn===1?2:1;
-msg.textContent="Ready?";
-btn.textContent="START";
-
-renderReaction();
-return;
-}
-
-if(reactionTurn===1)r1++;
-else r2++;
-
-alert("⚡ GREAT REACTION! +1");
-
-reactionTurn=reactionTurn===1?2:1;
-waiting=false;
-ready=false;
-
-msg.textContent="Ready?";
-btn.textContent="START";
-
-renderReaction();
 sound();
+
+
+if(moves>=12){
+
+setTimeout(()=>{
+
+let result=
+
+numberScore1>numberScore2?
+"PLAYER 1 WINS!":
+
+numberScore2>numberScore1?
+"PLAYER 2 WINS!":
+
+"DRAW!";
+
+
+alert(
+
+"GAME FINISHED!\n\n"+
+
+"PLAYER 1: "+
+numberScore1+
+
+"\nPLAYER 2: "+
+numberScore2+
+
+"\n\n"+
+result
+
+);
+
+resetNumberGame();
+
+},150);
+
 }
 
-function resetReaction(){
-reactionTurn=1;r1=0;r2=0;waiting=false;ready=false;
-document.getElementById("reactionMessage").textContent="Ready?";
-document.getElementById("reactionButton").textContent="START";
-renderReaction();
+
+renderNumberGame();
+
 }
+
+
+function resetNumberGame(){
+
+numberTurn=1;
+
+numberScore1=0;
+
+numberScore2=0;
+
+numberRound=1;
+
+moves=0;
+
+renderNumberGame();
+
+sound();
+
+}
+
 
 /* NOTES */
 
 function renderNote(){
 
-let box=document.getElementById("noteLogin");
+let box=
+document.getElementById("noteLogin");
+
 
 if(!password){
 
-box.innerHTML=`
-<div class="card">
+box.innerHTML=
+
+`<div class="card">
+
 <label>CREATE PASSWORD</label>
-<input id="newPass" type="password" placeholder="Choose password">
-<button class="primary" onclick="createPassword()">Create Private Note</button>
+
+<input
+id="newPass"
+type="password"
+placeholder="Choose password"
+>
+
+<button
+class="primary"
+onclick="createPassword()"
+>
+
+Create Private Note
+
+</button>
+
 </div>`;
 
 }else{
 
-box.innerHTML=`
-<div class="card">
+box.innerHTML=
+
+`<div class="card">
+
 <label>ENTER PASSWORD</label>
-<input id="loginPass" type="password" placeholder="Password">
-<button class="primary" onclick="openNotes()">Open Notes</button>
+
+<input
+id="loginPass"
+type="password"
+placeholder="Password"
+>
+
+<button
+class="primary"
+onclick="openNotes()"
+>
+
+Open Notes
+
+</button>
+
 </div>`;
+
 }
+
 }
+
 
 function createPassword(){
-password=newPass.value;
-if(!password)return alert("Enter password");
-localStorage.setItem("notePassword",password);
-showPage("noteEditor");
+
+let p=
+document.getElementById("newPass").value;
+
+if(!p){
+
+return alert("Enter password");
+
 }
 
-function openNotes(){
-if(loginPass.value!==password)return alert("Wrong password");
+password=p;
+
+localStorage.setItem(
+"notePassword",
+password
+);
+
 showPage("noteEditor");
+
 }
+
+
+function openNotes(){
+
+let p=
+document.getElementById("loginPass").value;
+
+if(p!==password){
+
+return alert("Wrong password");
+
+}
+
+showPage("noteEditor");
+
+}
+
 
 function saveNote(){
 
-let text=noteText.value.trim();
+let text=
+document.getElementById("noteText")
+.value
+.trim();
+
 if(!text)return;
 
-notes.unshift({id:Date.now(),text,time:now()});
 
-localStorage.setItem("notes",JSON.stringify(notes));
+notes.unshift({
 
-noteText.value="";
+id:Date.now(),
+
+text:text,
+
+time:now()
+
+});
+
+
+localStorage.setItem(
+"notes",
+JSON.stringify(notes)
+);
+
+
+document.getElementById("noteText").value="";
+
 renderNotes();
+
 sound();
+
 }
+
 
 function renderNotes(){
 
-let box=document.getElementById("notes");
+let box=
+document.getElementById("notes");
+
 box.innerHTML="";
 
+
 if(!notes.length){
-box.innerHTML='<div class="sub">No notes yet.</div>';
+
+box.innerHTML=
+'<div class="sub">No notes yet.</div>';
+
 return;
+
 }
+
 
 notes.forEach(n=>{
-box.innerHTML+=`
-<div class="task">
+
+box.innerHTML+=
+
+`<div class="task">
+
 <b>${esc(n.text)}</b>
-<div class="date">${n.time}</div>
-<button class="more" onclick="deleteNote(${n.id})">Delete</button>
+
+<div class="date">
+${n.time}
+</div>
+
+<button
+class="more"
+onclick="deleteNote(${n.id})"
+>
+
+Delete
+
+</button>
+
 </div>`;
+
 });
+
 }
 
+
 function deleteNote(id){
-notes=notes.filter(n=>n.id!==id);
-localStorage.setItem("notes",JSON.stringify(notes));
+
+notes=
+notes.filter(n=>n.id!==id);
+
+localStorage.setItem(
+"notes",
+JSON.stringify(notes)
+);
+
 renderNotes();
+
+sound();
+
 }
+
 
 function changePassword(){
 
-let old=prompt("Current password:");
+let old=
+prompt("Current password:");
 
-if(old!==password)return alert("Wrong password");
+if(old!==password){
 
-let next=prompt("New password:");
+return alert("Wrong password");
+
+}
+
+
+let next=
+prompt("New password:");
 
 if(next){
+
 password=next;
-localStorage.setItem("notePassword",password);
+
+localStorage.setItem(
+"notePassword",
+password
+);
+
 alert("Password changed!");
+
 }
+
 }
+
 
 /* START */
 
 renderTasks();
+
 renderMoney();
+
 renderXO();
-renderBattle();
-renderReaction();
+
+renderNumberGame();
 
 </script>
+
 </body>
 </html>
