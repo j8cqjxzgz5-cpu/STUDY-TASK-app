@@ -3,566 +3,319 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>STUDY</title>
 
 <style>
-:root{
-  --bg:#050505;
-  --card:#111;
-  --card2:#191919;
-  --line:#2a2a2a;
-  --text:#fff;
-  --gray:#929292;
-  --green:#35d07f;
-  --yellow:#f5c542;
-  --orange:#ff914d;
-  --red:#ff5252;
-}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
+:root{
+--bg:#050505;
+--card:#111111;
+--card2:#181818;
+--line:#292929;
+--white:#fff;
+--gray:#8c8c8c;
+--green:#35d07f;
+--yellow:#f5c542;
+--orange:#ff8c42;
+--red:#ff4d4d;
 }
 
 body{
-  margin:0;
-  background:
-    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
-    var(--bg);
-  background-size:32px 32px;
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
+margin:0;background:var(--bg);color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
 }
 
-.app{
-  max-width:650px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:100px;
-}
+.app{max-width:600px;margin:auto;min-height:100vh;padding-bottom:100px}
+.header{padding:28px 20px 20px}
+.logo{font-size:32px;font-weight:800;letter-spacing:-1px}
+.subtitle{color:var(--gray);margin-top:7px;font-size:15px}
 
-.header{
-  padding:28px 20px 20px;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo-icon{
-  width:48px;
-  height:48px;
-  background:white;
-  color:black;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  font-weight:bold;
-}
-
-.logo h1{
-  margin:0;
-  font-size:27px;
-  letter-spacing:2px;
-}
-
-.logo p{
-  margin:3px 0 0;
-  color:var(--gray);
-  font-size:12px;
-  letter-spacing:1px;
-}
-
-.page{
-  display:none;
-  padding:0 16px;
-}
-
-.page.active{
-  display:block;
-  animation:fade .25s ease;
-}
-
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(8px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* HOME */
+.page{display:none;padding:0 16px}
+.page.active{display:block}
 
 .hero{
-  background:linear-gradient(145deg,#181818,#090909);
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:28px;
-  margin-bottom:18px;
-  position:relative;
-  overflow:hidden;
+background:linear-gradient(145deg,#161616,#0b0b0b);
+border:1px solid var(--line);border-radius:28px;
+padding:28px;margin-bottom:20px
 }
 
-.hero:after{
-  content:"⌬";
-  position:absolute;
-  right:20px;
-  top:5px;
-  font-size:110px;
-  color:#1f1f1f;
+.hero-icon{
+width:58px;height:58px;border-radius:20px;
+background:#fff;color:#000;display:flex;
+align-items:center;justify-content:center;
+font-size:28px;margin-bottom:20px
 }
 
-.hero small{
-  color:var(--gray);
-  letter-spacing:2px;
+.hero h1{margin:0;font-size:30px}
+.hero p{color:var(--gray);line-height:1.5}
+
+.big-button,.button{
+border:none;color:#fff;font-family:inherit;cursor:pointer
 }
 
-.hero h2{
-  margin:12px 0 8px;
-  font-size:30px;
+.big-button{
+width:100%;background:var(--card);border:1px solid var(--line);
+border-radius:22px;padding:21px;margin-bottom:12px;
+text-align:left;display:flex;align-items:center;
+justify-content:space-between;font-size:19px;font-weight:650
 }
 
-.hero p{
-  margin:0;
-  color:#aaa;
+.button-icon{
+width:42px;height:42px;background:#222;border-radius:14px;
+display:flex;align-items:center;justify-content:center
 }
 
-.menu-card{
-  width:100%;
-  border:none;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:20px;
-  margin-bottom:12px;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  font-family:inherit;
-  text-align:left;
-}
+.big-button:active,.button:active,.nav-item:active,
+.action-button:active{transform:scale(.97)}
 
-.menu-card:active,
-button:active{
-  transform:scale(.97);
-}
+.section-title{font-size:25px;font-weight:750;margin:10px 4px 20px}
+.section-subtitle{color:var(--gray);margin:-12px 4px 20px}
 
-.menu-left{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.menu-icon{
-  width:52px;
-  height:52px;
-  border-radius:17px;
-  background:white;
-  color:black;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:21px;
-  font-weight:bold;
-}
-
-.menu-text h3{
-  margin:0 0 5px;
-  font-size:18px;
-}
-
-.menu-text p{
-  margin:0;
-  color:var(--gray);
-  font-size:13px;
-}
-
-.arrow{
-  font-size:25px;
-  color:#777;
-}
-
-/* TITLES */
-
-.page-title{
-  margin:8px 4px 20px;
-}
-
-.page-title h2{
-  margin:0 0 6px;
-  font-size:28px;
-}
-
-.page-title p{
-  margin:0;
-  color:var(--gray);
-  font-size:14px;
-}
-
-/* PLAN */
-
-.form-card,
-.money-card,
-.money-input-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:20px;
-  margin-bottom:18px;
-}
-
-.form-card h3{
-  margin-top:0;
-}
-
-label{
-  display:block;
-  margin:16px 0 7px;
-  color:var(--gray);
-  font-size:12px;
-  letter-spacing:1px;
-}
-
-input,
-textarea{
-  width:100%;
-  background:#080808;
-  color:white;
-  border:1px solid #303030;
-  border-radius:15px;
-  padding:15px;
-  font-family:inherit;
-  font-size:16px;
-  outline:none;
-}
-
-textarea{
-  resize:none;
-  min-height:85px;
-}
-
-input:focus,
-textarea:focus{
-  border-color:#777;
-}
-
-.primary-btn{
-  width:100%;
-  border:none;
-  background:white;
-  color:black;
-  border-radius:16px;
-  padding:16px;
-  margin-top:18px;
-  font-family:inherit;
-  font-weight:750;
-  font-size:15px;
-}
-
-/* TASK */
-
-.task-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-left:5px solid var(--green);
-  border-radius:20px;
-  padding:17px;
-  margin-bottom:12px;
-}
-
-.task-card.green{
-  border-left-color:var(--green);
-}
-
-.task-card.yellow{
-  border-left-color:var(--yellow);
-}
-
-.task-card.red{
-  border-left-color:var(--red);
-}
-
-.task-card.done{
-  opacity:.65;
-  border-left-color:var(--green);
+.task,.plan-task{
+background:var(--card);border:1px solid var(--line);
+border-radius:20px;padding:17px;margin-bottom:12px
 }
 
 .task-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:10px;
+display:flex;justify-content:space-between;
+align-items:center;gap:10px
 }
 
-.task-name{
-  font-size:17px;
-  font-weight:750;
-}
-
+.task-name{font-size:17px;font-weight:700}
 .status{
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:10px;
-  font-weight:750;
-  white-space:nowrap;
+padding:6px 10px;border-radius:20px;
+font-size:11px;font-weight:700
 }
 
-.status.green{
-  color:var(--green);
-  background:rgba(53,208,127,.12);
+.task-description{color:var(--gray);margin-top:8px;font-size:14px}
+.task-date{color:#aaa;font-size:13px;margin-top:12px}
+
+.green{background:rgba(53,208,127,.15);color:var(--green)}
+.yellow{background:rgba(245,197,66,.15);color:var(--yellow)}
+.red{background:rgba(255,77,77,.15);color:var(--red)}
+.orange{background:rgba(255,140,66,.15);color:var(--orange)}
+
+.plan-card,.money-input-card,.game-card,.note-card{
+background:var(--card);border:1px solid var(--line);
+border-radius:24px;padding:20px;margin-bottom:18px
 }
 
-.status.yellow{
-  color:var(--yellow);
-  background:rgba(245,197,66,.12);
+.form-group{margin-bottom:15px}
+
+label{
+display:block;font-size:13px;color:var(--gray);margin-bottom:8px
 }
 
-.status.red{
-  color:var(--red);
-  background:rgba(255,82,82,.12);
+input,textarea{
+width:100%;background:#080808;border:1px solid #303030;
+color:#fff;border-radius:15px;padding:15px;font-family:inherit;
+font-size:16px;outline:none
 }
 
-.task-description{
-  color:var(--gray);
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.4;
+textarea{min-height:110px;resize:none}
+
+.add-button,.primary-button{
+width:100%;padding:16px;background:#fff;color:#000;
+font-weight:750;border-radius:16px;margin-top:5px;border:none
 }
 
-.task-date{
-  color:#aaa;
-  margin-top:14px;
-  font-size:13px;
+.plan-actions{display:flex;gap:8px;margin-top:15px}
+
+.action-button{
+flex:1;padding:12px;border-radius:13px;border:none;
+font-family:inherit;font-weight:700
 }
 
-.timer{
-  margin-top:12px;
-  background:#090909;
-  border-radius:13px;
-  padding:12px;
-  font-size:14px;
-}
+.done{background:rgba(53,208,127,.15);color:var(--green)}
+.fail{background:rgba(255,77,77,.15);color:var(--red)}
+.delete{background:#222;color:#fff}
 
-.task-actions{
-  display:flex;
-  gap:8px;
-  margin-top:13px;
-}
-
-.small-btn{
-  flex:1;
-  border:none;
-  padding:11px;
-  border-radius:12px;
-  font-family:inherit;
-  font-weight:700;
-}
-
-.complete-btn{
-  background:rgba(53,208,127,.15);
-  color:var(--green);
-}
-
-.delete-btn{
-  background:#202020;
-  color:#aaa;
-}
-
-.empty{
-  text-align:center;
-  color:#777;
-  border:1px dashed #333;
-  border-radius:20px;
-  padding:40px 20px;
+.cancel-button{
+width:100%;padding:13px;margin-top:10px;border:none;
+background:#2a2a2a;color:#fff;border-radius:14px
 }
 
 /* MONEY */
 
 .money-card{
-  transition:.3s;
+background:var(--card);border:1px solid var(--line);
+border-radius:28px;padding:24px
 }
 
-.money-label{
-  color:var(--gray);
-  font-size:12px;
-  letter-spacing:1px;
+.money-header{
+display:flex;justify-content:space-between;align-items:center
 }
 
-.money-value{
-  font-size:42px;
-  font-weight:800;
-  margin:8px 0 0;
-  letter-spacing:-1px;
+.more-menu-button{
+background:#222;color:#fff;border:none;border-radius:12px;
+width:42px;height:42px;font-size:22px
 }
 
-.money-percent{
-  margin-top:8px;
-  color:var(--gray);
-  font-size:13px;
-}
-
-.money-stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:20px;
-}
+.money-label{color:var(--gray);font-size:14px}
+.money-value{font-size:42px;font-weight:800;margin-top:8px}
+.money-stats{display:flex;gap:10px;margin-top:22px}
 
 .stat{
-  background:#090909;
-  border-radius:16px;
-  padding:14px;
+flex:1;background:#0a0a0a;border-radius:17px;padding:14px
 }
 
-.stat span{
-  display:block;
-  color:var(--gray);
-  font-size:10px;
-}
-
-.stat strong{
-  display:block;
-  margin-top:7px;
-  font-size:15px;
-}
+.stat span{display:block;color:var(--gray);font-size:12px}
+.stat strong{margin-top:7px;display:block}
 
 .progress-bg{
-  width:100%;
-  height:9px;
-  background:#292929;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:20px;
+height:8px;background:#292929;border-radius:20px;
+overflow:hidden;margin-top:22px
 }
 
-.progress{
-  height:100%;
-  width:0%;
-  border-radius:20px;
-  transition:.4s;
+.progress{height:100%;border-radius:20px;transition:.3s}
+
+.money-buttons{display:flex;gap:10px;margin-top:10px}
+
+.money-buttons button{
+flex:1;border:none;padding:14px;border-radius:14px;
+font-family:inherit;font-weight:750
 }
 
-.money-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:15px;
+.add-money{background:var(--green)}
+.spend-money{background:var(--red);color:#fff}
+
+.danger{
+margin-top:18px;padding:14px;border-radius:16px;
+background:rgba(255,77,77,.12);color:var(--red);
+font-weight:750;display:none
 }
 
-.add-btn,
-.spend-btn{
-  border:none;
-  border-radius:15px;
-  padding:15px;
-  font-family:inherit;
-  font-weight:750;
-}
-
-.add-btn{
-  background:var(--green);
-  color:black;
-}
-
-.spend-btn{
-  background:var(--red);
-  color:white;
-}
-
-.reset-btn,
-.more-btn{
-  width:100%;
-  margin-top:12px;
-  padding:13px;
-  background:#181818;
-  color:#aaa;
-  border:1px solid #303030;
-  border-radius:14px;
-  font-family:inherit;
-}
-
-.history-title{
-  margin:25px 4px 12px;
-  font-size:20px;
-}
+.history{margin-top:20px}
 
 .history-item{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:15px;
-  margin-bottom:9px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.history-left strong{
-  display:block;
-  font-size:14px;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px;border-bottom:1px solid var(--line)
 }
 
 .history-left small{
-  display:block;
-  color:var(--gray);
-  margin-top:5px;
-  font-size:11px;
+color:var(--gray);display:block;margin-top:4px
 }
 
-.plus{
-  color:var(--green);
+.more-button{
+width:100%;padding:14px;background:#1b1b1b;color:#fff;
+border:1px solid var(--line);border-radius:15px;
+margin-top:15px;font-family:inherit
 }
 
-.minus{
-  color:var(--red);
+/* DATA */
+
+.chart-card{
+background:var(--card);border:1px solid var(--line);
+border-radius:24px;padding:20px;margin-bottom:18px
 }
 
-/* BOTTOM NAV */
+canvas{width:100%;background:#090909;border-radius:18px}
+
+.report{
+background:#111;border:1px solid var(--line);
+border-radius:20px;padding:18px;line-height:1.7;color:#ddd
+}
+
+/* SETTINGS */
+
+.settings-button{
+width:100%;padding:19px;background:var(--card);
+border:1px solid var(--line);color:#fff;border-radius:20px;
+margin-bottom:12px;text-align:left;font-family:inherit;
+font-size:17px
+}
+
+/* XO */
+
+.xo-board{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:8px;margin:20px 0
+}
+
+.xo-cell{
+aspect-ratio:1;background:#090909;border:1px solid #333;
+border-radius:18px;color:#fff;font-size:35px;font-weight:800
+}
+
+.score-board{
+display:flex;justify-content:space-around;
+background:#090909;border-radius:18px;padding:15px;
+text-align:center
+}
+
+.score-board span{display:block;color:var(--gray);font-size:12px}
+
+/* FT */
+
+.question{
+font-size:20px;font-weight:750;text-align:center;
+padding:20px;background:#090909;border-radius:18px;margin:15px 0
+}
+
+.position-buttons{
+display:grid;grid-template-columns:repeat(2,1fr);gap:10px
+}
+
+.position-buttons button{
+padding:15px;border:none;border-radius:15px;
+background:#222;color:#fff;font-weight:700
+}
+
+/* NOTE */
+
+.note-status{
+text-align:center;color:var(--gray);padding:20px
+}
+
+.note-list{
+margin-top:15px
+}
+
+.note-item{
+background:#0a0a0a;border:1px solid var(--line);
+border-radius:16px;padding:15px;margin-bottom:10px;
+display:flex;justify-content:space-between;gap:10px
+}
+
+.note-item button{
+border:none;background:#333;color:#fff;
+border-radius:10px;padding:8px
+}
+
+.empty{color:var(--gray);text-align:center;padding:40px 10px}
+
+/* NAV */
 
 .bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:rgba(10,10,10,.96);
-  backdrop-filter:blur(20px);
-  border-top:1px solid var(--line);
-  z-index:100;
+position:fixed;bottom:0;left:0;width:100%;
+background:rgba(10,10,10,.96);
+backdrop-filter:blur(20px);
+border-top:1px solid var(--line);
+display:flex;justify-content:center;z-index:10
 }
 
 .nav-container{
-  max-width:650px;
-  margin:auto;
-  display:flex;
-  justify-content:space-around;
+width:100%;max-width:600px;
+display:flex;justify-content:space-around
 }
 
 .nav-item{
-  border:none;
-  background:none;
-  color:#777;
-  font-family:inherit;
-  padding:12px 5px 16px;
-  font-size:10px;
+background:none;border:none;color:var(--gray);
+padding:15px 7px 18px;font-family:inherit;font-size:10px
 }
 
-.nav-item.active{
-  color:white;
+.nav-item.active{color:#fff}
+.nav-icon{font-size:20px;display:block;margin-bottom:5px}
+
+.back-button{
+background:#222;border:none;color:#fff;padding:12px 17px;
+border-radius:14px;margin-bottom:20px
 }
 
-.nav-icon{
-  display:block;
-  font-size:20px;
-  margin-bottom:4px;
+.footer{
+text-align:center;color:#555;font-size:11px;
+padding:25px;letter-spacing:1px
 }
 </style>
 </head>
@@ -572,1448 +325,1483 @@ textarea:focus{
 <div class="app">
 
 <div class="header">
-  <div class="logo">
-    <div class="logo-icon">⌬</div>
-    <div>
-      <h1>STUDY</h1>
-      <p>ENGINEER YOUR TIME</p>
-    </div>
-  </div>
+<div class="logo">STUDY</div>
+<div class="subtitle">Focus. Plan. Complete.</div>
 </div>
-
 
 <!-- HOME -->
 
 <div id="home" class="page active">
 
-  <div class="hero">
-    <small>STUDY SYSTEM</small>
-    <h2>Build your day.</h2>
-    <p>Organize your tasks and stay focused with precision.</p>
-  </div>
-
-  <button class="menu-card" onclick="showPage('enter')">
-    <div class="menu-left">
-      <div class="menu-icon">✓</div>
-      <div class="menu-text">
-        <h3>ENTER</h3>
-        <p>View and complete your tasks</p>
-      </div>
-    </div>
-    <div class="arrow">›</div>
-  </button>
-
-  <button class="menu-card" onclick="showPage('quick')">
-    <div class="menu-left">
-      <div class="menu-icon">!</div>
-      <div class="menu-text">
-        <h3>QUICK CHECK</h3>
-        <p>See urgent tasks instantly</p>
-      </div>
-    </div>
-    <div class="arrow">›</div>
-  </button>
-
-  <button class="menu-card" onclick="showPage('plan')">
-    <div class="menu-left">
-      <div class="menu-icon">⌗</div>
-      <div class="menu-text">
-        <h3>PLAN</h3>
-        <p>Create and organize your schedule</p>
-      </div>
-    </div>
-    <div class="arrow">›</div>
-  </button>
-
-  <button class="menu-card" onclick="showPage('money')">
-    <div class="menu-left">
-      <div class="menu-icon">DT</div>
-      <div class="menu-text">
-        <h3>POCKET MONEY</h3>
-        <p>Track your personal money</p>
-      </div>
-    </div>
-    <div class="arrow">›</div>
-  </button>
-
+<div class="hero">
+<div class="hero-icon">◆</div>
+<h1>Ready to focus?</h1>
+<p>Organize your work, track deadlines and stay motivated every day.</p>
 </div>
 
+<button class="big-button" onclick="showPage('plan')">
+<span>Plan</span><div class="button-icon">+</div>
+</button>
 
-<!-- ENTER -->
+<button class="big-button" onclick="showPage('quick')">
+<span>Quick Check</span><div class="button-icon">✓</div>
+</button>
 
-<div id="enter" class="page">
+<button class="big-button" onclick="showPage('money')">
+<span>Pocket Money</span><div class="button-icon">DT</div>
+</button>
 
-  <div class="page-title">
-    <h2>ENTER</h2>
-    <p>Complete your planned tasks.</p>
-  </div>
+<button class="big-button" onclick="showPage('settings')">
+<span>Settings</span><div class="button-icon">⚙</div>
+</button>
 
-  <div id="enterTasks"></div>
+<div class="footer">by Jasser Naouili</div>
 
 </div>
-
 
 <!-- QUICK -->
 
 <div id="quick" class="page">
 
-  <div class="page-title">
-    <h2>QUICK CHECK</h2>
-    <p>Only urgent tasks with less than one day left.</p>
-  </div>
+<div class="section-title">Quick Check</div>
+<div class="section-subtitle">Your urgent work and important alerts.</div>
 
-  <div id="quickTasks"></div>
+<div id="debtAlert"></div>
+<div id="quickTasks"></div>
 
 </div>
-
 
 <!-- PLAN -->
 
 <div id="plan" class="page">
 
-  <div class="page-title">
-    <h2>PLAN</h2>
-    <p>Design your work with precision.</p>
-  </div>
+<div class="section-title">Plan</div>
+<div class="section-subtitle">Create your work with a date and description.</div>
 
-  <div class="form-card">
+<div class="plan-card">
 
-    <h3>NEW TASK</h3>
+<div class="form-group">
+<label>WORK NAME</label>
+<input id="taskName" placeholder="Example: Study">
+</div>
 
-    <label>TASK NAME</label>
-    <input id="taskName" placeholder="Example: Study Arabic">
+<div class="form-group">
+<label>DESCRIPTION</label>
+<textarea id="taskDescription" placeholder="Write details..."></textarea>
+</div>
 
-    <label>DESCRIPTION</label>
-    <textarea id="taskDescription"
-    placeholder="Example: Study the text and complete the exercises..."></textarea>
+<div class="form-group">
+<label>DATE</label>
+<input id="taskDate" type="date">
+</div>
 
-    <label>DEADLINE DATE</label>
-    <input id="taskDate" type="date">
-
-    <button class="primary-btn" onclick="addTask()">
-      ADD TO PLAN
-    </button>
-
-  </div>
-
-  <div id="planTasks"></div>
+<button class="add-button" onclick="addTask()">Add to Plan</button>
 
 </div>
 
+<div id="planTasks"></div>
 
-<!-- POCKET MONEY -->
+</div>
+
+<!-- MONEY -->
 
 <div id="money" class="page">
 
-  <div class="page-title">
-    <h2>POCKET MONEY</h2>
-    <p>Know exactly where your money goes.</p>
-  </div>
+<div class="section-title">Pocket Money</div>
+<div class="section-subtitle">Track your money in a modern way.</div>
 
-  <div class="money-card" id="moneyCard">
+<div class="money-card">
 
-    <div class="money-label">MONEY REMAINING</div>
+<div class="money-header">
+<div class="money-label">MONEY REMAINING</div>
+<button class="more-menu-button" onclick="showMoneyMenu()">⋯</button>
+</div>
 
-    <div class="money-value" id="remainingMoney">
-      0.00 DT
-    </div>
+<div class="money-value" id="remainingMoney">0 DT</div>
 
-    <div class="money-percent" id="moneyPercent">
-      0% remaining
-    </div>
+<div class="money-stats">
 
-    <div class="money-stats">
+<div class="stat">
+<span>TOTAL ADDED</span>
+<strong id="totalAdded">0 DT</strong>
+</div>
 
-      <div class="stat">
-        <span>TOTAL ADDED</span>
-        <strong id="totalAdded">0.00 DT</strong>
-      </div>
+<div class="stat">
+<span>TOTAL SPENT</span>
+<strong id="totalSpent">0 DT</strong>
+</div>
 
-      <div class="stat">
-        <span>TOTAL SPENT</span>
-        <strong id="totalSpent">0.00 DT</strong>
-      </div>
+</div>
 
-    </div>
+<div class="progress-bg">
+<div class="progress" id="moneyProgress"></div>
+</div>
 
-    <div class="progress-bg">
-      <div class="progress" id="moneyProgress"></div>
-    </div>
+<div class="danger" id="dangerBox">
+⚠️ DANGER — YOU ARE IN DEBT
+</div>
 
-  </div>
+</div>
 
+<div class="money-input-card">
 
-  <div class="money-input-card">
+<label>AMOUNT</label>
+<input id="moneyAmount" type="number" placeholder="Enter amount in DT">
 
-    <label>AMOUNT (DT)</label>
-    <input id="moneyAmount" type="number" step="0.001"
-    placeholder="Example: 10">
+<div class="money-buttons">
+<button class="add-money" onclick="addMoney()">Add Money</button>
+<button class="spend-money" onclick="spendMoney()">Spend</button>
+</div>
 
-    <label>DESCRIPTION</label>
-    <input id="moneyDescription"
-    placeholder="Example: Food, transport, pocket money...">
+</div>
 
-    <div class="money-buttons">
+<div class="history">
+<div class="section-title" style="font-size:20px;margin-top:25px">History</div>
+<div id="moneyHistory"></div>
 
-      <button class="add-btn" onclick="addMoney()">
-        + ADD MONEY
-      </button>
+<button id="moreHistory" class="more-button" onclick="showMoreHistory()">
+More
+</button>
+</div>
 
-      <button class="spend-btn" onclick="spendMoney()">
-        − SPENT
-      </button>
+</div>
 
-    </div>
+<!-- DATA -->
 
-    <button class="reset-btn" onclick="resetMoney()">
-      🔄 RESET POCKET MONEY
-    </button>
+<div id="data" class="page">
 
-  </div>
+<button class="back-button" onclick="showPage('money')">← Back</button>
 
+<div class="section-title">Money Data</div>
+<div class="section-subtitle">Your spending this week.</div>
 
-  <div class="history-title">
-    HISTORY
-  </div>
+<div class="chart-card">
+<canvas id="moneyChart" width="560" height="280"></canvas>
+</div>
 
-  <div id="moneyHistory"></div>
+<div class="report" id="moneyReport"></div>
 
-  <button class="more-btn" id="moreHistory"
-  onclick="showMoreHistory()">
-    MORE
-  </button>
+</div>
+
+<!-- SETTINGS -->
+
+<div id="settings" class="page">
+
+<div class="section-title">Settings</div>
+<div class="section-subtitle">Games and private notes.</div>
+
+<button class="settings-button" onclick="showPage('play')">
+🎮 &nbsp; PLAY
+</button>
+
+<button class="settings-button" onclick="showPage('note')">
+📝 &nbsp; NOTE
+</button>
+
+</div>
+
+<!-- PLAY -->
+
+<div id="play" class="page">
+
+<button class="back-button" onclick="showPage('settings')">← Back</button>
+
+<div class="section-title">Play</div>
+<div class="section-subtitle">Play with a friend, turn by turn.</div>
+
+<button class="settings-button" onclick="showPage('xo')">
+⭕ &nbsp; X / O
+</button>
+
+<button class="settings-button" onclick="showPage('ft')">
+⚽ &nbsp; FT GAME
+</button>
+
+</div>
+
+<!-- XO -->
+
+<div id="xo" class="page">
+
+<button class="back-button" onclick="showPage('play')">← Back</button>
+
+<div class="section-title">X / O</div>
+
+<div class="score-board">
+<div><span>PLAYER X</span><strong id="xScore">0</strong></div>
+<div><span>DRAW</span><strong id="drawScore">0</strong></div>
+<div><span>PLAYER O</span><strong id="oScore">0</strong></div>
+</div>
+
+<div class="question" id="xoTurn">PLAYER X TURN</div>
+
+<div class="xo-board" id="xoBoard"></div>
+
+<button class="more-button" onclick="resetXO()">New Round</button>
+
+</div>
+
+<!-- FT -->
+
+<div id="ft" class="page">
+
+<button class="back-button" onclick="showPage('play')">← Back</button>
+
+<div class="section-title">FT Game</div>
+<div class="section-subtitle">Choose the correct position.</div>
+
+<div class="score-board">
+<div><span>PLAYER 1</span><strong id="ftScore1">0</strong></div>
+<div><span>PLAYER 2</span><strong id="ftScore2">0</strong></div>
+</div>
+
+<div class="question" id="ftTurn">PLAYER 1 TURN</div>
+<div class="question" id="playerQuestion">Loading...</div>
+
+<div class="position-buttons" id="positionButtons"></div>
+
+<button class="more-button" onclick="resetFT()">Reset Game</button>
+
+</div>
+
+<!-- NOTE LOGIN -->
+
+<div id="note" class="page">
+
+<button class="back-button" onclick="showPage('settings')">← Back</button>
+
+<div class="section-title">Private Note</div>
+
+<div id="noteLogin"></div>
+
+</div>
+
+<!-- NOTE EDITOR -->
+
+<div id="noteEditor" class="page">
+
+<button class="back-button" onclick="showPage('note')">← Back</button>
+
+<div class="section-title">My Notes</div>
+
+<div class="note-card">
+
+<textarea id="noteText" placeholder="Write anything you want..."></textarea>
+
+<button class="primary-button" onclick="saveNote()">Save Note</button>
+
+<button class="more-button" onclick="changePassword()">
+Change Password
+</button>
+
+</div>
+
+<div class="note-list" id="noteList"></div>
 
 </div>
 
 </div>
 
-<div style="text-align:center;color:#666;font-size:11px;letter-spacing:1px;padding:25px 0 10px;">by Jasser Naouili</div>
-<!-- NAV -->
+<!-- NAVIGATION -->
 
 <div class="bottom-nav">
-
 <div class="nav-container">
 
-  <button class="nav-item active"
-  id="nav-home"
-  onclick="showPage('home')">
-    <span class="nav-icon">⌂</span>
-    Home
-  </button>
+<button class="nav-item active" onclick="showPage('home')" id="nav-home">
+<span class="nav-icon">⌂</span>Home
+</button>
 
-  <button class="nav-item"
-  id="nav-enter"
-  onclick="showPage('enter')">
-    <span class="nav-icon">✓</span>
-    Enter
-  </button>
+<button class="nav-item" onclick="showPage('quick')" id="nav-quick">
+<span class="nav-icon">✓</span>Quick
+</button>
 
-  <button class="nav-item"
-  id="nav-quick"
-  onclick="showPage('quick')">
-    <span class="nav-icon">!</span>
-    Quick
-  </button>
+<button class="nav-item" onclick="showPage('plan')" id="nav-plan">
+<span class="nav-icon">▦</span>Plan
+</button>
 
-  <button class="nav-item"
-  id="nav-plan"
-  onclick="showPage('plan')">
-    <span class="nav-icon">⌗</span>
-    Plan
-  </button>
-
-  <button class="nav-item"
-  id="nav-money"
-  onclick="showPage('money')">
-    <span class="nav-icon">DT</span>
-    Money
-  </button>
+<button class="nav-item" onclick="showPage('money')" id="nav-money">
+<span class="nav-icon">◉</span>Money
+</button>
 
 </div>
-
 </div>
-
 
 <script>
 
-/* =====================
-   STORAGE
-===================== */
+/* DATA */
 
-let tasks =
-JSON.parse(localStorage.getItem("studyTasks")) || [];
+let tasks=JSON.parse(localStorage.getItem("studyTasks"))||[];
 
-let moneyData =
-JSON.parse(localStorage.getItem("moneyData")) || {
-  added:0,
-  spent:0,
-  history:[]
+let moneyData=JSON.parse(localStorage.getItem("moneyData"))||{
+added:0,
+spent:0,
+history:[]
 };
 
-let historyLimit = 5;
+let historyLimit=5;
 
+let notes=JSON.parse(localStorage.getItem("studyNotes"))||[];
+let notePassword=localStorage.getItem("studyNotePassword")||"";
 
-/* =====================
-   SOUND
-===================== */
+/* SOUND */
 
-function playSound(){
+function clickSound(){
 
-  try{
+try{
 
-    const AudioContext =
-    window.AudioContext ||
-    window.webkitAudioContext;
+const audio=new (window.AudioContext||window.webkitAudioContext)();
+const oscillator=audio.createOscillator();
+const gain=audio.createGain();
 
-    const ctx =
-    new AudioContext();
+oscillator.connect(gain);
+gain.connect(audio.destination);
 
-    const oscillator =
-    ctx.createOscillator();
+oscillator.frequency.value=500;
+gain.gain.value=0.025;
 
-    const gain =
-    ctx.createGain();
+oscillator.start();
 
-    oscillator.connect(gain);
-    gain.connect(ctx.destination);
+setTimeout(()=>{
+oscillator.stop();
+audio.close();
+},50);
 
-    oscillator.type = "sine";
-    oscillator.frequency.value = 650;
-
-    gain.gain.setValueAtTime(
-      0.025,
-      ctx.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.001,
-      ctx.currentTime + 0.06
-    );
-
-    oscillator.start();
-
-    oscillator.stop(
-      ctx.currentTime + 0.06
-    );
-
-  }
-  catch(e){}
+}catch(e){}
 
 }
 
-
-/* =====================
-   PAGE
-===================== */
+/* PAGE */
 
 function showPage(page){
 
-  playSound();
+clickSound();
 
-  document
-  .querySelectorAll(".page")
-  .forEach(p=>p.classList.remove("active"));
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
 
-  document
-  .getElementById(page)
-  .classList.add("active");
+const target=document.getElementById(page);
 
+if(target)target.classList.add("active");
 
-  document
-  .querySelectorAll(".nav-item")
-  .forEach(n=>n.classList.remove("active"));
+document.querySelectorAll(".nav-item").forEach(n=>{
+n.classList.remove("active");
+});
 
-  const nav =
-  document.getElementById("nav-"+page);
+const nav=document.getElementById("nav-"+page);
 
-  if(nav)
-    nav.classList.add("active");
+if(nav)nav.classList.add("active");
 
-  renderAll();
+window.scrollTo({top:0,behavior:"smooth"});
 
-  window.scrollTo(0,0);
+renderTasks();
+renderMoney();
+
+if(page==="data")renderData();
+if(page==="xo")renderXO();
+if(page==="ft")renderFT();
+if(page==="note")renderNoteLogin();
+if(page==="noteEditor")renderNotes();
 
 }
 
-
-/* =====================
-   TASKS
-===================== */
+/* TASKS */
 
 function addTask(){
 
-  const name =
-  document.getElementById("taskName")
-  .value.trim();
+const name=document.getElementById("taskName").value.trim();
+const description=document.getElementById("taskDescription").value.trim();
+const date=document.getElementById("taskDate").value;
 
-  const description =
-  document.getElementById("taskDescription")
-  .value.trim();
-
-  const date =
-  document.getElementById("taskDate")
-  .value;
-
-
-  if(!name || !date){
-
-    alert(
-      "Please enter a task name and deadline date."
-    );
-
-    return;
-  }
-
-
-  tasks.push({
-
-    id:Date.now(),
-
-    name:name,
-
-    description:description,
-
-    date:date,
-
-    done:false
-
-  });
-
-
-  saveTasks();
-
-
-  document
-  .getElementById("taskName")
-  .value = "";
-
-  document
-  .getElementById("taskDescription")
-  .value = "";
-
-  document
-  .getElementById("taskDate")
-  .value = "";
-
-
-  playSound();
-
-  renderAll();
-
+if(!name||!date){
+alert("Please enter a work name and date.");
+return;
 }
 
+tasks.push({
+id:Date.now(),
+name:name,
+description:description,
+date:date,
+status:"pending",
+created:new Date().toLocaleString()
+});
+
+saveTasks();
+
+document.getElementById("taskName").value="";
+document.getElementById("taskDescription").value="";
+document.getElementById("taskDate").value="";
+
+clickSound();
+renderTasks();
+
+}
 
 function saveTasks(){
+localStorage.setItem("studyTasks",JSON.stringify(tasks));
+}
 
-  localStorage.setItem(
-    "studyTasks",
-    JSON.stringify(tasks)
-  );
+/* DATE STATUS - WITHOUT TIME */
+
+function getTaskStatus(date){
+
+const today=new Date();
+today.setHours(0,0,0,0);
+
+const deadline=new Date(date+"T00:00:00");
+
+const difference=Math.ceil(
+(deadline-today)/(1000*60*60*24)
+);
+
+if(difference<0){
+return{class:"red",text:"Overdue",difference:difference};
+}
+
+if(difference<=1){
+return{
+class:"red",
+text:difference===0?"Today":"1 Day Left",
+difference:difference
+};
+}
+
+if(difference===2){
+return{
+class:"yellow",
+text:"2 Days Left",
+difference:difference
+};
+}
+
+return{
+class:"green",
+text:difference+" Days Left",
+difference:difference
+};
 
 }
 
+function renderTasks(){
 
-/* =====================
-   TASK STATUS
-===================== */
+const planContainer=document.getElementById("planTasks");
+const quickContainer=document.getElementById("quickTasks");
 
-function getTaskStatus(task){
+if(!tasks.length){
 
-  if(task.done){
+const empty='<div class="empty">No work added yet.</div>';
 
-    return{
-      color:"green",
-      text:"COMPLETED",
-      diff:0
-    };
+planContainer.innerHTML=empty;
+quickContainer.innerHTML=empty;
 
-  }
-
-
-  const now =
-  new Date();
-
-  const deadline =
-  new Date(task.date);
-
-  deadline.setHours(
-    23,
-    59,
-    59,
-    999
-  );
-
-
-  const difference =
-  deadline.getTime() -
-  now.getTime();
-
-
-  const days =
-  difference /
-  (1000 * 60 * 60 * 24);
-
-
-  /* RED:
-     1 day or less */
-
-  if(days <= 1){
-
-    return{
-      color:"red",
-      text:
-      difference <= 0
-      ? "TIME ENDED"
-      : "URGENT",
-      diff:difference
-    };
-
-  }
-
-
-  /* YELLOW:
-     exactly 2 days */
-
-  if(days <= 2){
-
-    return{
-      color:"yellow",
-      text:"2 DAYS LEFT",
-      diff:difference
-    };
-
-  }
-
-
-  /* GREEN:
-     more than 2 days */
-
-  return{
-
-    color:"green",
-
-    text:
-    Math.ceil(days) +
-    " DAYS LEFT",
-
-    diff:difference
-
-  };
-
+return;
 }
 
+const sorted=[...tasks].sort((a,b)=>
+new Date(a.date)-new Date(b.date)
+);
 
-/* =====================
-   TIMER
-===================== */
+planContainer.innerHTML="";
+quickContainer.innerHTML="";
 
-function formatTimer(ms){
+let urgentCount=0;
 
-  if(ms <= 0)
-    return "TIME ENDED";
+sorted.forEach(task=>{
 
+const status=getTaskStatus(task.date);
 
-  const totalSeconds =
-  Math.floor(ms / 1000);
+const taskClass=
+task.status==="done"?"green":
+task.status==="failed"?"red":
+status.class;
 
+const taskText=
+task.status==="done"?"Completed":
+task.status==="failed"?"Not Completed":
+status.text;
 
-  const hours =
-  Math.floor(
-    totalSeconds / 3600
-  );
-
-
-  const minutes =
-  Math.floor(
-    (totalSeconds % 3600) / 60
-  );
-
-
-  const seconds =
-  totalSeconds % 60;
-
-
-  return
-  String(hours).padStart(2,"0") +
-  "h " +
-  String(minutes).padStart(2,"0") +
-  "m " +
-  String(seconds).padStart(2,"0") +
-  "s";
-
-}
-
-
-/* =====================
-   COMPLETE
-===================== */
-
-function completeTask(id){
-
-  playSound();
-
-  tasks =
-  tasks.map(task=>{
-
-    if(task.id === id)
-      task.done = true;
-
-    return task;
-
-  });
-
-
-  saveTasks();
-
-  renderAll();
-
-}
-
-
-/* =====================
-   DELETE
-===================== */
-
-function deleteTask(id){
-
-  playSound();
-
-  tasks =
-  tasks.filter(
-    task=>task.id !== id
-  );
-
-  saveTasks();
-
-  renderAll();
-
-}
-
-
-/* =====================
-   TASK CARD
-===================== */
-
-function createTaskCard(
-  task,
-  mode
+if(
+task.status==="pending"&&
+(status.class==="red"||status.class==="yellow")
 ){
+urgentCount++;
+}
 
-  const status =
-  getTaskStatus(task);
+const html=`
 
+<div class="task-top">
 
-  let timer = "";
+<div class="task-name">${escapeHTML(task.name)}</div>
 
+<div class="status ${taskClass}">
+${taskText}
+</div>
 
-  /* RED TASK:
-     SHOW HOURS MINUTES SECONDS */
+</div>
 
-  if(
-    status.color === "red" &&
-    !task.done
-  ){
+${
+task.description
+?`<div class="task-description">${escapeHTML(task.description)}</div>`
+:""
+}
 
-    timer = `
+<div class="task-date">
+📅 ${formatDate(task.date)}
+</div>
+`;
 
-    <div
-    class="timer live-timer"
-    data-date="${task.date}">
+planContainer.innerHTML+=`
 
-    ⏳ ${formatTimer(status.diff)}
+<div class="plan-task">
 
-    </div>
+${html}
 
-    `;
+<div class="plan-actions">
 
-  }
+<button class="action-button done"
+onclick="updateTask(${task.id},'done')">
+✓ Done
+</button>
 
+<button class="action-button fail"
+onclick="updateTask(${task.id},'failed')">
+✕ Failed
+</button>
 
-  let actions = "";
+</div>
 
+<button class="cancel-button"
+onclick="cancelTask(${task.id})">
+Cancel Task
+</button>
 
-  if(
-    mode === "enter" &&
-    !task.done
-  ){
+</div>
+`;
 
-    actions = `
+quickContainer.innerHTML+=`
 
-    <div class="task-actions">
+<div class="task">
+${html}
+</div>
+`;
 
-      <button
-      class="small-btn complete-btn"
-      onclick="completeTask(${task.id})">
+});
 
-      ✓ COMPLETE
+if(!urgentCount){
+quickContainer.innerHTML+=
+'<div class="empty">✓ Everything is under control.</div>';
+}
 
-      </button>
-
-    </div>
-
-    `;
-
-  }
-
-
-  if(mode === "plan"){
-
-    actions = `
-
-    <div class="task-actions">
-
-      ${
-        !task.done
-        ?
-        `
-        <button
-        class="small-btn complete-btn"
-        onclick="completeTask(${task.id})">
-
-        ✓ DONE
-
-        </button>
-        `
-        :
-        ""
-      }
-
-      <button
-      class="small-btn delete-btn"
-      onclick="deleteTask(${task.id})">
-
-      DELETE
-
-      </button>
-
-    </div>
-
-    `;
-
-  }
-
-
-  return `
-
-  <div
-  class="task-card ${status.color}">
-
-    <div class="task-top">
-
-      <div class="task-name">
-
-        ${task.name}
-
-      </div>
-
-      <div
-      class="status ${status.color}">
-
-        ${status.text}
-
-      </div>
-
-    </div>
-
-
-    ${
-      task.description
-      ?
-      `
-      <div class="task-description">
-
-        ${task.description}
-
-      </div>
-      `
-      :
-      ""
-    }
-
-
-    <div class="task-date">
-
-      📅 Deadline:
-      ${task.date}
-
-    </div>
-
-
-    ${timer}
-
-
-    ${actions}
-
-  </div>
-
-  `;
+renderDebtAlert();
 
 }
 
+function formatDate(date){
 
-/* =====================
-   RENDER PLAN
-===================== */
-
-function renderPlan(){
-
-  const container =
-  document.getElementById("planTasks");
-
-  if(!container)
-    return;
-
-
-  if(tasks.length === 0){
-
-    container.innerHTML = `
-
-    <div class="empty">
-
-      No tasks yet.
-
-    </div>
-
-    `;
-
-    return;
-  }
-
-
-  const sorted =
-  [...tasks].sort(
-    (a,b)=>
-    new Date(a.date) -
-    new Date(b.date)
-  );
-
-
-  container.innerHTML =
-  sorted
-  .map(task=>
-    createTaskCard(task,"plan")
-  )
-  .join("");
+return new Date(date+"T00:00:00").toLocaleDateString(
+undefined,
+{
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
 
 }
 
+function escapeHTML(text){
 
-/* =====================
-   RENDER ENTER
-===================== */
-
-function renderEnter(){
-
-  const container =
-  document.getElementById("enterTasks");
-
-  if(!container)
-    return;
-
-
-  const activeTasks =
-  tasks.filter(task=>!task.done);
-
-
-  if(activeTasks.length === 0){
-
-    container.innerHTML = `
-
-    <div class="empty">
-
-      ✓ All tasks completed!
-
-    </div>
-
-    `;
-
-    return;
-  }
-
-
-  const sorted =
-  [...activeTasks].sort(
-    (a,b)=>
-    new Date(a.date) -
-    new Date(b.date)
-  );
-
-
-  container.innerHTML =
-  sorted
-  .map(task=>
-    createTaskCard(task,"enter")
-  )
-  .join("");
+const div=document.createElement("div");
+div.textContent=text;
+return div.innerHTML;
 
 }
 
+function updateTask(id,status){
 
-/* =====================
-   QUICK CHECK
-   ONLY RED TASKS
-===================== */
+clickSound();
 
-function renderQuick(){
+tasks=tasks.map(task=>{
 
-  const container =
-  document.getElementById("quickTasks");
+if(task.id===id){
+task.status=status;
+}
 
-  if(!container)
-    return;
+return task;
 
+});
 
-  const urgentTasks =
-  tasks.filter(task=>{
-
-    const status =
-    getTaskStatus(task);
-
-    return
-    status.color === "red" &&
-    !task.done;
-
-  });
-
-
-  if(urgentTasks.length === 0){
-
-    container.innerHTML = `
-
-    <div class="empty">
-
-      ✓ NO URGENT TASKS
-
-      <br><br>
-
-      Everything is under control.
-
-    </div>
-
-    `;
-
-    return;
-  }
-
-
-  container.innerHTML =
-  urgentTasks
-  .map(task=>
-    createTaskCard(task,"quick")
-  )
-  .join("");
+saveTasks();
+renderTasks();
 
 }
 
+function cancelTask(id){
 
-/* =====================
-   MONEY
-===================== */
+if(!confirm("Cancel and delete this task?"))return;
+
+clickSound();
+
+tasks=tasks.filter(task=>task.id!==id);
+
+saveTasks();
+renderTasks();
+
+}
+
+/* MONEY */
 
 function addMoney(){
 
-  const amount =
-  Number(
-    document
-    .getElementById("moneyAmount")
-    .value
-  );
+const amount=Number(
+document.getElementById("moneyAmount").value
+);
 
-
-  const description =
-  document
-  .getElementById("moneyDescription")
-  .value
-  .trim();
-
-
-  if(!amount || amount <= 0){
-
-    alert("Enter a valid amount.");
-
-    return;
-  }
-
-
-  moneyData.added += amount;
-
-
-  moneyData.history.unshift({
-
-    type:"added",
-
-    amount:amount,
-
-    description:
-    description || "Money added",
-
-    time:
-    new Date().toLocaleString()
-
-  });
-
-
-  saveMoney();
-
+if(!amount||amount<=0){
+alert("Enter a valid amount.");
+return;
 }
 
+moneyData.added+=amount;
+
+moneyData.history.unshift({
+type:"added",
+amount:amount,
+time:new Date().toLocaleString()
+});
+
+saveMoney();
+
+}
 
 function spendMoney(){
 
-  const amount =
-  Number(
-    document
-    .getElementById("moneyAmount")
-    .value
-  );
+const amount=Number(
+document.getElementById("moneyAmount").value
+);
 
-
-  const description =
-  document
-  .getElementById("moneyDescription")
-  .value
-  .trim();
-
-
-  if(!amount || amount <= 0){
-
-    alert("Enter a valid amount.");
-
-    return;
-  }
-
-
-  moneyData.spent += amount;
-
-
-  moneyData.history.unshift({
-
-    type:"spent",
-
-    amount:amount,
-
-    description:
-    description || "Money spent",
-
-    time:
-    new Date().toLocaleString()
-
-  });
-
-
-  saveMoney();
-
+if(!amount||amount<=0){
+alert("Enter a valid amount.");
+return;
 }
 
+moneyData.spent+=amount;
+
+moneyData.history.unshift({
+type:"spent",
+amount:amount,
+time:new Date().toLocaleString()
+});
+
+saveMoney();
+
+}
 
 function saveMoney(){
 
-  localStorage.setItem(
-    "moneyData",
-    JSON.stringify(moneyData)
-  );
+localStorage.setItem(
+"moneyData",
+JSON.stringify(moneyData)
+);
 
+document.getElementById("moneyAmount").value="";
 
-  document
-  .getElementById("moneyAmount")
-  .value = "";
-
-
-  document
-  .getElementById("moneyDescription")
-  .value = "";
-
-
-  playSound();
-
-  renderMoney();
+clickSound();
+renderMoney();
 
 }
-
-
-/* =====================
-   RESET MONEY
-===================== */
-
-function resetMoney(){
-
-  playSound();
-
-
-  const confirmReset =
-  confirm(
-    "Are you sure you want to reset all Pocket Money data?"
-  );
-
-
-  if(!confirmReset)
-    return;
-
-
-  moneyData = {
-
-    added:0,
-
-    spent:0,
-
-    history:[]
-
-  };
-
-
-  localStorage.setItem(
-    "moneyData",
-    JSON.stringify(moneyData)
-  );
-
-
-  historyLimit = 5;
-
-
-  renderMoney();
-
-}
-
-
-/* =====================
-   RENDER MONEY
-===================== */
 
 function renderMoney(){
 
-  const remaining =
-  moneyData.added -
-  moneyData.spent;
+const remaining=moneyData.added-moneyData.spent;
 
+document.getElementById("remainingMoney").textContent=
+remaining.toFixed(2)+" DT";
 
-  const safeRemaining =
-  Math.max(0,remaining);
+document.getElementById("totalAdded").textContent=
+moneyData.added.toFixed(2)+" DT";
 
+document.getElementById("totalSpent").textContent=
+moneyData.spent.toFixed(2)+" DT";
 
-  let percentage = 0;
+let percentage=
+moneyData.added>0
+?(remaining/moneyData.added)*100
+:0;
 
+const progress=document.getElementById("moneyProgress");
 
-  if(moneyData.added > 0){
+if(remaining<0){
 
-    percentage =
-    (safeRemaining /
-    moneyData.added)
-    * 100;
+progress.style.width="100%";
+progress.style.background="var(--red)";
 
-  }
+document.getElementById("dangerBox").style.display="block";
 
+}else{
 
-  percentage =
-  Math.max(
-    0,
-    Math.min(
-      100,
-      percentage
-    )
-  );
+document.getElementById("dangerBox").style.display="none";
 
+percentage=Math.max(0,percentage);
 
-  document
-  .getElementById("remainingMoney")
-  .textContent =
-  safeRemaining.toFixed(3)
-  + " DT";
+progress.style.width=
+Math.min(percentage,100)+"%";
 
+if(percentage<25){
+progress.style.background="var(--red)";
+}
 
-  document
-  .getElementById("totalAdded")
-  .textContent =
-  moneyData.added.toFixed(3)
-  + " DT";
+else if(percentage<50){
+progress.style.background="var(--yellow)";
+}
 
+else if(percentage<75){
+progress.style.background="var(--orange)";
+}
 
-  document
-  .getElementById("totalSpent")
-  .textContent =
-  moneyData.spent.toFixed(3)
-  + " DT";
-
-
-  document
-  .getElementById("moneyPercent")
-  .textContent =
-  percentage.toFixed(0)
-  + "% remaining";
-
-
-  const progress =
-  document
-  .getElementById("moneyProgress");
-
-
-  const card =
-  document
-  .getElementById("moneyCard");
-
-
-  progress.style.width =
-  percentage + "%";
-
-
-  card.style.borderColor =
-  "var(--line)";
-
-
-  /*
-  GREEN:
-  More than 75%
-
-  ORANGE:
-  50% - 75%
-
-  YELLOW:
-  25% - 50%
-
-  RED:
-  Less than 25%
-  */
-
-
-  if(percentage > 75){
-
-    progress.style.background =
-    "var(--green)";
-
-    card.style.borderColor =
-    "var(--green)";
-
-  }
-
-  else if(percentage > 50){
-
-    progress.style.background =
-    "var(--orange)";
-
-    card.style.borderColor =
-    "var(--orange)";
-
-  }
-
-  else if(percentage >= 25){
-
-    progress.style.background =
-    "var(--yellow)";
-
-    card.style.borderColor =
-    "var(--yellow)";
-
-  }
-
-  else{
-
-    progress.style.background =
-    "var(--red)";
-
-    card.style.borderColor =
-    "var(--red)";
-
-  }
-
-
-  renderHistory();
+else{
+progress.style.background="var(--green)";
+}
 
 }
 
+renderHistory();
+renderDebtAlert();
 
-/* =====================
-   HISTORY
-===================== */
+}
+
+function renderDebtAlert(){
+
+const alertBox=document.getElementById("debtAlert");
+
+if(!alertBox)return;
+
+const remaining=moneyData.added-moneyData.spent;
+
+if(remaining<0){
+
+alertBox.innerHTML=`
+
+<div class="danger" style="display:block;margin-bottom:15px">
+⚠️ DANGER — YOU ARE IN DEBT
+<br>
+You owe ${Math.abs(remaining).toFixed(2)} DT
+</div>
+
+`;
+
+}else{
+alertBox.innerHTML="";
+}
+
+}
 
 function renderHistory(){
 
-  const container =
-  document
-  .getElementById("moneyHistory");
+const container=document.getElementById("moneyHistory");
 
+const visible=moneyData.history.slice(0,historyLimit);
 
-  if(!container)
-    return;
+if(!visible.length){
 
+container.innerHTML=
+'<div class="empty">No money activity yet.</div>';
 
-  if(
-    moneyData.history.length === 0
-  ){
-
-    container.innerHTML = `
-
-    <div class="empty">
-
-      No money activity yet.
-
-    </div>
-
-    `;
-
-
-    document
-    .getElementById("moreHistory")
-    .style.display = "none";
-
-
-    return;
-  }
-
-
-  const visible =
-  moneyData.history.slice(
-    0,
-    historyLimit
-  );
-
-
-  container.innerHTML =
-  visible
-  .map(item=>`
-
-  <div class="history-item">
-
-    <div class="history-left">
-
-      <strong>
-
-        ${item.description}
-
-      </strong>
-
-      <small>
-
-        ${item.time}
-
-      </small>
-
-    </div>
-
-
-    <strong
-    class="${
-      item.type === "added"
-      ? "plus"
-      : "minus"
-    }">
-
-      ${
-        item.type === "added"
-        ? "+"
-        : "-"
-      }
-
-      ${Number(item.amount).toFixed(3)} DT
-
-    </strong>
-
-  </div>
-
-  `)
-  .join("");
-
-
-  const moreButton =
-  document
-  .getElementById("moreHistory");
-
-
-  if(
-    historyLimit >=
-    moneyData.history.length
-  ){
-
-    moreButton.style.display =
-    "none";
-
-  }
-
-  else{
-
-    moreButton.style.display =
-    "block";
-
-  }
-
+return;
 }
 
+container.innerHTML="";
+
+visible.forEach(item=>{
+
+const isAdded=item.type==="added";
+
+container.innerHTML+=`
+
+<div class="history-item">
+
+<div class="history-left">
+
+<strong>
+${isAdded?"Money Added":"Money Spent"}
+</strong>
+
+<small>${item.time}</small>
+
+</div>
+
+<strong style="color:${
+isAdded?"var(--green)":"var(--red)"
+}">
+
+${isAdded?"+":"-"}
+${Number(item.amount).toFixed(2)} DT
+
+</strong>
+
+</div>
+
+`;
+
+});
+
+const moreButton=document.getElementById("moreHistory");
+
+moreButton.style.display=
+historyLimit>=moneyData.history.length
+?"none"
+:"block";
+
+}
 
 function showMoreHistory(){
 
-  playSound();
+historyLimit+=10;
 
-  historyLimit += 10;
-
-  renderHistory();
-
-}
-
-
-/* =====================
-   LIVE TIMER
-===================== */
-
-function updateTimers(){
-
-  document
-  .querySelectorAll(".live-timer")
-  .forEach(timer=>{
-
-    const date =
-    timer.getAttribute("data-date");
-
-
-    const deadline =
-    new Date(date);
-
-
-    deadline.setHours(
-      23,
-      59,
-      59,
-      999
-    );
-
-
-    const difference =
-    deadline.getTime() -
-    new Date().getTime();
-
-
-    timer.innerHTML =
-    "⏳ " +
-    formatTimer(difference);
-
-  });
+clickSound();
+renderHistory();
 
 }
 
+function showMoneyMenu(){
 
-/* =====================
-   RENDER ALL
-===================== */
+const choice=confirm(
+"Open DATA?\n\nPress OK for DATA\nPress Cancel to stay here"
+);
 
-function renderAll(){
-
-  renderPlan();
-
-  renderEnter();
-
-  renderQuick();
-
-  renderMoney();
+if(choice)showPage("data");
 
 }
 
+/* DATA AND CHART */
+
+function renderData(){
+
+const days=[];
+const values=[];
+
+for(let i=6;i>=0;i--){
+
+const d=new Date();
+d.setHours(0,0,0,0);
+d.setDate(d.getDate()-i);
+
+days.push(d);
+
+const total=moneyData.history
+.filter(item=>{
+
+if(item.type!=="spent")return false;
+
+const itemDate=new Date(item.time);
+itemDate.setHours(0,0,0,0);
+
+return itemDate.getTime()===d.getTime();
+
+})
+.reduce((sum,item)=>sum+Number(item.amount),0);
+
+values.push(total);
+
+}
+
+drawChart(days,values);
+
+const weekTotal=values.reduce((a,b)=>a+b,0);
+const average=weekTotal/7;
+
+let highest=Math.max(...values);
+let highestIndex=values.indexOf(highest);
+
+const remaining=moneyData.added-moneyData.spent;
+
+document.getElementById("moneyReport").innerHTML=`
+
+<strong>WEEKLY REPORT</strong>
+<br><br>
+
+This week you spent
+<strong>${weekTotal.toFixed(2)} DT</strong>.
+
+<br><br>
+
+Your daily average is
+<strong>${average.toFixed(2)} DT</strong>.
+
+<br><br>
+
+Your highest spending day was
+<strong>${
+highest>0
+?days[highestIndex].toLocaleDateString(
+undefined,{weekday:"long"}
+)
+:"No spending"
+}</strong>.
+
+<br><br>
+
+Current balance:
+<strong style="color:${
+remaining<0?"var(--red)":"var(--green)"
+}">
+${remaining.toFixed(2)} DT
+</strong>
+
+`;
+
+}
+
+function drawChart(days,values){
+
+const canvas=document.getElementById("moneyChart");
+const ctx=canvas.getContext("2d");
+
+const w=canvas.width;
+const h=canvas.height;
+
+ctx.clearRect(0,0,w,h);
+
+const padding=40;
+const max=Math.max(...values,1);
+
+ctx.strokeStyle="#333";
+ctx.lineWidth=1;
+
+for(let i=0;i<5;i++){
+
+const y=padding+i*((h-padding*2)/4);
+
+ctx.beginPath();
+ctx.moveTo(padding,y);
+ctx.lineTo(w-padding,y);
+ctx.stroke();
+
+}
+
+const step=(w-padding*2)/6;
+
+ctx.strokeStyle="#ff4d4d";
+ctx.lineWidth=3;
+
+ctx.beginPath();
+
+values.forEach((value,i)=>{
+
+const x=padding+i*step;
+const y=h-padding-(value/max)*(h-padding*2);
+
+if(i===0)ctx.moveTo(x,y);
+else ctx.lineTo(x,y);
+
+});
+
+ctx.stroke();
+
+values.forEach((value,i)=>{
+
+const x=padding+i*step;
+const y=h-padding-(value/max)*(h-padding*2);
+
+ctx.fillStyle="#fff";
+
+ctx.beginPath();
+ctx.arc(x,y,4,0,Math.PI*2);
+ctx.fill();
+
+ctx.fillStyle="#888";
+ctx.font="11px Arial";
+
+const label=days[i].toLocaleDateString(
+undefined,{weekday:"short"}
+);
+
+ctx.fillText(label,x-10,h-15);
+
+});
+
+}
+
+/* X O GAME */
+
+let xoBoard=["","","","","","","","",""];
+let xoTurn="X";
+
+let xoScores=JSON.parse(
+localStorage.getItem("xoScores")
+)||{
+x:0,
+o:0,
+draw:0
+};
+
+function renderXO(){
+
+const board=document.getElementById("xoBoard");
+
+board.innerHTML="";
+
+xoBoard.forEach((value,index)=>{
+
+board.innerHTML+=`
+
+<button class="xo-cell"
+onclick="xoMove(${index})">
+${value}
+</button>
+
+`;
+
+});
+
+document.getElementById("xScore").textContent=xoScores.x;
+document.getElementById("oScore").textContent=xoScores.o;
+document.getElementById("drawScore").textContent=xoScores.draw;
+
+document.getElementById("xoTurn").textContent=
+"PLAYER "+xoTurn+" TURN";
+
+}
+
+function xoMove(index){
+
+if(xoBoard[index]!=="")return;
+
+xoBoard[index]=xoTurn;
+
+clickSound();
+
+const winner=checkWinner();
+
+if(winner){
+
+xoScores[
+winner==="X"?"x":"o"
+]++;
+
+saveXOScores();
+
+setTimeout(()=>{
+alert("PLAYER "+winner+" WINS!");
+resetXO();
+},100);
+
+return;
+}
+
+if(!xoBoard.includes("")){
+
+xoScores.draw++;
+saveXOScores();
+
+setTimeout(()=>{
+alert("DRAW!");
+resetXO();
+},100);
+
+return;
+}
+
+xoTurn=xoTurn==="X"?"O":"X";
+
+renderXO();
+
+}
+
+function checkWinner(){
+
+const wins=[
+[0,1,2],[3,4,5],[6,7,8],
+[0,3,6],[1,4,7],[2,5,8],
+[0,4,8],[2,4,6]
+];
+
+for(const combo of wins){
+
+const[a,b,c]=combo;
+
+if(
+xoBoard[a]&&
+xoBoard[a]===xoBoard[b]&&
+xoBoard[a]===xoBoard[c]
+){
+return xoBoard[a];
+}
+
+}
+
+return null;
+
+}
+
+function saveXOScores(){
+
+localStorage.setItem(
+"xoScores",
+JSON.stringify(xoScores)
+);
+
+}
+
+function resetXO(){
+
+xoBoard=["","","","","","","","",""];
+xoTurn="X";
+
+renderXO();
+
+}
+
+/* FT GAME */
+
+const players=[
+{name:"Erling Haaland",position:"ST"},
+{name:"Kevin De Bruyne",position:"CM"},
+{name:"Virgil van Dijk",position:"CB"},
+{name:"Alisson",position:"GK"},
+{name:"Kylian Mbappé",position:"ST"},
+{name:"Rodri",position:"CDM"},
+{name:"Mohamed Salah",position:"RW"},
+{name:"Jude Bellingham",position:"CAM"},
+{name:"Trent Alexander-Arnold",position:"RB"},
+{name:"Vinícius Júnior",position:"LW"}
+];
+
+let ftIndex=0;
+let ftTurn=1;
+
+let ftScores=JSON.parse(
+localStorage.getItem("ftScores")
+)||{
+one:0,
+two:0
+};
+
+function renderFT(){
+
+const player=players[ftIndex];
+
+document.getElementById("ftTurn").textContent=
+"PLAYER "+ftTurn+" TURN";
+
+document.getElementById("playerQuestion").textContent=
+player.name;
+
+document.getElementById("ftScore1").textContent=
+ftScores.one;
+
+document.getElementById("ftScore2").textContent=
+ftScores.two;
+
+const positions=[
+"GK","CB","RB","LB",
+"CDM","CM","CAM",
+"LW","RW","ST"
+];
+
+const container=
+document.getElementById("positionButtons");
+
+container.innerHTML="";
+
+positions.forEach(position=>{
+
+container.innerHTML+=`
+
+<button onclick="answerFT('${position}')">
+${position}
+</button>
+
+`;
+
+});
+
+}
+
+function answerFT(position){
+
+const player=players[ftIndex];
+
+if(position===player.position){
+
+if(ftTurn===1)ftScores.one++;
+else ftScores.two++;
+
+alert("✓ CORRECT! +1 POINT");
+
+}else{
+
+alert("✕ WRONG! 0 POINT");
+
+}
+
+clickSound();
+
+ftTurn=ftTurn===1?2:1;
+
+ftIndex++;
+
+if(ftIndex>=players.length){
+
+let message="DRAW!";
+
+if(ftScores.one>ftScores.two)
+message="PLAYER 1 WINS!";
+
+if(ftScores.two>ftScores.one)
+message="PLAYER 2 WINS!";
+
+saveFTScores();
+
+alert(
+"GAME FINISHED!\n\n"+
+"Player 1: "+ftScores.one+
+"\nPlayer 2: "+ftScores.two+
+"\n\n"+message
+);
+
+ftIndex=0;
+
+}
+
+saveFTScores();
+renderFT();
+
+}
+
+function saveFTScores(){
+
+localStorage.setItem(
+"ftScores",
+JSON.stringify(ftScores)
+);
+
+}
+
+function resetFT(){
+
+ftIndex=0;
+ftTurn=1;
+
+ftScores={one:0,two:0};
+
+saveFTScores();
+renderFT();
+
+}
+
+/* NOTES */
+
+function renderNoteLogin(){
+
+const container=document.getElementById("noteLogin");
+
+if(!notePassword){
+
+container.innerHTML=`
+
+<div class="note-card">
+
+<label>CREATE PASSWORD</label>
+
+<input
+id="newPassword"
+type="password"
+placeholder="Choose a password"
+>
+
+<button
+class="primary-button"
+onclick="createNotePassword()">
+Create Private Note
+</button>
+
+</div>
+
+`;
+
+return;
+}
+
+container.innerHTML=`
+
+<div class="note-card">
+
+<label>ENTER PASSWORD</label>
+
+<input
+id="loginPassword"
+type="password"
+placeholder="Password"
+>
+
+<button
+class="primary-button"
+onclick="openNotes()">
+Open Notes
+</button>
+
+</div>
+
+`;
+
+}
+
+function createNotePassword(){
+
+const password=
+document.getElementById("newPassword").value;
+
+if(password.length<1){
+
+alert("Enter a password.");
+return;
+
+}
+
+notePassword=password;
+
+localStorage.setItem(
+"studyNotePassword",
+password
+);
+
+showPage("noteEditor");
+
+}
+
+function openNotes(){
+
+const password=
+document.getElementById("loginPassword").value;
+
+if(password!==notePassword){
+
+alert("Wrong password.");
+return;
+
+}
+
+showPage("noteEditor");
+
+}
+
+function saveNote(){
+
+const text=
+document.getElementById("noteText").value.trim();
+
+if(!text)return;
+
+notes.unshift({
+id:Date.now(),
+text:text,
+time:new Date().toLocaleString()
+});
+
+localStorage.setItem(
+"studyNotes",
+JSON.stringify(notes)
+);
+
+document.getElementById("noteText").value="";
+
+clickSound();
+
+renderNotes();
+
+}
+
+function renderNotes(){
+
+const container=document.getElementById("noteList");
+
+if(!notes.length){
+
+container.innerHTML=
+'<div class="empty">No notes yet.</div>';
+
+return;
+}
+
+container.innerHTML="";
+
+notes.forEach(note=>{
+
+container.innerHTML+=`
+
+<div class="note-item">
+
+<div>
+
+<strong>${escapeHTML(note.text)}</strong>
+
+<div style="color:#777;font-size:11px;margin-top:6px">
+${note.time}
+</div>
+
+</div>
+
+<button onclick="deleteNote(${note.id})">
+Delete
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+function deleteNote(id){
+
+notes=notes.filter(note=>note.id!==id);
+
+localStorage.setItem(
+"studyNotes",
+JSON.stringify(notes)
+);
+
+renderNotes();
+
+}
+
+function changePassword(){
+
+const oldPassword=prompt(
+"Enter your current password:"
+);
+
+if(oldPassword!==notePassword){
+
+alert("Wrong password.");
+return;
+
+}
+
+const newPassword=prompt(
+"Enter your new password:"
+);
+
+if(!newPassword)return;
+
+notePassword=newPassword;
+
+localStorage.setItem(
+"studyNotePassword",
+newPassword
+);
+
+alert("Password changed successfully.");
+
+}
 
 /* INITIAL */
 
-renderAll();
-
-
-setInterval(
-  updateTimers,
-  1000
-);
+renderTasks();
+renderMoney();
 
 </script>
 
