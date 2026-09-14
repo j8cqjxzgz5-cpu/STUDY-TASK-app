@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STUDY-TASK</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+button {
+    width: 100%;
+    padding: 22px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    background: white;
+    color: black;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+.page {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.task {
+    background: #111;
+    padding: 18px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    border-left: 7px solid green;
+}
+
+.yellow {
+    border-left-color: #f5c542;
+}
+
+.red {
+    border-left-color: red;
+}
+
+.green {
+    border-left-color: #00c853;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<h1>STUDY-TASK</h1>
+
+<button onclick="openPage('enter')">
+ENTER
+</button>
+
+<button onclick="openPage('quick')">
+QUICK CHECK
+</button>
+
+<button onclick="openPage('plan')">
+PLAN
+</button>
+
+</div>
+
+
+<!-- ENTER -->
+
+<div id="enter" class="page">
+
+<h1>YOUR TASKS</h1>
+
+<div id="taskList"></div>
+
+<button onclick="openPage('home')">
+BACK
+</button>
+
+</div>
+
+
+<!-- QUICK CHECK -->
+
+<div id="quick" class="page">
+
+<h1>URGENT TASKS</h1>
+
+<div id="urgentList"></div>
+
+<button onclick="openPage('home')">
+BACK
+</button>
+
+</div>
+
+
+<!-- PLAN -->
+
+<div id="plan" class="page">
+
+<h1>PLAN YOUR TASK</h1>
+
+<input id="taskName" placeholder="Task name">
+
+<input id="taskTime" type="datetime-local">
+
+<button onclick="addTask()">
+ADD TASK
+</button>
+
+<button onclick="openPage('home')">
+BACK
+</button>
+
+</div>
+
+
+<script>
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+
+function openPage(page) {
+
+document.querySelectorAll(".page").forEach(p => {
+p.classList.remove("active");
+});
+
+document.getElementById(page).classList.add("active");
+
+renderTasks();
+
+}
+
+
+function addTask() {
+
+let name = document.getElementById("taskName").value;
+
+let time = document.getElementById("taskTime").value;
+
+
+if(name === "" || time === "") {
+
+alert("Please complete all information");
+
+return;
+
+}
+
+
+tasks.push({
+
+name: name,
+
+time: new Date(time).getTime(),
+
+done: false
+
+});
+
+
+localStorage.setItem("tasks", JSON.stringify(tasks));
+
+
+document.getElementById("taskName").value = "";
+
+document.getElementById("taskTime").value = "";
+
+
+alert("Task added!");
+
+}
+
+
+function getStatus(task) {
+
+let now = new Date().getTime();
+
+let remaining = task.time - now;
+
+let hours = remaining / (1000 * 60 * 60);
+
+
+if(task.done) return "green";
+
+if(hours <= 6) return "red";
+
+if(hours <= 24) return "yellow";
+
+return "green";
+
+}
+
+
+function renderTasks() {
+
+let taskList = document.getElementById("taskList");
+
+let urgentList = document.getElementById("urgentList");
+
+
+taskList.innerHTML = "";
+
+urgentList.innerHTML = "";
+
+
+tasks.forEach((task, index) => {
+
+let status = getStatus(task);
+
+let remaining = task.time - new Date().getTime();
+
+
+let minutes = Math.floor(remaining / 60000);
+
+let seconds = Math.floor((remaining % 60000) / 1000);
+
+
+let html = `
+
+<div class="task ${status}">
+
+<b>${task.name}</b>
+
+<br><br>
+
+${minutes} minutes ${seconds} seconds
+
+<br><br>
+
+${task.done ? "✅ COMPLETED" :
+
+`<button onclick="completeTask(${index})">
+COMPLETE
+</button>`}
+
+</div>
+
+`;
+
+
+taskList.innerHTML += html;
+
+
+if(status === "red" && !task.done) {
+
+urgentList.innerHTML += html;
+
+}
+
+});
+
+}
+
+
+function completeTask(index) {
+
+tasks[index].done = true;
+
+localStorage.setItem("tasks", JSON.stringify(tasks));
+
+renderTasks();
+
+}
+
+
+setInterval(renderTasks, 1000);
+
+</script>
+
+</body>
+</html>
