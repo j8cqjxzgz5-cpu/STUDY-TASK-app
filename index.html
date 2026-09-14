@@ -1147,7 +1147,133 @@ function showMoreHistory(){
 
 renderTasks();
 renderMoney();
+/* ===== BUTTON SOUND ===== */
 
+function buttonSound() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioContext();
+
+        const oscillator = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
+
+        oscillator.frequency.value = 650;
+        oscillator.type = "sine";
+
+        gain.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            ctx.currentTime + 0.08
+        );
+
+        oscillator.start();
+        oscillator.stop(ctx.currentTime + 0.08);
+
+    } catch(e) {}
+}
+
+/* SOUND FOR ALL BUTTONS */
+
+document.addEventListener("click", function(e) {
+
+    if (
+        e.target.closest("button") ||
+        e.target.closest(".big-button")
+    ) {
+        buttonSound();
+    }
+
+});
+
+
+/* ===== RESET MONEY ===== */
+
+function resetMoney() {
+
+    if (confirm("Reset all Pocket Money data?")) {
+
+        moneyData = {
+            added: 0,
+            spent: 0,
+            history: []
+        };
+
+        localStorage.setItem(
+            "moneyData",
+            JSON.stringify(moneyData)
+        );
+
+        renderMoney();
+
+        buttonSound();
+    }
+}
+
+
+/* ===== RED TASK LIVE TIMER ===== */
+
+function getRedTime(date) {
+
+    const now = new Date().getTime();
+
+    /* نهاية اليوم المحدد */
+    const deadline = new Date(date);
+    deadline.setHours(23, 59, 59, 999);
+
+    let difference =
+        deadline.getTime() - now;
+
+    if (difference < 0) {
+        return "TIME ENDED";
+    }
+
+    const hours =
+        Math.floor(
+            difference / (1000 * 60 * 60)
+        );
+
+    difference =
+        difference % (1000 * 60 * 60);
+
+    const minutes =
+        Math.floor(
+            difference / (1000 * 60)
+        );
+
+    difference =
+        difference % (1000 * 60);
+
+    const seconds =
+        Math.floor(
+            difference / 1000
+        );
+
+    return hours + "h " +
+           minutes + "m " +
+           seconds + "s";
+}
+
+
+/* UPDATE RED TASKS EVERY SECOND */
+
+setInterval(function() {
+
+    document
+    .querySelectorAll(".red-task-timer")
+    .forEach(function(timer) {
+
+        const date =
+            timer.getAttribute("data-date");
+
+        timer.textContent =
+            "⏳ " + getRedTime(date);
+
+    });
+
+}, 1000);
 </script>
 
 </body>
