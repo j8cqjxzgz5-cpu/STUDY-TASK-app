@@ -2,321 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>STUDY</title>
 
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-
 :root{
---bg:#050505;
---card:#111111;
---card2:#181818;
---line:#292929;
---white:#fff;
---gray:#8c8c8c;
---green:#35d07f;
---yellow:#f5c542;
---orange:#ff8c42;
---red:#ff4d4d;
+--bg:#050505;--card:#111;--line:#292929;--gray:#929292;
+--green:#35d07f;--yellow:#f5c542;--orange:#ff8c42;--red:#ff4d4d;
 }
-
 body{
-margin:0;background:var(--bg);color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Arial,sans-serif;
+margin:0;background:var(--bg);color:white;
+font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif
 }
-
-.app{max-width:600px;margin:auto;min-height:100vh;padding-bottom:100px}
+.app{max-width:650px;margin:auto;padding-bottom:100px}
 .header{padding:28px 20px 20px}
-.logo{font-size:32px;font-weight:800;letter-spacing:-1px}
-.subtitle{color:var(--gray);margin-top:7px;font-size:15px}
-
+.logo{font-size:32px;font-weight:800}
+.subtitle{color:var(--gray);margin-top:6px}
 .page{display:none;padding:0 16px}
 .page.active{display:block}
-
-.hero{
-background:linear-gradient(145deg,#161616,#0b0b0b);
-border:1px solid var(--line);border-radius:28px;
-padding:28px;margin-bottom:20px
+.hero,.card{
+background:var(--card);border:1px solid var(--line);
+border-radius:25px;padding:22px;margin-bottom:16px
 }
-
+.hero{padding:28px}
+.hero h1{margin:10px 0}
+.hero p,.subtitle,.sub{color:var(--gray)}
 .hero-icon{
-width:58px;height:58px;border-radius:20px;
-background:#fff;color:#000;display:flex;
-align-items:center;justify-content:center;
-font-size:28px;margin-bottom:20px
+width:58px;height:58px;border-radius:18px;background:white;color:black;
+display:flex;align-items:center;justify-content:center;font-size:25px
 }
-
-.hero h1{margin:0;font-size:30px}
-.hero p{color:var(--gray);line-height:1.5}
-
-.big-button,.button{
-border:none;color:#fff;font-family:inherit;cursor:pointer
-}
-
-.big-button{
+.big-btn,.settings-btn,.btn{
 width:100%;background:var(--card);border:1px solid var(--line);
-border-radius:22px;padding:21px;margin-bottom:12px;
-text-align:left;display:flex;align-items:center;
-justify-content:space-between;font-size:19px;font-weight:650
+border-radius:20px;padding:19px;color:white;font:inherit;
+font-size:17px;text-align:left;margin-bottom:11px
 }
-
-.button-icon{
-width:42px;height:42px;background:#222;border-radius:14px;
-display:flex;align-items:center;justify-content:center
+.big-btn{display:flex;justify-content:space-between;align-items:center}
+.big-btn span:last-child{
+background:#222;padding:9px 14px;border-radius:13px
 }
-
-.big-button:active,.button:active,.nav-item:active,
-.action-button:active{transform:scale(.97)}
-
-.section-title{font-size:25px;font-weight:750;margin:10px 4px 20px}
-.section-subtitle{color:var(--gray);margin:-12px 4px 20px}
-
-.task,.plan-task{
-background:var(--card);border:1px solid var(--line);
-border-radius:20px;padding:17px;margin-bottom:12px
-}
-
-.task-top{
-display:flex;justify-content:space-between;
-align-items:center;gap:10px
-}
-
-.task-name{font-size:17px;font-weight:700}
-.status{
-padding:6px 10px;border-radius:20px;
-font-size:11px;font-weight:700
-}
-
-.task-description{color:var(--gray);margin-top:8px;font-size:14px}
-.task-date{color:#aaa;font-size:13px;margin-top:12px}
-
-.green{background:rgba(53,208,127,.15);color:var(--green)}
-.yellow{background:rgba(245,197,66,.15);color:var(--yellow)}
-.red{background:rgba(255,77,77,.15);color:var(--red)}
-.orange{background:rgba(255,140,66,.15);color:var(--orange)}
-
-.plan-card,.money-input-card,.game-card,.note-card{
-background:var(--card);border:1px solid var(--line);
-border-radius:24px;padding:20px;margin-bottom:18px
-}
-
-.form-group{margin-bottom:15px}
-
-label{
-display:block;font-size:13px;color:var(--gray);margin-bottom:8px
-}
-
+button:active{transform:scale(.97)}
+.title{font-size:25px;font-weight:800;margin:10px 0 5px}
+.sub{margin-bottom:20px}
+label{font-size:12px;color:var(--gray);display:block;margin:13px 0 7px}
 input,textarea{
-width:100%;background:#080808;border:1px solid #303030;
-color:#fff;border-radius:15px;padding:15px;font-family:inherit;
-font-size:16px;outline:none
+width:100%;background:#080808;border:1px solid #333;color:white;
+border-radius:14px;padding:14px;font:inherit;font-size:15px
 }
-
-textarea{min-height:110px;resize:none}
-
-.add-button,.primary-button{
-width:100%;padding:16px;background:#fff;color:#000;
-font-weight:750;border-radius:16px;margin-top:5px;border:none
+textarea{min-height:90px}
+.primary{
+width:100%;border:0;border-radius:14px;padding:15px;
+background:white;color:black;font-weight:800;margin-top:15px
 }
-
-.plan-actions{display:flex;gap:8px;margin-top:15px}
-
-.action-button{
-flex:1;padding:12px;border-radius:13px;border:none;
-font-family:inherit;font-weight:700
-}
-
-.done{background:rgba(53,208,127,.15);color:var(--green)}
-.fail{background:rgba(255,77,77,.15);color:var(--red)}
-.delete{background:#222;color:#fff}
-
-.cancel-button{
-width:100%;padding:13px;margin-top:10px;border:none;
-background:#2a2a2a;color:#fff;border-radius:14px
-}
-
-/* MONEY */
-
-.money-card{
+.task{
 background:var(--card);border:1px solid var(--line);
-border-radius:28px;padding:24px
+border-radius:18px;padding:16px;margin-top:12px
 }
-
-.money-header{
-display:flex;justify-content:space-between;align-items:center
+.tasktop{display:flex;justify-content:space-between;gap:10px}
+.taskname{font-weight:800}
+.status{padding:6px 9px;border-radius:15px;font-size:11px;font-weight:bold}
+.green{background:#163c28;color:var(--green)}
+.yellow{background:#423916;color:var(--yellow)}
+.orange{background:#482b18;color:var(--orange)}
+.red{background:#451b1b;color:var(--red)}
+.desc{color:var(--gray);margin-top:8px;font-size:14px}
+.date{color:#aaa;font-size:12px;margin-top:10px}
+.actions{display:flex;gap:7px;margin-top:14px}
+.actions button{
+flex:1;border:0;border-radius:11px;padding:11px;font-weight:bold
 }
-
-.more-menu-button{
-background:#222;color:#fff;border:none;border-radius:12px;
-width:42px;height:42px;font-size:22px
+.done{background:#163c28;color:var(--green)}
+.fail{background:#451b1b;color:var(--red)}
+.cancel{background:#292929;color:white}
+.money{
+font-size:42px;font-weight:800;margin:10px 0
 }
-
-.money-label{color:var(--gray);font-size:14px}
-.money-value{font-size:42px;font-weight:800;margin-top:8px}
-.money-stats{display:flex;gap:10px;margin-top:22px}
-
+.stats{display:flex;gap:10px}
 .stat{
-flex:1;background:#0a0a0a;border-radius:17px;padding:14px
+flex:1;background:#090909;border-radius:15px;padding:13px
 }
-
-.stat span{display:block;color:var(--gray);font-size:12px}
-.stat strong{margin-top:7px;display:block}
-
+.stat small{display:block;color:var(--gray)}
 .progress-bg{
-height:8px;background:#292929;border-radius:20px;
-overflow:hidden;margin-top:22px
+height:10px;background:#292929;border-radius:20px;margin-top:20px;overflow:hidden
 }
-
-.progress{height:100%;border-radius:20px;transition:.3s}
-
-.money-buttons{display:flex;gap:10px;margin-top:10px}
-
-.money-buttons button{
-flex:1;border:none;padding:14px;border-radius:14px;
-font-family:inherit;font-weight:750
+.progress{height:100%;transition:.4s}
+.money-actions{display:flex;gap:8px;margin-top:12px}
+.money-actions button{
+flex:1;padding:14px;border:0;border-radius:13px;font-weight:bold
 }
-
-.add-money{background:var(--green)}
-.spend-money{background:var(--red);color:#fff}
-
-.danger{
-margin-top:18px;padding:14px;border-radius:16px;
-background:rgba(255,77,77,.12);color:var(--red);
-font-weight:750;display:none
-}
-
-.history{margin-top:20px}
-
+.add{background:var(--green)}
+.spend{background:var(--red);color:white}
 .history-item{
-display:flex;justify-content:space-between;align-items:center;
-padding:15px;border-bottom:1px solid var(--line)
+display:flex;justify-content:space-between;padding:14px 0;
+border-bottom:1px solid var(--line)
 }
-
-.history-left small{
-color:var(--gray);display:block;margin-top:4px
+.history-item small{color:var(--gray);display:block;margin-top:4px}
+.danger{
+background:#451b1b;color:var(--red);padding:15px;border-radius:15px;
+font-weight:bold;margin-bottom:15px
 }
-
-.more-button{
-width:100%;padding:14px;background:#1b1b1b;color:#fff;
-border:1px solid var(--line);border-radius:15px;
-margin-top:15px;font-family:inherit
+.more{
+width:100%;background:#222;color:white;border:0;border-radius:14px;padding:14px;margin-top:14px
 }
-
-/* DATA */
-
-.chart-card{
-background:var(--card);border:1px solid var(--line);
-border-radius:24px;padding:20px;margin-bottom:18px
+.menu{display:flex;justify-content:space-between;align-items:center}
+.menu button{
+background:#222;color:white;border:0;border-radius:11px;padding:9px 13px
 }
-
-canvas{width:100%;background:#090909;border-radius:18px}
-
+.back{
+background:#222;color:white;border:0;padding:12px 15px;border-radius:12px;margin-bottom:15px
+}
+canvas{
+width:100%;height:auto;background:#090909;border-radius:18px;
+border:1px solid var(--line)
+}
 .report{
-background:#111;border:1px solid var(--line);
-border-radius:20px;padding:18px;line-height:1.7;color:#ddd
+line-height:1.7;color:#ddd
 }
-
-/* SETTINGS */
-
-.settings-button{
-width:100%;padding:19px;background:var(--card);
-border:1px solid var(--line);color:#fff;border-radius:20px;
-margin-bottom:12px;text-align:left;font-family:inherit;
-font-size:17px
-}
-
-/* XO */
-
-.xo-board{
-display:grid;grid-template-columns:repeat(3,1fr);
-gap:8px;margin:20px 0
-}
-
-.xo-cell{
-aspect-ratio:1;background:#090909;border:1px solid #333;
-border-radius:18px;color:#fff;font-size:35px;font-weight:800
-}
-
-.score-board{
-display:flex;justify-content:space-around;
-background:#090909;border-radius:18px;padding:15px;
-text-align:center
-}
-
-.score-board span{display:block;color:var(--gray);font-size:12px}
-
-/* FT */
-
-.question{
-font-size:20px;font-weight:750;text-align:center;
-padding:20px;background:#090909;border-radius:18px;margin:15px 0
-}
-
-.position-buttons{
-display:grid;grid-template-columns:repeat(2,1fr);gap:10px
-}
-
-.position-buttons button{
-padding:15px;border:none;border-radius:15px;
-background:#222;color:#fff;font-weight:700
-}
-
-/* NOTE */
-
-.note-status{
-text-align:center;color:var(--gray);padding:20px
-}
-
-.note-list{
-margin-top:15px
-}
-
-.note-item{
-background:#0a0a0a;border:1px solid var(--line);
-border-radius:16px;padding:15px;margin-bottom:10px;
-display:flex;justify-content:space-between;gap:10px
-}
-
-.note-item button{
-border:none;background:#333;color:#fff;
-border-radius:10px;padding:8px
-}
-
-.empty{color:var(--gray);text-align:center;padding:40px 10px}
-
-/* NAV */
-
-.bottom-nav{
+.bottom{
 position:fixed;bottom:0;left:0;width:100%;
-background:rgba(10,10,10,.96);
-backdrop-filter:blur(20px);
-border-top:1px solid var(--line);
-display:flex;justify-content:center;z-index:10
+background:rgba(10,10,10,.97);border-top:1px solid var(--line);
+display:flex;justify-content:center
 }
-
-.nav-container{
-width:100%;max-width:600px;
-display:flex;justify-content:space-around
+.nav{
+max-width:650px;width:100%;display:flex;justify-content:space-around
 }
-
-.nav-item{
-background:none;border:none;color:var(--gray);
-padding:15px 7px 18px;font-family:inherit;font-size:10px
+.nav button{
+background:none;border:0;color:var(--gray);padding:15px 7px;font:inherit;font-size:11px
 }
-
-.nav-item.active{color:#fff}
-.nav-icon{font-size:20px;display:block;margin-bottom:5px}
-
-.back-button{
-background:#222;border:none;color:#fff;padding:12px 17px;
-border-radius:14px;margin-bottom:20px
+.nav button.active{color:white}
+.xo{
+display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0
 }
-
-.footer{
-text-align:center;color:#555;font-size:11px;
-padding:25px;letter-spacing:1px
+.xo button{
+aspect-ratio:1;background:#090909;color:white;border:1px solid #333;
+border-radius:18px;font-size:34px;font-weight:bold
 }
+.score{
+display:flex;justify-content:space-around;text-align:center;
+background:#090909;padding:15px;border-radius:16px
+}
+.score small{display:block;color:var(--gray)}
+.choice{
+display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px
+}
+.choice button{
+padding:20px;background:#171717;color:white;border:1px solid #333;
+border-radius:16px;font-size:16px
+}
+.footer{text-align:center;color:#555;font-size:11px;padding:25px}
 </style>
 </head>
 
@@ -330,1480 +163,909 @@ padding:25px;letter-spacing:1px
 </div>
 
 <!-- HOME -->
-
 <div id="home" class="page active">
-
 <div class="hero">
 <div class="hero-icon">◆</div>
 <h1>Ready to focus?</h1>
-<p>Organize your work, track deadlines and stay motivated every day.</p>
+<p>Organize your work and stay motivated every day.</p>
 </div>
 
-<button class="big-button" onclick="showPage('plan')">
-<span>Plan</span><div class="button-icon">+</div>
-</button>
-
-<button class="big-button" onclick="showPage('quick')">
-<span>Quick Check</span><div class="button-icon">✓</div>
-</button>
-
-<button class="big-button" onclick="showPage('money')">
-<span>Pocket Money</span><div class="button-icon">DT</div>
-</button>
-
-<button class="big-button" onclick="showPage('settings')">
-<span>Settings</span><div class="button-icon">⚙</div>
-</button>
+<button class="big-btn" onclick="showPage('plan')"><span>Plan</span><span>+</span></button>
+<button class="big-btn" onclick="showPage('quick')"><span>Quick Check</span><span>✓</span></button>
+<button class="big-btn" onclick="showPage('money')"><span>Pocket Money</span><span>DT</span></button>
+<button class="big-btn" onclick="showPage('settings')"><span>Settings</span><span>⚙</span></button>
 
 <div class="footer">by Jasser Naouili</div>
-
 </div>
 
 <!-- QUICK -->
-
 <div id="quick" class="page">
-
-<div class="section-title">Quick Check</div>
-<div class="section-subtitle">Your urgent work and important alerts.</div>
-
+<div class="title">Quick Check</div>
+<div class="sub">Your urgent work and alerts.</div>
 <div id="debtAlert"></div>
 <div id="quickTasks"></div>
-
 </div>
 
 <!-- PLAN -->
-
 <div id="plan" class="page">
+<div class="title">Plan</div>
+<div class="sub">Create and organize your work.</div>
 
-<div class="section-title">Plan</div>
-<div class="section-subtitle">Create your work with a date and description.</div>
-
-<div class="plan-card">
-
-<div class="form-group">
+<div class="card">
 <label>WORK NAME</label>
 <input id="taskName" placeholder="Example: Study">
-</div>
 
-<div class="form-group">
 <label>DESCRIPTION</label>
-<textarea id="taskDescription" placeholder="Write details..."></textarea>
-</div>
+<textarea id="taskDesc" placeholder="Write details..."></textarea>
 
-<div class="form-group">
 <label>DATE</label>
 <input id="taskDate" type="date">
-</div>
 
-<button class="add-button" onclick="addTask()">Add to Plan</button>
-
+<button class="primary" onclick="addTask()">Add to Plan</button>
 </div>
 
 <div id="planTasks"></div>
-
 </div>
 
 <!-- MONEY -->
-
 <div id="money" class="page">
+<div class="title">Pocket Money</div>
+<div class="sub">Track your money in a modern way.</div>
 
-<div class="section-title">Pocket Money</div>
-<div class="section-subtitle">Track your money in a modern way.</div>
-
-<div class="money-card">
-
-<div class="money-header">
-<div class="money-label">MONEY REMAINING</div>
-<button class="more-menu-button" onclick="showMoneyMenu()">⋯</button>
+<div class="card">
+<div class="menu">
+<div>
+<small style="color:#929292">MONEY REMAINING</small>
+<div class="money" id="balance">0 DT</div>
+</div>
+<button onclick="showPage('data')">Data</button>
 </div>
 
-<div class="money-value" id="remainingMoney">0 DT</div>
-
-<div class="money-stats">
-
-<div class="stat">
-<span>TOTAL ADDED</span>
-<strong id="totalAdded">0 DT</strong>
+<div class="stats">
+<div class="stat"><small>TOTAL ADDED</small><b id="added">0 DT</b></div>
+<div class="stat"><small>TOTAL SPENT</small><b id="spent">0 DT</b></div>
 </div>
 
-<div class="stat">
-<span>TOTAL SPENT</span>
-<strong id="totalSpent">0 DT</strong>
+<div class="progress-bg"><div class="progress" id="progress"></div></div>
+<div id="danger"></div>
 </div>
 
-</div>
-
-<div class="progress-bg">
-<div class="progress" id="moneyProgress"></div>
-</div>
-
-<div class="danger" id="dangerBox">
-⚠️ DANGER — YOU ARE IN DEBT
-</div>
-
-</div>
-
-<div class="money-input-card">
-
+<div class="card">
 <label>AMOUNT</label>
-<input id="moneyAmount" type="number" placeholder="Enter amount in DT">
+<input id="amount" type="number" placeholder="Example: 10">
 
-<div class="money-buttons">
-<button class="add-money" onclick="addMoney()">Add Money</button>
-<button class="spend-money" onclick="spendMoney()">Spend</button>
+<label>DESCRIPTION</label>
+<input id="moneyDesc" placeholder="Example: Food">
+
+<div class="money-actions">
+<button class="add" onclick="addMoney()">Add Money</button>
+<button class="spend" onclick="spendMoney()">Spend</button>
 </div>
 
+<button class="more" onclick="resetMoney()">Reset Pocket Money</button>
 </div>
 
-<div class="history">
-<div class="section-title" style="font-size:20px;margin-top:25px">History</div>
-<div id="moneyHistory"></div>
-
-<button id="moreHistory" class="more-button" onclick="showMoreHistory()">
-More
-</button>
-</div>
-
+<div class="title" style="font-size:20px">History</div>
+<div id="history"></div>
+<button class="more" onclick="moreHistory()">More</button>
 </div>
 
 <!-- DATA -->
-
 <div id="data" class="page">
+<button class="back" onclick="showPage('money')">← Back</button>
+<div class="title">Money Data</div>
+<div class="sub">Your financial activity.</div>
 
-<button class="back-button" onclick="showPage('money')">← Back</button>
-
-<div class="section-title">Money Data</div>
-<div class="section-subtitle">Your spending this week.</div>
-
-<div class="chart-card">
-<canvas id="moneyChart" width="560" height="280"></canvas>
+<div class="card">
+<canvas id="chart" width="600" height="400"></canvas>
 </div>
 
-<div class="report" id="moneyReport"></div>
-
+<div class="card report" id="report"></div>
 </div>
 
 <!-- SETTINGS -->
-
 <div id="settings" class="page">
+<div class="title">Settings</div>
+<div class="sub">Games and private features.</div>
 
-<div class="section-title">Settings</div>
-<div class="section-subtitle">Games and private notes.</div>
+<button class="settings-btn" onclick="showPage('play')">🎮 PLAY</button>
+<button class="settings-btn" onclick="showPage('note')">📝 NOTE</button>
+<button class="settings-btn" onclick="showPage('employees')">👥 EMPLOYEES</button>
+</div>
 
-<button class="settings-button" onclick="showPage('play')">
-🎮 &nbsp; PLAY
-</button>
-
-<button class="settings-button" onclick="showPage('note')">
-📝 &nbsp; NOTE
-</button>
-
+<!-- EMPLOYEES -->
+<div id="employees" class="page">
+<button class="back" onclick="showPage('settings')">← Back</button>
+<div class="title">Employees</div>
+<div class="card" style="text-align:center;padding:50px 20px">
+<div style="font-size:45px">👥</div>
+<h2>Coming Soon</h2>
+<p class="sub">This feature will be available in the next update.</p>
+</div>
 </div>
 
 <!-- PLAY -->
-
 <div id="play" class="page">
+<button class="back" onclick="showPage('settings')">← Back</button>
+<div class="title">Play</div>
+<div class="sub">Fun games for two players.</div>
 
-<button class="back-button" onclick="showPage('settings')">← Back</button>
-
-<div class="section-title">Play</div>
-<div class="section-subtitle">Play with a friend, turn by turn.</div>
-
-<button class="settings-button" onclick="showPage('xo')">
-⭕ &nbsp; X / O
-</button>
-
-<button class="settings-button" onclick="showPage('ft')">
-⚽ &nbsp; FT GAME
-</button>
-
+<button class="settings-btn" onclick="showPage('xo')">⭕ X / O</button>
+<button class="settings-btn" onclick="showPage('battle')">⚔️ BATTLE</button>
+<button class="settings-btn" onclick="showPage('reaction')">⚡ REACTION</button>
 </div>
 
 <!-- XO -->
-
 <div id="xo" class="page">
+<button class="back" onclick="showPage('play')">← Back</button>
+<div class="title">X / O</div>
 
-<button class="back-button" onclick="showPage('play')">← Back</button>
-
-<div class="section-title">X / O</div>
-
-<div class="score-board">
-<div><span>PLAYER X</span><strong id="xScore">0</strong></div>
-<div><span>DRAW</span><strong id="drawScore">0</strong></div>
-<div><span>PLAYER O</span><strong id="oScore">0</strong></div>
+<div class="score">
+<div><small>PLAYER X</small><b id="xs">0</b></div>
+<div><small>DRAW</small><b id="ds">0</b></div>
+<div><small>PLAYER O</small><b id="os">0</b></div>
 </div>
 
-<div class="question" id="xoTurn">PLAYER X TURN</div>
-
-<div class="xo-board" id="xoBoard"></div>
-
-<button class="more-button" onclick="resetXO()">New Round</button>
-
+<div class="card" style="text-align:center" id="xoTurn">PLAYER X TURN</div>
+<div class="xo" id="xoBoard"></div>
+<button class="more" onclick="resetXO()">New Round</button>
 </div>
 
-<!-- FT -->
+<!-- BATTLE -->
+<div id="battle" class="page">
+<button class="back" onclick="showPage('play')">← Back</button>
+<div class="title">Battle ⚔️</div>
+<div class="sub">Take turns. The strongest wins.</div>
 
-<div id="ft" class="page">
-
-<button class="back-button" onclick="showPage('play')">← Back</button>
-
-<div class="section-title">FT Game</div>
-<div class="section-subtitle">Choose the correct position.</div>
-
-<div class="score-board">
-<div><span>PLAYER 1</span><strong id="ftScore1">0</strong></div>
-<div><span>PLAYER 2</span><strong id="ftScore2">0</strong></div>
+<div class="score">
+<div><small>PLAYER 1</small><b id="battle1">0</b></div>
+<div><small>PLAYER 2</small><b id="battle2">0</b></div>
 </div>
 
-<div class="question" id="ftTurn">PLAYER 1 TURN</div>
-<div class="question" id="playerQuestion">Loading...</div>
+<div class="card" style="text-align:center">
+<h2 id="battleTurn">PLAYER 1 TURN</h2>
+<p class="sub">Choose your attack!</p>
 
-<div class="position-buttons" id="positionButtons"></div>
-
-<button class="more-button" onclick="resetFT()">Reset Game</button>
-
+<div class="choice">
+<button onclick="battleMove('⚔️')">⚔️ Attack</button>
+<button onclick="battleMove('🛡️')">🛡️ Defense</button>
+<button onclick="battleMove('🔥')">🔥 Power</button>
+<button onclick="battleMove('⚡')">⚡ Speed</button>
+</div>
 </div>
 
-<!-- NOTE LOGIN -->
+<button class="more" onclick="resetBattle()">Reset Game</button>
+</div>
 
+<!-- REACTION -->
+<div id="reaction" class="page">
+<button class="back" onclick="showPage('play')">← Back</button>
+<div class="title">Reaction ⚡</div>
+<div class="sub">Press only when the signal appears!</div>
+
+<div class="score">
+<div><small>PLAYER 1</small><b id="reaction1">0</b></div>
+<div><small>PLAYER 2</small><b id="reaction2">0</b></div>
+</div>
+
+<div class="card" style="text-align:center">
+<h2 id="reactionTurn">PLAYER 1 TURN</h2>
+<div id="reactionMessage" style="font-size:25px;padding:30px">Ready?</div>
+<button class="primary" id="reactionButton" onclick="reactionPress()">START</button>
+</div>
+
+<button class="more" onclick="resetReaction()">Reset Game</button>
+</div>
+
+<!-- NOTE -->
 <div id="note" class="page">
-
-<button class="back-button" onclick="showPage('settings')">← Back</button>
-
-<div class="section-title">Private Note</div>
-
+<button class="back" onclick="showPage('settings')">← Back</button>
+<div class="title">Private Note</div>
 <div id="noteLogin"></div>
-
 </div>
-
-<!-- NOTE EDITOR -->
 
 <div id="noteEditor" class="page">
+<button class="back" onclick="showPage('note')">← Back</button>
+<div class="title">My Notes</div>
 
-<button class="back-button" onclick="showPage('note')">← Back</button>
-
-<div class="section-title">My Notes</div>
-
-<div class="note-card">
-
-<textarea id="noteText" placeholder="Write anything you want..."></textarea>
-
-<button class="primary-button" onclick="saveNote()">Save Note</button>
-
-<button class="more-button" onclick="changePassword()">
-Change Password
-</button>
-
+<div class="card">
+<textarea id="noteText" placeholder="Write anything..."></textarea>
+<button class="primary" onclick="saveNote()">Save Note</button>
+<button class="more" onclick="changePassword()">Change Password</button>
 </div>
 
-<div class="note-list" id="noteList"></div>
-
+<div id="notes"></div>
 </div>
 
 </div>
 
-<!-- NAVIGATION -->
-
-<div class="bottom-nav">
-<div class="nav-container">
-
-<button class="nav-item active" onclick="showPage('home')" id="nav-home">
-<span class="nav-icon">⌂</span>Home
-</button>
-
-<button class="nav-item" onclick="showPage('quick')" id="nav-quick">
-<span class="nav-icon">✓</span>Quick
-</button>
-
-<button class="nav-item" onclick="showPage('plan')" id="nav-plan">
-<span class="nav-icon">▦</span>Plan
-</button>
-
-<button class="nav-item" onclick="showPage('money')" id="nav-money">
-<span class="nav-icon">◉</span>Money
-</button>
-
+<div class="bottom">
+<div class="nav">
+<button class="active" id="nav-home" onclick="showPage('home')">⌂<br>Home</button>
+<button id="nav-quick" onclick="showPage('quick')">✓<br>Quick</button>
+<button id="nav-plan" onclick="showPage('plan')">▦<br>Plan</button>
+<button id="nav-money" onclick="showPage('money')">◉<br>Money</button>
 </div>
 </div>
 
 <script>
 
-/* DATA */
+/* STORAGE */
 
 let tasks=JSON.parse(localStorage.getItem("studyTasks"))||[];
 
-let moneyData=JSON.parse(localStorage.getItem("moneyData"))||{
-added:0,
-spent:0,
-history:[]
+let money=JSON.parse(localStorage.getItem("studyMoney"))||{
+added:0,spent:0,history:[]
 };
 
 let historyLimit=5;
 
-let notes=JSON.parse(localStorage.getItem("studyNotes"))||[];
-let notePassword=localStorage.getItem("studyNotePassword")||"";
+let notes=JSON.parse(localStorage.getItem("notes"))||[];
+let password=localStorage.getItem("notePassword")||"";
 
 /* SOUND */
 
-function clickSound(){
-
+function sound(){
 try{
-
-const audio=new (window.AudioContext||window.webkitAudioContext)();
-const oscillator=audio.createOscillator();
-const gain=audio.createGain();
-
-oscillator.connect(gain);
-gain.connect(audio.destination);
-
-oscillator.frequency.value=500;
-gain.gain.value=0.025;
-
-oscillator.start();
-
-setTimeout(()=>{
-oscillator.stop();
-audio.close();
-},50);
-
+let a=new(window.AudioContext||window.webkitAudioContext)();
+let o=a.createOscillator(),g=a.createGain();
+o.connect(g);g.connect(a.destination);
+o.frequency.value=500;g.gain.value=.03;
+o.start();
+setTimeout(()=>{o.stop();a.close()},50);
 }catch(e){}
-
 }
 
 /* PAGE */
 
-function showPage(page){
+function showPage(id){
 
-clickSound();
+sound();
 
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
+document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+document.getElementById(id).classList.add("active");
 
-const target=document.getElementById(page);
-
-if(target)target.classList.add("active");
-
-document.querySelectorAll(".nav-item").forEach(n=>{
-n.classList.remove("active");
-});
-
-const nav=document.getElementById("nav-"+page);
-
+document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+let nav=document.getElementById("nav-"+id);
 if(nav)nav.classList.add("active");
 
-window.scrollTo({top:0,behavior:"smooth"});
+window.scrollTo(0,0);
 
 renderTasks();
 renderMoney();
 
-if(page==="data")renderData();
-if(page==="xo")renderXO();
-if(page==="ft")renderFT();
-if(page==="note")renderNoteLogin();
-if(page==="noteEditor")renderNotes();
-
+if(id==="data")renderData();
+if(id==="xo")renderXO();
+if(id==="battle")renderBattle();
+if(id==="reaction")renderReaction();
+if(id==="note")renderNote();
+if(id==="noteEditor")renderNotes();
 }
 
 /* TASKS */
 
 function addTask(){
 
-const name=document.getElementById("taskName").value.trim();
-const description=document.getElementById("taskDescription").value.trim();
-const date=document.getElementById("taskDate").value;
+let name=taskName.value.trim();
+let desc=taskDesc.value.trim();
+let date=taskDate.value;
 
 if(!name||!date){
-alert("Please enter a work name and date.");
+alert("Enter work name and date");
 return;
 }
 
 tasks.push({
-id:Date.now(),
-name:name,
-description:description,
-date:date,
-status:"pending",
-created:new Date().toLocaleString()
+id:Date.now(),name,desc,date,status:"pending"
 });
 
 saveTasks();
 
-document.getElementById("taskName").value="";
-document.getElementById("taskDescription").value="";
-document.getElementById("taskDate").value="";
+taskName.value="";
+taskDesc.value="";
+taskDate.value="";
 
-clickSound();
 renderTasks();
-
+sound();
 }
 
 function saveTasks(){
 localStorage.setItem("studyTasks",JSON.stringify(tasks));
 }
 
-/* DATE STATUS - WITHOUT TIME */
+function taskStatus(date){
 
-function getTaskStatus(date){
-
-const today=new Date();
+let today=new Date();
 today.setHours(0,0,0,0);
 
-const deadline=new Date(date+"T00:00:00");
+let deadline=new Date(date+"T00:00:00");
+let d=Math.ceil((deadline-today)/86400000);
 
-const difference=Math.ceil(
-(deadline-today)/(1000*60*60*24)
-);
-
-if(difference<0){
-return{class:"red",text:"Overdue",difference:difference};
+if(d<0)return["red","Overdue"];
+if(d<=1)return["red",d===0?"Today":"1 Day Left"];
+if(d===2)return["yellow","2 Days Left"];
+return["green",d+" Days Left"];
 }
 
-if(difference<=1){
-return{
-class:"red",
-text:difference===0?"Today":"1 Day Left",
-difference:difference
-};
-}
-
-if(difference===2){
-return{
-class:"yellow",
-text:"2 Days Left",
-difference:difference
-};
-}
-
-return{
-class:"green",
-text:difference+" Days Left",
-difference:difference
-};
-
+function esc(t){
+let d=document.createElement("div");
+d.textContent=t;
+return d.innerHTML;
 }
 
 function renderTasks(){
 
-const planContainer=document.getElementById("planTasks");
-const quickContainer=document.getElementById("quickTasks");
+let plan=document.getElementById("planTasks");
+let quick=document.getElementById("quickTasks");
+
+plan.innerHTML="";
+quick.innerHTML="";
 
 if(!tasks.length){
-
-const empty='<div class="empty">No work added yet.</div>';
-
-planContainer.innerHTML=empty;
-quickContainer.innerHTML=empty;
-
+plan.innerHTML='<div class="sub">No work added yet.</div>';
+quick.innerHTML='<div class="sub">No urgent work.</div>';
 return;
 }
 
-const sorted=[...tasks].sort((a,b)=>
-new Date(a.date)-new Date(b.date)
-);
+let urgent=0;
 
-planContainer.innerHTML="";
-quickContainer.innerHTML="";
+[...tasks].sort((a,b)=>new Date(a.date)-new Date(b.date))
+.forEach(t=>{
 
-let urgentCount=0;
+let s=taskStatus(t.date);
+let cl=t.status==="done"?"green":t.status==="failed"?"red":s[0];
+let tx=t.status==="done"?"Completed":t.status==="failed"?"Failed":s[1];
 
-sorted.forEach(task=>{
-
-const status=getTaskStatus(task.date);
-
-const taskClass=
-task.status==="done"?"green":
-task.status==="failed"?"red":
-status.class;
-
-const taskText=
-task.status==="done"?"Completed":
-task.status==="failed"?"Not Completed":
-status.text;
-
-if(
-task.status==="pending"&&
-(status.class==="red"||status.class==="yellow")
-){
-urgentCount++;
-}
-
-const html=`
-
-<div class="task-top">
-
-<div class="task-name">${escapeHTML(task.name)}</div>
-
-<div class="status ${taskClass}">
-${taskText}
+let html=`
+<div class="tasktop">
+<div class="taskname">${esc(t.name)}</div>
+<div class="status ${cl}">${tx}</div>
 </div>
-
-</div>
-
-${
-task.description
-?`<div class="task-description">${escapeHTML(task.description)}</div>`
-:""
-}
-
-<div class="task-date">
-📅 ${formatDate(task.date)}
-</div>
+${t.desc?`<div class="desc">${esc(t.desc)}</div>`:""}
+<div class="date">📅 ${t.date}</div>
 `;
 
-planContainer.innerHTML+=`
-
-<div class="plan-task">
-
-${html}
-
-<div class="plan-actions">
-
-<button class="action-button done"
-onclick="updateTask(${task.id},'done')">
-✓ Done
-</button>
-
-<button class="action-button fail"
-onclick="updateTask(${task.id},'failed')">
-✕ Failed
-</button>
-
-</div>
-
-<button class="cancel-button"
-onclick="cancelTask(${task.id})">
-Cancel Task
-</button>
-
-</div>
-`;
-
-quickContainer.innerHTML+=`
-
+plan.innerHTML+=`
 <div class="task">
 ${html}
+<div class="actions">
+<button class="done" onclick="taskUpdate(${t.id},'done')">✓ Done</button>
+<button class="fail" onclick="taskUpdate(${t.id},'failed')">✕ Failed</button>
+<button class="cancel" onclick="taskDelete(${t.id})">Cancel</button>
 </div>
-`;
+</div>`;
 
+if(t.status==="pending"&&(s[0]==="red"||s[0]==="yellow")){
+urgent++;
+quick.innerHTML+=`<div class="task">${html}</div>`;
+}
 });
 
-if(!urgentCount){
-quickContainer.innerHTML+=
-'<div class="empty">✓ Everything is under control.</div>';
+if(!urgent)quick.innerHTML='<div class="sub">✓ Everything is under control.</div>';
 }
 
-renderDebtAlert();
-
+function taskUpdate(id,status){
+tasks=tasks.map(t=>t.id===id?{...t,status}:t);
+saveTasks();renderTasks();sound();
 }
 
-function formatDate(date){
-
-return new Date(date+"T00:00:00").toLocaleDateString(
-undefined,
-{
-year:"numeric",
-month:"long",
-day:"numeric"
+function taskDelete(id){
+if(confirm("Delete this task?")){
+tasks=tasks.filter(t=>t.id!==id);
+saveTasks();renderTasks();
 }
-);
-
-}
-
-function escapeHTML(text){
-
-const div=document.createElement("div");
-div.textContent=text;
-return div.innerHTML;
-
-}
-
-function updateTask(id,status){
-
-clickSound();
-
-tasks=tasks.map(task=>{
-
-if(task.id===id){
-task.status=status;
-}
-
-return task;
-
-});
-
-saveTasks();
-renderTasks();
-
-}
-
-function cancelTask(id){
-
-if(!confirm("Cancel and delete this task?"))return;
-
-clickSound();
-
-tasks=tasks.filter(task=>task.id!==id);
-
-saveTasks();
-renderTasks();
-
 }
 
 /* MONEY */
 
-function addMoney(){
-
-const amount=Number(
-document.getElementById("moneyAmount").value
-);
-
-if(!amount||amount<=0){
-alert("Enter a valid amount.");
-return;
+function now(){
+return new Date().toLocaleString(undefined,{
+year:"numeric",month:"short",day:"numeric",
+hour:"2-digit",minute:"2-digit",second:"2-digit"
+});
 }
 
-moneyData.added+=amount;
+function addMoney(){
 
-moneyData.history.unshift({
-type:"added",
-amount:amount,
-time:new Date().toLocaleString()
+let amount=Number(document.getElementById("amount").value);
+let desc=document.getElementById("moneyDesc").value.trim();
+
+if(!amount||amount<=0)return alert("Enter valid amount");
+
+money.added+=amount;
+
+money.history.unshift({
+type:"added",amount,desc:desc||"Money Added",
+time:now(),
+timestamp:Date.now()
 });
 
 saveMoney();
-
 }
 
 function spendMoney(){
 
-const amount=Number(
-document.getElementById("moneyAmount").value
-);
+let amount=Number(document.getElementById("amount").value);
+let desc=document.getElementById("moneyDesc").value.trim();
 
-if(!amount||amount<=0){
-alert("Enter a valid amount.");
-return;
-}
+if(!amount||amount<=0)return alert("Enter valid amount");
 
-moneyData.spent+=amount;
+money.spent+=amount;
 
-moneyData.history.unshift({
-type:"spent",
-amount:amount,
-time:new Date().toLocaleString()
+money.history.unshift({
+type:"spent",amount,desc:desc||"No Description",
+time:now(),
+timestamp:Date.now()
 });
 
 saveMoney();
-
 }
 
 function saveMoney(){
-
-localStorage.setItem(
-"moneyData",
-JSON.stringify(moneyData)
-);
-
-document.getElementById("moneyAmount").value="";
-
-clickSound();
+localStorage.setItem("studyMoney",JSON.stringify(money));
+amount.value="";
+moneyDesc.value="";
 renderMoney();
+sound();
+}
 
+function resetMoney(){
+
+if(!confirm("Reset all Pocket Money and History?"))return;
+
+money={added:0,spent:0,history:[]};
+localStorage.removeItem("studyMoney");
+
+renderMoney();
+sound();
 }
 
 function renderMoney(){
 
-const remaining=moneyData.added-moneyData.spent;
+let remaining=money.added-money.spent;
 
-document.getElementById("remainingMoney").textContent=
-remaining.toFixed(2)+" DT";
+balance.textContent=remaining.toFixed(2)+" DT";
+added.textContent=money.added.toFixed(2)+" DT";
+spent.textContent=money.spent.toFixed(2)+" DT";
 
-document.getElementById("totalAdded").textContent=
-moneyData.added.toFixed(2)+" DT";
-
-document.getElementById("totalSpent").textContent=
-moneyData.spent.toFixed(2)+" DT";
-
-let percentage=
-moneyData.added>0
-?(remaining/moneyData.added)*100
-:0;
-
-const progress=document.getElementById("moneyProgress");
+let percent=money.added?remaining/money.added*100:0;
 
 if(remaining<0){
-
 progress.style.width="100%";
 progress.style.background="var(--red)";
-
-document.getElementById("dangerBox").style.display="block";
-
+danger.innerHTML='<div class="danger">⚠️ DANGER — YOU ARE IN DEBT</div>';
 }else{
 
-document.getElementById("dangerBox").style.display="none";
+danger.innerHTML="";
+progress.style.width=Math.max(0,Math.min(100,percent))+"%";
 
-percentage=Math.max(0,percentage);
-
-progress.style.width=
-Math.min(percentage,100)+"%";
-
-if(percentage<25){
-progress.style.background="var(--red)";
+if(percent<25)progress.style.background="var(--red)";
+else if(percent<50)progress.style.background="var(--yellow)";
+else if(percent<75)progress.style.background="var(--orange)";
+else progress.style.background="var(--green)";
 }
 
-else if(percentage<50){
-progress.style.background="var(--yellow)";
-}
+let h=document.getElementById("history");
+h.innerHTML="";
 
-else if(percentage<75){
-progress.style.background="var(--orange)";
-}
+let list=money.history.slice(0,historyLimit);
 
-else{
-progress.style.background="var(--green)";
-}
+if(!list.length)h.innerHTML='<div class="sub">No activity yet.</div>';
 
-}
-
-renderHistory();
-renderDebtAlert();
-
-}
-
-function renderDebtAlert(){
-
-const alertBox=document.getElementById("debtAlert");
-
-if(!alertBox)return;
-
-const remaining=moneyData.added-moneyData.spent;
-
-if(remaining<0){
-
-alertBox.innerHTML=`
-
-<div class="danger" style="display:block;margin-bottom:15px">
-⚠️ DANGER — YOU ARE IN DEBT
-<br>
-You owe ${Math.abs(remaining).toFixed(2)} DT
-</div>
-
-`;
-
-}else{
-alertBox.innerHTML="";
-}
-
-}
-
-function renderHistory(){
-
-const container=document.getElementById("moneyHistory");
-
-const visible=moneyData.history.slice(0,historyLimit);
-
-if(!visible.length){
-
-container.innerHTML=
-'<div class="empty">No money activity yet.</div>';
-
-return;
-}
-
-container.innerHTML="";
-
-visible.forEach(item=>{
-
-const isAdded=item.type==="added";
-
-container.innerHTML+=`
-
+list.forEach(x=>{
+h.innerHTML+=`
 <div class="history-item">
-
-<div class="history-left">
-
-<strong>
-${isAdded?"Money Added":"Money Spent"}
-</strong>
-
-<small>${item.time}</small>
-
+<div>
+<b>${x.type==="added"?"Money Added":"Money Spent"}</b>
+<div class="desc">${esc(x.desc)}</div>
+<small>${x.time}</small>
 </div>
-
-<strong style="color:${
-isAdded?"var(--green)":"var(--red)"
-}">
-
-${isAdded?"+":"-"}
-${Number(item.amount).toFixed(2)} DT
-
-</strong>
-
-</div>
-
-`;
-
+<b style="color:${x.type==="added"?"var(--green)":"var(--red)"}">
+${x.type==="added"?"+":"-"}${Number(x.amount).toFixed(2)} DT
+</b>
+</div>`;
 });
 
-const moreButton=document.getElementById("moreHistory");
-
-moreButton.style.display=
-historyLimit>=moneyData.history.length
-?"none"
-:"block";
-
+renderDebt();
 }
 
-function showMoreHistory(){
-
+function moreHistory(){
 historyLimit+=10;
-
-clickSound();
-renderHistory();
-
+renderMoney();
 }
 
-function showMoneyMenu(){
+function renderDebt(){
+let d=document.getElementById("debtAlert");
+if(!d)return;
 
-const choice=confirm(
-"Open DATA?\n\nPress OK for DATA\nPress Cancel to stay here"
-);
+let r=money.added-money.spent;
 
-if(choice)showPage("data");
-
+d.innerHTML=r<0?
+`<div class="danger">⚠️ DANGER — YOU ARE IN DEBT<br>You owe ${Math.abs(r).toFixed(2)} DT</div>`:"";
 }
 
-/* DATA AND CHART */
+/* DATA CHART */
 
 function renderData(){
 
-const days=[];
-const values=[];
+let canvas=document.getElementById("chart");
+let ctx=canvas.getContext("2d");
+
+let w=canvas.width,h=canvas.height;
+ctx.clearRect(0,0,w,h);
+
+let days=[];
+let data=[];
 
 for(let i=6;i>=0;i--){
 
-const d=new Date();
+let d=new Date();
 d.setHours(0,0,0,0);
 d.setDate(d.getDate()-i);
 
 days.push(d);
 
-const total=moneyData.history
-.filter(item=>{
-
-if(item.type!=="spent")return false;
-
-const itemDate=new Date(item.time);
-itemDate.setHours(0,0,0,0);
-
-return itemDate.getTime()===d.getTime();
-
+let total=money.history
+.filter(x=>{
+let t=new Date(x.timestamp||Date.now());
+return t.toDateString()===d.toDateString();
 })
-.reduce((sum,item)=>sum+Number(item.amount),0);
+.reduce((sum,x)=>sum+(x.type==="added"?Number(x.amount):-Number(x.amount)),0);
 
-values.push(total);
-
+data.push(total);
 }
 
-drawChart(days,values);
-
-const weekTotal=values.reduce((a,b)=>a+b,0);
-const average=weekTotal/7;
-
-let highest=Math.max(...values);
-let highestIndex=values.indexOf(highest);
-
-const remaining=moneyData.added-moneyData.spent;
-
-document.getElementById("moneyReport").innerHTML=`
-
-<strong>WEEKLY REPORT</strong>
-<br><br>
-
-This week you spent
-<strong>${weekTotal.toFixed(2)} DT</strong>.
-
-<br><br>
-
-Your daily average is
-<strong>${average.toFixed(2)} DT</strong>.
-
-<br><br>
-
-Your highest spending day was
-<strong>${
-highest>0
-?days[highestIndex].toLocaleDateString(
-undefined,{weekday:"long"}
-)
-:"No spending"
-}</strong>.
-
-<br><br>
-
-Current balance:
-<strong style="color:${
-remaining<0?"var(--red)":"var(--green)"
-}">
-${remaining.toFixed(2)} DT
-</strong>
-
-`;
-
-}
-
-function drawChart(days,values){
-
-const canvas=document.getElementById("moneyChart");
-const ctx=canvas.getContext("2d");
-
-const w=canvas.width;
-const h=canvas.height;
-
-ctx.clearRect(0,0,w,h);
-
-const padding=40;
-const max=Math.max(...values,1);
+let max=Math.max(...data.map(Math.abs),10);
+let padL=70,padR=25,padT=35,padB=60;
+let graphH=h-padT-padB;
+let graphW=w-padL-padR;
+let zero=padT+graphH/2;
 
 ctx.strokeStyle="#333";
 ctx.lineWidth=1;
 
 for(let i=0;i<5;i++){
-
-const y=padding+i*((h-padding*2)/4);
-
+let y=padT+i*graphH/4;
 ctx.beginPath();
-ctx.moveTo(padding,y);
-ctx.lineTo(w-padding,y);
+ctx.moveTo(padL,y);
+ctx.lineTo(w-padR,y);
 ctx.stroke();
 
+let value=(max-(i*max/2)).toFixed(0);
+ctx.fillStyle="#888";
+ctx.font="13px Arial";
+ctx.fillText(value+" DT",8,y+5);
 }
 
-const step=(w-padding*2)/6;
+ctx.strokeStyle="#555";
+ctx.beginPath();
+ctx.moveTo(padL,zero);
+ctx.lineTo(w-padR,zero);
+ctx.stroke();
 
-ctx.strokeStyle="#ff4d4d";
-ctx.lineWidth=3;
+let step=graphW/6;
 
 ctx.beginPath();
 
-values.forEach((value,i)=>{
-
-const x=padding+i*step;
-const y=h-padding-(value/max)*(h-padding*2);
-
+data.forEach((v,i)=>{
+let x=padL+i*step;
+let y=zero-(v/max)*(graphH/2-15);
 if(i===0)ctx.moveTo(x,y);
 else ctx.lineTo(x,y);
-
 });
 
+ctx.strokeStyle="#35d07f";
+ctx.lineWidth=4;
 ctx.stroke();
 
-values.forEach((value,i)=>{
+data.forEach((v,i)=>{
+let x=padL+i*step;
+let y=zero-(v/max)*(graphH/2-15);
 
-const x=padding+i*step;
-const y=h-padding-(value/max)*(h-padding*2);
-
-ctx.fillStyle="#fff";
-
+ctx.fillStyle=v>=0?"#35d07f":"#ff4d4d";
 ctx.beginPath();
-ctx.arc(x,y,4,0,Math.PI*2);
+ctx.arc(x,y,6,0,Math.PI*2);
 ctx.fill();
 
-ctx.fillStyle="#888";
-ctx.font="11px Arial";
-
-const label=days[i].toLocaleDateString(
-undefined,{weekday:"short"}
+ctx.fillStyle="#aaa";
+ctx.font="12px Arial";
+ctx.fillText(
+days[i].toLocaleDateString(undefined,{weekday:"short"}),
+x-12,h-22
 );
-
-ctx.fillText(label,x-10,h-15);
-
 });
 
+let weekSpent=money.history
+.filter(x=>x.type==="spent")
+.reduce((s,x)=>s+Number(x.amount),0);
+
+let weekAdded=money.history
+.filter(x=>x.type==="added")
+.reduce((s,x)=>s+Number(x.amount),0);
+
+let remaining=money.added-money.spent;
+
+report.innerHTML=`
+<b>FINANCIAL REPORT</b><br><br>
+Total Added: <b>${weekAdded.toFixed(2)} DT</b><br>
+Total Spent: <b>${weekSpent.toFixed(2)} DT</b><br>
+Current Balance: <b>${remaining.toFixed(2)} DT</b><br><br>
+The chart updates automatically after every new saving or spending operation.
+`;
 }
 
-/* X O GAME */
+/* X O */
 
-let xoBoard=["","","","","","","","",""];
-let xoTurn="X";
-
-let xoScores=JSON.parse(
-localStorage.getItem("xoScores")
-)||{
-x:0,
-o:0,
-draw:0
-};
+let xo=["","","","","","","","",""];
+let turn="X";
+let xs=0,os=0,ds=0;
 
 function renderXO(){
 
-const board=document.getElementById("xoBoard");
+xoBoard.innerHTML="";
 
-board.innerHTML="";
-
-xoBoard.forEach((value,index)=>{
-
-board.innerHTML+=`
-
-<button class="xo-cell"
-onclick="xoMove(${index})">
-${value}
-</button>
-
-`;
-
+xo.forEach((v,i)=>{
+xoBoard.innerHTML+=`<button onclick="xoMove(${i})">${v}</button>`;
 });
 
-document.getElementById("xScore").textContent=xoScores.x;
-document.getElementById("oScore").textContent=xoScores.o;
-document.getElementById("drawScore").textContent=xoScores.draw;
-
-document.getElementById("xoTurn").textContent=
-"PLAYER "+xoTurn+" TURN";
-
+document.getElementById("xs").textContent=xs;
+document.getElementById("os").textContent=os;
+document.getElementById("ds").textContent=ds;
+xoTurn.textContent="PLAYER "+turn+" TURN";
 }
 
-function xoMove(index){
+function xoMove(i){
 
-if(xoBoard[index]!=="")return;
+if(xo[i])return;
 
-xoBoard[index]=xoTurn;
+xo[i]=turn;
 
-clickSound();
+let wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 
-const winner=checkWinner();
+let winner=null;
+
+wins.forEach(a=>{
+if(xo[a[0]]&&xo[a[0]]===xo[a[1]]&&xo[a[1]]===xo[a[2]])winner=xo[a[0]];
+});
 
 if(winner){
-
-xoScores[
-winner==="X"?"x":"o"
-]++;
-
-saveXOScores();
-
-setTimeout(()=>{
+winner==="X"?xs++:os++;
 alert("PLAYER "+winner+" WINS!");
 resetXO();
-},100);
-
 return;
 }
 
-if(!xoBoard.includes("")){
-
-xoScores.draw++;
-saveXOScores();
-
-setTimeout(()=>{
+if(!xo.includes("")){
+ds++;
 alert("DRAW!");
 resetXO();
-},100);
-
 return;
 }
 
-xoTurn=xoTurn==="X"?"O":"X";
-
+turn=turn==="X"?"O":"X";
 renderXO();
-
-}
-
-function checkWinner(){
-
-const wins=[
-[0,1,2],[3,4,5],[6,7,8],
-[0,3,6],[1,4,7],[2,5,8],
-[0,4,8],[2,4,6]
-];
-
-for(const combo of wins){
-
-const[a,b,c]=combo;
-
-if(
-xoBoard[a]&&
-xoBoard[a]===xoBoard[b]&&
-xoBoard[a]===xoBoard[c]
-){
-return xoBoard[a];
-}
-
-}
-
-return null;
-
-}
-
-function saveXOScores(){
-
-localStorage.setItem(
-"xoScores",
-JSON.stringify(xoScores)
-);
-
+sound();
 }
 
 function resetXO(){
-
-xoBoard=["","","","","","","","",""];
-xoTurn="X";
-
+xo=["","","","","","","","",""];
+turn="X";
 renderXO();
+}
+
+/* BATTLE GAME */
+
+let battleTurn=1,battleScore1=0,battleScore2=0,battleRounds=0;
+
+function renderBattle(){
+document.getElementById("battle1").textContent=battleScore1;
+document.getElementById("battle2").textContent=battleScore2;
+document.getElementById("battleTurn").textContent="PLAYER "+battleTurn+" TURN";
+}
+
+function battleMove(type){
+
+let power=Math.floor(Math.random()*100)+1;
+
+if(battleTurn===1)battleScore1+=power;
+else battleScore2+=power;
+
+battleRounds++;
+
+alert(type+" POWER: "+power);
+
+battleTurn=battleTurn===1?2:1;
+
+if(battleRounds>=10){
+
+let winner=battleScore1>battleScore2?"PLAYER 1":
+battleScore2>battleScore1?"PLAYER 2":"DRAW";
+
+alert("BATTLE FINISHED!\n\nPLAYER 1: "+battleScore1+
+"\nPLAYER 2: "+battleScore2+"\n\n"+winner+" WINS!");
 
 }
 
-/* FT GAME */
-
-const players=[
-{name:"Erling Haaland",position:"ST"},
-{name:"Kevin De Bruyne",position:"CM"},
-{name:"Virgil van Dijk",position:"CB"},
-{name:"Alisson",position:"GK"},
-{name:"Kylian Mbappé",position:"ST"},
-{name:"Rodri",position:"CDM"},
-{name:"Mohamed Salah",position:"RW"},
-{name:"Jude Bellingham",position:"CAM"},
-{name:"Trent Alexander-Arnold",position:"RB"},
-{name:"Vinícius Júnior",position:"LW"}
-];
-
-let ftIndex=0;
-let ftTurn=1;
-
-let ftScores=JSON.parse(
-localStorage.getItem("ftScores")
-)||{
-one:0,
-two:0
-};
-
-function renderFT(){
-
-const player=players[ftIndex];
-
-document.getElementById("ftTurn").textContent=
-"PLAYER "+ftTurn+" TURN";
-
-document.getElementById("playerQuestion").textContent=
-player.name;
-
-document.getElementById("ftScore1").textContent=
-ftScores.one;
-
-document.getElementById("ftScore2").textContent=
-ftScores.two;
-
-const positions=[
-"GK","CB","RB","LB",
-"CDM","CM","CAM",
-"LW","RW","ST"
-];
-
-const container=
-document.getElementById("positionButtons");
-
-container.innerHTML="";
-
-positions.forEach(position=>{
-
-container.innerHTML+=`
-
-<button onclick="answerFT('${position}')">
-${position}
-</button>
-
-`;
-
-});
-
+renderBattle();
+sound();
 }
 
-function answerFT(position){
-
-const player=players[ftIndex];
-
-if(position===player.position){
-
-if(ftTurn===1)ftScores.one++;
-else ftScores.two++;
-
-alert("✓ CORRECT! +1 POINT");
-
-}else{
-
-alert("✕ WRONG! 0 POINT");
-
+function resetBattle(){
+battleTurn=1;battleScore1=0;battleScore2=0;battleRounds=0;
+renderBattle();
 }
 
-clickSound();
+/* REACTION */
 
-ftTurn=ftTurn===1?2:1;
+let reactionTurn=1,r1=0,r2=0;
+let waiting=false,ready=false,reactionTimer;
 
-ftIndex++;
-
-if(ftIndex>=players.length){
-
-let message="DRAW!";
-
-if(ftScores.one>ftScores.two)
-message="PLAYER 1 WINS!";
-
-if(ftScores.two>ftScores.one)
-message="PLAYER 2 WINS!";
-
-saveFTScores();
-
-alert(
-"GAME FINISHED!\n\n"+
-"Player 1: "+ftScores.one+
-"\nPlayer 2: "+ftScores.two+
-"\n\n"+message
-);
-
-ftIndex=0;
-
+function renderReaction(){
+document.getElementById("reaction1").textContent=r1;
+document.getElementById("reaction2").textContent=r2;
+document.getElementById("reactionTurn").textContent="PLAYER "+reactionTurn+" TURN";
 }
 
-saveFTScores();
-renderFT();
+function reactionPress(){
 
+let msg=document.getElementById("reactionMessage");
+let btn=document.getElementById("reactionButton");
+
+if(!waiting){
+
+waiting=true;
+ready=false;
+
+msg.textContent="WAIT...";
+
+reactionTimer=setTimeout(()=>{
+ready=true;
+msg.textContent="⚡ NOW!";
+btn.textContent="PRESS!";
+},Math.random()*3000+1500);
+
+return;
 }
 
-function saveFTScores(){
+if(!ready){
 
-localStorage.setItem(
-"ftScores",
-JSON.stringify(ftScores)
-);
+clearTimeout(reactionTimer);
+waiting=false;
 
+alert("Too early! 0 points.");
+
+reactionTurn=reactionTurn===1?2:1;
+msg.textContent="Ready?";
+btn.textContent="START";
+
+renderReaction();
+return;
 }
 
-function resetFT(){
+if(reactionTurn===1)r1++;
+else r2++;
 
-ftIndex=0;
-ftTurn=1;
+alert("⚡ GREAT REACTION! +1");
 
-ftScores={one:0,two:0};
+reactionTurn=reactionTurn===1?2:1;
+waiting=false;
+ready=false;
 
-saveFTScores();
-renderFT();
+msg.textContent="Ready?";
+btn.textContent="START";
 
+renderReaction();
+sound();
+}
+
+function resetReaction(){
+reactionTurn=1;r1=0;r2=0;waiting=false;ready=false;
+document.getElementById("reactionMessage").textContent="Ready?";
+document.getElementById("reactionButton").textContent="START";
+renderReaction();
 }
 
 /* NOTES */
 
-function renderNoteLogin(){
+function renderNote(){
 
-const container=document.getElementById("noteLogin");
+let box=document.getElementById("noteLogin");
 
-if(!notePassword){
+if(!password){
 
-container.innerHTML=`
-
-<div class="note-card">
-
+box.innerHTML=`
+<div class="card">
 <label>CREATE PASSWORD</label>
+<input id="newPass" type="password" placeholder="Choose password">
+<button class="primary" onclick="createPassword()">Create Private Note</button>
+</div>`;
 
-<input
-id="newPassword"
-type="password"
-placeholder="Choose a password"
->
+}else{
 
-<button
-class="primary-button"
-onclick="createNotePassword()">
-Create Private Note
-</button>
-
-</div>
-
-`;
-
-return;
-}
-
-container.innerHTML=`
-
-<div class="note-card">
-
+box.innerHTML=`
+<div class="card">
 <label>ENTER PASSWORD</label>
-
-<input
-id="loginPassword"
-type="password"
-placeholder="Password"
->
-
-<button
-class="primary-button"
-onclick="openNotes()">
-Open Notes
-</button>
-
-</div>
-
-`;
-
+<input id="loginPass" type="password" placeholder="Password">
+<button class="primary" onclick="openNotes()">Open Notes</button>
+</div>`;
+}
 }
 
-function createNotePassword(){
-
-const password=
-document.getElementById("newPassword").value;
-
-if(password.length<1){
-
-alert("Enter a password.");
-return;
-
-}
-
-notePassword=password;
-
-localStorage.setItem(
-"studyNotePassword",
-password
-);
-
+function createPassword(){
+password=newPass.value;
+if(!password)return alert("Enter password");
+localStorage.setItem("notePassword",password);
 showPage("noteEditor");
-
 }
 
 function openNotes(){
-
-const password=
-document.getElementById("loginPassword").value;
-
-if(password!==notePassword){
-
-alert("Wrong password.");
-return;
-
-}
-
+if(loginPass.value!==password)return alert("Wrong password");
 showPage("noteEditor");
-
 }
 
 function saveNote(){
 
-const text=
-document.getElementById("noteText").value.trim();
-
+let text=noteText.value.trim();
 if(!text)return;
 
-notes.unshift({
-id:Date.now(),
-text:text,
-time:new Date().toLocaleString()
-});
+notes.unshift({id:Date.now(),text,time:now()});
 
-localStorage.setItem(
-"studyNotes",
-JSON.stringify(notes)
-);
+localStorage.setItem("notes",JSON.stringify(notes));
 
-document.getElementById("noteText").value="";
-
-clickSound();
-
+noteText.value="";
 renderNotes();
-
+sound();
 }
 
 function renderNotes(){
 
-const container=document.getElementById("noteList");
+let box=document.getElementById("notes");
+box.innerHTML="";
 
 if(!notes.length){
-
-container.innerHTML=
-'<div class="empty">No notes yet.</div>';
-
+box.innerHTML='<div class="sub">No notes yet.</div>';
 return;
 }
 
-container.innerHTML="";
-
-notes.forEach(note=>{
-
-container.innerHTML+=`
-
-<div class="note-item">
-
-<div>
-
-<strong>${escapeHTML(note.text)}</strong>
-
-<div style="color:#777;font-size:11px;margin-top:6px">
-${note.time}
-</div>
-
-</div>
-
-<button onclick="deleteNote(${note.id})">
-Delete
-</button>
-
-</div>
-
-`;
-
+notes.forEach(n=>{
+box.innerHTML+=`
+<div class="task">
+<b>${esc(n.text)}</b>
+<div class="date">${n.time}</div>
+<button class="more" onclick="deleteNote(${n.id})">Delete</button>
+</div>`;
 });
-
 }
 
 function deleteNote(id){
-
-notes=notes.filter(note=>note.id!==id);
-
-localStorage.setItem(
-"studyNotes",
-JSON.stringify(notes)
-);
-
+notes=notes.filter(n=>n.id!==id);
+localStorage.setItem("notes",JSON.stringify(notes));
 renderNotes();
-
 }
 
 function changePassword(){
 
-const oldPassword=prompt(
-"Enter your current password:"
-);
+let old=prompt("Current password:");
 
-if(oldPassword!==notePassword){
+if(old!==password)return alert("Wrong password");
 
-alert("Wrong password.");
-return;
+let next=prompt("New password:");
 
+if(next){
+password=next;
+localStorage.setItem("notePassword",password);
+alert("Password changed!");
+}
 }
 
-const newPassword=prompt(
-"Enter your new password:"
-);
-
-if(!newPassword)return;
-
-notePassword=newPassword;
-
-localStorage.setItem(
-"studyNotePassword",
-newPassword
-);
-
-alert("Password changed successfully.");
-
-}
-
-/* INITIAL */
+/* START */
 
 renderTasks();
 renderMoney();
+renderXO();
+renderBattle();
+renderReaction();
 
 </script>
-
 </body>
 </html>
