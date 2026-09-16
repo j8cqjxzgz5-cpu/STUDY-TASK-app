@@ -72,17 +72,16 @@ textarea{
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
+  flex-direction:column;
 }
 
 .splash-inner{
-  width:100%;
-  padding:30px;
+  text-align:center;
 }
 
 .splash-logo{
-  width:88px;
-  height:88px;
+  width:82px;
+  height:82px;
   margin:0 auto 22px;
   border-radius:27px;
   background:#fff;
@@ -679,35 +678,31 @@ textarea{
 ========================= */
 
 .chart-card{
-  padding:20px;
+  padding:25px 19px;
   overflow:hidden;
-  text-align:center;
 }
 
 .daily-spending-label{
   color:var(--muted);
   font-size:10px;
   font-weight:900;
-  letter-spacing:1.5px;
-  margin-bottom:8px;
+  letter-spacing:1px;
+  text-align:center;
 }
 
 .daily-spending-percent{
-  font-size:48px;
+  font-size:64px;
   line-height:1;
   font-weight:950;
-  letter-spacing:-1px;
+  text-align:center;
+  margin:15px 0 10px;
 }
 
 .daily-spending-caption{
   color:var(--muted);
+  text-align:center;
   font-size:12px;
   line-height:1.5;
-  margin-top:10px;
-}
-
-#moneyChart{
-  display:none;
 }
 
 /* =========================
@@ -744,244 +739,231 @@ textarea{
 }
 
 /* =========================
+   POINT EXCHANGE
+========================= */
+
+.points-balance-card{
+  background:linear-gradient(145deg,#171717,#0d0d0d);
+  border:1px solid #303030;
+  border-radius:24px;
+  padding:22px;
+  margin-bottom:14px;
+}
+
+.points-label{
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.points-balance{
+  font-size:43px;
+  font-weight:950;
+  margin-top:5px;
+}
+
+.points-balance span{
+  font-size:15px;
+  color:var(--muted);
+}
+
+.points-boost{
+  margin-top:13px;
+  padding:12px;
+  border-radius:14px;
+  background:#132b1e;
+  color:var(--green);
+  font-size:12px;
+  font-weight:900;
+}
+
+.exchange-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
+  margin-bottom:10px;
+}
+
+.exchange-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.exchange-title{
+  font-size:15px;
+  font-weight:900;
+}
+
+.exchange-cost{
+  color:var(--yellow);
+  font-size:12px;
+  font-weight:950;
+  white-space:nowrap;
+}
+
+.exchange-description{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+  margin-top:7px;
+}
+
+.exchange-button{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  margin-top:13px;
+  background:#202020;
+  color:#fff;
+  font-weight:900;
+}
+
+.exchange-button:disabled{
+  opacity:.35;
+}
+
+.rules-card{
+  background:#090909;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
+  margin-top:18px;
+}
+
+.rules-title{
+  font-size:13px;
+  font-weight:950;
+  margin-bottom:10px;
+}
+
+.rule-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px solid #1f1f1f;
+  font-size:12px;
+}
+
+.rule-row:last-child{
+  border-bottom:0;
+}
+
+.rule-points{
+  font-weight:950;
+}
+
+.points-toast{
+  position:fixed;
+  z-index:1000;
+  left:16px;
+  right:16px;
+  bottom:92px;
+  max-width:648px;
+  margin:auto;
+  background:#171717;
+  border:1px solid #343434;
+  border-radius:18px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 15px 40px rgba(0,0,0,.45);
+  transform:translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.22s ease;
+}
+
+.points-toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.points-toast-icon{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+}
+
+.points-toast-title{
+  font-size:13px;
+  font-weight:950;
+}
+
+.points-toast-text{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* =========================
    NOTES
 ========================= */
+
+.note-tools{
+  display:flex;
+  gap:8px;
+}
+
+.note-tools input{
+  flex:1;
+}
 
 .note{
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:15px;
-  margin-bottom:10px;
+  padding:16px;
+  margin-bottom:11px;
 }
 
 .note-content{
-  font-size:14px;
-  line-height:1.55;
   white-space:pre-wrap;
+  line-height:1.55;
+  font-size:14px;
 }
 
 .note-date{
   color:#666;
   font-size:10px;
-  margin-top:9px;
+  margin-top:10px;
 }
 
 .note-buttons{
   display:flex;
   gap:8px;
-  margin-top:12px;
+  margin-top:13px;
 }
 
 .note-buttons button{
   flex:1;
   border:0;
-  border-radius:10px;
   padding:10px;
-  font-size:11px;
-  font-weight:900;
+  border-radius:11px;
+  color:#fff;
+  font-weight:800;
 }
 
 .note-edit{
-  background:#202020;
-  color:#fff;
+  background:#262626;
 }
 
 .note-delete{
   background:#3b1717;
-  color:var(--red);
-}
-
-/* =========================
-   SETTINGS
-========================= */
-
-.settings-row{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:var(--surface);
-  border:1px solid var(--line);
-  color:#fff;
-  border-radius:17px;
-  padding:15px;
-  margin-bottom:9px;
-}
-
-.settings-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.settings-icon{
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:#202020;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.settings-arrow{
-  color:#666;
-}
-
-.settings-menu{
-  display:none;
-  background:#0b0b0b;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:8px;
-  margin:-2px 0 10px;
-}
-
-.settings-menu.open{
-  display:block;
-}
-
-.settings-option{
-  width:100%;
-  background:transparent;
-  border:0;
-  color:#fff;
-  padding:13px;
-  border-radius:12px;
-  text-align:left;
-}
-
-.settings-option:active{
-  background:#1b1b1b;
-}
-
-/* =========================
-   POINT EXCHANGE
-========================= */
-
-.points-balance-card{
-  text-align:center;
-  background:linear-gradient(145deg,#151515,#0b0b0b);
-}
-
-.points-balance-label{
-  color:var(--muted);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.5px;
-}
-
-.points-balance{
-  font-size:52px;
-  font-weight:950;
-  line-height:1;
-  margin:10px 0 4px;
-}
-
-.points-unit{
-  color:#777;
-  font-size:12px;
-  font-weight:900;
-}
-
-.point-rule{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-  gap:12px;
-}
-
-.point-rule:last-child{
-  border-bottom:0;
-}
-
-.point-rule-name{
-  font-size:13px;
-  font-weight:800;
-}
-
-.point-rule-value{
-  font-size:13px;
-  font-weight:950;
-  white-space:nowrap;
-}
-
-.exchange-card{
-  position:relative;
-}
-
-.exchange-option{
-  background:#090909;
-  border:1px solid #242424;
-  border-radius:17px;
-  padding:15px;
-  margin-bottom:9px;
-}
-
-.exchange-option:last-child{
-  margin-bottom:0;
-}
-
-.exchange-option-title{
-  font-weight:900;
-  font-size:14px;
-}
-
-.exchange-option-desc{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.45;
-  margin-top:4px;
-}
-
-.exchange-option button{
-  width:100%;
-  margin-top:11px;
-  border:0;
-  border-radius:11px;
-  padding:11px;
-  background:#fff;
-  color:#000;
-  font-size:12px;
-  font-weight:950;
-}
-
-.boost-active{
-  color:var(--green);
-  background:#123322;
-  border-radius:12px;
-  padding:12px;
-  margin-top:12px;
-  font-size:12px;
-  font-weight:900;
-  text-align:center;
-}
-
-.points-toast{
-  position:fixed;
-  left:50%;
-  bottom:88px;
-  transform:translateX(-50%) translateY(20px);
-  background:#f5f5f5;
-  color:#000;
-  border-radius:15px;
-  padding:12px 16px;
-  font-size:12px;
-  font-weight:900;
-  z-index:5000;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s ease;
-  max-width:calc(100% - 30px);
-  text-align:center;
-}
-
-.points-toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+  color:var(--red)!important;
 }
 
 /* =========================
@@ -992,9 +974,7 @@ textarea{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
   cursor:pointer;
-  padding:17px 18px;
   background:linear-gradient(145deg,#151515,#0d0d0d);
 }
 
@@ -1002,214 +982,24 @@ textarea{
   color:var(--muted);
   font-size:9px;
   font-weight:900;
-  letter-spacing:1.5px;
+  letter-spacing:1px;
 }
 
 .home-points-value{
-  margin-top:4px;
-  font-size:25px;
+  font-size:27px;
   font-weight:950;
+  margin-top:4px;
 }
 
 .home-points-unit{
-  color:#777;
-  font-size:10px;
-  margin-left:3px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:900;
 }
 
 .home-points-arrow{
-  color:#666;
-  font-size:30px;
-  line-height:1;
-}
-
-/* =========================
-   HOME FOOTER
-========================= */
-
-.home-footer{
-  text-align:center;
-  color:#555;
-  font-size:11px;
-  font-weight:300;
-  letter-spacing:.3px;
-  line-height:1.7;
-  margin:22px 0 8px;
-}
-
-/* =========================
-   EMPLOYEES SCHEDULE
-========================= */
-
-.employees-toolbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:12px;
-}
-
-.employees-toolbar-title{
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.4px;
-}
-
-.employees-toolbar-sub{
-  color:var(--muted);
-  font-size:10px;
-  margin-top:3px;
-}
-
-.employees-toolbar-actions{
-  display:flex;
-  gap:7px;
-}
-
-.employees-action{
-  border:1px solid var(--line);
-  background:#171717;
-  color:#fff;
-  border-radius:11px;
-  padding:9px 10px;
-  font-size:10px;
-  font-weight:900;
-}
-
-.employees-card{
-  padding:9px;
-  overflow:hidden;
-}
-
-.employees-scroll{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  padding-bottom:3px;
-}
-
-.employees-table{
-  width:100%;
-  min-width:620px;
-  border-collapse:collapse;
-  table-layout:fixed;
-  background:#090909;
-}
-
-.employees-table th,
-.employees-table td{
-  border:1px solid #303030;
-}
-
-.employees-table th{
-  height:40px;
-  background:#111;
-  color:#d8d8d8;
-  font-size:10px;
-  font-weight:900;
-  text-align:center;
-  white-space:nowrap;
-}
-
-.employees-table th.time-head{
-  width:73px;
-}
-
-.employees-table th.day-head{
-  min-width:88px;
-}
-
-.employee-cell{
-  min-width:88px;
-  height:66px;
-  padding:5px;
-  vertical-align:middle;
-  background:#0c0c0c;
-  color:#fff;
-  text-align:center;
-  font-size:10px;
-  line-height:1.3;
-  white-space:pre-wrap;
-  word-break:break-word;
-  outline:none;
-  transition:.15s ease;
-  user-select:none;
-  -webkit-user-select:none;
-}
-
-.employee-cell:focus{
-  box-shadow:inset 0 0 0 2px #fff;
-}
-
-.employee-cell.dragging{
-  opacity:.45;
-}
-
-.employee-cell.drop-target{
-  box-shadow:inset 0 0 0 2px #fff;
-}
-
-.employee-cell[data-color="green"]{
-  background:rgba(53,208,127,.20);
-  color:#7cf0ae;
-}
-
-.employee-cell[data-color="yellow"]{
-  background:rgba(243,199,75,.20);
-  color:#f7d66e;
-}
-
-.employee-cell[data-color="red"]{
-  background:rgba(255,80,80,.20);
-  color:#ff8a8a;
-}
-
-.employee-cell[data-color="blue"]{
-  background:rgba(70,145,255,.20);
-  color:#8ebaff;
-}
-
-.employee-day{
-  background:#111;
-  color:#fff;
-  font-weight:950;
-  width:73px;
-  text-align:center;
-  font-size:10px;
-}
-
-.employee-cell-placeholder{
-  color:#555;
-}
-
-.employees-colors{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:12px;
-}
-
-.employee-color-btn{
-  border:1px solid #303030;
-  border-radius:10px;
-  padding:8px 10px;
-  color:#fff;
-  background:#171717;
-  font-size:9px;
-  font-weight:900;
-}
-
-.employee-color-btn.none{background:#151515}
-.employee-color-btn.green{background:rgba(53,208,127,.20);color:#7cf0ae}
-.employee-color-btn.yellow{background:rgba(243,199,75,.20);color:#f7d66e}
-.employee-color-btn.red{background:rgba(255,80,80,.20);color:#ff8a8a}
-.employee-color-btn.blue{background:rgba(70,145,255,.20);color:#8ebaff}
-
-.employees-hint{
-  color:#666;
-  font-size:10px;
-  line-height:1.5;
-  margin-top:10px;
+  color:#777;
+  font-size:28px;
 }
 
 /* =========================
@@ -1218,198 +1008,127 @@ textarea{
 
 .bottom-nav{
   position:fixed;
-  left:50%;
-  bottom:12px;
-  transform:translateX(-50%);
-  width:min(650px,calc(100% - 20px));
-  background:rgba(16,16,16,.96);
-  border:1px solid #2c2c2c;
-  border-radius:22px;
-  padding:7px;
+  z-index:500;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(8,8,8,.98);
+  border-top:1px solid #222;
+  padding:
+    8px
+    8px
+    calc(8px + env(safe-area-inset-bottom));
+}
+
+.nav-inner{
+  max-width:680px;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:5px;
-  z-index:3000;
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
 }
 
 .nav-button{
   border:0;
   background:transparent;
   color:#777;
-  border-radius:16px;
-  padding:9px 3px;
-  font-size:9px;
-  font-weight:900;
+  border-radius:14px;
+  padding:8px 4px;
+  font-size:10px;
+  font-weight:800;
 }
 
 .nav-button.active{
-  background:#fff;
-  color:#000;
-}
-
-.nav-icon{
-  display:block;
-  font-size:17px;
-  margin-bottom:3px;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.78);
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  z-index:6000;
-  padding:15px;
-}
-
-.modal.open{
-  display:flex;
-}
-
-.modal-card{
-  width:100%;
-  max-width:650px;
-  background:#111;
-  border:1px solid #303030;
-  border-radius:25px;
-  padding:20px;
-  max-height:88vh;
-  overflow-y:auto;
-}
-
-.modal-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:5px;
-}
-
-.modal-title{
-  font-size:19px;
-  font-weight:950;
-}
-
-.close-modal{
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:11px;
-  background:#222;
+  background:#181818;
   color:#fff;
 }
 
-/* =========================
-   TOAST
-========================= */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:95px;
-  transform:translateX(-50%) translateY(20px);
-  background:#fff;
-  color:#000;
-  border-radius:14px;
-  padding:11px 15px;
-  font-size:11px;
-  font-weight:900;
-  z-index:7000;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s ease;
-  max-width:calc(100% - 30px);
-  text-align:center;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+.nav-icon{
+  font-size:18px;
+  margin-bottom:3px;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width:430px){
-
-  .app{
-    padding-bottom:102px;
-  }
-
-  .header{
-    padding-top:18px;
-  }
+@media(max-width:380px){
 
   .brand{
-    font-size:26px;
-  }
-
-  .page-title{
     font-size:25px;
   }
 
-  .money-balance{
-    font-size:36px;
+  .user-chip{
+    max-width:125px;
   }
 
   .points-balance{
-    font-size:45px;
-  }
-
-  .employees-table{
-    min-width:590px;
-  }
-
-  .employee-cell{
-    min-width:82px;
-    height:63px;
-  }
-
-  .employees-table th.time-head,
-  .employee-day{
-    width:67px;
+    font-size:38px;
   }
 
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     SPLASH
+========================= -->
+
 <div id="splash">
+
   <div class="splash-inner">
-    <div class="splash-logo">S</div>
-    <div class="splash-title">STUDY</div>
-    <div class="splash-sub">ENGINEERING STUDY SYSTEM</div>
+
+    <div class="splash-logo">
+      S
+    </div>
+
+    <div class="splash-title">
+      STUDY
+    </div>
+
+    <div class="splash-sub">
+      Focus. Plan. Complete.
+    </div>
+
     <div class="splash-made">
       Made in Tunisia 🇹🇳<br>
       by Jasser Nouaili
     </div>
+
   </div>
+
 </div>
 
+
+<!-- =========================
+     USER NAME
+========================= -->
+
 <div id="userSetup" class="hidden">
+
   <div class="setup-card">
-    <div class="setup-logo">S</div>
-    <div class="setup-title">Welcome to STUDY</div>
-    <div class="setup-description">
-      Create your local profile. Everything stays on this device.
+
+    <div class="setup-logo">
+      S
     </div>
 
-    <label for="userNameInput">YOUR NAME</label>
+    <div class="setup-title">
+      Welcome to STUDY
+    </div>
+
+    <div class="setup-description">
+      Create your local profile to start using
+      your personal study workspace.
+    </div>
+
+    <label>
+      YOUR NAME
+    </label>
+
     <input
       id="userNameInput"
-      type="text"
       maxlength="30"
       placeholder="Enter your name"
       autocomplete="off"
@@ -1419,62 +1138,84 @@ textarea{
       class="primary"
       onclick="startWithName()"
     >
-      Continue
+      Enter STUDY
     </button>
+
   </div>
+
 </div>
 
-<div id="mainApp" class="app hidden">
+
+<!-- =========================
+     APP
+========================= -->
+
+<div
+  id="app"
+  class="app hidden"
+>
 
   <header class="header">
 
     <div>
-      <div class="brand">STUDY</div>
-      <div class="brand-sub">
-        ENGINEERING STUDY SYSTEM
+
+      <div class="brand">
+        STUDY
       </div>
+
+      <div class="brand-sub">
+        Personal workspace
+      </div>
+
     </div>
+
 
     <div
       class="user-chip"
-      onclick="showPage('profile')"
+      onclick="showPage('settings')"
     >
+
       <div
+        id="topAvatar"
         class="avatar"
-        id="headerAvatar"
       >
-        S
+        J
       </div>
 
       <div
+        id="topUsername"
         class="user-chip-name"
-        id="headerUsername"
       >
         User
       </div>
+
     </div>
 
   </header>
 
 
-  <!-- ================= HOME ================= -->
+  <!-- =========================
+       HOME
+  ========================= -->
 
-  <main
+  <section
     id="home"
     class="page active"
   >
 
     <div class="hero card">
 
-      <div class="hero-symbol">S</div>
+      <div class="hero-symbol">
+        ◆
+      </div>
 
-      <h1 id="homeGreeting">
-        Welcome
+      <h1 id="welcomeText">
+        Welcome 👋
       </h1>
 
       <p>
-        Stay focused. Build consistency.
-        Keep moving forward.
+        Your personal workspace to organize tasks,
+        money, notes and daily progress.
       </p>
 
     </div>
@@ -1483,63 +1224,90 @@ textarea{
     <div class="dashboard">
 
       <div class="dash-card">
-        <small>ACTIVE TASKS</small>
-        <strong id="activeTasksCount">0</strong>
-      </div>
 
-      <div class="dash-card">
-        <small>URGENT</small>
-        <strong
-          id="urgentTasksCount"
-          class="red-text"
-        >
+        <small>
+          ACTIVE TASKS
+        </small>
+
+        <strong id="dashActive">
           0
         </strong>
+
       </div>
 
+
       <div class="dash-card">
-        <small>COMPLETED</small>
+
+        <small>
+          SUCCESS RATE
+        </small>
+
+        <strong id="dashSuccess">
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <small>
+          POCKET MONEY
+        </small>
+
         <strong
-          id="completedTasksCount"
+          id="dashMoney"
           class="green-text"
         >
-          0
-        </strong>
-      </div>
-
-      <div class="dash-card">
-        <small>POCKET MONEY</small>
-        <strong id="homeMoneyBalance">
           0 DT
         </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <small>
+          COMPLETED
+        </small>
+
+        <strong id="dashCompleted">
+          0
+        </strong>
+
       </div>
 
     </div>
 
 
-    <div
-      id="homeNextTask"
-      class="card hidden"
-    >
-    </div>
+    <div id="homeNextTask"></div>
 
 
     <div
-      id="homePointsCard"
       class="card home-points-card"
       onclick="showPage('play')"
     >
 
       <div>
+
         <div class="home-points-label">
           POINTS
         </div>
 
         <div class="home-points-value">
-          <span id="homePointsBalance">0</span>
-          <span class="home-points-unit">PTS</span>
+
+          <span id="homePointsBalance">
+            0
+          </span>
+
+          <span class="home-points-unit">
+            PTS
+          </span>
+
         </div>
+
       </div>
+
 
       <div class="home-points-arrow">
         ›
@@ -1548,9 +1316,38 @@ textarea{
     </div>
 
 
-    <div class="section-title">
-      Quick Access
-    </div>
+    <button
+      class="menu-button"
+      onclick="showPage('quick')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          ✓
+        </span>
+
+        <span>
+
+          <b>
+            Quick Check
+          </b>
+
+          <br>
+
+          <small style="color:#777">
+            Check today's active work
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
 
 
     <button
@@ -1558,122 +1355,65 @@ textarea{
       onclick="showPage('plan')"
     >
 
-      <div class="menu-button-left">
+      <span class="menu-button-left">
 
-        <div class="menu-icon">
-          ✓
-        </div>
-
-        <div>
-          <b>Plan</b><br>
-          <span class="brand-sub">
-            Manage your tasks
-          </span>
-        </div>
-
-      </div>
-
-      <div class="menu-arrow">›</div>
-
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('quick')"
-    >
-
-      <div class="menu-button-left">
-
-        <div class="menu-icon">
-          !
-        </div>
-
-        <div>
-          <b>Quick Check</b><br>
-          <span class="brand-sub">
-            See urgent tasks
-          </span>
-        </div>
-
-      </div>
-
-      <div class="menu-arrow">›</div>
-
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('employees')"
-    >
-
-      <div class="menu-button-left">
-
-        <div class="menu-icon">
+        <span class="menu-icon">
           ▦
-        </div>
+        </span>
 
-        <div>
-          <b>Employees</b><br>
-          <span class="brand-sub">
-            Weekly schedule
-          </span>
-        </div>
+        <span>
 
-      </div>
+          <b>
+            Plan
+          </b>
 
-      <div class="menu-arrow">›</div>
+          <br>
 
-    </button>
+          <small style="color:#777">
+            Organize your tasks
+          </small>
 
+        </span>
 
-    <button
-      class="menu-button"
-      onclick="showPage('money')"
-    >
+      </span>
 
-      <div class="menu-button-left">
-
-        <div class="menu-icon">
-          DT
-        </div>
-
-        <div>
-          <b>Pocket Money</b><br>
-          <span class="brand-sub">
-            Track your money
-          </span>
-        </div>
-
-      </div>
-
-      <div class="menu-arrow">›</div>
+      <span class="menu-arrow">
+        ›
+      </span>
 
     </button>
 
 
     <button
       class="menu-button"
-      onclick="showPage('play')"
+      onclick="showPage('settings')"
     >
 
-      <div class="menu-button-left">
+      <span class="menu-button-left">
 
-        <div class="menu-icon">
-          ★
-        </div>
+        <span class="menu-icon">
+          ⚙
+        </span>
 
-        <div>
-          <b>Point Exchange</b><br>
-          <span class="brand-sub">
-            Earn and exchange points
-          </span>
-        </div>
+        <span>
 
-      </div>
+          <b>
+            Settings
+          </b>
 
-      <div class="menu-arrow">›</div>
+          <br>
+
+          <small style="color:#777">
+            More STUDY tools
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
 
     </button>
 
@@ -1683,12 +1423,36 @@ textarea{
       by Jasser Nouaili
     </div>
 
-  </main>
+  </section>
 
 
-  <!-- ================= PLAN ================= -->
+  <!-- =========================
+       QUICK CHECK
+  ========================= -->
 
-  <main
+  <section
+    id="quick"
+    class="page"
+  >
+
+    <div class="page-title">
+      Quick Check
+    </div>
+
+    <div class="page-sub">
+      Only your most urgent active tasks.
+    </div>
+
+    <div id="quickTasks"></div>
+
+  </section>
+
+
+  <!-- =========================
+       PLAN
+  ========================= -->
+
+  <section
     id="plan"
     class="page"
   >
@@ -1698,51 +1462,41 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Organize your work and track every deadline.
+      Create and manage your tasks.
     </div>
 
 
     <div class="card">
 
-      <label for="taskName">
-        TASK / WORK NAME
+      <label>
+        TASK NAME
       </label>
 
       <input
         id="taskName"
-        type="text"
-        maxlength="80"
-        placeholder="Example: Study chapter 3"
+        maxlength="100"
+        placeholder="What do you need to do?"
       >
 
 
-      <label for="taskDescription">
+      <label>
         DESCRIPTION
       </label>
 
       <textarea
         id="taskDescription"
-        placeholder="Add details..."
+        maxlength="1000"
+        placeholder="Add a description..."
       ></textarea>
 
 
-      <label for="taskDate">
-        DATE
+      <label>
+        DATE & TIME
       </label>
 
       <input
         id="taskDate"
-        type="date"
-      >
-
-
-      <label for="taskTime">
-        TIME
-      </label>
-
-      <input
-        id="taskTime"
-        type="time"
+        type="datetime-local"
       >
 
 
@@ -1757,177 +1511,26 @@ textarea{
 
 
     <div class="section-title">
-      Your Tasks
+      Active Plan
     </div>
 
-    <div id="planTasks"></div>
-
-  </main>
+    <div id="activeTasks"></div>
 
 
-  <!-- ================= QUICK CHECK ================= -->
-
-  <main
-    id="quick"
-    class="page"
-  >
-
-    <div class="page-title">
-      Quick Check
+    <div class="section-title">
+      Task Records
     </div>
 
-    <div class="page-sub">
-      Only urgent tasks appear here.
-    </div>
+    <div id="taskRecords"></div>
 
-    <div id="quickTasks"></div>
-
-  </main>
+  </section>
 
 
-  <!-- ================= EMPLOYEES ================= -->
+  <!-- =========================
+       MONEY
+  ========================= -->
 
-  <main
-    id="employees"
-    class="page"
-  >
-
-    <div class="page-title">
-      Employees
-    </div>
-
-    <div class="page-sub">
-      Weekly schedule
-    </div>
-
-
-    <div class="employees-toolbar">
-
-      <div>
-        <div class="employees-toolbar-title">
-          WEEKLY SCHEDULE
-        </div>
-
-        <div class="employees-toolbar-sub">
-          Monday → Saturday · 08:00 → 18:00
-        </div>
-      </div>
-
-      <div class="employees-toolbar-actions">
-
-        <button
-          class="employees-action"
-          onclick="clearEmployees()"
-        >
-          Clear
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="card employees-card">
-
-      <div class="employees-scroll">
-
-        <table class="employees-table">
-
-          <thead>
-            <tr>
-
-              <th class="time-head">
-                TIME
-              </th>
-
-              <th class="day-head">
-                MONDAY
-              </th>
-
-              <th class="day-head">
-                TUESDAY
-              </th>
-
-              <th class="day-head">
-                WEDNESDAY
-              </th>
-
-              <th class="day-head">
-                THURSDAY
-              </th>
-
-              <th class="day-head">
-                FRIDAY
-              </th>
-
-              <th class="day-head">
-                SATURDAY
-              </th>
-
-            </tr>
-          </thead>
-
-
-          <tbody id="employeesBody"></tbody>
-
-        </table>
-
-      </div>
-
-
-      <div class="employees-colors">
-
-        <button
-          class="employee-color-btn none"
-          onclick="setEmployeeColor('none')"
-        >
-          NONE
-        </button>
-
-        <button
-          class="employee-color-btn green"
-          onclick="setEmployeeColor('green')"
-        >
-          GREEN
-        </button>
-
-        <button
-          class="employee-color-btn yellow"
-          onclick="setEmployeeColor('yellow')"
-        >
-          YELLOW
-        </button>
-
-        <button
-          class="employee-color-btn red"
-          onclick="setEmployeeColor('red')"
-        >
-          RED
-        </button>
-
-        <button
-          class="employee-color-btn blue"
-          onclick="setEmployeeColor('blue')"
-        >
-          BLUE
-        </button>
-
-      </div>
-
-
-      <div class="employees-hint">
-        Tap a cell to write or edit. Long-press / drag a cell to move it.
-        Select a color below, then tap a cell to color it.
-      </div>
-
-    </div>
-
-  </main>
-
-
-  <!-- ================= MONEY ================= -->
-
-  <main
+  <section
     id="money"
     class="page"
   >
@@ -1937,34 +1540,52 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Manage your balance and track your spending.
+      Track your balance and spending.
     </div>
 
 
     <div class="card">
 
-      <div
-        id="moneyBalance"
-        class="money-balance"
-      >
-        0.00 DT
+      <div class="money-balance">
+
+        <span id="moneyBalance">
+          0.00 DT
+        </span>
+
       </div>
 
 
       <div class="money-stats">
 
         <div class="money-stat">
-          <small>TOTAL ADDED</small>
-          <strong id="moneyAdded">
+
+          <small>
+            TOTAL ADDED
+          </small>
+
+          <strong
+            id="moneyAdded"
+            class="green-text"
+          >
             0.00 DT
           </strong>
+
         </div>
 
+
         <div class="money-stat">
-          <small>TOTAL SPENT</small>
-          <strong id="moneySpent">
+
+          <small>
+            TOTAL SPENT
+          </small>
+
+          <strong
+            id="moneySpent"
+            class="red-text"
+          >
             0.00 DT
           </strong>
+
         </div>
 
       </div>
@@ -1980,17 +1601,36 @@ textarea{
       </div>
 
 
-      <div
-        id="moneyDebt"
-        class="debt hidden"
-      >
-        ⚠️ DANGER — You are currently in debt.
-      </div>
+      <div id="debtWarning"></div>
 
     </div>
 
 
     <div class="card">
+
+      <label>
+        AMOUNT
+      </label>
+
+      <input
+        id="moneyAmount"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="0.00"
+      >
+
+
+      <label>
+        DESCRIPTION
+      </label>
+
+      <input
+        id="moneyDescription"
+        maxlength="100"
+        placeholder="What is this for?"
+      >
+
 
       <div class="money-actions">
 
@@ -2010,13 +1650,6 @@ textarea{
 
       </div>
 
-      <button
-        class="secondary"
-        onclick="resetMoney()"
-      >
-        Reset
-      </button>
-
     </div>
 
 
@@ -2025,23 +1658,63 @@ textarea{
     </div>
 
 
-    <div class="card">
+    <div
+      id="moneyHistory"
+      class="card"
+    ></div>
 
-      <div id="moneyHistory"></div>
 
-      <button
-        id="moreHistoryButton"
-        class="secondary"
-        onclick="toggleMoneyHistory()"
-      >
-        Show More
-      </button>
+    <button
+      id="moreHistoryButton"
+      class="secondary"
+      onclick="toggleMoneyHistory()"
+    >
+      Show More
+    </button>
 
+
+    <button
+      class="secondary"
+      onclick="showPage('data')"
+    >
+      Data
+    </button>
+
+
+    <button
+      class="secondary"
+      onclick="resetMoney()"
+    >
+      Reset Money Data
+    </button>
+
+  </section>
+
+
+  <!-- =========================
+       DATA
+  ========================= -->
+
+  <section
+    id="data"
+    class="page"
+  >
+
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('money')"
+    >
+      ← Back
+    </button>
+
+
+    <div class="page-title">
+      Money Data
     </div>
 
-
-    <div class="section-title">
-      Data
+    <div class="page-sub">
+      A clear view of your daily spending.
     </div>
 
 
@@ -2071,212 +1744,143 @@ textarea{
     <div
       id="moneyReport"
       class="card"
-    >
-    </div>
+    ></div>
 
-  </main>
+  </section>
 
 
-  <!-- ================= POINT EXCHANGE ================= -->
+  <!-- =========================
+       SETTINGS
+  ========================= -->
 
-  <main
-    id="play"
+  <section
+    id="settings"
     class="page"
   >
 
     <div class="page-title">
-      Point Exchange
+      Settings
     </div>
 
     <div class="page-sub">
-      Earn points by completing your tasks and exchange them for rewards.
+      Your STUDY tools.
     </div>
 
 
-    <div class="card points-balance-card">
+    <button
+      class="menu-button"
+      onclick="showPage('profile')"
+    >
 
-      <div class="points-balance-label">
-        YOUR POINTS
-      </div>
+      <span class="menu-button-left">
 
-      <div
-        id="pointsBalance"
-        class="points-balance"
-      >
-        0
-      </div>
+        <span class="menu-icon">
+          👤
+        </span>
 
-      <div class="points-unit">
-        POINTS
-      </div>
+        <b>
+          Profile
+        </b>
 
-      <div
-        id="boostActive"
-        class="boost-active hidden"
-      >
-      </div>
+      </span>
 
-    </div>
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
 
 
-    <div class="card">
+    <button
+      class="menu-button"
+      onclick="showPage('play')"
+    >
 
-      <div class="section-title" style="margin-top:0">
-        Earning Rules
-      </div>
+      <span class="menu-button-left">
 
-      <div class="point-rule">
+        <span class="menu-icon">
+          ↔️
+        </span>
 
-        <div class="point-rule-name">
-          Green task completed
-        </div>
+        <b>
+          Point Exchange
+        </b>
 
-        <div
-          class="point-rule-value green-text"
-        >
-          +33 PTS
-        </div>
+      </span>
 
-      </div>
+      <span class="menu-arrow">
+        ›
+      </span>
 
-      <div class="point-rule">
-
-        <div class="point-rule-name">
-          Yellow task completed
-        </div>
-
-        <div
-          class="point-rule-value yellow-text"
-        >
-          +22 PTS
-        </div>
-
-      </div>
-
-      <div class="point-rule">
-
-        <div class="point-rule-name">
-          Red task completed
-        </div>
-
-        <div
-          class="point-rule-value red-text"
-        >
-          +11 PTS
-        </div>
-
-      </div>
-
-    </div>
+    </button>
 
 
-    <div class="card exchange-card">
+    <button
+      class="menu-button"
+      onclick="showPage('notes')"
+    >
 
-      <div class="section-title" style="margin-top:0">
-        Exchange
-      </div>
+      <span class="menu-button-left">
 
+        <span class="menu-icon">
+          📝
+        </span>
 
-      <div class="exchange-option">
+        <b>
+          Private Notes
+        </b>
 
-        <div class="exchange-option-title">
-          💰 Take 1 DT
-        </div>
+      </span>
 
-        <div class="exchange-option-desc">
-          100 points → 1 DT added automatically to Pocket Money.
-        </div>
+      <span class="menu-arrow">
+        ›
+      </span>
 
-        <button
-          onclick="exchangePoints('one')"
-        >
-          Exchange 100 PTS
-        </button>
-
-      </div>
+    </button>
 
 
-      <div class="exchange-option">
+    <button
+      class="menu-button"
+      onclick="showPage('employees')"
+    >
 
-        <div class="exchange-option-title">
-          🪙 Take 0.5 DT
-        </div>
+      <span class="menu-button-left">
 
-        <div class="exchange-option-desc">
-          66 points → 0.5 DT added automatically to Pocket Money.
-        </div>
+        <span class="menu-icon">
+          👥
+        </span>
 
-        <button
-          onclick="exchangePoints('half')"
-        >
-          Exchange 66 PTS
-        </button>
+        <b>
+          Employees
+        </b>
 
-      </div>
+      </span>
 
+      <span class="menu-arrow">
+        ›
+      </span>
 
-      <div class="exchange-option">
+    </button>
 
-        <div class="exchange-option-title">
-          ⚡ BOOST +10%
-        </div>
-
-        <div class="exchange-option-desc">
-          200 points → +10% on all points earned for 24 hours.
-        </div>
-
-        <button
-          onclick="exchangePoints('boost')"
-        >
-          Buy BOOST — 200 PTS
-        </button>
-
-      </div>
-
-    </div>
+  </section>
 
 
-    <div class="card">
+  <!-- =========================
+       PROFILE
+  ========================= -->
 
-      <div class="section-title" style="margin-top:0">
-        Rules
-      </div>
-
-      <div class="page-sub" style="margin:0">
-
-        • Completing a task gives points according to its status color.<br><br>
-
-        • 100 PTS = 1 DT from parents.<br><br>
-
-        • 66 PTS = 0.5 DT from parents.<br><br>
-
-        • 200 PTS = BOOST +10% for 24 hours.<br><br>
-
-        • Exchanged points are deducted automatically.<br><br>
-
-        • BOOST activates automatically after purchase.
-
-      </div>
-
-    </div>
-
-  </main>
-
-
-  <!-- ================= PROFILE ================= -->
-
-  <main
+  <section
     id="profile"
     class="page"
   >
 
-    <div class="page-title">
-      Profile
-    </div>
-
-    <div class="page-sub">
-      Your local STUDY profile.
-    </div>
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
+    >
+      ← Back
+    </button>
 
 
     <div class="card profile">
@@ -2285,7 +1889,7 @@ textarea{
         id="profileAvatar"
         class="profile-avatar"
       >
-        S
+        J
       </div>
 
       <div
@@ -2296,7 +1900,7 @@ textarea{
       </div>
 
       <div class="profile-sub">
-        STUDY USER
+        STUDY User
       </div>
 
     </div>
@@ -2304,15 +1908,14 @@ textarea{
 
     <div class="card">
 
-      <label for="newUsername">
-        CHANGE NAME
+      <label>
+        USER NAME
       </label>
 
       <input
         id="newUsername"
-        type="text"
         maxlength="30"
-        placeholder="New name"
+        placeholder="Change your name"
       >
 
       <button
@@ -2324,150 +1927,303 @@ textarea{
 
     </div>
 
-  </main>
+
+    <div class="card">
+
+      <b>
+        Workspace
+      </b>
+
+      <div
+        class="page-sub"
+        style="margin:8px 0 0"
+      >
+        Your STUDY information is stored locally
+        in this browser.
+      </div>
+
+    </div>
+
+  </section>
 
 
-  <!-- ================= SETTINGS ================= -->
+  <!-- =========================
+       EMPLOYEES
+  ========================= -->
 
-  <main
-    id="settings"
+  <section
+    id="employees"
     class="page"
   >
 
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
+    >
+      ← Back
+    </button>
+
     <div class="page-title">
-      Settings
+      Employees
     </div>
 
     <div class="page-sub">
-      Personalize your STUDY experience.
+      Management tools.
     </div>
-
-
-    <button
-      class="settings-row"
-      onclick="toggleSettingsMenu('gamesMenu')"
-    >
-
-      <div class="settings-left">
-
-        <div class="settings-icon">
-          ▶
-        </div>
-
-        <div>
-          <b>Play</b><br>
-          <span class="brand-sub">
-            Games and challenges
-          </span>
-        </div>
-
-      </div>
-
-      <div class="settings-arrow">
-        ›
-      </div>
-
-    </button>
 
 
     <div
-      id="gamesMenu"
-      class="settings-menu"
+      class="card"
+      style="text-align:center;padding:45px 20px"
     >
 
-      <button
-        class="settings-option"
-        onclick="openTicTacToe()"
-      >
-        ✕ / ○ — Turn-by-turn game
-      </button>
+      <div style="font-size:45px">
+        👥
+      </div>
 
-      <button
-        class="settings-option"
-        onclick="openFootballQuiz()"
-      >
-        ⚽ FT — Lineup Position Quiz
-      </button>
+      <h2>
+        Coming Soon
+      </h2>
+
+      <div class="page-sub">
+        Employee management will be added
+        without changing your current STUDY data.
+      </div>
 
     </div>
 
+  </section>
+
+
+  <!-- =========================
+       POINT EXCHANGE
+  ========================= -->
+
+  <section
+    id="play"
+    class="page"
+  >
 
     <button
-      class="settings-row"
-      onclick="toggleSettingsMenu('noteMenu')"
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
     >
-
-      <div class="settings-left">
-
-        <div class="settings-icon">
-          ♢
-        </div>
-
-        <div>
-          <b>Notes</b><br>
-          <span class="brand-sub">
-            Private notes
-          </span>
-        </div>
-
-      </div>
-
-      <div class="settings-arrow">
-        ›
-      </div>
-
+      ← Back
     </button>
 
+    <div class="page-title">
+      Point Exchange
+    </div>
 
-    <div
-      id="noteMenu"
-      class="settings-menu"
-    >
+    <div class="page-sub">
+      Earn points by completing your tasks and exchange them for rewards.
+    </div>
+
+
+    <div class="points-balance-card">
+
+      <div class="points-label">
+        POINT BALANCE
+      </div>
+
+      <div class="points-balance">
+
+        <span id="pointsBalance">
+          0
+        </span>
+
+        <span>
+          POINTS
+        </span>
+
+      </div>
+
+
+      <div
+        id="boostStatus"
+        class="points-boost hidden"
+      ></div>
+
+    </div>
+
+
+    <div class="section-title">
+      Exchange
+    </div>
+
+
+    <div class="exchange-card">
+
+      <div class="exchange-top">
+
+        <div class="exchange-title">
+          💰 1 DT
+        </div>
+
+        <div class="exchange-cost">
+          100 POINTS
+        </div>
+
+      </div>
+
+      <div class="exchange-description">
+        Exchange 100 points and 1 DT is automatically added to your Pocket Money balance.
+      </div>
 
       <button
-        class="settings-option"
-        onclick="openNotes()"
+        id="exchange100Button"
+        class="exchange-button"
+        onclick="exchangePoints(100,'money1')"
       >
-        Open Notes
-      </button>
-
-      <button
-        class="settings-option"
-        onclick="changeNoteLock()"
-      >
-        Change Note Lock
+        Exchange 100 Points → 1 DT
       </button>
 
     </div>
 
-  </main>
+
+    <div class="exchange-card">
+
+      <div class="exchange-top">
+
+        <div class="exchange-title">
+          🪙 0.5 DT
+        </div>
+
+        <div class="exchange-cost">
+          66 POINTS
+        </div>
+
+      </div>
+
+      <div class="exchange-description">
+        Exchange 66 points and 0.5 DT is automatically added to your Pocket Money balance.
+      </div>
+
+      <button
+        id="exchange66Button"
+        class="exchange-button"
+        onclick="exchangePoints(66,'money05')"
+      >
+        Exchange 66 Points → 0.5 DT
+      </button>
+
+    </div>
 
 
-  <!-- ================= NOTES PAGE ================= -->
+    <div class="exchange-card">
 
-  <main
+      <div class="exchange-top">
+
+        <div class="exchange-title">
+          ⚡ BOOST
+        </div>
+
+        <div class="exchange-cost">
+          200 POINTS
+        </div>
+
+      </div>
+
+      <div class="exchange-description">
+        Activate a +10% points bonus for every task completed during the next 24 hours.
+      </div>
+
+      <button
+        id="exchange200Button"
+        class="exchange-button"
+        onclick="exchangePoints(200,'boost')"
+      >
+        Buy BOOST → +10% for 24h
+      </button>
+
+    </div>
+
+
+    <div class="rules-card">
+
+      <div class="rules-title">
+        How points are earned
+      </div>
+
+      <div class="rule-row">
+
+        <span>
+          🟢 Green task completed
+        </span>
+
+        <span class="rule-points">
+          +33
+        </span>
+
+      </div>
+
+      <div class="rule-row">
+
+        <span>
+          🟡 Yellow task completed
+        </span>
+
+        <span class="rule-points">
+          +22
+        </span>
+
+      </div>
+
+      <div class="rule-row">
+
+        <span>
+          🔴 Red task completed
+        </span>
+
+        <span class="rule-points">
+          +11
+        </span>
+
+      </div>
+
+      <div class="rule-row">
+
+        <span>
+          ⚡ Active BOOST
+        </span>
+
+        <span class="rule-points">
+          +10%
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       NOTES
+  ========================= -->
+
+  <section
     id="notes"
     class="page"
   >
 
     <div class="page-title">
-      Notes
+      Private Notes
     </div>
 
     <div class="page-sub">
-      Your private notes.
+      Personal notes stored in your STUDY workspace.
     </div>
 
 
     <div class="card">
 
-      <label for="noteInput">
-        NEW NOTE
-      </label>
-
       <textarea
         id="noteInput"
-        placeholder="Write your note..."
+        maxlength="2000"
+        placeholder="Write a note..."
       ></textarea>
 
       <button
@@ -2482,14 +2238,10 @@ textarea{
 
     <div class="card">
 
-      <label for="noteSearch">
-        SEARCH
-      </label>
-
       <input
         id="noteSearch"
         type="text"
-        placeholder="Search notes..."
+        placeholder="🔍 Search notes..."
         oninput="renderNotes()"
       >
 
@@ -2498,142 +2250,174 @@ textarea{
 
     <div id="notesList"></div>
 
-  </main>
+  </section>
+
+</div>
 
 
-  <!-- ================= BOTTOM NAV ================= -->
+<!-- =========================
+     BOTTOM NAV
+========================= -->
 
-  <nav class="bottom-nav">
+<div
+  id="bottomNav"
+  class="bottom-nav hidden"
+>
+
+  <div class="nav-inner">
 
     <button
-      id="navHome"
+      id="nav-home"
       class="nav-button active"
       onclick="showPage('home')"
     >
-      <span class="nav-icon">⌂</span>
+
+      <div class="nav-icon">
+        ⌂
+      </div>
+
       Home
+
     </button>
 
+
     <button
-      id="navPlan"
+      id="nav-quick"
+      class="nav-button"
+      onclick="showPage('quick')"
+    >
+
+      <div class="nav-icon">
+        ✓
+      </div>
+
+      Quick
+
+    </button>
+
+
+    <button
+      id="nav-plan"
       class="nav-button"
       onclick="showPage('plan')"
     >
-      <span class="nav-icon">✓</span>
+
+      <div class="nav-icon">
+        ▦
+      </div>
+
       Plan
+
     </button>
 
-    <button
-      id="navEmployees"
-      class="nav-button"
-      onclick="showPage('employees')"
-    >
-      <span class="nav-icon">▦</span>
-      Employees
-    </button>
 
     <button
-      id="navMoney"
+      id="nav-money"
       class="nav-button"
       onclick="showPage('money')"
     >
-      <span class="nav-icon">DT</span>
-      Money
-    </button>
 
-    <button
-      id="navSettings"
-      class="nav-button"
-      onclick="showPage('settings')"
-    >
-      <span class="nav-icon">⚙</span>
-      Settings
-    </button>
-
-  </nav>
-
-
-  <!-- ================= MODAL ================= -->
-
-  <div
-    id="modal"
-    class="modal"
-    onclick="closeModalOutside(event)"
-  >
-
-    <div class="modal-card">
-
-      <div class="modal-head">
-
-        <div
-          id="modalTitle"
-          class="modal-title"
-        >
-        </div>
-
-        <button
-          class="close-modal"
-          onclick="closeModal()"
-        >
-          ×
-        </button>
-
+      <div class="nav-icon">
+        ◉
       </div>
 
-      <div id="modalContent"></div>
+      Money
 
-    </div>
+    </button>
 
   </div>
-
-
-  <div
-    id="toast"
-    class="toast"
-  ></div>
-
-  <div
-    id="pointsToast"
-    class="points-toast"
-  ></div>
-
 
 </div>
 
 
 <script>
 
+/* =========================================================
+   STUDY
+========================================================= */
+
+
 /* =========================
    STORAGE
 ========================= */
 
 const STORAGE={
-  username:"studyUsername",
-  tasks:"studyTasks",
-  money:"moneyData",
-  notes:"studyNotes",
-  noteLock:"studyNoteLock",
-  points:"studyPointData",
-  employees:"studyEmployees"
+
+  username:"study_username",
+
+  tasks:"study_tasks",
+
+  money:"study_money",
+
+  notes:"study_notes",
+
+  quickHidden:"study_quick_hidden",
+
+  points:"study_points"
+
 };
 
 
 /* =========================
-   HELPERS
+   STATE
 ========================= */
 
-function loadJSON(key,fallback){
+let username="";
+
+let tasks=[];
+
+let quickHidden=[];
+
+let money={
+
+  added:0,
+
+  spent:0,
+
+  history:[]
+
+};
+
+let notes=[];
+
+let moneyHistoryLimit=5;
+
+let moneyHistoryExpanded=false;
+
+let pointData={
+
+  balance:0,
+
+  boostUntil:0
+
+};
+
+
+/* =========================
+   SAFE JSON
+========================= */
+
+function loadJSON(
+  key,
+  fallback
+){
 
   try{
 
-    const raw=
-      localStorage.getItem(key);
+    const value=
+      localStorage.getItem(
+        key
+      );
 
-    return raw
-      ?
-      JSON.parse(raw)
-      :
-      fallback;
+    if(!value){
+
+      return fallback;
+
+    }
+
+    return JSON.parse(
+      value
+    );
 
   }catch(error){
 
@@ -2644,7 +2428,10 @@ function loadJSON(key,fallback){
 }
 
 
-function saveJSON(key,value){
+function saveJSON(
+  key,
+  value
+){
 
   localStorage.setItem(
     key,
@@ -2654,70 +2441,27 @@ function saveJSON(key,value){
 }
 
 
-function escapeHTML(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
 /* =========================
-   GLOBAL DATA
+   ESCAPE HTML
 ========================= */
 
-let username=
-  localStorage.getItem(
-    STORAGE.username
-  ) || "";
+function escapeHTML(
+  value
+){
 
-let tasks=
-  loadJSON(
-    STORAGE.tasks,
-    []
-  );
+  const div=
+    document.createElement(
+      "div"
+    );
 
-let money=
-  loadJSON(
-    STORAGE.money,
-    {
-      added:0,
-      spent:0,
-      history:[]
-    }
-  );
+  div.textContent=
+    String(
+      value ?? ""
+    );
 
-let notes=
-  loadJSON(
-    STORAGE.notes,
-    []
-  );
+  return div.innerHTML;
 
-let pointData=
-  loadJSON(
-    STORAGE.points,
-    {
-      balance:0,
-      boostUntil:0
-    }
-  );
-
-let employeesData=
-  loadJSON(
-    STORAGE.employees,
-    {}
-  );
-
-let currentEmployeeColor="none";
-let draggedEmployeeCell=null;
-let employeeLongPressTimer=null;
-let moneyHistoryLimit=5;
-let moneyHistoryExpanded=false;
-let pointToastTimer=null;
+}
 
 
 /* =========================
@@ -2726,6 +2470,7 @@ let pointToastTimer=null;
 
 let audioContext=null;
 
+
 function clickSound(){
 
   try{
@@ -2733,10 +2478,19 @@ function clickSound(){
     if(!audioContext){
 
       audioContext=
-        new (
+        new(
           window.AudioContext ||
           window.webkitAudioContext
         )();
+
+    }
+
+    if(
+      audioContext.state===
+      "suspended"
+    ){
+
+      audioContext.resume();
 
     }
 
@@ -2746,152 +2500,29 @@ function clickSound(){
     const gain=
       audioContext.createGain();
 
-    oscillator.type="sine";
-    oscillator.frequency.value=500;
+    oscillator.connect(gain);
+
+    gain.connect(
+      audioContext.destination
+    );
+
+    oscillator.frequency.value=
+      650;
 
     gain.gain.setValueAtTime(
-      0.0001,
+      .025,
       audioContext.currentTime
     );
 
     gain.gain.exponentialRampToValueAtTime(
-      0.03,
-      audioContext.currentTime+0.01
+      .001,
+      audioContext.currentTime+.05
     );
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001,
-      audioContext.currentTime+0.05
-    );
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
 
     oscillator.start();
+
     oscillator.stop(
-      audioContext.currentTime+0.05
-    );
-
-  }catch(error){}
-
-}
-
-
-function moneyAddSound(){
-
-  try{
-
-    if(!audioContext){
-
-      audioContext=
-        new (
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
-
-    }
-
-    const now=
-      audioContext.currentTime;
-
-    [660,880].forEach(
-      (frequency,index)=>{
-
-        const oscillator=
-          audioContext.createOscillator();
-
-        const gain=
-          audioContext.createGain();
-
-        oscillator.type="sine";
-        oscillator.frequency.value=frequency;
-
-        gain.gain.setValueAtTime(
-          0.0001,
-          now+index*.07
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-          0.04,
-          now+index*.07+.01
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-          0.0001,
-          now+index*.07+.08
-        );
-
-        oscillator.connect(gain);
-        gain.connect(audioContext.destination);
-
-        oscillator.start(
-          now+index*.07
-        );
-
-        oscillator.stop(
-          now+index*.07+.08
-        );
-
-      }
-    );
-
-  }catch(error){}
-
-}
-
-
-function moneySpendSound(){
-
-  try{
-
-    if(!audioContext){
-
-      audioContext=
-        new (
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
-
-    }
-
-    const oscillator=
-      audioContext.createOscillator();
-
-    const gain=
-      audioContext.createGain();
-
-    oscillator.type="triangle";
-    oscillator.frequency.setValueAtTime(
-      430,
-      audioContext.currentTime
-    );
-
-    oscillator.frequency.exponentialRampToValueAtTime(
-      230,
-      audioContext.currentTime+.13
-    );
-
-    gain.gain.setValueAtTime(
-      0.0001,
-      audioContext.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.035,
-      audioContext.currentTime+.01
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001,
-      audioContext.currentTime+.14
-    );
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-
-    oscillator.start();
-    oscillator.stop(
-      audioContext.currentTime+.14
+      audioContext.currentTime+.05
     );
 
   }catch(error){}
@@ -2900,108 +2531,70 @@ function moneySpendSound(){
 
 
 /* =========================
-   TOAST
-========================= */
-
-let toastTimer=null;
-
-function showToast(message){
-
-  const toast=
-    document.getElementById("toast");
-
-  if(!toast)return;
-
-  toast.textContent=message;
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer=
-    setTimeout(
-      ()=>{
-        toast.classList.remove("show");
-      },
-      2400
-    );
-
-}
-
-
-/* =========================
-   POINT TOAST
-========================= */
-
-function showPointToast(message){
-
-  const toast=
-    document.getElementById(
-      "pointsToast"
-    );
-
-  if(!toast)return;
-
-  toast.innerHTML=
-    "★ &nbsp;"+escapeHTML(message);
-
-  toast.classList.add("show");
-
-  clearTimeout(pointToastTimer);
-
-  pointToastTimer=
-    setTimeout(
-      ()=>{
-        toast.classList.remove("show");
-      },
-      2600
-    );
-
-}
-
-
-/* =========================
-   START APP
+   INITIALIZE
 ========================= */
 
 window.addEventListener(
-  "load",
-  ()=>{
-    setTimeout(
-      ()=>{
-        const splash=
-          document.getElementById(
-            "splash"
-          );
-
-        splash.style.display="none";
-
-        if(username){
-
-          document
-            .getElementById("mainApp")
-            .classList.remove("hidden");
-
-          updateUserUI();
-          renderDashboard();
-          renderPlan();
-          renderQuick();
-          renderMoney();
-          renderPointExchange();
-          renderEmployees();
-
-        }else{
-
-          document
-            .getElementById("userSetup")
-            .classList.remove("hidden");
-
-        }
-
-      },
-      850
-    );
-  }
+  "DOMContentLoaded",
+  initialize
 );
+
+
+function initialize(){
+
+  setTimeout(
+    ()=>{
+
+      document
+        .getElementById(
+          "splash"
+        )
+        .style.display=
+          "none";
+
+      loadApplication();
+
+    },
+    1100
+  );
+
+}
+
+
+/* =========================
+   LOAD APPLICATION
+========================= */
+
+function loadApplication(){
+
+  username=
+    localStorage.getItem(
+      STORAGE.username
+    ) || "";
+
+  if(!username){
+
+    document
+      .getElementById(
+        "userSetup"
+      )
+      .classList
+      .remove("hidden");
+
+    document
+      .getElementById(
+        "app"
+      )
+      .classList
+      .add("hidden");
+
+    return;
+
+  }
+
+  openApplication();
+
+}
 
 
 /* =========================
@@ -3018,16 +2611,25 @@ function startWithName(){
   const value=
     input.value.trim();
 
-  if(!value){
+  if(
+    value.length<1
+  ){
 
-    alert("Please enter your name.");
+    alert(
+      "Please enter your name."
+    );
+
+    input.focus();
 
     return;
 
   }
 
   username=
-    value.slice(0,30);
+    value.slice(
+      0,
+      30
+    );
 
   localStorage.setItem(
     STORAGE.username,
@@ -3035,22 +2637,102 @@ function startWithName(){
   );
 
   document
-    .getElementById("userSetup")
-    .classList.add("hidden");
+    .getElementById(
+      "userSetup"
+    )
+    .classList
+    .add("hidden");
 
-  document
-    .getElementById("mainApp")
-    .classList.remove("hidden");
-
-  updateUserUI();
-  renderDashboard();
-  renderPlan();
-  renderQuick();
-  renderMoney();
-  renderPointExchange();
-  renderEmployees();
+  openApplication();
 
   clickSound();
+
+}
+
+
+/* =========================
+   OPEN APPLICATION
+========================= */
+
+function openApplication(){
+
+  loadAllData();
+
+  document
+    .getElementById(
+      "app"
+    )
+    .classList
+    .remove("hidden");
+
+  document
+    .getElementById(
+      "bottomNav"
+    )
+    .classList
+    .remove("hidden");
+
+  updateUserUI();
+
+  showPage("home");
+
+}
+
+
+/* =========================
+   LOAD DATA
+========================= */
+
+function loadAllData(){
+
+  tasks=
+    loadJSON(
+      STORAGE.tasks,
+      []
+    );
+
+  quickHidden=
+    loadJSON(
+      STORAGE.quickHidden,
+      []
+    );
+
+  money=
+    loadJSON(
+      STORAGE.money,
+      {
+        added:0,
+        spent:0,
+        history:[]
+      }
+    );
+
+  notes=
+    loadJSON(
+      STORAGE.notes,
+      []
+    );
+
+  pointData=
+    loadJSON(
+      STORAGE.points,
+      {
+        balance:0,
+        boostUntil:0
+      }
+    );
+
+  pointData.balance=
+    Number(
+      pointData.balance
+    ) || 0;
+
+  pointData.boostUntil=
+    Number(
+      pointData.boostUntil
+    ) || 0;
+
+  renderPointExchange();
 
 }
 
@@ -3061,225 +2743,127 @@ function startWithName(){
 
 function updateUserUI(){
 
+  if(!username)return;
+
   const initial=
     username
-      ?
-      username
-        .trim()
-        .charAt(0)
-        .toUpperCase()
-      :
-      "S";
+      .charAt(0)
+      .toUpperCase();
 
-  const headerAvatar=
-    document.getElementById(
-      "headerAvatar"
-    );
+  document.getElementById(
+    "topUsername"
+  ).textContent=
+    username;
 
-  const headerUsername=
-    document.getElementById(
-      "headerUsername"
-    );
+  document.getElementById(
+    "topAvatar"
+  ).textContent=
+    initial;
 
-  const profileAvatar=
-    document.getElementById(
-      "profileAvatar"
-    );
+  document.getElementById(
+    "profileName"
+  ).textContent=
+    username;
 
-  const profileName=
-    document.getElementById(
-      "profileName"
-    );
+  document.getElementById(
+    "profileAvatar"
+  ).textContent=
+    initial;
 
-  const homeGreeting=
-    document.getElementById(
-      "homeGreeting"
-    );
-
-  if(headerAvatar)
-    headerAvatar.textContent=initial;
-
-  if(headerUsername)
-    headerUsername.textContent=
-      username || "User";
-
-  if(profileAvatar)
-    profileAvatar.textContent=initial;
-
-  if(profileName)
-    profileName.textContent=
-      username || "User";
-
-  if(homeGreeting)
-    homeGreeting.textContent=
-      "Welcome, "+(username || "User");
+  document.getElementById(
+    "welcomeText"
+  ).textContent=
+    "Welcome, "+
+    username+
+    " 👋";
 
 }
 
 
 /* =========================
-   NAVIGATION
+   PAGE NAVIGATION
 ========================= */
 
-function showPage(pageId){
+function showPage(
+  pageId
+){
 
   document
-    .querySelectorAll(".page")
+    .querySelectorAll(
+      ".page"
+    )
     .forEach(
       page=>{
-        page.classList.remove("active");
+        page.classList
+          .remove("active");
       }
     );
 
   const page=
-    document.getElementById(pageId);
+    document.getElementById(
+      pageId
+    );
 
-  if(page)
-    page.classList.add("active");
+  if(!page)return;
+
+  page.classList
+    .add("active");
 
 
   document
-    .querySelectorAll(".nav-button")
+    .querySelectorAll(
+      ".nav-button"
+    )
     .forEach(
       button=>{
-        button.classList.remove("active");
+        button.classList
+          .remove("active");
       }
     );
 
 
-  const navMap={
-    home:"navHome",
-    plan:"navPlan",
-    employees:"navEmployees",
-    money:"navMoney",
-    settings:"navSettings"
-  };
+  const nav=
+    document.getElementById(
+      "nav-"+pageId
+    );
 
+  if(nav){
 
-  if(navMap[pageId]){
-
-    const nav=
-      document.getElementById(
-        navMap[pageId]
-      );
-
-    if(nav)
-      nav.classList.add("active");
+    nav.classList
+      .add("active");
 
   }
 
 
-  if(pageId==="employees")
-    renderEmployees();
+  window.scrollTo({
+    top:0,
+    behavior:"auto"
+  });
 
-  if(pageId==="money"){
 
-    renderMoney();
+  renderDashboard();
+
+  renderTasks();
+
+  renderMoney();
+
+  renderPointExchange();
+
+  if(
+    pageId==="data"
+  ){
+
     drawMoneyChart();
 
   }
 
-  if(pageId==="play")
-    renderPointExchange();
+  if(
+    pageId==="notes"
+  ){
 
-  if(pageId==="home")
-    renderDashboard();
-
-  if(pageId==="quick")
-    renderQuick();
-
-  if(pageId==="plan")
-    renderPlan();
-
-  if(pageId==="profile")
-    updateUserUI();
-
-  if(pageId==="notes")
     renderNotes();
 
-  clickSound();
-
-}
-
-
-/* =========================
-   TASK STATUS
-========================= */
-
-function getTaskStatus(task){
-
-  if(task.completed)
-    return "completed";
-
-  if(task.failed)
-    return "failed";
-
-  const due=
-    new Date(task.dueAt).getTime();
-
-  const diff=
-    due-Date.now();
-
-  const day=
-    24*60*60*1000;
-
-  if(diff<=0)
-    return "red";
-
-  if(diff<=day)
-    return "red";
-
-  if(diff<=2*day)
-    return "yellow";
-
-  return "green";
-
-}
-
-
-function getTaskCountdown(task){
-
-  if(task.completed)
-    return "Completed";
-
-  if(task.failed)
-    return "Failed";
-
-  const diff=
-    new Date(task.dueAt).getTime()-
-    Date.now();
-
-  if(diff<=0)
-    return "OVERDUE";
-
-  let seconds=
-    Math.floor(diff/1000);
-
-  const days=
-    Math.floor(seconds/86400);
-
-  seconds%=86400;
-
-  const hours=
-    Math.floor(seconds/3600);
-
-  seconds%=3600;
-
-  const minutes=
-    Math.floor(seconds/60);
-
-  seconds%=60;
-
-  return (
-    days+
-    "d "+
-    String(hours).padStart(2,"0")+
-    "h "+
-    String(minutes).padStart(2,"0")+
-    "m "+
-    String(seconds).padStart(2,"0")+
-    "s"
-  );
+  }
 
 }
 
@@ -3291,85 +2875,69 @@ function getTaskCountdown(task){
 function addTask(){
 
   const name=
-    document
-      .getElementById("taskName")
-      .value
-      .trim();
+    document.getElementById(
+      "taskName"
+    ).value.trim();
 
   const description=
-    document
-      .getElementById("taskDescription")
-      .value
-      .trim();
+    document.getElementById(
+      "taskDescription"
+    ).value.trim();
 
   const date=
-    document
-      .getElementById("taskDate")
-      .value;
-
-  const time=
-    document
-      .getElementById("taskTime")
-      .value;
+    document.getElementById(
+      "taskDate"
+    ).value;
 
 
   if(!name){
 
-    alert("Enter the task name.");
+    alert(
+      "Enter a task name."
+    );
 
     return;
 
   }
+
 
   if(!date){
 
-    alert("Choose a date.");
-
-    return;
-
-  }
-
-  if(!time){
-
-    alert("Choose a time.");
+    alert(
+      "Choose a date."
+    );
 
     return;
 
   }
 
 
-  const dueAt=
-    new Date(
-      date+"T"+time
-    ).getTime();
+  const task={
 
-
-  if(Number.isNaN(dueAt)){
-
-    alert("Invalid date or time.");
-
-    return;
-
-  }
-
-
-  tasks.unshift({
-
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+
+      Math.random(),
 
     name:name,
 
-    description:description,
+    description:
+      description,
 
-    dueAt:dueAt,
+    date:date,
 
-    completed:false,
+    status:"active",
 
-    failed:false,
+    createdAt:
+      Date.now(),
 
-    createdAt:Date.now()
+    completedAt:null
 
-  });
+  };
+
+
+  tasks.push(
+    task
+  );
 
 
   saveJSON(
@@ -3378,25 +2946,21 @@ function addTask(){
   );
 
 
-  document
-    .getElementById("taskName")
-    .value="";
+  document.getElementById(
+    "taskName"
+  ).value="";
 
-  document
-    .getElementById("taskDescription")
-    .value="";
+  document.getElementById(
+    "taskDescription"
+  ).value="";
 
-  document
-    .getElementById("taskDate")
-    .value="";
-
-  document
-    .getElementById("taskTime")
-    .value="";
+  document.getElementById(
+    "taskDate"
+  ).value="";
 
 
-  renderPlan();
-  renderQuick();
+  renderTasks();
+
   renderDashboard();
 
   clickSound();
@@ -3405,263 +2969,191 @@ function addTask(){
 
 
 /* =========================
-   POINTS
+   COUNTDOWN
 ========================= */
 
-function formatPoints(value){
+function countdownInfo(
+  date
+){
 
-  return Math.max(
-    0,
-    Math.floor(
-      Number(value)||0
-    )
-  );
-
-}
-
-
-function boostIsActive(){
-
-  return (
-    Number(pointData.boostUntil)||0
-  ) > Date.now();
-
-}
+  const difference=
+    new Date(
+      date
+    ).getTime()
+    -
+    Date.now();
 
 
-function addTaskPoints(task){
+  if(
+    difference<=0
+  ){
 
-  let points=0;
+    return{
 
-  const status=
-    getTaskStatus(task);
+      text:"OVERDUE",
 
-  if(status==="green")
-    points=33;
+      color:"red"
 
-  else if(status==="yellow")
-    points=22;
-
-  else if(status==="red")
-    points=11;
-
-  if(!points)return;
-
-
-  if(boostIsActive()){
-
-    points=
-      Math.round(
-        points*1.10
-      );
+    };
 
   }
 
 
-  pointData.balance=
-    formatPoints(
-      pointData.balance
-    )+points;
-
-
-  saveJSON(
-    STORAGE.points,
-    pointData
-  );
-
-
-  renderPointExchange();
-
-  showPointToast(
-    "+"+points+
-    " points earned for completing this task"
-  );
-
-}
-
-
-function completeTask(id){
-
-  const task=
-    tasks.find(
-      item=>
-        String(item.id)===
-        String(id)
-    );
-
-  if(!task)return;
-
-  if(task.completed)return;
-
-
-  task.completed=true;
-  task.failed=false;
-  task.completedAt=Date.now();
-
-
-  addTaskPoints(task);
-
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-
-  renderPlan();
-  renderQuick();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-function failTask(id){
-
-  const task=
-    tasks.find(
-      item=>
-        String(item.id)===
-        String(id)
-    );
-
-  if(!task)return;
-
-
-  task.failed=true;
-  task.completed=false;
-  task.failedAt=Date.now();
-
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-
-  renderPlan();
-  renderQuick();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-function hideTask(id){
-
-  tasks=
-    tasks.filter(
-      item=>
-        String(item.id)!==
-        String(id)
+  const seconds=
+    Math.floor(
+      difference/1000
     );
 
 
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
+  const days=
+    Math.floor(
+      seconds/86400
+    );
 
 
-  renderPlan();
-  renderQuick();
-  renderDashboard();
+  const hours=
+    Math.floor(
+      (seconds%86400)/3600
+    );
 
-  clickSound();
+
+  const minutes=
+    Math.floor(
+      (seconds%3600)/60
+    );
+
+
+  const secs=
+    seconds%60;
+
+
+  let text="";
+
+
+  if(days>0){
+
+    text+=
+      days+
+      "d ";
+
+  }
+
+
+  text+=
+    String(
+      hours
+    ).padStart(
+      2,
+      "0"
+    )+
+    "h "+
+    String(
+      minutes
+    ).padStart(
+      2,
+      "0"
+    )+
+    "m "+
+    String(
+      secs
+    ).padStart(
+      2,
+      "0"
+    )+
+    "s";
+
+
+  let color=
+    "green";
+
+
+  if(
+    difference<=3600000
+  ){
+
+    color=
+      "red";
+
+  }else if(
+    difference<=86400000
+  ){
+
+    color=
+      "orange";
+
+  }else if(
+    difference<=172800000
+  ){
+
+    color=
+      "yellow";
+
+  }
+
+
+  return{
+
+    text:text,
+
+    color:color
+
+  };
 
 }
 
 
 /* =========================
-   TASK HTML
+   ACTIVE TASK HTML
 ========================= */
 
-function taskHTML(task){
+function activeTaskHTML(
+  task,
+  showHideButton
+){
 
-  const status=
-    getTaskStatus(task);
-
-  let statusText=
-    status.toUpperCase();
-
-  if(status==="completed")
-    statusText="COMPLETED";
-
-  if(status==="failed")
-    statusText="FAILED";
-
-  let statusClass=
-    status==="completed"
-      ?
-      "status-green"
-      :
-      status==="failed"
-        ?
-        "status-red"
-        :
-        status==="green"
-          ?
-          "status-green"
-          :
-          status==="yellow"
-            ?
-            "status-yellow"
-            :
-            "status-red";
-
-
-  const countdownClass=
-    status==="completed"
-      ?
-      "green"
-      :
-      status==="failed"
-        ?
-        "red"
-        :
-        status;
-
-
-  const due=
-    new Date(
-      task.dueAt
+  const info=
+    countdownInfo(
+      task.date
     );
 
 
   return `
 
     <div
-      class="task ${
-        task.completed
-        ?
-        "record-completed"
-        :
-        task.failed
-          ?
-          "record-failed"
-          :
-          ""
-      }"
+      class="task"
+      data-task-id="${task.id}"
     >
 
-      <button
-        class="hide-button"
-        onclick="hideTask('${task.id}')"
-      >
-        ×
-      </button>
+      ${
+        showHideButton
+        ?
+        `
+          <button
+            class="hide-button"
+            title="Hide from Quick Check"
+            onclick="hideQuickTask('${task.id}')"
+          >
+            ×
+          </button>
+        `
+        :
+        ""
+      }
 
 
       <div class="task-top">
 
         <div class="task-name">
-          ${escapeHTML(task.name)}
+          ${escapeHTML(
+            task.name
+          )}
         </div>
 
-        <div class="status ${statusClass}">
-          ${statusText}
+        <div
+          class="status status-${info.color}"
+          data-task-status="${task.id}"
+        >
+          ACTIVE
         </div>
 
       </div>
@@ -3672,7 +3164,9 @@ function taskHTML(task){
         ?
         `
           <div class="task-description">
-            ${escapeHTML(task.description)}
+            ${escapeHTML(
+              task.description
+            )}
           </div>
         `
         :
@@ -3681,43 +3175,42 @@ function taskHTML(task){
 
 
       <div class="task-date">
-        ${due.toLocaleString()}
+
+        Due:
+        ${escapeHTML(
+          new Date(
+            task.date
+          ).toLocaleString()
+        )}
+
       </div>
 
 
       <div
-        class="countdown ${countdownClass}"
+        class="countdown ${info.color}"
+        data-countdown="${task.id}"
       >
-        ${getTaskCountdown(task)}
+        ⏳ ${info.text}
       </div>
 
 
-      ${
-        !task.completed &&
-        !task.failed
-        ?
-        `
-          <div class="task-actions">
+      <div class="task-actions">
 
-            <button
-              class="done-button"
-              onclick="completeTask('${task.id}')"
-            >
-              Complete
-            </button>
+        <button
+          class="done-button"
+          onclick="finishTask('${task.id}','done')"
+        >
+          ✓ Done
+        </button>
 
-            <button
-              class="failed-button"
-              onclick="failTask('${task.id}')"
-            >
-              Failed
-            </button>
+        <button
+          class="failed-button"
+          onclick="finishTask('${task.id}','failed')"
+        >
+          ✕ Failed
+        </button>
 
-          </div>
-        `
-        :
-        ""
-      }
+      </div>
 
     </div>
 
@@ -3727,98 +3220,1101 @@ function taskHTML(task){
 
 
 /* =========================
-   RENDER PLAN
+   RECORD HTML
 ========================= */
 
-function renderPlan(){
+function recordTaskHTML(
+  task
+){
 
-  const box=
-    document.getElementById(
-      "planTasks"
-    );
-
-  if(!box)return;
+  const completed=
+    task.status===
+    "done";
 
 
-  if(!tasks.length){
+  return `
 
-    box.innerHTML=
-      `
-        <div class="empty">
-          No tasks yet.
+    <div
+      class="
+        task
+        ${
+          completed
+          ?
+          "record-completed"
+          :
+          "record-failed"
+        }
+      "
+    >
+
+      <button
+        class="hide-button"
+        onclick="deleteRecord('${task.id}')"
+        title="Delete record"
+      >
+        ×
+      </button>
+
+
+      <div class="task-top">
+
+        <div class="task-name">
+          ${escapeHTML(
+            task.name
+          )}
         </div>
-      `;
 
-    return;
+        <div
+          class="
+            status
+            ${
+              completed
+              ?
+              "status-green"
+              :
+              "status-red"
+            }
+          "
+        >
+          ${
+            completed
+            ?
+            "COMPLETED"
+            :
+            "FAILED"
+          }
+        </div>
 
-  }
+      </div>
 
 
-  const sorted=
-    [...tasks]
-      .sort(
-        (a,b)=>
-          Number(a.dueAt)-
-          Number(b.dueAt)
-      );
+      ${
+        task.description
+        ?
+        `
+          <div class="task-description">
+            ${escapeHTML(
+              task.description
+            )}
+          </div>
+        `
+        :
+        ""
+      }
 
 
-  box.innerHTML=
-    sorted
-      .map(task=>taskHTML(task))
-      .join("");
+      <div class="task-date">
+
+        Original date:
+        ${escapeHTML(
+          new Date(
+            task.date
+          ).toLocaleString()
+        )}
+
+      </div>
+
+
+      <div class="task-date">
+
+        Recorded:
+        ${
+          task.completedAt
+          ?
+          escapeHTML(
+            new Date(
+              task.completedAt
+            ).toLocaleString()
+          )
+          :
+          "-"
+        }
+
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
 /* =========================
-   RENDER QUICK
+   RENDER TASKS
 ========================= */
 
-function renderQuick(){
+function renderTasks(){
 
-  const box=
+  const activeBox=
+    document.getElementById(
+      "activeTasks"
+    );
+
+  const recordsBox=
+    document.getElementById(
+      "taskRecords"
+    );
+
+  const quickBox=
     document.getElementById(
       "quickTasks"
     );
 
-  if(!box)return;
 
-
-  const urgent=
-    tasks.filter(
-      task=>
-        !task.completed &&
-        !task.failed &&
-        getTaskStatus(task)==="red"
-    )
-    .sort(
-      (a,b)=>
-        Number(a.dueAt)-
-        Number(b.dueAt)
-    );
-
-
-  if(!urgent.length){
-
-    box.innerHTML=
-      `
-        <div class="empty">
-          No urgent tasks.
-        </div>
-      `;
+  if(
+    !activeBox||
+    !recordsBox||
+    !quickBox
+  ){
 
     return;
 
   }
 
 
-  box.innerHTML=
-    urgent
-      .map(task=>taskHTML(task))
-      .join("");
+  const active=
+    tasks
+      .filter(
+        task=>
+          task.status===
+          "active"
+      )
+      .sort(
+        (a,b)=>
+          new Date(a.date)-
+          new Date(b.date)
+      );
+
+
+  const records=
+    tasks
+      .filter(
+        task=>
+          task.status==="done"||
+          task.status==="failed"
+      )
+      .slice()
+      .reverse();
+
+
+  if(
+    !active.length
+  ){
+
+    activeBox.innerHTML=
+      `
+        <div class="empty">
+          No active tasks.
+        </div>
+      `;
+
+  }else{
+
+    activeBox.innerHTML=
+      active
+        .map(
+          task=>
+            activeTaskHTML(
+              task,
+              false
+            )
+        )
+        .join("");
+
+  }
+
+
+  if(
+    !records.length
+  ){
+
+    recordsBox.innerHTML=
+      `
+        <div class="empty">
+          No task records yet.
+        </div>
+      `;
+
+  }else{
+
+    recordsBox.innerHTML=
+      records
+        .map(
+          task=>
+            recordTaskHTML(
+              task
+            )
+        )
+        .join("");
+
+  }
+
+
+  const quickTasks=
+    active.filter(
+      task=>
+        !quickHidden.includes(
+          String(
+            task.id
+          )
+        )
+    );
+
+
+  if(
+    !quickTasks.length
+  ){
+
+    if(active.length){
+
+      quickBox.innerHTML=
+        `
+          <div class="empty">
+            All active tasks are hidden from Quick Check.
+          </div>
+        `;
+
+    }else{
+
+      quickBox.innerHTML=
+        `
+          <div class="empty">
+            ✓ No active tasks.
+          </div>
+        `;
+
+    }
+
+  }else{
+
+    quickBox.innerHTML=
+      quickTasks
+        .map(
+          task=>
+            activeTaskHTML(
+              task,
+              true
+            )
+        )
+        .join("");
+
+  }
 
 }
+
+
+/* =========================
+   HIDE QUICK TASK
+========================= */
+
+function hideQuickTask(
+  id
+){
+
+  const stringId=
+    String(id);
+
+
+  if(
+    !quickHidden.includes(
+      stringId
+    )
+  ){
+
+    quickHidden.push(
+      stringId
+    );
+
+  }
+
+
+  saveJSON(
+    STORAGE.quickHidden,
+    quickHidden
+  );
+
+
+  renderTasks();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   FINISH TASK
+========================= */
+
+function finishTask(
+  id,
+  status
+){
+
+  const task=
+    tasks.find(
+      item=>
+        String(
+          item.id
+        )===
+        String(id)
+    );
+
+
+  if(!task)return;
+
+
+  if(
+    task.status!==
+    "active"
+  ){
+
+    return;
+
+  }
+
+
+  const completionInfo=
+    countdownInfo(
+      task.date
+    );
+
+
+  task.status=
+    status;
+
+  task.completedAt=
+    Date.now();
+
+
+  quickHidden=
+    quickHidden.filter(
+      hiddenId=>
+        String(hiddenId)!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  saveJSON(
+    STORAGE.quickHidden,
+    quickHidden
+  );
+
+
+  if(
+    status==="done"
+  ){
+
+    const earned=
+      taskPointValue(
+        completionInfo.color
+      );
+
+
+    if(
+      earned>0
+    ){
+
+      const bonusActive=
+        isBoostActive();
+
+
+      const finalPoints=
+        bonusActive
+        ?
+        Math.round(
+          earned*
+          1.10*
+          10
+        )/10
+        :
+        earned;
+
+
+      pointData.balance+=
+        finalPoints;
+
+
+      saveJSON(
+        STORAGE.points,
+        pointData
+      );
+
+
+      showPointToast(
+        "✨ Points earned",
+        "+"+
+        formatPoints(
+          finalPoints
+        )+
+        " points for completing \""+
+        task.name+
+        "\""+
+        (
+          bonusActive
+          ?
+          " • BOOST +10%"
+          :
+          ""
+        )
+      );
+
+    }
+
+  }
+
+
+  renderTasks();
+
+  renderDashboard();
+
+  renderPointExchange();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   POINTS
+========================= */
+
+function formatPoints(
+  value
+){
+
+  const number=
+    Number(value)||
+    0;
+
+
+  return Number.isInteger(
+    number
+  )
+  ?
+  String(number)
+  :
+  number
+    .toFixed(1)
+    .replace(
+      /\.0$/,
+      ""
+    );
+
+}
+
+
+function isBoostActive(){
+
+  if(
+    !pointData.boostUntil
+  ){
+
+    return false;
+
+  }
+
+
+  if(
+    pointData.boostUntil<=
+    Date.now()
+  ){
+
+    pointData.boostUntil=
+      0;
+
+    saveJSON(
+      STORAGE.points,
+      pointData
+    );
+
+    return false;
+
+  }
+
+
+  return true;
+
+}
+
+
+function taskPointValue(
+  color
+){
+
+  if(
+    color==="green"
+  ){
+
+    return 33;
+
+  }
+
+
+  if(
+    color==="yellow"
+  ){
+
+    return 22;
+
+  }
+
+
+  if(
+    color==="orange"||
+    color==="red"
+  ){
+
+    return 11;
+
+  }
+
+
+  return 0;
+
+}
+
+
+/* =========================
+   RENDER POINT EXCHANGE
+========================= */
+
+function renderPointExchange(){
+
+  const balanceElement=
+    document.getElementById(
+      "pointsBalance"
+    );
+
+
+  if(!balanceElement){
+
+    return;
+
+  }
+
+
+  balanceElement.textContent=
+    formatPoints(
+      pointData.balance
+    );
+
+
+  const homePoints=
+    document.getElementById(
+      "homePointsBalance"
+    );
+
+
+  if(homePoints){
+
+    homePoints.textContent=
+      formatPoints(
+        pointData.balance
+      );
+
+  }
+
+
+  const boost=
+    document.getElementById(
+      "boostStatus"
+    );
+
+
+  if(boost){
+
+    if(
+      isBoostActive()
+    ){
+
+      const remaining=
+        Math.max(
+          0,
+          pointData.boostUntil-
+          Date.now()
+        );
+
+
+      const totalSeconds=
+        Math.floor(
+          remaining/1000
+        );
+
+
+      const hours=
+        Math.floor(
+          totalSeconds/3600
+        );
+
+
+      const minutes=
+        Math.floor(
+          (totalSeconds%3600)/60
+        );
+
+
+      const seconds=
+        totalSeconds%60;
+
+
+      boost.classList
+        .remove("hidden");
+
+
+      boost.textContent=
+        "⚡ BOOST ACTIVE • +10% • "+
+        String(hours)
+          .padStart(2,"0")+
+        "h "+
+        String(minutes)
+          .padStart(2,"0")+
+        "m "+
+        String(seconds)
+          .padStart(2,"0")+
+        "s remaining";
+
+    }else{
+
+      boost.classList
+        .add("hidden");
+
+      boost.textContent="";
+
+    }
+
+  }
+
+
+  const b100=
+    document.getElementById(
+      "exchange100Button"
+    );
+
+  const b66=
+    document.getElementById(
+      "exchange66Button"
+    );
+
+  const b200=
+    document.getElementById(
+      "exchange200Button"
+    );
+
+
+  if(b100){
+
+    b100.disabled=
+      pointData.balance<
+      100;
+
+  }
+
+
+  if(b66){
+
+    b66.disabled=
+      pointData.balance<
+      66;
+
+  }
+
+
+  if(b200){
+
+    b200.disabled=
+      pointData.balance<
+      200;
+
+  }
+
+}
+
+
+/* =========================
+   POINT TOAST
+========================= */
+
+function showPointToast(
+  title,
+  text
+){
+
+  let toast=
+    document.getElementById(
+      "pointsToast"
+    );
+
+
+  if(!toast){
+
+    toast=
+      document.createElement(
+        "div"
+      );
+
+    toast.id=
+      "pointsToast";
+
+    toast.className=
+      "points-toast";
+
+
+    toast.innerHTML=`
+
+      <div class="points-toast-icon">
+        ★
+      </div>
+
+      <div>
+
+        <div class="points-toast-title"></div>
+
+        <div class="points-toast-text"></div>
+
+      </div>
+
+    `;
+
+
+    document.body.appendChild(
+      toast
+    );
+
+  }
+
+
+  toast.querySelector(
+    ".points-toast-title"
+  ).textContent=
+    title;
+
+
+  toast.querySelector(
+    ".points-toast-text"
+  ).textContent=
+    text;
+
+
+  toast.classList.remove(
+    "show"
+  );
+
+
+  void toast.offsetWidth;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    window.pointToastTimer
+  );
+
+
+  window.pointToastTimer=
+    setTimeout(
+      ()=>{
+
+        toast.classList
+          .remove("show");
+
+      },
+      3200
+    );
+
+}
+
+
+/* =========================
+   EXCHANGE
+========================= */
+
+function exchangePoints(
+  cost,
+  type
+){
+
+  if(
+    pointData.balance<
+    cost
+  ){
+
+    showPointToast(
+      "Not enough points",
+      "You need "+
+      formatPoints(
+        cost-
+        pointData.balance
+      )+
+      " more points."
+    );
+
+    return;
+
+  }
+
+
+  pointData.balance-=
+    cost;
+
+
+  if(
+    type==="money1"
+  ){
+
+    money.added+=
+      1;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+
+        Math.random(),
+
+      type:"added",
+
+      amount:1,
+
+      description:
+        "Point Exchange • 100 points → 1 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "💰 Exchange complete",
+      "100 points exchanged for 1 DT."
+    );
+
+
+  }else if(
+    type==="money05"
+  ){
+
+    money.added+=
+      .5;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+
+        Math.random(),
+
+      type:"added",
+
+      amount:.5,
+
+      description:
+        "Point Exchange • 66 points → 0.5 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "🪙 Exchange complete",
+      "66 points exchanged for 0.5 DT."
+    );
+
+
+  }else if(
+    type==="boost"
+  ){
+
+    const base=
+      isBoostActive()
+      ?
+      Math.max(
+        Date.now(),
+        pointData.boostUntil
+      )
+      :
+      Date.now();
+
+
+    pointData.boostUntil=
+      base+
+      24*60*60*1000;
+
+
+    showPointToast(
+      "⚡ BOOST activated",
+      "+10% points for the next 24 hours."
+    );
+
+  }
+
+
+  saveJSON(
+    STORAGE.points,
+    pointData
+  );
+
+
+  renderPointExchange();
+
+  renderMoney();
+
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   DELETE RECORD
+========================= */
+
+function deleteRecord(
+  id
+){
+
+  if(
+    !confirm(
+      "Delete this task record?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  tasks=
+    tasks.filter(
+      task=>
+        String(task.id)!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  renderTasks();
+
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   COUNTDOWN UPDATES
+========================= */
+
+function updateCountdowns(){
+
+  document
+    .querySelectorAll(
+      "[data-countdown]"
+    )
+    .forEach(
+      element=>{
+
+        const id=
+          element.dataset
+            .countdown;
+
+
+        const task=
+          tasks.find(
+            item=>
+              String(
+                item.id
+              )===
+              String(id)
+          );
+
+
+        if(
+          !task||
+          task.status!==
+          "active"
+        ){
+
+          return;
+
+        }
+
+
+        const info=
+          countdownInfo(
+            task.date
+          );
+
+
+        element.textContent=
+          "⏳ "+
+          info.text;
+
+
+        element.className=
+          "countdown "+
+          info.color;
+
+
+        const status=
+          document.querySelector(
+            `[data-task-status="${CSS.escape(String(id))}"]`
+          );
+
+
+        if(status){
+
+          status.className=
+            "status status-"+
+            info.color;
+
+          status.textContent=
+            "ACTIVE";
+
+        }
+
+      }
+    );
+
+}
+
+
+setInterval(
+  updateCountdowns,
+  1000
+);
+
+
+setInterval(
+  ()=>{
+    renderPointExchange();
+  },
+  1000
+);
 
 
 /* =========================
@@ -3830,271 +4326,297 @@ function renderDashboard(){
   const active=
     tasks.filter(
       task=>
-        !task.completed &&
-        !task.failed
-    ).length;
+        task.status===
+        "active"
+    );
 
-  const urgent=
-    tasks.filter(
-      task=>
-        !task.completed &&
-        !task.failed &&
-        getTaskStatus(task)==="red"
-    ).length;
 
   const completed=
     tasks.filter(
       task=>
-        task.completed
-    ).length;
-
-
-  const activeElement=
-    document.getElementById(
-      "activeTasksCount"
-    );
-
-  const urgentElement=
-    document.getElementById(
-      "urgentTasksCount"
-    );
-
-  const completedElement=
-    document.getElementById(
-      "completedTasksCount"
-    );
-
-  const homeMoney=
-    document.getElementById(
-      "homeMoneyBalance"
+        task.status===
+        "done"
     );
 
 
-  if(activeElement)
-    activeElement.textContent=active;
-
-  if(urgentElement)
-    urgentElement.textContent=urgent;
-
-  if(completedElement)
-    completedElement.textContent=completed;
-
-  if(homeMoney){
-
-    const balance=
-      Number(money.added||0)-
-      Number(money.spent||0);
-
-    homeMoney.textContent=
-      balance.toFixed(2)+" DT";
-
-  }
+  const finished=
+    tasks.filter(
+      task=>
+        task.status==="done"||
+        task.status==="failed"
+    );
 
 
-  const next=
-    [...tasks]
-      .filter(
-        task=>
-          !task.completed &&
-          !task.failed
-      )
-      .sort(
-        (a,b)=>
-          Number(a.dueAt)-
-          Number(b.dueAt)
-      )[0];
+  const successRate=
+    finished.length
+    ?
+    Math.round(
+      completed.length/
+      finished.length*
+      100
+    )
+    :
+    0;
 
 
-  const nextBox=
+  const balance=
+    money.added-
+    money.spent;
+
+
+  document.getElementById(
+    "dashActive"
+  ).textContent=
+    active.length;
+
+
+  document.getElementById(
+    "dashCompleted"
+  ).textContent=
+    completed.length;
+
+
+  document.getElementById(
+    "dashSuccess"
+  ).textContent=
+    successRate+
+    "%";
+
+
+  const moneyElement=
+    document.getElementById(
+      "dashMoney"
+    );
+
+
+  moneyElement.textContent=
+    balance.toFixed(2)+
+    " DT";
+
+
+  moneyElement.className=
+    balance<0
+    ?
+    "red-text"
+    :
+    "green-text";
+
+
+  const box=
     document.getElementById(
       "homeNextTask"
     );
 
 
-  if(!next){
+  if(
+    !active.length
+  ){
 
-    nextBox.classList.add("hidden");
+    box.innerHTML=`
+
+      <div class="card">
+
+        <b>
+          🎯 No active tasks
+        </b>
+
+        <div
+          class="page-sub"
+          style="margin:7px 0 0"
+        >
+          Your workspace is clear.
+        </div>
+
+      </div>
+
+    `;
 
     return;
 
   }
 
 
-  nextBox.classList.remove("hidden");
+  const next=
+    active
+      .slice()
+      .sort(
+        (a,b)=>
+          new Date(a.date)-
+          new Date(b.date)
+      )[0];
 
-  const status=
-    getTaskStatus(next);
 
-  nextBox.innerHTML=`
+  const info=
+    countdownInfo(
+      next.date
+    );
 
-    <div
-      style="
-        font-size:9px;
-        color:#777;
-        font-weight:900;
-        letter-spacing:1px;
-      "
-    >
-      NEXT TASK
-    </div>
 
-    <div
-      style="
-        font-size:18px;
-        font-weight:950;
-        margin-top:7px;
-      "
-    >
-      ${escapeHTML(next.name)}
-    </div>
+  box.innerHTML=`
 
-    <div
-      class="countdown ${status}"
-    >
-      ${getTaskCountdown(next)}
+    <div class="card">
+
+      <small style="color:#777">
+        NEXT TASK
+      </small>
+
+      <div
+        style="
+          font-size:17px;
+          font-weight:900;
+          margin-top:7px;
+        "
+      >
+        ${escapeHTML(
+          next.name
+        )}
+      </div>
+
+      <div
+        class="countdown ${info.color}"
+        data-countdown="${next.id}"
+      >
+        ⏳ ${info.text}
+      </div>
+
     </div>
 
   `;
-
-
-  renderPointExchange();
 
 }
 
 
 /* =========================
-   MONEY
+   ADD MONEY
 ========================= */
-
-function moneyBalance(){
-
-  return (
-    Number(money.added||0)-
-    Number(money.spent||0)
-  );
-
-}
-
 
 function addMoney(){
 
-  const raw=
-    prompt(
-      "How much money do you want to add?"
-    );
-
-  if(raw===null)return;
-
-
   const amount=
     Number(
-      raw
-        .replace(",",".")
-        .trim()
+      document.getElementById(
+        "moneyAmount"
+      ).value
     );
 
 
-  if(!Number.isFinite(amount)||amount<=0){
+  const description=
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
 
-    alert("Enter a valid amount.");
+
+  if(
+    !amount||
+    amount<=0
+  ){
+
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
   }
 
 
-  const description=
-    prompt(
-      "Description:",
-      "Money added"
-    );
-
-
-  money.added=
-    Number(money.added||0)+amount;
+  money.added+=
+    amount;
 
 
   money.history.unshift({
 
+    id:
+      Date.now()+
+      Math.random(),
+
     type:"added",
+
     amount:amount,
 
     description:
-      description?.trim() ||
+      description||
       "Money added",
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
 
-  saveJSON(
-    STORAGE.money,
-    money
-  );
-
-
-  renderMoney();
-  renderDashboard();
-
-  drawMoneyChart();
-
-  moneyAddSound();
+  saveMoney();
 
 }
 
+
+/* =========================
+   SPEND MONEY
+========================= */
 
 function spendMoney(){
 
-  const raw=
-    prompt(
-      "How much did you spend?"
-    );
-
-  if(raw===null)return;
-
-
   const amount=
     Number(
-      raw
-        .replace(",",".")
-        .trim()
+      document.getElementById(
+        "moneyAmount"
+      ).value
     );
 
 
-  if(!Number.isFinite(amount)||amount<=0){
+  const description=
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
 
-    alert("Enter a valid amount.");
+
+  if(
+    !amount||
+    amount<=0
+  ){
+
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
   }
 
 
-  const description=
-    prompt(
-      "What did you spend it on?",
-      "Spent today"
-    );
-
-
-  money.spent=
-    Number(money.spent||0)+amount;
+  money.spent+=
+    amount;
 
 
   money.history.unshift({
 
+    id:
+      Date.now()+
+      Math.random(),
+
     type:"spent",
+
     amount:amount,
 
     description:
-      description?.trim() ||
-      "Spent today",
+      description||
+      "Money spent",
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
+
+  saveMoney();
+
+}
+
+
+/* =========================
+   SAVE MONEY
+========================= */
+
+function saveMoney(){
 
   saveJSON(
     STORAGE.money,
@@ -4102,137 +4624,181 @@ function spendMoney(){
   );
 
 
+  document.getElementById(
+    "moneyAmount"
+  ).value="";
+
+
+  document.getElementById(
+    "moneyDescription"
+  ).value="";
+
+
   renderMoney();
+
   renderDashboard();
 
-  drawMoneyChart();
 
-  moneySpendSound();
+  if(
+    document
+      .getElementById(
+        "data"
+      )
+      .classList
+      .contains("active")
+  ){
+
+    drawMoneyChart();
+
+  }
+
+
+  clickSound();
 
 }
 
+
+/* =========================
+   RENDER MONEY
+========================= */
 
 function renderMoney(){
 
   const balance=
-    moneyBalance();
+    money.added-
+    money.spent;
 
 
-  const balanceElement=
-    document.getElementById(
-      "moneyBalance"
-    );
+  document.getElementById(
+    "moneyBalance"
+  ).textContent=
+    balance.toFixed(2)+
+    " DT";
 
-  const addedElement=
-    document.getElementById(
-      "moneyAdded"
-    );
 
-  const spentElement=
-    document.getElementById(
-      "moneySpent"
-    );
+  document.getElementById(
+    "moneyBalance"
+  ).style.color=
+    balance<0
+    ?
+    "var(--red)"
+    :
+    "var(--green)";
+
+
+  document.getElementById(
+    "moneyAdded"
+  ).textContent=
+    money.added.toFixed(2)+
+    " DT";
+
+
+  document.getElementById(
+    "moneySpent"
+  ).textContent=
+    money.spent.toFixed(2)+
+    " DT";
+
 
   const progress=
     document.getElementById(
       "moneyProgress"
     );
 
-  const debt=
-    document.getElementById(
-      "moneyDebt"
-    );
 
+  if(
+    money.added<=0
+  ){
 
-  if(balanceElement){
+    progress.style.width=
+      "0%";
 
-    balanceElement.textContent=
-      balance.toFixed(2)+" DT";
+  }else{
 
-    balanceElement.style.color=
-      balance<0
-        ?
-        "var(--red)"
-        :
-        "#fff";
-
-  }
-
-
-  if(addedElement)
-    addedElement.textContent=
-      Number(money.added||0).toFixed(2)+" DT";
-
-
-  if(spentElement)
-    spentElement.textContent=
-      Number(money.spent||0).toFixed(2)+" DT";
-
-
-  if(progress){
-
-    const totalAdded=
-      Number(money.added||0);
-
-    let percentage=0;
-
-    if(totalAdded>0){
-
-      percentage=
-        Math.max(
-          0,
-          Math.min(
-            100,
-            (
-              balance/
-              totalAdded
-            )*100
-          )
-        );
-
-    }
+    const percent=
+      Math.max(
+        0,
+        Math.min(
+          100,
+          balance/
+          money.added*
+          100
+        )
+      );
 
 
     progress.style.width=
-      percentage+"%";
-
-
-    if(balance<0){
-
-      progress.style.background=
-        "var(--red)";
-
-    }else if(percentage<25){
-
-      progress.style.background=
-        "var(--red)";
-
-    }else if(percentage<50){
-
-      progress.style.background=
-        "var(--yellow)";
-
-    }else if(percentage<75){
-
-      progress.style.background=
-        "var(--orange)";
-
-    }else{
-
-      progress.style.background=
-        "var(--green)";
-
-    }
+      percent+
+      "%";
 
   }
 
 
-  if(debt){
+  if(
+    balance<0
+  ){
 
-    debt.classList.toggle(
-      "hidden",
-      balance>=0
+    progress.style.background=
+      "var(--red)";
+
+  }else if(
+    money.added>0 &&
+    balance/
+    money.added<
+    .25
+  ){
+
+    progress.style.background=
+      "var(--red)";
+
+  }else if(
+    money.added>0 &&
+    balance/
+    money.added<
+    .5
+  ){
+
+    progress.style.background=
+      "var(--yellow)";
+
+  }else{
+
+    progress.style.background=
+      "var(--green)";
+
+  }
+
+
+  const debt=
+    document.getElementById(
+      "debtWarning"
     );
+
+
+  if(
+    balance<0
+  ){
+
+    debt.innerHTML=`
+
+      <div class="debt">
+
+        ⚠ YOU ARE IN DEBT
+
+        <br>
+
+        ${Math.abs(
+          balance
+        ).toFixed(2)}
+        DT
+
+      </div>
+
+    `;
+
+  }else{
+
+    debt.innerHTML="";
 
   }
 
@@ -4243,88 +4809,108 @@ function renderMoney(){
     );
 
 
-  if(!historyBox)return;
+  if(!historyBox){
+
+    return;
+
+  }
 
 
-  if(!money.history.length){
+  const list=
+    money.history
+      .slice(
+        0,
+        moneyHistoryExpanded
+        ?
+        money.history.length
+        :
+        moneyHistoryLimit
+      );
+
+
+  if(
+    !list.length
+  ){
 
     historyBox.innerHTML=
       `
         <div class="empty">
-          No money history.
+          No money activity yet.
         </div>
       `;
 
   }else{
 
-    const list=
-      money.history.slice(
-        0,
-        moneyHistoryExpanded
-          ?
-          money.history.length
-          :
-          moneyHistoryLimit
-      );
-
-
     historyBox.innerHTML=
-      list.map(item=>`
+      list
+        .map(
+          item=>`
 
-        <div class="money-history">
+          <div class="money-history">
 
-          <div>
+            <div>
 
-            <div class="money-history-title">
+              <div class="money-history-title">
+
+                ${
+                  item.type==="added"
+                  ?
+                  "Money Added"
+                  :
+                  "Money Spent"
+                }
+
+              </div>
+
+              <div class="money-history-desc">
+
+                ${escapeHTML(
+                  item.description
+                )}
+
+              </div>
+
+              <div class="money-history-date">
+
+                ${new Date(
+                  item.date
+                ).toLocaleString()}
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="money-history-amount"
+              style="
+                color:${
+                  item.type==="added"
+                  ?
+                  "var(--green)"
+                  :
+                  "var(--red)"
+                };
+              "
+            >
+
               ${
                 item.type==="added"
                 ?
-                "Money Added"
+                "+"
                 :
-                "Money Spent"
-              }
-            </div>
+                "-"
+              }${Number(
+                item.amount
+              ).toFixed(2)} DT
 
-            <div class="money-history-desc">
-              ${escapeHTML(
-                item.description
-              )}
-            </div>
-
-            <div class="money-history-date">
-              ${new Date(
-                item.date
-              ).toLocaleString()}
             </div>
 
           </div>
 
-          <div
-            class="money-history-amount"
-            style="
-              color:${
-                item.type==="added"
-                ?
-                "var(--green)"
-                :
-                "var(--red)"
-              };
-            "
-          >
-            ${
-              item.type==="added"
-              ?
-              "+"
-              :
-              "-"
-            }${Number(
-              item.amount
-            ).toFixed(2)} DT
-          </div>
-
-        </div>
-
-      `).join("");
+        `
+        )
+        .join("");
 
   }
 
@@ -4335,20 +4921,32 @@ function renderMoney(){
     );
 
 
-  if(money.history.length<=5){
+  if(!moreButton){
 
-    moreButton.style.display="none";
+    return;
+
+  }
+
+
+  if(
+    money.history.length<=
+    5
+  ){
+
+    moreButton.style.display=
+      "none";
 
   }else{
 
-    moreButton.style.display="block";
+    moreButton.style.display=
+      "block";
 
     moreButton.textContent=
       moneyHistoryExpanded
-        ?
-        "Show Less"
-        :
-        "Show More";
+      ?
+      "Show Less"
+      :
+      "Show More";
 
   }
 
@@ -4356,7 +4954,7 @@ function renderMoney(){
 
 
 /* =========================
-   MORE MONEY HISTORY
+   HISTORY TOGGLE
 ========================= */
 
 function toggleMoneyHistory(){
@@ -4377,20 +4975,33 @@ function toggleMoneyHistory(){
 
 function resetMoney(){
 
-  if(!confirm(
-    "Reset all Pocket Money data?"
-  ))return;
+  if(
+    !confirm(
+      "Reset all Pocket Money data?"
+    )
+  ){
+
+    return;
+
+  }
 
 
   money={
+
     added:0,
+
     spent:0,
+
     history:[]
+
   };
 
 
-  moneyHistoryLimit=5;
-  moneyHistoryExpanded=false;
+  moneyHistoryLimit=
+    5;
+
+  moneyHistoryExpanded=
+    false;
 
 
   saveJSON(
@@ -4400,6 +5011,7 @@ function resetMoney(){
 
 
   renderMoney();
+
   renderDashboard();
 
   drawMoneyChart();
@@ -4410,7 +5022,7 @@ function resetMoney(){
 
 
 /* =========================
-   DATA / REPORT
+   DAILY MONEY DATA
 ========================= */
 
 function drawMoneyChart(){
@@ -4425,7 +5037,12 @@ function drawMoneyChart(){
       "dailySpendingCaption"
     );
 
-  if(!percentElement)return;
+
+  if(!percentElement){
+
+    return;
+
+  }
 
 
   const now=
@@ -4437,7 +5054,10 @@ function drawMoneyChart(){
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      0,0,0,0
+      0,
+      0,
+      0,
+      0
     ).getTime();
 
 
@@ -4446,7 +5066,10 @@ function drawMoneyChart(){
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      23,59,59,999
+      23,
+      59,
+      59,
+      999
     ).getTime();
 
 
@@ -4455,9 +5078,11 @@ function drawMoneyChart(){
       item=>{
 
         const date=
-          Number(item.date)||0;
+          Number(
+            item.date
+          )||0;
 
-        return (
+        return(
           date>=startOfDay &&
           date<=endOfDay
         );
@@ -4466,44 +5091,83 @@ function drawMoneyChart(){
     );
 
 
-  let todayAdded=0;
-  let todaySpent=0;
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
 
 
   todayHistory.forEach(
     item=>{
 
       const amount=
-        Number(item.amount)||0;
+        Number(
+          item.amount
+        )||0;
 
-      if(item.type==="added")
-        todayAdded+=amount;
 
-      if(item.type==="spent")
-        todaySpent+=amount;
+      if(
+        item.type==="added"
+      ){
+
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
 
     }
   );
 
 
+  /*
+    Today's spending percentage =
+    money spent today /
+    money available to spend today × 100.
+
+    The available amount is the balance before today
+    plus everything added today.
+  */
+
   const beforeTodayAdded=
     money.history.reduce(
-      (sum,item)=>{
+      (
+        sum,
+        item
+      )=>{
 
         const date=
-          Number(item.date)||0;
+          Number(
+            item.date
+          )||0;
+
 
         if(
           date<startOfDay &&
           item.type==="added"
         ){
 
-          return (
+          return(
             sum+
-            (Number(item.amount)||0)
+            (
+              Number(
+                item.amount
+              )||0
+            )
           );
 
         }
+
 
         return sum;
 
@@ -4514,22 +5178,33 @@ function drawMoneyChart(){
 
   const beforeTodaySpent=
     money.history.reduce(
-      (sum,item)=>{
+      (
+        sum,
+        item
+      )=>{
 
         const date=
-          Number(item.date)||0;
+          Number(
+            item.date
+          )||0;
+
 
         if(
           date<startOfDay &&
           item.type==="spent"
         ){
 
-          return (
+          return(
             sum+
-            (Number(item.amount)||0)
+            (
+              Number(
+                item.amount
+              )||0
+            )
           );
 
         }
+
 
         return sum;
 
@@ -4549,24 +5224,27 @@ function drawMoneyChart(){
 
   const percentage=
     availableToday>0
-      ?
-      Math.min(
-        100,
-        Math.round(
-          todaySpent/
-          availableToday*
-          100
-        )
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
       )
-      :
-      0;
+    )
+    :
+    0;
 
 
   percentElement.textContent=
-    percentage+"%";
+    percentage+
+    "%";
 
 
-  if(todayHistory.length){
+  if(
+    todayHistory.length
+  ){
 
     captionElement.textContent=
       "Spent "+
@@ -4588,6 +5266,10 @@ function drawMoneyChart(){
 }
 
 
+/* =========================
+   FINANCIAL REPORT
+========================= */
+
 function renderMoneyReport(){
 
   const box=
@@ -4595,11 +5277,14 @@ function renderMoneyReport(){
       "moneyReport"
     );
 
+
   if(!box)return;
 
 
   const balance=
-    moneyBalance();
+    money.added-
+    money.spent;
+
 
   const transactions=
     money.history.length;
@@ -4614,7 +5299,10 @@ function renderMoneyReport(){
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      0,0,0,0
+      0,
+      0,
+      0,
+      0
     ).getTime();
 
 
@@ -4623,35 +5311,63 @@ function renderMoneyReport(){
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      23,59,59,999
+      23,
+      59,
+      59,
+      999
     ).getTime();
 
 
-  let todayAdded=0;
-  let todaySpent=0;
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
 
 
   money.history.forEach(
     item=>{
 
       const date=
-        Number(item.date)||0;
+        Number(
+          item.date
+        )||0;
+
 
       if(
-        date<startOfDay ||
+        date<startOfDay||
         date>endOfDay
-      )return;
+      ){
+
+        return;
+
+      }
 
 
       const amount=
-        Number(item.amount)||0;
+        Number(
+          item.amount
+        )||0;
 
 
-      if(item.type==="added")
-        todayAdded+=amount;
+      if(
+        item.type==="added"
+      ){
 
-      if(item.type==="spent")
-        todaySpent+=amount;
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
 
     }
   );
@@ -4659,22 +5375,33 @@ function renderMoneyReport(){
 
   const beforeTodayAdded=
     money.history.reduce(
-      (sum,item)=>{
+      (
+        sum,
+        item
+      )=>{
 
         const date=
-          Number(item.date)||0;
+          Number(
+            item.date
+          )||0;
+
 
         if(
           date<startOfDay &&
           item.type==="added"
         ){
 
-          return (
+          return(
             sum+
-            (Number(item.amount)||0)
+            (
+              Number(
+                item.amount
+              )||0
+            )
           );
 
         }
+
 
         return sum;
 
@@ -4685,22 +5412,33 @@ function renderMoneyReport(){
 
   const beforeTodaySpent=
     money.history.reduce(
-      (sum,item)=>{
+      (
+        sum,
+        item
+      )=>{
 
         const date=
-          Number(item.date)||0;
+          Number(
+            item.date
+          )||0;
+
 
         if(
           date<startOfDay &&
           item.type==="spent"
         ){
 
-          return (
+          return(
             sum+
-            (Number(item.amount)||0)
+            (
+              Number(
+                item.amount
+              )||0
+            )
           );
 
         }
+
 
         return sum;
 
@@ -4720,30 +5458,34 @@ function renderMoneyReport(){
 
   const percentage=
     availableToday>0
-      ?
-      Math.min(
-        100,
-        Math.round(
-          todaySpent/
-          availableToday*
-          100
-        )
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
       )
-      :
-      0;
+    )
+    :
+    0;
 
 
   const recent=
-    money.history.slice(
-      0,
-      10
-    );
+    money.history
+      .slice(
+        0,
+        10
+      );
 
 
-  let activityHTML="";
+  let activityHTML=
+    "";
 
 
-  if(recent.length){
+  if(
+    recent.length
+  ){
 
     activityHTML=`
 
@@ -4751,75 +5493,84 @@ function renderMoneyReport(){
         style="
           margin-top:18px;
           font-size:13px;
-          font-weight:900
+          font-weight:900;
         "
       >
         Recent Activity
       </div>
 
-
       ${
-        recent.map(
-          item=>`
+        recent
+          .map(
+            item=>`
 
-            <div class="money-history">
+              <div class="money-history">
 
-              <div>
+                <div>
 
-                <div class="money-history-title">
+                  <div class="money-history-title">
+
+                    ${
+                      item.type==="added"
+                      ?
+                      "Money Added"
+                      :
+                      "Money Spent"
+                    }
+
+                  </div>
+
+                  <div class="money-history-desc">
+
+                    ${escapeHTML(
+                      item.description
+                    )}
+
+                  </div>
+
+                  <div class="money-history-date">
+
+                    ${escapeHTML(
+                      new Date(
+                        item.date
+                      ).toLocaleString()
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  class="money-history-amount"
+                  style="
+                    color:${
+                      item.type==="added"
+                      ?
+                      "var(--green)"
+                      :
+                      "var(--red)"
+                    };
+                  "
+                >
+
                   ${
                     item.type==="added"
                     ?
-                    "Money Added"
+                    "+"
                     :
-                    "Money Spent"
-                  }
-                </div>
+                    "-"
+                  }${Number(
+                    item.amount
+                  ).toFixed(2)} DT
 
-                <div class="money-history-desc">
-                  ${escapeHTML(
-                    item.description
-                  )}
-                </div>
-
-                <div class="money-history-date">
-                  ${escapeHTML(
-                    new Date(
-                      item.date
-                    ).toLocaleString()
-                  )}
                 </div>
 
               </div>
 
-
-              <div
-                class="money-history-amount"
-                style="
-                  color:${
-                    item.type==="added"
-                    ?
-                    "var(--green)"
-                    :
-                    "var(--red)"
-                  };
-                "
-              >
-                ${
-                  item.type==="added"
-                  ?
-                  "+"
-                  :
-                  "-"
-                }${Number(
-                  item.amount
-                ).toFixed(2)} DT
-              </div>
-
-            </div>
-
-          `
-        ).join("")
+            `
+          )
+          .join("")
       }
 
     `;
@@ -4829,17 +5580,19 @@ function renderMoneyReport(){
 
   box.innerHTML=`
 
-    <b>FINANCIAL REPORT</b>
+    <b>
+      FINANCIAL REPORT
+    </b>
 
 
     <div
       class="page-sub"
-      style="
-        margin:10px 0 0
-      "
+      style="margin:10px 0 0"
     >
 
-      <b>Today</b>
+      <b>
+        Today
+      </b>
 
       <br><br>
 
@@ -4848,54 +5601,41 @@ function renderMoneyReport(){
         ${todayAdded.toFixed(2)} DT
       </strong>
 
-
       <br><br>
-
 
       Spent today:
       <strong>
         ${todaySpent.toFixed(2)} DT
       </strong>
 
-
       <br><br>
-
 
       Spending rate:
       <strong>
         ${percentage}%
       </strong>
 
-
       <br><br>
 
-
-      <b>Overall</b>
+      <b>
+        Overall
+      </b>
 
       <br><br>
-
 
       Added:
       <strong>
-        ${Number(
-          money.added||0
-        ).toFixed(2)} DT
+        ${money.added.toFixed(2)} DT
       </strong>
 
-
       <br><br>
-
 
       Spent:
       <strong>
-        ${Number(
-          money.spent||0
-        ).toFixed(2)} DT
+        ${money.spent.toFixed(2)} DT
       </strong>
 
-
       <br><br>
-
 
       Current balance:
       <strong
@@ -4912,9 +5652,7 @@ function renderMoneyReport(){
         ${balance.toFixed(2)} DT
       </strong>
 
-
       <br><br>
-
 
       Transactions:
       <strong>
@@ -4932,1423 +5670,6 @@ function renderMoneyReport(){
 
 
 /* =========================
-   POINT EXCHANGE
-========================= */
-
-function renderPointExchange(){
-
-  const balanceElement=
-    document.getElementById(
-      "pointsBalance"
-    );
-
-  const homePoints=
-    document.getElementById(
-      "homePointsBalance"
-    );
-
-  if(balanceElement){
-
-    balanceElement.textContent=
-      formatPoints(
-        pointData.balance
-      );
-
-  }
-
-  if(homePoints){
-
-    homePoints.textContent=
-      formatPoints(
-        pointData.balance
-      );
-
-  }
-
-
-  const boost=
-    document.getElementById(
-      "boostActive"
-    );
-
-  if(boost){
-
-    if(boostIsActive()){
-
-      const remaining=
-        Math.max(
-          0,
-          Number(
-            pointData.boostUntil
-          )-
-          Date.now()
-        );
-
-
-      let seconds=
-        Math.floor(
-          remaining/1000
-        );
-
-      const hours=
-        Math.floor(
-          seconds/3600
-        );
-
-      seconds%=3600;
-
-      const minutes=
-        Math.floor(
-          seconds/60
-        );
-
-      seconds%=60;
-
-
-      boost.classList.remove(
-        "hidden"
-      );
-
-      boost.textContent=
-        "⚡ BOOST ACTIVE · "+
-        String(hours).padStart(2,"0")+
-        "h "+
-        String(minutes).padStart(2,"0")+
-        "m "+
-        String(seconds).padStart(2,"0")+
-        "s remaining · +10%";
-
-    }else{
-
-      boost.classList.add(
-        "hidden"
-      );
-
-    }
-
-  }
-
-}
-
-
-function exchangePoints(type){
-
-  const balance=
-    formatPoints(
-      pointData.balance
-    );
-
-
-  if(type==="one"){
-
-    if(balance<100){
-
-      alert(
-        "You need 100 points."
-      );
-
-      return;
-
-    }
-
-
-    pointData.balance=
-      balance-100;
-
-
-    money.added=
-      Number(money.added||0)+1;
-
-
-    money.history.unshift({
-
-      type:"added",
-      amount:1,
-
-      description:
-        "Point Exchange — 100 PTS → 1 DT",
-
-      date:Date.now()
-
-    });
-
-
-    saveJSON(
-      STORAGE.points,
-      pointData
-    );
-
-    saveJSON(
-      STORAGE.money,
-      money
-    );
-
-
-    renderPointExchange();
-    renderMoney();
-    renderDashboard();
-
-    drawMoneyChart();
-
-
-    showPointToast(
-      "100 points exchanged for 1 DT"
-    );
-
-
-    moneyAddSound();
-
-    return;
-
-  }
-
-
-  if(type==="half"){
-
-    if(balance<66){
-
-      alert(
-        "You need 66 points."
-      );
-
-      return;
-
-    }
-
-
-    pointData.balance=
-      balance-66;
-
-
-    money.added=
-      Number(money.added||0)+.5;
-
-
-    money.history.unshift({
-
-      type:"added",
-      amount:.5,
-
-      description:
-        "Point Exchange — 66 PTS → 0.5 DT",
-
-      date:Date.now()
-
-    });
-
-
-    saveJSON(
-      STORAGE.points,
-      pointData
-    );
-
-    saveJSON(
-      STORAGE.money,
-      money
-    );
-
-
-    renderPointExchange();
-    renderMoney();
-    renderDashboard();
-
-    drawMoneyChart();
-
-
-    showPointToast(
-      "66 points exchanged for 0.5 DT"
-    );
-
-
-    moneyAddSound();
-
-    return;
-
-  }
-
-
-  if(type==="boost"){
-
-    if(balance<200){
-
-      alert(
-        "You need 200 points."
-      );
-
-      return;
-
-    }
-
-
-    pointData.balance=
-      balance-200;
-
-
-    pointData.boostUntil=
-      Date.now()+
-      24*60*60*1000;
-
-
-    saveJSON(
-      STORAGE.points,
-      pointData
-    );
-
-
-    renderPointExchange();
-
-
-    showPointToast(
-      "BOOST activated for 24 hours"
-    );
-
-
-    clickSound();
-
-  }
-
-}
-
-
-/* =========================
-   SETTINGS
-========================= */
-
-function toggleSettingsMenu(id){
-
-  const menu=
-    document.getElementById(id);
-
-  if(!menu)return;
-
-  menu.classList.toggle("open");
-
-  clickSound();
-
-}
-
-
-/* =========================
-   MODAL
-========================= */
-
-function openModal(title,content){
-
-  document
-    .getElementById("modalTitle")
-    .textContent=title;
-
-  document
-    .getElementById("modalContent")
-    .innerHTML=content;
-
-  document
-    .getElementById("modal")
-    .classList.add("open");
-
-}
-
-
-function closeModal(){
-
-  document
-    .getElementById("modal")
-    .classList.remove("open");
-
-}
-
-
-function closeModalOutside(event){
-
-  if(
-    event.target===
-    document.getElementById("modal")
-  ){
-
-    closeModal();
-
-  }
-
-}
-
-
-/* =========================
-   TIC TAC TOE
-========================= */
-
-function openTicTacToe(){
-
-  const content=`
-
-    <div
-      id="tttStatus"
-      style="
-        text-align:center;
-        color:#aaa;
-        font-size:12px;
-        margin-bottom:15px;
-      "
-    >
-      X's turn
-    </div>
-
-
-    <div
-      id="tttBoard"
-      style="
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap:7px;
-        max-width:330px;
-        margin:auto;
-      "
-    >
-
-      ${Array.from(
-        {length:9},
-        (_,index)=>`
-
-          <button
-            style="
-              aspect-ratio:1;
-              border:1px solid #333;
-              background:#0b0b0b;
-              color:#fff;
-              border-radius:14px;
-              font-size:30px;
-              font-weight:950;
-            "
-            onclick="tttMove(${index})"
-          >
-          </button>
-
-        `
-      ).join("")}
-
-    </div>
-
-
-    <button
-      class="primary"
-      onclick="resetTicTacToe()"
-    >
-      New Game
-    </button>
-
-  `;
-
-
-  openModal(
-    "✕ / ○",
-    content
-  );
-
-
-  window.tttState={
-    board:Array(9).fill(""),
-    turn:"X",
-    over:false
-  };
-
-}
-
-
-function tttMove(index){
-
-  if(!window.tttState)return;
-
-  const state=
-    window.tttState;
-
-  if(
-    state.over ||
-    state.board[index]
-  )return;
-
-
-  state.board[index]=
-    state.turn;
-
-
-  const buttons=
-    document
-      .querySelectorAll(
-        "#tttBoard button"
-      );
-
-
-  buttons[index].textContent=
-    state.turn;
-
-
-  if(tttWinner(state.board)){
-
-    document
-      .getElementById("tttStatus")
-      .textContent=
-        state.turn+
-        " wins!";
-
-    state.over=true;
-
-    clickSound();
-
-    return;
-
-  }
-
-
-  if(
-    state.board.every(Boolean)
-  ){
-
-    document
-      .getElementById("tttStatus")
-      .textContent=
-        "Draw!";
-
-    state.over=true;
-
-    return;
-
-  }
-
-
-  state.turn=
-    state.turn==="X"
-      ?
-      "O"
-      :
-      "X";
-
-
-  document
-    .getElementById("tttStatus")
-    .textContent=
-      state.turn+
-      "'s turn";
-
-  clickSound();
-
-}
-
-
-function tttWinner(board){
-
-  const lines=[
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-    [0,4,8],
-    [2,4,6]
-  ];
-
-
-  return lines.some(
-    line=>
-      board[line[0]] &&
-      board[line[0]]===
-      board[line[1]] &&
-      board[line[1]]===
-      board[line[2]]
-  );
-
-}
-
-
-function resetTicTacToe(){
-
-  closeModal();
-  openTicTacToe();
-
-}
-
-
-/* =========================
-   FOOTBALL QUIZ
-========================= */
-
-function openFootballQuiz(){
-
-  const questions=[
-
-    {
-      q:"Which position usually plays directly in front of the goalkeeper?",
-      a:[
-        "Striker",
-        "Centre-back",
-        "Winger",
-        "Attacking midfielder"
-      ],
-      correct:1
-    },
-
-    {
-      q:"Which position is usually on the far right or left of the attack?",
-      a:[
-        "Winger",
-        "Goalkeeper",
-        "Centre-back",
-        "Defensive midfielder"
-      ],
-      correct:0
-    },
-
-    {
-      q:"Which position is commonly abbreviated as CM?",
-      a:[
-        "Centre-back",
-        "Central midfielder",
-        "Centre-forward",
-        "Left-back"
-      ],
-      correct:1
-    },
-
-    {
-      q:"Which position protects the goal with their hands inside the penalty area?",
-      a:[
-        "Full-back",
-        "Goalkeeper",
-        "Striker",
-        "Winger"
-      ],
-      correct:1
-    }
-
-  ];
-
-
-  let current=0;
-  let score=0;
-
-
-  function render(){
-
-    const question=
-      questions[current];
-
-
-    const html=`
-
-      <div
-        style="
-          color:#777;
-          font-size:10px;
-          font-weight:900;
-          letter-spacing:1px;
-        "
-      >
-        QUESTION ${current+1}/${questions.length}
-      </div>
-
-
-      <div
-        style="
-          font-size:18px;
-          font-weight:900;
-          line-height:1.45;
-          margin:13px 0 16px;
-        "
-      >
-        ${escapeHTML(question.q)}
-      </div>
-
-
-      ${question.a.map(
-        (answer,index)=>`
-
-          <button
-            style="
-              width:100%;
-              text-align:left;
-              background:#171717;
-              border:1px solid #292929;
-              color:#fff;
-              border-radius:13px;
-              padding:13px;
-              margin-bottom:8px;
-              font-size:12px;
-              font-weight:800;
-            "
-            onclick="window.answerFootball(${index})"
-          >
-            ${escapeHTML(answer)}
-          </button>
-
-        `
-      ).join("")}
-
-    `;
-
-
-    document
-      .getElementById("modalContent")
-      .innerHTML=html;
-
-  }
-
-
-  window.answerFootball=function(index){
-
-    if(
-      index===
-      questions[current].correct
-    ){
-
-      score++;
-
-    }
-
-
-    current++;
-
-
-    if(current>=questions.length){
-
-      document
-        .getElementById("modalContent")
-        .innerHTML=`
-
-          <div
-            style="
-              text-align:center;
-              padding:20px 5px;
-            "
-          >
-
-            <div
-              style="
-                font-size:35px;
-                font-weight:950;
-              "
-            >
-              ${score}/${questions.length}
-            </div>
-
-            <div
-              style="
-                color:#888;
-                margin-top:8px;
-              "
-            >
-              Quiz complete
-            </div>
-
-          </div>
-
-
-          <button
-            class="primary"
-            onclick="closeModal()"
-          >
-            Close
-          </button>
-
-        `;
-
-      clickSound();
-
-      return;
-
-    }
-
-
-    render();
-
-    clickSound();
-
-  };
-
-
-  openModal(
-    "⚽ FT Lineup Quiz",
-    ""
-  );
-
-  render();
-
-}
-
-
-/* =========================
-   NOTE LOCK
-========================= */
-
-function openNotes(){
-
-  const lock=
-    localStorage.getItem(
-      STORAGE.noteLock
-    );
-
-
-  if(!lock){
-
-    const newCode=
-      prompt(
-        "Create a note lock code:"
-      );
-
-    if(newCode===null)return;
-
-    if(!newCode.trim()){
-
-      alert(
-        "The code cannot be empty."
-      );
-
-      return;
-
-    }
-
-
-    localStorage.setItem(
-      STORAGE.noteLock,
-      newCode
-    );
-
-    showPage("notes");
-
-    return;
-
-  }
-
-
-  const code=
-    prompt(
-      "Enter your note lock code:"
-    );
-
-
-  if(code===null)return;
-
-
-  if(code!==lock){
-
-    alert("Wrong code.");
-
-    return;
-
-  }
-
-
-  showPage("notes");
-
-}
-
-
-function changeNoteLock(){
-
-  const oldCode=
-    localStorage.getItem(
-      STORAGE.noteLock
-    );
-
-
-  if(!oldCode){
-
-    alert(
-      "Create a note lock first."
-    );
-
-    return;
-
-  }
-
-
-  const current=
-    prompt(
-      "Enter your current note lock code:"
-    );
-
-
-  if(current!==oldCode){
-
-    alert("Wrong code.");
-
-    return;
-
-  }
-
-
-  const next=
-    prompt(
-      "Enter your new note lock code:"
-    );
-
-
-  if(next===null)return;
-
-
-  if(!next.trim()){
-
-    alert(
-      "The code cannot be empty."
-    );
-
-    return;
-
-  }
-
-
-  localStorage.setItem(
-    STORAGE.noteLock,
-    next
-  );
-
-
-  showToast(
-    "Note lock changed."
-  );
-
-  clickSound();
-
-}
-
-
-/* =========================
-   EMPLOYEES
-========================= */
-
-const employeeDays=[
-  "MONDAY",
-  "TUESDAY",
-  "WEDNESDAY",
-  "THURSDAY",
-  "FRIDAY",
-  "SATURDAY"
-];
-
-const employeeHours=[
-  "08–09",
-  "09–10",
-  "10–11",
-  "11–12",
-  "12–13",
-  "13–14",
-  "14–15",
-  "15–16",
-  "16–17",
-  "17–18"
-];
-
-
-/*
-  The schedule is intentionally editable.
-  Empty cells remain available for the user.
-  Text is stored locally and survives refresh/offline use.
-*/
-
-function employeeCellKey(day,hour){
-
-  return (
-    day+
-    "__"+
-    hour
-  );
-
-}
-
-
-function renderEmployees(){
-
-  const body=
-    document.getElementById(
-      "employeesBody"
-    );
-
-  if(!body)return;
-
-
-  let html="";
-
-
-  employeeHours.forEach(
-    (hour,hourIndex)=>{
-
-      html+=`
-        <tr>
-
-          <th class="employee-day">
-            ${hour}
-          </th>
-      `;
-
-
-      employeeDays.forEach(
-        (day,dayIndex)=>{
-
-          const key=
-            employeeCellKey(
-              day,
-              hour
-            );
-
-          const cell=
-            employeesData[key] ||
-            {
-              text:"",
-              color:"none"
-            };
-
-
-          const color=
-            cell.color ||
-            "none";
-
-
-          html+=`
-
-            <td
-              class="employee-cell"
-              id="employee-${dayIndex}-${hourIndex}"
-              data-key="${escapeHTML(key)}"
-              data-color="${escapeHTML(color)}"
-              contenteditable="true"
-              spellcheck="false"
-              draggable="true"
-              oninput="employeeInput(this)"
-              onclick="employeeCellClick(this)"
-              oncontextmenu="employeeCellContext(event,this)"
-              ondragstart="employeeDragStart(event,this)"
-              ondragover="employeeDragOver(event,this)"
-              ondragleave="employeeDragLeave(event,this)"
-              ondrop="employeeDrop(event,this)"
-              ondragend="employeeDragEnd(event,this)"
-              ontouchstart="employeeTouchStart(event,this)"
-              ontouchend="employeeTouchEnd(event,this)"
-            >
-              ${escapeHTML(cell.text || "")}
-            </td>
-
-          `;
-
-        }
-      );
-
-
-      html+=`
-        </tr>
-      `;
-
-    }
-  );
-
-
-  body.innerHTML=html;
-
-}
-
-
-function employeeInput(cell){
-
-  const key=
-    cell.dataset.key;
-
-  if(!employeesData[key]){
-
-    employeesData[key]={
-      text:"",
-      color:"none"
-    };
-
-  }
-
-
-  employeesData[key].text=
-    cell.innerText
-      .replace(/\n/g,"")
-      .slice(0,80);
-
-
-  saveJSON(
-    STORAGE.employees,
-    employeesData
-  );
-
-}
-
-
-function employeeCellClick(cell){
-
-  if(
-    currentEmployeeColor &&
-    currentEmployeeColor!=="none"
-  ){
-
-    setEmployeeCellColor(
-      cell,
-      currentEmployeeColor
-    );
-
-  }
-
-}
-
-
-function employeeCellContext(event,cell){
-
-  event.preventDefault();
-
-  setEmployeeCellColor(
-    cell,
-    "none"
-  );
-
-  return false;
-
-}
-
-
-function setEmployeeColor(color){
-
-  currentEmployeeColor=
-    color || "none";
-
-
-  document
-    .querySelectorAll(
-      ".employee-color-btn"
-    )
-    .forEach(
-      button=>{
-        button.style.outline=
-          "none";
-      }
-    );
-
-
-  const selected=
-    document.querySelector(
-      ".employee-color-btn."+
-      currentEmployeeColor
-    );
-
-
-  if(selected){
-
-    selected.style.outline=
-      "2px solid #fff";
-
-  }
-
-
-  clickSound();
-
-}
-
-
-function setEmployeeCellColor(cell,color){
-
-  const key=
-    cell.dataset.key;
-
-  if(!employeesData[key]){
-
-    employeesData[key]={
-      text:cell.innerText.trim(),
-      color:"none"
-    };
-
-  }
-
-
-  employeesData[key].color=
-    color || "none";
-
-
-  cell.dataset.color=
-    employeesData[key].color;
-
-
-  saveJSON(
-    STORAGE.employees,
-    employeesData
-  );
-
-
-  clickSound();
-
-}
-
-
-function employeeDragStart(event,cell){
-
-  draggedEmployeeCell=cell;
-
-  cell.classList.add(
-    "dragging"
-  );
-
-  try{
-
-    event.dataTransfer.effectAllowed=
-      "move";
-
-    event.dataTransfer.setData(
-      "text/plain",
-      cell.dataset.key
-    );
-
-  }catch(error){}
-
-}
-
-
-function employeeDragOver(event,cell){
-
-  event.preventDefault();
-
-  if(
-    draggedEmployeeCell &&
-    draggedEmployeeCell!==cell
-  ){
-
-    cell.classList.add(
-      "drop-target"
-    );
-
-  }
-
-}
-
-
-function employeeDragLeave(event,cell){
-
-  cell.classList.remove(
-    "drop-target"
-  );
-
-}
-
-
-function employeeDrop(event,target){
-
-  event.preventDefault();
-
-  target.classList.remove(
-    "drop-target"
-  );
-
-
-  if(
-    !draggedEmployeeCell ||
-    draggedEmployeeCell===target
-  ){
-
-    return;
-
-  }
-
-
-  const sourceKey=
-    draggedEmployeeCell.dataset.key;
-
-  const targetKey=
-    target.dataset.key;
-
-
-  const source=
-    employeesData[sourceKey] ||
-    {
-      text:"",
-      color:"none"
-    };
-
-  const targetData=
-    employeesData[targetKey] ||
-    {
-      text:"",
-      color:"none"
-    };
-
-
-  employeesData[sourceKey]={
-    text:targetData.text || "",
-    color:targetData.color || "none"
-  };
-
-
-  employeesData[targetKey]={
-    text:source.text || "",
-    color:source.color || "none"
-  };
-
-
-  saveJSON(
-    STORAGE.employees,
-    employeesData
-  );
-
-
-  renderEmployees();
-
-  clickSound();
-
-}
-
-
-function employeeDragEnd(event,cell){
-
-  cell.classList.remove(
-    "dragging"
-  );
-
-
-  document
-    .querySelectorAll(
-      ".employee-cell"
-    )
-    .forEach(
-      item=>{
-        item.classList.remove(
-          "drop-target"
-        );
-      }
-    );
-
-
-  draggedEmployeeCell=null;
-
-}
-
-
-/*
-  Mobile long-press support.
-  A long press selects the cell for moving.
-  Releasing over another cell swaps the content.
-*/
-
-function employeeTouchStart(event,cell){
-
-  clearTimeout(
-    employeeLongPressTimer
-  );
-
-
-  employeeLongPressTimer=
-    setTimeout(
-      ()=>{
-
-        draggedEmployeeCell=cell;
-
-        cell.classList.add(
-          "dragging"
-        );
-
-      },
-      420
-    );
-
-}
-
-
-function employeeTouchEnd(event,cell){
-
-  clearTimeout(
-    employeeLongPressTimer
-  );
-
-
-  if(
-    draggedEmployeeCell &&
-    draggedEmployeeCell!==cell
-  ){
-
-    const source=
-      draggedEmployeeCell;
-
-    const sourceKey=
-      source.dataset.key;
-
-    const targetKey=
-      cell.dataset.key;
-
-
-    const sourceData=
-      employeesData[sourceKey] ||
-      {
-        text:"",
-        color:"none"
-      };
-
-    const targetData=
-      employeesData[targetKey] ||
-      {
-        text:"",
-        color:"none"
-      };
-
-
-    employeesData[sourceKey]={
-      text:targetData.text || "",
-      color:targetData.color || "none"
-    };
-
-
-    employeesData[targetKey]={
-      text:sourceData.text || "",
-      color:sourceData.color || "none"
-    };
-
-
-    saveJSON(
-      STORAGE.employees,
-      employeesData
-    );
-
-
-    renderEmployees();
-
-    clickSound();
-
-  }
-
-
-  if(draggedEmployeeCell){
-
-    draggedEmployeeCell.classList.remove(
-      "dragging"
-    );
-
-  }
-
-
-  draggedEmployeeCell=null;
-
-}
-
-
-function clearEmployees(){
-
-  if(
-    !confirm(
-      "Clear the entire Employees schedule?"
-    )
-  )return;
-
-
-  employeesData={};
-
-
-  saveJSON(
-    STORAGE.employees,
-    employeesData
-  );
-
-
-  renderEmployees();
-
-  clickSound();
-
-}
-
-
-/* =========================
    PROFILE / USER NAME
 ========================= */
 
@@ -6359,13 +5680,16 @@ function changeUsername(){
       "newUsername"
     );
 
+
   const value=
     input.value.trim();
 
 
   if(!value){
 
-    alert("Enter a name.");
+    alert(
+      "Enter a name."
+    );
 
     return;
 
@@ -6373,7 +5697,10 @@ function changeUsername(){
 
 
   username=
-    value.slice(0,30);
+    value.slice(
+      0,
+      30
+    );
 
 
   localStorage.setItem(
@@ -6382,11 +5709,9 @@ function changeUsername(){
   );
 
 
-  input.value="";
-
   updateUserUI();
 
-  renderDashboard();
+  input.value="";
 
   clickSound();
 
@@ -6405,13 +5730,15 @@ function saveNote(){
     );
 
 
-  const text=
+  const value=
     input.value.trim();
 
 
-  if(!text){
+  if(!value){
 
-    alert("Write something first.");
+    alert(
+      "Write something first."
+    );
 
     return;
 
@@ -6420,11 +5747,15 @@ function saveNote(){
 
   notes.unshift({
 
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+
+      Math.random(),
 
-    text:text,
+    content:
+      value,
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
@@ -6444,16 +5775,13 @@ function saveNote(){
 }
 
 
-/* =========================
-   RENDER NOTES
-========================= */
-
 function renderNotes(){
 
   const box=
     document.getElementById(
       "notesList"
     );
+
 
   if(!box)return;
 
@@ -6462,7 +5790,8 @@ function renderNotes(){
     (
       document.getElementById(
         "noteSearch"
-      )?.value || ""
+      )?.value ||
+      ""
     )
     .trim()
     .toLowerCase();
@@ -6471,18 +5800,25 @@ function renderNotes(){
   const filtered=
     notes.filter(
       note=>
-        note.text
+        !search||
+        note.content
           .toLowerCase()
-          .includes(search)
+          .includes(
+            search
+          )
     );
 
 
-  if(!filtered.length){
+  if(
+    !filtered.length
+  ){
 
     box.innerHTML=
-      `<div class="empty">
-        No notes found.
-      </div>`;
+      `
+        <div class="empty">
+          No notes found.
+        </div>
+      `;
 
     return;
 
@@ -6490,85 +5826,99 @@ function renderNotes(){
 
 
   box.innerHTML=
-    filtered.map(note=>`
+    filtered
+      .map(
+        note=>`
 
-      <div class="note">
+          <div class="note">
 
-        <div class="note-content">
-          ${escapeHTML(note.text)}
-        </div>
+            <div class="note-content">
+              ${escapeHTML(
+                note.content
+              )}
+            </div>
 
-        <div class="note-date">
-          ${new Date(
-            note.date
-          ).toLocaleString()}
-        </div>
+            <div class="note-date">
+              ${escapeHTML(
+                new Date(
+                  note.date
+                ).toLocaleString()
+              )}
+            </div>
 
-        <div class="note-buttons">
+            <div class="note-buttons">
 
-          <button
-            class="note-edit"
-            onclick="editNote('${note.id}')"
-          >
-            Edit
-          </button>
+              <button
+                class="note-edit"
+                onclick="editNote('${note.id}')"
+              >
+                Edit
+              </button>
 
-          <button
-            class="note-delete"
-            onclick="deleteNote('${note.id}')"
-          >
-            Delete
-          </button>
+              <button
+                class="note-delete"
+                onclick="deleteNote('${note.id}')"
+              >
+                Delete
+              </button>
 
-        </div>
+            </div>
 
-      </div>
+          </div>
 
-    `).join("");
+        `
+      )
+      .join("");
 
 }
 
 
-/* =========================
-   EDIT NOTE
-========================= */
-
-function editNote(id){
+function editNote(
+  id
+){
 
   const note=
     notes.find(
       item=>
-        String(item.id)===String(id)
+        String(
+          item.id
+        )===
+        String(id)
     );
 
 
   if(!note)return;
 
 
-  const next=
+  const value=
     prompt(
       "Edit your note:",
-      note.text
+      note.content
     );
 
 
-  if(next===null)return;
-
-
-  if(!next.trim()){
-
-    alert("A note cannot be empty.");
+  if(
+    value===null
+  ){
 
     return;
 
   }
 
 
-  note.text=
-    next.trim();
+  const trimmed=
+    value.trim();
 
 
-  note.date=Date.now();
+  if(!trimmed)return;
+
+
+  note.content=
+    trimmed;
+
+
+  note.date=
+    Date.now();
 
 
   saveJSON(
@@ -6584,21 +5934,27 @@ function editNote(id){
 }
 
 
-/* =========================
-   DELETE NOTE
-========================= */
+function deleteNote(
+  id
+){
 
-function deleteNote(id){
+  if(
+    !confirm(
+      "Delete this note?"
+    )
+  ){
 
-  if(!confirm(
-    "Delete this note?"
-  ))return;
+    return;
+
+  }
 
 
   notes=
     notes.filter(
       note=>
-        String(note.id)!==
+        String(
+          note.id
+        )!==
         String(id)
     );
 
@@ -6616,16 +5972,8 @@ function deleteNote(id){
 }
 
 
-setInterval(
-  ()=>{
-    renderPointExchange();
-  },
-  1000
-);
-
-
 /* =========================
-   KEYBOARD SHORTCUT
+   ENTER KEY
 ========================= */
 
 document.addEventListener(
