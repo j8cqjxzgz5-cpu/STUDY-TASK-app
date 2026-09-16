@@ -72,17 +72,12 @@ textarea{
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-}
-
-.splash-inner{
-  width:100%;
-  padding:30px;
+  flex-direction:column;
 }
 
 .splash-logo{
-  width:88px;
-  height:88px;
+  width:82px;
+  height:82px;
   margin:0 auto 22px;
   border-radius:27px;
   background:#fff;
@@ -725,146 +720,174 @@ textarea{
 }
 
 /* =========================
-   POINTS EXCHANGE
+   POINT EXCHANGE
 ========================= */
 
-.points-chip{
-  background:#202020;
-  border:1px solid #333;
-  border-radius:15px;
-  padding:8px 11px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:#fff;
-  font-size:12px;
-  font-weight:900;
-  cursor:pointer;
-  flex-shrink:0;
-}
-
-.points-icon{
-  font-size:14px;
-}
-
 .points-balance-card{
-  text-align:center;
+  background:linear-gradient(145deg,#171717,#0d0d0d);
+  border:1px solid #303030;
+  border-radius:24px;
+  padding:22px;
+  margin-bottom:14px;
+}
+
+.points-label{
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
 .points-balance{
-  font-size:44px;
+  font-size:43px;
   font-weight:950;
-  margin:5px 0 12px;
+  margin-top:5px;
 }
 
-.boost-status{
-  display:inline-block;
-  background:#202020;
-  border:1px solid #333;
-  border-radius:12px;
-  padding:8px 11px;
-  color:#aaa;
-  font-size:11px;
+.points-balance span{
+  font-size:15px;
+  color:var(--muted);
+}
+
+.points-boost{
+  margin-top:13px;
+  padding:12px;
+  border-radius:14px;
+  background:#132b1e;
+  color:var(--green);
+  font-size:12px;
   font-weight:900;
 }
 
-.boost-status.active{
-  color:var(--green);
-  background:#123322;
-  border-color:#1b4e32;
+.exchange-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
+  margin-bottom:10px;
 }
 
-.points-reward{
-  text-align:left;
+.exchange-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
 
-.points-reward .menu-button-left{
-  min-width:0;
+.exchange-title{
+  font-size:15px;
+  font-weight:900;
 }
 
-.points-reward small{
-  display:block;
+.exchange-cost{
+  color:var(--yellow);
+  font-size:12px;
+  font-weight:950;
+  white-space:nowrap;
+}
+
+.exchange-description{
   color:var(--muted);
-  font-size:10px;
-  margin-top:4px;
-  font-weight:500;
+  font-size:12px;
+  line-height:1.45;
+  margin-top:7px;
 }
 
-.points-rules{
+.exchange-button{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  margin-top:13px;
+  background:#202020;
+  color:#fff;
+  font-weight:900;
+}
+
+.exchange-button:disabled{
+  opacity:.35;
+}
+
+.rules-card{
+  background:#090909;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:17px;
   margin-top:18px;
 }
 
-.points-rule{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:11px 0;
-  border-bottom:1px solid var(--line);
-  color:#ddd;
-  font-size:12px;
-  line-height:1.4;
+.rules-title{
+  font-size:13px;
+  font-weight:950;
+  margin-bottom:10px;
 }
 
-.points-rule:last-child{
+.rule-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px solid #1f1f1f;
+  font-size:12px;
+}
+
+.rule-row:last-child{
   border-bottom:0;
 }
 
-.rule-dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  flex-shrink:0;
+.rule-points{
+  font-weight:950;
 }
-
-.rule-dot.green{background:var(--green);}
-.rule-dot.yellow{background:var(--yellow);}
-.rule-dot.red{background:var(--red);}
-.rule-dot.boost{background:#fff;}
 
 .points-toast{
   position:fixed;
   z-index:1000;
-  left:50%;
+  left:16px;
+  right:16px;
   bottom:92px;
-  transform:translate(-50%,20px);
-  width:calc(100% - 32px);
-  max-width:420px;
-  background:#151515;
-  border:1px solid #333;
-  border-radius:20px;
-  padding:13px 15px;
+  max-width:648px;
+  margin:auto;
+  background:#171717;
+  border:1px solid #343434;
+  border-radius:18px;
+  padding:14px 16px;
   display:flex;
   align-items:center;
-  gap:11px;
-  box-shadow:0 12px 35px rgba(0,0,0,.45);
+  gap:12px;
+  box-shadow:0 15px 40px rgba(0,0,0,.45);
+  transform:translateY(20px);
   opacity:0;
   pointer-events:none;
-  transition:opacity .2s ease,transform .2s ease;
+  transition:.22s ease;
 }
 
 .points-toast.show{
+  transform:translateY(0);
   opacity:1;
-  transform:translate(-50%,0);
 }
 
 .points-toast-icon{
-  width:37px;
-  height:37px;
+  width:38px;
+  height:38px;
+  flex-shrink:0;
   border-radius:12px;
   background:#fff;
   color:#000;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:18px;
-  flex-shrink:0;
+  font-size:19px;
+}
+
+.points-toast-title{
+  font-size:13px;
+  font-weight:950;
 }
 
 .points-toast-text{
-  color:#fff;
-  font-size:12px;
-  font-weight:800;
-  line-height:1.35;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
 }
 
 /* =========================
@@ -935,28 +958,33 @@ textarea{
   right:0;
   bottom:0;
   background:rgba(8,8,8,.98);
-  border-top:1px solid var(--line);
-  padding-bottom:env(safe-area-inset-bottom);
+  border-top:1px solid #222;
+  padding:
+    8px
+    8px
+    calc(8px + env(safe-area-inset-bottom));
 }
 
 .nav-inner{
-  width:100%;
   max-width:680px;
   margin:auto;
   display:grid;
   grid-template-columns:repeat(4,1fr);
+  gap:6px;
 }
 
 .nav-button{
   border:0;
-  background:none;
-  color:#666;
-  padding:12px 5px 10px;
+  background:transparent;
+  color:#777;
+  border-radius:14px;
+  padding:8px 4px;
   font-size:10px;
   font-weight:800;
 }
 
 .nav-button.active{
+  background:#181818;
   color:#fff;
 }
 
@@ -965,11 +993,35 @@ textarea{
   margin-bottom:3px;
 }
 
-.footer{
-  text-align:center;
-  color:#555;
-  font-size:10px;
-  padding:25px 10px;
+/* =========================
+   HOME
+========================= */
+
+.home-welcome{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+/* =========================
+   PLAN
+========================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+
+@media(min-width:540px){
+  .form-grid{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .form-grid .full{
+    grid-column:1/-1;
+  }
 }
 
 /* =========================
@@ -978,30 +1030,16 @@ textarea{
 
 @media(max-width:380px){
 
-  .header{
-    padding-left:13px;
-    padding-right:13px;
-  }
-
-  .page{
-    padding-left:12px;
-    padding-right:12px;
-  }
-
   .brand{
-    font-size:26px;
+    font-size:25px;
   }
 
   .user-chip{
     max-width:125px;
   }
 
-  .dashboard{
-    gap:7px;
-  }
-
-  .dash-card{
-    padding:13px;
+  .points-balance{
+    font-size:38px;
   }
 
 }
@@ -1015,44 +1053,58 @@ textarea{
 ========================= -->
 
 <div id="splash">
-  <div class="splash-inner">
-    <div class="splash-logo">S</div>
-    <div class="splash-title">STUDY</div>
-    <div class="splash-sub">Focus. Plan. Complete.</div>
 
-    <div class="splash-made">
-      Made in Tunisia 🇹🇳<br>
-      by Jasser Nouaili
-    </div>
+  <div class="splash-logo">
+    S
   </div>
+
+  <div class="splash-title">
+    STUDY
+  </div>
+
+  <div class="splash-sub">
+    Your personal study workspace
+  </div>
+
+  <div class="splash-made">
+    by Jasser Naouili
+  </div>
+
 </div>
 
 
 <!-- =========================
-     USER NAME
+     USER SETUP
 ========================= -->
 
-<div id="userSetup" class="hidden">
+<div
+  id="userSetup"
+  class="hidden"
+>
 
   <div class="setup-card">
 
-    <div class="setup-logo">S</div>
+    <div class="setup-logo">
+      S
+    </div>
 
     <div class="setup-title">
       Welcome to STUDY
     </div>
 
     <div class="setup-description">
-      Enter your name to personalize your STUDY workspace.
+      Create your local profile to start using your
+      personal study workspace.
     </div>
 
-    <label>USER NAME</label>
+    <label>
+      YOUR NAME
+    </label>
 
     <input
       id="userNameInput"
-      type="text"
       maxlength="30"
-      placeholder="Your name"
+      placeholder="Enter your name"
       autocomplete="off"
     >
 
@@ -1069,41 +1121,47 @@ textarea{
 
 
 <!-- =========================
-     APPLICATION
+     APP
 ========================= -->
 
-<div id="app" class="app hidden">
+<div
+  id="app"
+  class="app hidden"
+>
 
   <header class="header">
 
     <div>
-      <div class="brand">STUDY</div>
-      <div class="brand-sub">Focus. Plan. Complete.</div>
+
+      <div class="brand">
+        STUDY
+      </div>
+
+      <div class="brand-sub">
+        Personal workspace
+      </div>
+
     </div>
 
-    <div
-      class="points-chip"
-      onclick="showPage('points')"
-      title="Points Exchange"
-    >
-      <span class="points-icon">★</span>
-      <span id="topPoints">0</span>
-    </div>
 
     <div
       class="user-chip"
-      onclick="showPage('profile')"
+      onclick="showPage('settings')"
     >
 
       <div
-        class="avatar"
         id="topAvatar"
-      >J</div>
+        class="avatar"
+      >
+        J
+      </div>
 
       <div
-        class="user-chip-name"
         id="topUsername"
-      >User</div>
+        class="user-chip-name"
+      >
+        User
+      </div>
 
     </div>
 
@@ -1119,19 +1177,28 @@ textarea{
     class="page active"
   >
 
-    <div class="hero card">
+    <div
+      id="welcomeText"
+      class="home-welcome"
+    >
+      Welcome 👋
+    </div>
+
+
+    <div class="card hero">
 
       <div class="hero-symbol">
-        ◆
+        S
       </div>
 
-      <h1 id="welcomeText">
-        Welcome 👋
+      <h1>
+        Stay focused.
       </h1>
 
       <p>
-        Your personal workspace to organize tasks,
-        money, notes and daily progress.
+        Organize your work, track your deadlines,
+        manage your money and keep everything
+        in one simple workspace.
       </p>
 
     </div>
@@ -1158,7 +1225,10 @@ textarea{
           COMPLETED
         </small>
 
-        <strong id="dashCompleted">
+        <strong
+          id="dashCompleted"
+          class="green-text"
+        >
           0
         </strong>
 
@@ -1171,7 +1241,10 @@ textarea{
           SUCCESS RATE
         </small>
 
-        <strong id="dashSuccess">
+        <strong
+          id="dashSuccess"
+          class="yellow-text"
+        >
           0%
         </strong>
 
@@ -1181,14 +1254,11 @@ textarea{
       <div class="dash-card">
 
         <small>
-          POCKET MONEY
+          BALANCE
         </small>
 
-        <strong
-          id="dashMoney"
-          class="green-text"
-        >
-          0 DT
+        <strong id="dashMoney">
+          0.00 DT
         </strong>
 
       </div>
@@ -1197,11 +1267,6 @@ textarea{
 
 
     <div id="homeNextTask"></div>
-
-
-    <div class="footer">
-      STUDY · by Jasser Nouaili
-    </div>
 
   </section>
 
@@ -1220,7 +1285,7 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Your urgent tasks at a glance.
+      Only your most urgent active tasks.
     </div>
 
     <div id="quickTasks"></div>
@@ -1242,21 +1307,20 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Organize your work and track every deadline.
+      Create and manage your tasks.
     </div>
 
 
     <div class="card">
 
       <label>
-        TASK / WORK NAME
+        TASK NAME
       </label>
 
       <input
         id="taskName"
-        type="text"
         maxlength="100"
-        placeholder="Example: Study text"
+        placeholder="What do you need to do?"
       >
 
 
@@ -1266,8 +1330,8 @@ textarea{
 
       <textarea
         id="taskDescription"
-        maxlength="500"
-        placeholder="Example: Read and understand the text..."
+        maxlength="1000"
+        placeholder="Add a description..."
       ></textarea>
 
 
@@ -1285,14 +1349,14 @@ textarea{
         class="primary"
         onclick="addTask()"
       >
-        + Add Task
+        Add Task
       </button>
 
     </div>
 
 
     <div class="section-title">
-      Active Tasks
+      Active Plan
     </div>
 
     <div id="activeTasks"></div>
@@ -1300,10 +1364,6 @@ textarea{
 
     <div class="section-title">
       Task Records
-    </div>
-
-    <div class="page-sub">
-      Finished and failed tasks are stored here.
     </div>
 
     <div id="taskRecords"></div>
@@ -1325,50 +1385,62 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Keep a clear record of your money.
+      Track your balance and spending.
     </div>
 
 
     <div class="card">
 
-      <small style="color:#777">
-        CURRENT BALANCE
-      </small>
-
-      <div
-        id="moneyBalance"
-        class="money-balance"
-      >
-        0 DT
+      <div class="money-balance">
+        <span id="moneyBalance">
+          0.00 DT
+        </span>
       </div>
 
 
       <div class="money-stats">
 
         <div class="money-stat">
-          <small>TOTAL ADDED</small>
+
+          <small>
+            TOTAL ADDED
+          </small>
+
           <strong
             id="moneyAdded"
             class="green-text"
-          >0 DT</strong>
+          >
+            0.00 DT
+          </strong>
+
         </div>
 
+
         <div class="money-stat">
-          <small>TOTAL SPENT</small>
+
+          <small>
+            TOTAL SPENT
+          </small>
+
           <strong
             id="moneySpent"
             class="red-text"
-          >0 DT</strong>
+          >
+            0.00 DT
+          </strong>
+
         </div>
 
       </div>
 
 
       <div class="progress-track">
+
         <div
           id="moneyProgress"
           class="progress-bar"
         ></div>
+
       </div>
 
 
@@ -1379,24 +1451,27 @@ textarea{
 
     <div class="card">
 
-      <label>AMOUNT</label>
+      <label>
+        AMOUNT
+      </label>
 
       <input
         id="moneyAmount"
         type="number"
         min="0"
         step="0.01"
-        placeholder="Example: 20"
+        placeholder="0.00"
       >
 
 
-      <label>DESCRIPTION</label>
+      <label>
+        DESCRIPTION
+      </label>
 
       <input
         id="moneyDescription"
-        type="text"
         maxlength="100"
-        placeholder="Example: Lunch"
+        placeholder="What is this for?"
       >
 
 
@@ -1413,61 +1488,38 @@ textarea{
           class="spend-money"
           onclick="spendMoney()"
         >
-          − Spend
+          − Spent Today
         </button>
 
       </div>
 
-
-      <button
-        class="secondary"
-        onclick="resetMoney()"
-      >
-        Reset Pocket Money
-      </button>
-
     </div>
 
 
-    <div class="card">
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-      ">
-
-        <div class="section-title" style="
-          margin:0;
-        ">
-          Money History
-        </div>
-
-        <button
-          class="secondary"
-          style="
-            width:auto;
-            margin:0;
-            padding:9px 12px;
-          "
-          onclick="showPage('data')"
-        >
-          Data
-        </button>
-
-      </div>
-
-      <div id="moneyHistory"></div>
-
-      <button
-        id="moreHistoryButton"
-        class="secondary"
-        onclick="showMoreHistory()"
-      >
-        Show More
-      </button>
-
+    <div class="section-title">
+      History
     </div>
+
+    <div
+      id="moneyHistory"
+      class="card"
+    ></div>
+
+
+    <button
+      class="secondary"
+      onclick="showMoreHistory()"
+    >
+      Show More
+    </button>
+
+
+    <button
+      class="secondary"
+      onclick="showPage('data')"
+    >
+      Data
+    </button>
 
   </section>
 
@@ -1549,11 +1601,11 @@ textarea{
 
     <button
       class="menu-button"
-      onclick="showPage('points')"
+      onclick="showPage('play')"
     >
       <span class="menu-button-left">
-        <span class="menu-icon">★</span>
-        <b>Points Exchange</b>
+        <span class="menu-icon">↔️</span>
+        <b>Point Exchange</b>
       </span>
       <span class="menu-arrow">›</span>
     </button>
@@ -1628,7 +1680,9 @@ textarea{
 
     <div class="card">
 
-      <label>USER NAME</label>
+      <label>
+        USER NAME
+      </label>
 
       <input
         id="newUsername"
@@ -1650,7 +1704,10 @@ textarea{
 
       <b>Workspace</b>
 
-      <div class="page-sub" style="margin:8px 0 0">
+      <div
+        class="page-sub"
+        style="margin:8px 0 0"
+      >
         Your STUDY information is stored locally
         in this browser.
       </div>
@@ -1686,7 +1743,10 @@ textarea{
     </div>
 
 
-    <div class="card" style="text-align:center;padding:45px 20px">
+    <div
+      class="card"
+      style="text-align:center;padding:45px 20px"
+    >
 
       <div style="font-size:45px">
         👥
@@ -1707,197 +1767,160 @@ textarea{
 
 
   <!-- =========================
-       POINTS EXCHANGE
+       POINT EXCHANGE
   ========================= -->
 
   <section
-    id="points"
+    id="play"
     class="page"
   >
 
+    <button
+      class="secondary"
+      style="width:auto;margin:0 0 15px"
+      onclick="showPage('settings')"
+    >
+      ← Back
+    </button>
+
     <div class="page-title">
-      Points Exchange
+      Point Exchange
     </div>
 
     <div class="page-sub">
       Earn points by completing your tasks and exchange them for rewards.
     </div>
 
-    <div class="card points-balance-card">
 
-      <small style="color:#777">
-        YOUR POINTS
-      </small>
+    <div class="points-balance-card">
 
-      <div
-        id="pointsBalance"
-        class="points-balance"
-      >
-        0
+      <div class="points-label">
+        POINT BALANCE
+      </div>
+
+      <div class="points-balance">
+        <span id="pointsBalance">0</span>
+        <span>POINTS</span>
       </div>
 
       <div
         id="boostStatus"
-        class="boost-status"
-      >
-        ⚡ No active Boost
-      </div>
+        class="points-boost hidden"
+      ></div>
 
     </div>
 
 
     <div class="section-title">
-      Exchange Points
+      Exchange
     </div>
 
 
-    <button
-      class="menu-button points-reward"
-      onclick="redeemPoints(100,'money1')"
-    >
+    <div class="exchange-card">
 
-      <span class="menu-button-left">
+      <div class="exchange-top">
+        <div class="exchange-title">
+          💰 1 DT
+        </div>
 
-        <span class="menu-icon">
-          💰
-        </span>
+        <div class="exchange-cost">
+          100 POINTS
+        </div>
+      </div>
 
-        <span>
+      <div class="exchange-description">
+        Exchange 100 points and 1 DT is automatically added to your Pocket Money balance.
+      </div>
 
-          <b>
-            100 points
-          </b>
-
-          <small>
-            Take 1 DT from your parents
-          </small>
-
-        </span>
-
-      </span>
-
-      <span class="menu-arrow">
-        ›
-      </span>
-
-    </button>
-
-
-    <button
-      class="menu-button points-reward"
-      onclick="redeemPoints(66,'money05')"
-    >
-
-      <span class="menu-button-left">
-
-        <span class="menu-icon">
-          🪙
-        </span>
-
-        <span>
-
-          <b>
-            66 points
-          </b>
-
-          <small>
-            Take 0.5 DT from your parents
-          </small>
-
-        </span>
-
-      </span>
-
-      <span class="menu-arrow">
-        ›
-      </span>
-
-    </button>
-
-
-    <button
-      class="menu-button points-reward"
-      onclick="redeemPoints(200,'boost')"
-    >
-
-      <span class="menu-button-left">
-
-        <span class="menu-icon">
-          ⚡
-        </span>
-
-        <span>
-
-          <b>
-            200 points
-          </b>
-
-          <small>
-            10% Boost for 24 hours
-          </small>
-
-        </span>
-
-      </span>
-
-      <span class="menu-arrow">
-        ›
-      </span>
-
-    </button>
-
-
-    <div class="card points-rules">
-
-      <div
-        class="section-title"
-        style="margin:0 0 12px"
+      <button
+        id="exchange100Button"
+        class="exchange-button"
+        onclick="exchangePoints(100,'money1')"
       >
-        Points Rules
+        Exchange 100 Points → 1 DT
+      </button>
+
+    </div>
+
+
+    <div class="exchange-card">
+
+      <div class="exchange-top">
+        <div class="exchange-title">
+          🪙 0.5 DT
+        </div>
+
+        <div class="exchange-cost">
+          66 POINTS
+        </div>
       </div>
 
-
-      <div class="points-rule">
-
-        <span class="rule-dot green"></span>
-
-        <span>
-          Complete a green task → <b>+33 points</b>
-        </span>
-
+      <div class="exchange-description">
+        Exchange 66 points and 0.5 DT is automatically added to your Pocket Money balance.
       </div>
 
+      <button
+        id="exchange66Button"
+        class="exchange-button"
+        onclick="exchangePoints(66,'money05')"
+      >
+        Exchange 66 Points → 0.5 DT
+      </button>
 
-      <div class="points-rule">
+    </div>
 
-        <span class="rule-dot yellow"></span>
 
-        <span>
-          Complete a yellow task → <b>+22 points</b>
-        </span>
+    <div class="exchange-card">
 
+      <div class="exchange-top">
+        <div class="exchange-title">
+          ⚡ BOOST
+        </div>
+
+        <div class="exchange-cost">
+          200 POINTS
+        </div>
       </div>
 
-
-      <div class="points-rule">
-
-        <span class="rule-dot red"></span>
-
-        <span>
-          Complete a red task → <b>+11 points</b>
-        </span>
-
+      <div class="exchange-description">
+        Activate a +10% points bonus for every task completed during the next 24 hours.
       </div>
 
+      <button
+        id="exchange200Button"
+        class="exchange-button"
+        onclick="exchangePoints(200,'boost')"
+      >
+        Buy BOOST → +10% for 24h
+      </button>
 
-      <div class="points-rule">
+    </div>
 
-        <span class="rule-dot boost"></span>
 
-        <span>
-          Active Boost → <b>+10% points</b> for 24 hours
-        </span>
+    <div class="rules-card">
 
+      <div class="rules-title">
+        How points are earned
+      </div>
+
+      <div class="rule-row">
+        <span>🟢 Green task completed</span>
+        <span class="rule-points">+33</span>
+      </div>
+
+      <div class="rule-row">
+        <span>🟡 Yellow task completed</span>
+        <span class="rule-points">+22</span>
+      </div>
+
+      <div class="rule-row">
+        <span>🔴 Red task completed</span>
+        <span class="rule-points">+11</span>
+      </div>
+
+      <div class="rule-row">
+        <span>⚡ Active BOOST</span>
+        <span class="rule-points">+10%</span>
       </div>
 
     </div>
@@ -1956,26 +1979,6 @@ textarea{
     <div id="notesList"></div>
 
   </section>
-
-</div>
-
-
-<div
-  id="pointsToast"
-  class="points-toast"
->
-
-  <div
-    id="pointsToastIcon"
-    class="points-toast-icon"
-  >
-    ★
-  </div>
-
-  <div
-    id="pointsToastText"
-    class="points-toast-text"
-  ></div>
 
 </div>
 
@@ -2051,8 +2054,6 @@ const STORAGE={
   money:"study_money",
   notes:"study_notes",
   quickHidden:"study_quick_hidden",
-  xo:"study_xo",
-  higher:"study_higher",
   points:"study_points"
 };
 
@@ -2066,6 +2067,11 @@ let username="";
 let tasks=[];
 let quickHidden=[];
 
+let pointData={
+  balance:0,
+  boostUntil:0
+};
+
 let money={
   added:0,
   spent:0,
@@ -2076,35 +2082,6 @@ let notes=[];
 
 let moneyHistoryLimit=5;
 
-let pointsData={
-  balance:0,
-  boostExpiresAt:0
-};
-
-let pointsToastTimer=null;
-
-
-/* =========================
-   GAMES
-========================= */
-
-let xoBoard=[
-  "","","",
-  "","","",
-  "","",""
-];
-
-let xoTurn="X";
-let xoXScore=0;
-let xoOScore=0;
-let xoDrawScore=0;
-
-let higherNumber=50;
-let higherPlayer=1;
-let higherScoreOne=0;
-let higherScoreTwo=0;
-let higherRoundNumber=1;
-
 
 /* =========================
    SAFE JSON
@@ -2114,7 +2091,8 @@ function loadJSON(key,fallback){
 
   try{
 
-    const value=localStorage.getItem(key);
+    const value=
+      localStorage.getItem(key);
 
     if(!value){
       return fallback;
@@ -2147,9 +2125,11 @@ function saveJSON(key,value){
 
 function escapeHTML(value){
 
-  const div=document.createElement("div");
+  const div=
+    document.createElement("div");
 
-  div.textContent=String(value ?? "");
+  div.textContent=
+    String(value ?? "");
 
   return div.innerHTML;
 
@@ -2187,7 +2167,9 @@ function clickSound(){
       audioContext.createGain();
 
     oscillator.connect(gain);
-    gain.connect(audioContext.destination);
+    gain.connect(
+      audioContext.destination
+    );
 
     oscillator.frequency.value=650;
 
@@ -2267,14 +2249,18 @@ function loadApplication(){
 function startWithName(){
 
   const input=
-    document.getElementById("userNameInput");
+    document.getElementById(
+      "userNameInput"
+    );
 
   const value=
     input.value.trim();
 
   if(value.length<1){
 
-    alert("Please enter your name.");
+    alert(
+      "Please enter your name."
+    );
 
     input.focus();
 
@@ -2282,7 +2268,8 @@ function startWithName(){
 
   }
 
-  username=value.slice(0,30);
+  username=
+    value.slice(0,30);
 
   localStorage.setItem(
     STORAGE.username,
@@ -2354,63 +2341,22 @@ function loadAllData(){
       []
     );
 
-  pointsData=
+  pointData=
     loadJSON(
       STORAGE.points,
       {
         balance:0,
-        boostExpiresAt:0
+        boostUntil:0
       }
     );
 
-  pointsData.balance=
-    Number(pointsData.balance)||0;
+  pointData.balance=
+    Number(pointData.balance)||0;
 
-  pointsData.boostExpiresAt=
-    Number(pointsData.boostExpiresAt)||0;
+  pointData.boostUntil=
+    Number(pointData.boostUntil)||0;
 
-
-  const xoData=
-    loadJSON(
-      STORAGE.xo,
-      null
-    );
-
-  if(xoData){
-
-    xoBoard=xoData.board || xoBoard;
-    xoTurn=xoData.turn || "X";
-    xoXScore=Number(xoData.x)||0;
-    xoOScore=Number(xoData.o)||0;
-    xoDrawScore=Number(xoData.d)||0;
-
-  }
-
-
-  const higherData=
-    loadJSON(
-      STORAGE.higher,
-      null
-    );
-
-  if(higherData){
-
-    higherNumber=
-      Number(higherData.number)||50;
-
-    higherPlayer=
-      Number(higherData.player)||1;
-
-    higherScoreOne=
-      Number(higherData.p1)||0;
-
-    higherScoreTwo=
-      Number(higherData.p2)||0;
-
-    higherRoundNumber=
-      Number(higherData.round)||1;
-
-  }
+  renderPointExchange();
 
 }
 
@@ -2424,25 +2370,34 @@ function updateUserUI(){
   if(!username)return;
 
   const initial=
-    username.charAt(0).toUpperCase();
+    username
+      .charAt(0)
+      .toUpperCase();
 
-  document.getElementById("topUsername")
-    .textContent=username;
+  document.getElementById(
+    "topUsername"
+  ).textContent=
+    username;
 
-  document.getElementById("topAvatar")
-    .textContent=initial;
+  document.getElementById(
+    "topAvatar"
+  ).textContent=
+    initial;
 
-  document.getElementById("profileName")
-    .textContent=username;
+  document.getElementById(
+    "profileName"
+  ).textContent=
+    username;
 
-  document.getElementById("profileAvatar")
-    .textContent=initial;
+  document.getElementById(
+    "profileAvatar"
+  ).textContent=
+    initial;
 
-  document.getElementById("welcomeText")
-    .textContent=
-      "Welcome, "+username+" 👋";
-
-  renderPoints();
+  document.getElementById(
+    "welcomeText"
+  ).textContent=
+    "Welcome, "+username+" 👋";
 
 }
 
@@ -2493,23 +2448,11 @@ function showPage(pageId){
   renderDashboard();
   renderTasks();
   renderMoney();
-  renderPoints();
-
+  renderPointExchange();
 
   if(pageId==="data"){
     drawMoneyChart();
   }
-
-
-  if(pageId==="xo"){
-    renderXO();
-  }
-
-
-  if(pageId==="higher"){
-    renderHigher();
-  }
-
 
   if(pageId==="notes"){
     renderNotes();
@@ -2525,20 +2468,25 @@ function showPage(pageId){
 function addTask(){
 
   const name=
-    document.getElementById("taskName")
-      .value.trim();
+    document.getElementById(
+      "taskName"
+    ).value.trim();
 
   const description=
-    document.getElementById("taskDescription")
-      .value.trim();
+    document.getElementById(
+      "taskDescription"
+    ).value.trim();
 
   const date=
-    document.getElementById("taskDate")
-      .value;
+    document.getElementById(
+      "taskDate"
+    ).value;
 
   if(!name){
 
-    alert("Enter a task name.");
+    alert(
+      "Enter a task name."
+    );
 
     return;
 
@@ -2546,7 +2494,9 @@ function addTask(){
 
   if(!date){
 
-    alert("Choose a date.");
+    alert(
+      "Choose a date."
+    );
 
     return;
 
@@ -2555,17 +2505,20 @@ function addTask(){
 
   const task={
 
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+Math.random(),
 
     name:name,
 
-    description:description,
+    description:
+      description,
 
     date:date,
 
     status:"active",
 
-    createdAt:Date.now(),
+    createdAt:
+      Date.now(),
 
     completedAt:null
 
@@ -2580,14 +2533,17 @@ function addTask(){
   );
 
 
-  document.getElementById("taskName")
-    .value="";
+  document.getElementById(
+    "taskName"
+  ).value="";
 
-  document.getElementById("taskDescription")
-    .value="";
+  document.getElementById(
+    "taskDescription"
+  ).value="";
 
-  document.getElementById("taskDate")
-    .value="";
+  document.getElementById(
+    "taskDate"
+  ).value="";
 
 
   renderTasks();
@@ -2647,15 +2603,19 @@ function countdownInfo(date){
   let text="";
 
   if(days>0){
-    text+=days+"d ";
+    text+=
+      days+"d ";
   }
 
   text+=
-    String(hours).padStart(2,"0")+"h "
+    String(hours).padStart(2,"0")
+    +"h "
     +
-    String(minutes).padStart(2,"0")+"m "
+    String(minutes).padStart(2,"0")
+    +"m "
     +
-    String(secs).padStart(2,"0")+"s";
+    String(secs).padStart(2,"0")
+    +"s";
 
 
   let color="green";
@@ -2687,7 +2647,10 @@ function countdownInfo(date){
    TASK CARD
 ========================= */
 
-function activeTaskHTML(task,showHideButton){
+function activeTaskHTML(
+  task,
+  showHideButton
+){
 
   const info=
     countdownInfo(task.date);
@@ -2737,7 +2700,9 @@ function activeTaskHTML(task,showHideButton){
         ?
         `
         <div class="task-description">
-          ${escapeHTML(task.description)}
+          ${escapeHTML(
+            task.description
+          )}
         </div>
         `
         :
@@ -2746,9 +2711,14 @@ function activeTaskHTML(task,showHideButton){
 
 
       <div class="task-date">
-        📅 ${escapeHTML(
-          new Date(task.date).toLocaleString()
+
+        Due:
+        ${escapeHTML(
+          new Date(
+            task.date
+          ).toLocaleString()
         )}
+
       </div>
 
 
@@ -2848,7 +2818,9 @@ function recordTaskHTML(task){
         ?
         `
         <div class="task-description">
-          ${escapeHTML(task.description)}
+          ${escapeHTML(
+            task.description
+          )}
         </div>
         `
         :
@@ -2857,16 +2829,22 @@ function recordTaskHTML(task){
 
 
       <div class="task-date">
+
         Original date:
         ${escapeHTML(
-          new Date(task.date).toLocaleString()
+          new Date(
+            task.date
+          ).toLocaleString()
         )}
+
       </div>
 
 
       <div class="task-date">
+
         Recorded:
-        ${task.completedAt
+        ${
+          task.completedAt
           ?
           escapeHTML(
             new Date(
@@ -2876,6 +2854,7 @@ function recordTaskHTML(task){
           :
           "-"
         }
+
       </div>
 
     </div>
@@ -2907,9 +2886,11 @@ function renderTasks(){
     );
 
 
-  if(!activeBox||
-     !recordsBox||
-     !quickBox)return;
+  if(
+    !activeBox||
+    !recordsBox||
+    !quickBox
+  )return;
 
 
   const active=
@@ -3031,11 +3012,18 @@ function renderTasks(){
 
 function hideQuickTask(id){
 
-  const stringId=String(id);
+  const stringId=
+    String(id);
 
-  if(!quickHidden.includes(stringId)){
+  if(
+    !quickHidden.includes(
+      stringId
+    )
+  ){
 
-    quickHidden.push(stringId);
+    quickHidden.push(
+      stringId
+    );
 
   }
 
@@ -3053,287 +3041,19 @@ function hideQuickTask(id){
 
 
 /* =========================
-   POINTS SYSTEM
-========================= */
-
-function savePoints(){
-
-  saveJSON(
-    STORAGE.points,
-    pointsData
-  );
-
-}
-
-
-function renderPoints(){
-
-  const balance=
-    Math.round((Number(pointsData.balance)||0)*10)/10;
-
-
-  const top=
-    document.getElementById("topPoints");
-
-  if(top){
-
-    top.textContent=
-      Number.isInteger(balance)
-      ?
-      String(balance)
-      :
-      balance.toFixed(1);
-
-  }
-
-
-  const pageBalance=
-    document.getElementById("pointsBalance");
-
-  if(pageBalance){
-
-    pageBalance.textContent=
-      Number.isInteger(balance)
-      ?
-      String(balance)
-      :
-      balance.toFixed(1);
-
-  }
-
-
-  const boost=
-    document.getElementById("boostStatus");
-
-
-  if(boost){
-
-    const remaining=
-      pointsData.boostExpiresAt-Date.now();
-
-
-    if(remaining>0){
-
-      const totalSeconds=
-        Math.floor(remaining/1000);
-
-      const hours=
-        Math.floor(totalSeconds/3600);
-
-      const minutes=
-        Math.floor(
-          (totalSeconds%3600)/60
-        );
-
-      const seconds=
-        totalSeconds%60;
-
-
-      boost.className=
-        "boost-status active";
-
-      boost.textContent=
-        "⚡ 10% Boost active · "+
-        String(hours).padStart(2,"0")+
-        ":"+
-        String(minutes).padStart(2,"0")+
-        ":"+
-        String(seconds).padStart(2,"0");
-
-    }else{
-
-      if(pointsData.boostExpiresAt!==0){
-
-        pointsData.boostExpiresAt=0;
-
-        savePoints();
-
-      }
-
-      boost.className=
-        "boost-status";
-
-      boost.textContent=
-        "⚡ No active Boost";
-
-    }
-
-  }
-
-}
-
-
-function updatePointsTimer(){
-
-  renderPoints();
-
-}
-
-
-function showPointsToast(icon,message){
-
-  const toast=
-    document.getElementById(
-      "pointsToast"
-    );
-
-  const iconBox=
-    document.getElementById(
-      "pointsToastIcon"
-    );
-
-  const textBox=
-    document.getElementById(
-      "pointsToastText"
-    );
-
-  if(!toast||
-     !iconBox||
-     !textBox)return;
-
-
-  iconBox.textContent=icon;
-
-  textBox.textContent=message;
-
-  toast.classList.add("show");
-
-
-  clearTimeout(
-    pointsToastTimer
-  );
-
-
-  pointsToastTimer=
-    setTimeout(()=>{
-
-      toast.classList.remove("show");
-
-    },3000);
-
-}
-
-
-function addRewardMoney(amount){
-
-  money.added+=amount;
-
-  money.history.unshift({
-
-    id:Date.now()+Math.random(),
-
-    type:"added",
-
-    amount:amount,
-
-    description:"Points Exchange reward",
-
-    date:Date.now()
-
-  });
-
-
-  saveMoney();
-
-}
-
-
-function redeemPoints(cost,reward){
-
-  const current=
-    Number(pointsData.balance)||0;
-
-
-  if(current<cost){
-
-    showPointsToast(
-      "🔒",
-      "You need "+cost+" points for this reward."
-    );
-
-    clickSound();
-
-    return;
-
-  }
-
-
-  pointsData.balance=
-    Math.round(
-      (current-cost)*10
-    )/10;
-
-
-  if(reward==="money1"){
-
-    addRewardMoney(1);
-
-    savePoints();
-
-    renderPoints();
-
-    renderDashboard();
-
-
-    showPointsToast(
-      "💰",
-      "100 points exchanged · 1 DT added to Pocket Money."
-    );
-
-  }else if(reward==="money05"){
-
-    addRewardMoney(.5);
-
-    savePoints();
-
-    renderPoints();
-
-    renderDashboard();
-
-
-    showPointsToast(
-      "🪙",
-      "66 points exchanged · 0.5 DT added to Pocket Money."
-    );
-
-  }else if(reward==="boost"){
-
-    pointsData.boostExpiresAt=
-      Date.now()+24*60*60*1000;
-
-    savePoints();
-
-    renderPoints();
-
-
-    showPointsToast(
-      "⚡",
-      "200 points exchanged · 10% Boost is now active for 24 hours."
-    );
-
-  }
-
-
-  clickSound();
-
-}
-
-
-setInterval(
-  updatePointsTimer,
-  1000
-);
-
-
-/* =========================
    FINISH TASK
 ========================= */
 
-function finishTask(id,status){
+function finishTask(
+  id,
+  status
+){
 
   const task=
     tasks.find(
-      item=>String(item.id)===String(id)
+      item=>
+        String(item.id)===
+        String(id)
     );
 
   if(!task)return;
@@ -3341,69 +3061,23 @@ function finishTask(id,status){
   if(task.status!=="active")return;
 
 
-  let earnedPoints=0;
-
-
-  if(status==="done"){
-
-    const taskInfo=
-      countdownInfo(task.date);
-
-
-    let basePoints=0;
-
-
-    if(taskInfo.color==="green"){
-
-      basePoints=33;
-
-    }else if(taskInfo.color==="yellow"){
-
-      basePoints=22;
-
-    }else{
-
-      basePoints=11;
-
-    }
-
-
-    earnedPoints=basePoints;
-
-
-    if(pointsData.boostExpiresAt>Date.now()){
-
-      earnedPoints=
-        Math.round(
-          basePoints*1.1*10
-        )/10;
-
-    }
-
-
-    pointsData.balance=
-      Math.round(
-        (pointsData.balance+earnedPoints)*10
-      )/10;
-
-
-    saveJSON(
-      STORAGE.points,
-      pointsData
+  const completionInfo=
+    countdownInfo(
+      task.date
     );
-
-  }
 
 
   task.status=status;
 
-  task.completedAt=Date.now();
+  task.completedAt=
+    Date.now();
 
 
   quickHidden=
     quickHidden.filter(
       hiddenId=>
-        String(hiddenId)!==String(id)
+        String(hiddenId)!==
+        String(id)
     );
 
 
@@ -3418,20 +3092,491 @@ function finishTask(id,status){
   );
 
 
+  if(status==="done"){
+
+    const earned=
+      taskPointValue(
+        completionInfo.color
+      );
+
+
+    if(earned>0){
+
+      const bonusActive=
+        isBoostActive();
+
+
+      const finalPoints=
+        bonusActive
+        ?
+        Math.round(
+          earned*1.10*10
+        )/10
+        :
+        earned;
+
+
+      pointData.balance+=
+        finalPoints;
+
+
+      saveJSON(
+        STORAGE.points,
+        pointData
+      );
+
+
+      showPointToast(
+        "✨ Points earned",
+        "+"+
+        formatPoints(
+          finalPoints
+        )+
+        " points for completing \""+
+        task.name+
+        "\""+
+        (
+          bonusActive
+          ?
+          " • BOOST +10%"
+          :
+          ""
+        )
+      );
+
+    }
+
+  }
+
+
   renderTasks();
   renderDashboard();
-  renderPoints();
+  renderPointExchange();
+
+  clickSound();
+
+}
 
 
-  if(earnedPoints>0){
+/* =========================
+   POINT EXCHANGE
+========================= */
 
-    showPointsToast(
-      "🎉",
-      "+"+earnedPoints+" points earned!"
+function formatPoints(value){
+
+  const number=
+    Number(value)||0;
+
+  return Number.isInteger(
+    number
+  )
+  ?
+  String(number)
+  :
+  number
+    .toFixed(1)
+    .replace(
+      /\.0$/,
+      ""
+    );
+
+}
+
+
+function isBoostActive(){
+
+  if(!pointData.boostUntil){
+    return false;
+  }
+
+
+  if(
+    pointData.boostUntil<=
+    Date.now()
+  ){
+
+    pointData.boostUntil=0;
+
+    saveJSON(
+      STORAGE.points,
+      pointData
+    );
+
+    return false;
+
+  }
+
+
+  return true;
+
+}
+
+
+function taskPointValue(color){
+
+  if(color==="green"){
+    return 33;
+  }
+
+  if(color==="yellow"){
+    return 22;
+  }
+
+  if(
+    color==="orange"||
+    color==="red"
+  ){
+    return 11;
+  }
+
+  return 0;
+
+}
+
+
+function renderPointExchange(){
+
+  const balanceElement=
+    document.getElementById(
+      "pointsBalance"
+    );
+
+  if(!balanceElement)return;
+
+
+  balanceElement.textContent=
+    formatPoints(
+      pointData.balance
+    );
+
+
+  const boost=
+    document.getElementById(
+      "boostStatus"
+    );
+
+
+  if(boost){
+
+    if(isBoostActive()){
+
+      const remaining=
+        Math.max(
+          0,
+          pointData.boostUntil-
+          Date.now()
+        );
+
+
+      const totalSeconds=
+        Math.floor(
+          remaining/1000
+        );
+
+
+      const hours=
+        Math.floor(
+          totalSeconds/3600
+        );
+
+      const minutes=
+        Math.floor(
+          (totalSeconds%3600)/60
+        );
+
+      const seconds=
+        totalSeconds%60;
+
+
+      boost.classList.remove(
+        "hidden"
+      );
+
+
+      boost.textContent=
+        "⚡ BOOST ACTIVE • +10% • "+
+        String(hours).padStart(
+          2,
+          "0"
+        )+
+        "h "+
+        String(minutes).padStart(
+          2,
+          "0"
+        )+
+        "m "+
+        String(seconds).padStart(
+          2,
+          "0"
+        )+
+        "s remaining";
+
+    }else{
+
+      boost.classList.add(
+        "hidden"
+      );
+
+      boost.textContent="";
+
+    }
+
+  }
+
+
+  const b100=
+    document.getElementById(
+      "exchange100Button"
+    );
+
+  const b66=
+    document.getElementById(
+      "exchange66Button"
+    );
+
+  const b200=
+    document.getElementById(
+      "exchange200Button"
+    );
+
+
+  if(b100)
+    b100.disabled=
+      pointData.balance<100;
+
+  if(b66)
+    b66.disabled=
+      pointData.balance<66;
+
+  if(b200)
+    b200.disabled=
+      pointData.balance<200;
+
+}
+
+
+function showPointToast(
+  title,
+  text
+){
+
+  let toast=
+    document.getElementById(
+      "pointsToast"
+    );
+
+
+  if(!toast){
+
+    toast=
+      document.createElement(
+        "div"
+      );
+
+    toast.id=
+      "pointsToast";
+
+    toast.className=
+      "points-toast";
+
+    toast.innerHTML=`
+
+      <div class="points-toast-icon">
+        ★
+      </div>
+
+      <div>
+
+        <div class="points-toast-title">
+        </div>
+
+        <div class="points-toast-text">
+        </div>
+
+      </div>
+
+    `;
+
+    document.body.appendChild(
+      toast
     );
 
   }
 
+
+  toast.querySelector(
+    ".points-toast-title"
+  ).textContent=
+    title;
+
+
+  toast.querySelector(
+    ".points-toast-text"
+  ).textContent=
+    text;
+
+
+  toast.classList.remove(
+    "show"
+  );
+
+
+  void toast.offsetWidth;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    window.pointToastTimer
+  );
+
+
+  window.pointToastTimer=
+    setTimeout(
+      ()=>{
+        toast.classList.remove(
+          "show"
+        );
+      },
+      3200
+    );
+
+}
+
+
+function exchangePoints(
+  cost,
+  type
+){
+
+  if(
+    pointData.balance<
+    cost
+  ){
+
+    showPointToast(
+      "Not enough points",
+      "You need "+
+      formatPoints(
+        cost-pointData.balance
+      )+
+      " more points."
+    );
+
+    return;
+
+  }
+
+
+  pointData.balance-=
+    cost;
+
+
+  if(type==="money1"){
+
+    money.added+=1;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+Math.random(),
+
+      type:"added",
+
+      amount:1,
+
+      description:
+        "Point Exchange • 100 points → 1 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "💰 Exchange complete",
+      "100 points exchanged for 1 DT."
+    );
+
+
+  }else if(
+    type==="money05"
+  ){
+
+    money.added+=0.5;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+Math.random(),
+
+      type:"added",
+
+      amount:0.5,
+
+      description:
+        "Point Exchange • 66 points → 0.5 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "🪙 Exchange complete",
+      "66 points exchanged for 0.5 DT."
+    );
+
+
+  }else if(
+    type==="boost"
+  ){
+
+    const base=
+      isBoostActive()
+      ?
+      Math.max(
+        Date.now(),
+        pointData.boostUntil
+      )
+      :
+      Date.now();
+
+
+    pointData.boostUntil=
+      base+
+      24*60*60*1000;
+
+
+    showPointToast(
+      "⚡ BOOST activated",
+      "+10% points for the next 24 hours."
+    );
+
+  }
+
+
+  saveJSON(
+    STORAGE.points,
+    pointData
+  );
+
+
+  renderPointExchange();
+  renderDashboard();
 
   clickSound();
 
@@ -3452,7 +3597,8 @@ function deleteRecord(id){
   tasks=
     tasks.filter(
       task=>
-        String(task.id)!==String(id)
+        String(task.id)!==
+        String(id)
     );
 
 
@@ -3487,23 +3633,27 @@ function updateCountdowns(){
       const id=
         element.dataset.countdown;
 
+
       const task=
         tasks.find(
           item=>
-            String(item.id)===String(id)
+            String(item.id)===
+            String(id)
         );
 
 
-      if(!task||
-         task.status!=="active"){
-
+      if(
+        !task||
+        task.status!=="active"
+      ){
         return;
-
       }
 
 
       const info=
-        countdownInfo(task.date);
+        countdownInfo(
+          task.date
+        );
 
 
       element.textContent=
@@ -3525,7 +3675,8 @@ function updateCountdowns(){
         status.className=
           "status status-"+info.color;
 
-        status.textContent="ACTIVE";
+        status.textContent=
+          "ACTIVE";
 
       }
 
@@ -3541,6 +3692,18 @@ setInterval(
 
 
 /* =========================
+   POINT EXCHANGE CLOCK
+========================= */
+
+setInterval(
+  ()=>{
+    renderPointExchange();
+  },
+  1000
+);
+
+
+/* =========================
    DASHBOARD
 ========================= */
 
@@ -3548,13 +3711,17 @@ function renderDashboard(){
 
   const active=
     tasks.filter(
-      task=>task.status==="active"
+      task=>
+        task.status==="active"
     );
+
 
   const completed=
     tasks.filter(
-      task=>task.status==="done"
+      task=>
+        task.status==="done"
     );
+
 
   const finished=
     tasks.filter(
@@ -3577,7 +3744,8 @@ function renderDashboard(){
 
 
   const balance=
-    money.added-money.spent;
+    money.added-
+    money.spent;
 
 
   document.getElementById(
@@ -3603,8 +3771,10 @@ function renderDashboard(){
       "dashMoney"
     );
 
+
   moneyElement.textContent=
-    balance.toFixed(2)+" DT";
+    balance.toFixed(2)+
+    " DT";
 
 
   moneyElement.className=
@@ -3627,10 +3797,14 @@ function renderDashboard(){
 
       <div class="card">
 
-        <b>🎯 No active tasks</b>
+        <b>
+          🎯 No active tasks
+        </b>
 
-        <div class="page-sub"
-             style="margin:7px 0 0">
+        <div
+          class="page-sub"
+          style="margin:7px 0 0"
+        >
           Your workspace is clear.
         </div>
 
@@ -3655,7 +3829,9 @@ function renderDashboard(){
 
 
   const info=
-    countdownInfo(next.date);
+    countdownInfo(
+      next.date
+    );
 
 
   box.innerHTML=`
@@ -3666,18 +3842,22 @@ function renderDashboard(){
         NEXT TASK
       </small>
 
-      <div style="
-        font-size:17px;
-        font-weight:900;
-        margin-top:7px;
-      ">
+      <div
+        style="
+          font-size:17px;
+          font-weight:900;
+          margin-top:7px;
+        "
+      >
         ${escapeHTML(next.name)}
       </div>
 
-      <div class="
-        countdown ${info.color}
-      "
-      data-countdown="${next.id}">
+      <div
+        class="
+          countdown ${info.color}
+        "
+        data-countdown="${next.id}"
+      >
         ⏳ ${info.text}
       </div>
 
@@ -3701,36 +3881,47 @@ function addMoney(){
       ).value
     );
 
+
   const description=
     document.getElementById(
       "moneyDescription"
     ).value.trim();
 
 
-  if(!amount||amount<=0){
+  if(
+    !amount||
+    amount<=0
+  ){
 
-    alert("Enter a valid amount.");
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
   }
 
 
-  money.added+=amount;
+  money.added+=
+    amount;
 
 
   money.history.unshift({
 
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+Math.random(),
 
     type:"added",
 
-    amount:amount,
+    amount:
+      amount,
 
     description:
-      description||"Money added",
+      description||
+      "Money added",
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
@@ -3753,36 +3944,47 @@ function spendMoney(){
       ).value
     );
 
+
   const description=
     document.getElementById(
       "moneyDescription"
     ).value.trim();
 
 
-  if(!amount||amount<=0){
+  if(
+    !amount||
+    amount<=0
+  ){
 
-    alert("Enter a valid amount.");
+    alert(
+      "Enter a valid amount."
+    );
 
     return;
 
   }
 
 
-  money.spent+=amount;
+  money.spent+=
+    amount;
 
 
   money.history.unshift({
 
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+Math.random(),
 
     type:"spent",
 
-    amount:amount,
+    amount:
+      amount,
 
     description:
-      description||"Money spent",
+      description||
+      "Money spent",
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
@@ -3808,6 +4010,7 @@ function saveMoney(){
     "moneyAmount"
   ).value="";
 
+
   document.getElementById(
     "moneyDescription"
   ).value="";
@@ -3816,15 +4019,18 @@ function saveMoney(){
   renderMoney();
   renderDashboard();
 
+
   if(
     document
       .getElementById("data")
-      .classList.contains("active")
+      .classList
+      .contains("active")
   ){
 
     drawMoneyChart();
 
   }
+
 
   clickSound();
 
@@ -3838,13 +4044,15 @@ function saveMoney(){
 function renderMoney(){
 
   const balance=
-    money.added-money.spent;
+    money.added-
+    money.spent;
 
 
   document.getElementById(
     "moneyBalance"
   ).textContent=
-    balance.toFixed(2)+" DT";
+    balance.toFixed(2)+
+    " DT";
 
 
   document.getElementById(
@@ -3860,13 +4068,15 @@ function renderMoney(){
   document.getElementById(
     "moneyAdded"
   ).textContent=
-    money.added.toFixed(2)+" DT";
+    money.added.toFixed(2)+
+    " DT";
 
 
   document.getElementById(
     "moneySpent"
   ).textContent=
-    money.spent.toFixed(2)+" DT";
+    money.spent.toFixed(2)+
+    " DT";
 
 
   const progress=
@@ -3875,9 +4085,12 @@ function renderMoney(){
     );
 
 
-  if(money.added<=0){
+  if(
+    money.added<=0
+  ){
 
-    progress.style.width="0%";
+    progress.style.width=
+      "0%";
 
   }else{
 
@@ -3886,9 +4099,12 @@ function renderMoney(){
         0,
         Math.min(
           100,
-          balance/money.added*100
+          balance/
+          money.added*
+          100
         )
       );
+
 
     progress.style.width=
       percent+"%";
@@ -3901,12 +4117,18 @@ function renderMoney(){
     progress.style.background=
       "var(--red)";
 
-  }else if(balance/money.added<.25){
+  }else if(
+    money.added>0 &&
+    balance/money.added<.25
+  ){
 
     progress.style.background=
       "var(--red)";
 
-  }else if(balance/money.added<.5){
+  }else if(
+    money.added>0 &&
+    balance/money.added<.5
+  ){
 
     progress.style.background=
       "var(--yellow)";
@@ -3919,7 +4141,7 @@ function renderMoney(){
   }
 
 
-  const warning=
+  const debt=
     document.getElementById(
       "debtWarning"
     );
@@ -3927,17 +4149,24 @@ function renderMoney(){
 
   if(balance<0){
 
-    warning.innerHTML=`
+    debt.innerHTML=`
 
       <div class="debt">
-        ⚠️ Danger: You are in debt.
+
+        ⚠ YOU ARE IN DEBT
+
+        <br>
+
+        ${Math.abs(balance).toFixed(2)}
+        DT
+
       </div>
 
     `;
 
   }else{
 
-    warning.innerHTML="";
+    debt.innerHTML="";
 
   }
 
@@ -3948,152 +4177,101 @@ function renderMoney(){
     );
 
 
-  const history=
-    money.history
-      .slice(
-        0,
-        moneyHistoryLimit
-      );
+  if(!historyBox)return;
 
 
-  if(!history.length){
+  const list=
+    money.history.slice(
+      0,
+      moneyHistoryLimit
+    );
+
+
+  if(!list.length){
 
     historyBox.innerHTML=
       `<div class="empty">
         No money history yet.
       </div>`;
 
-  }else{
+    return;
 
-    historyBox.innerHTML=
-      history
-        .map(item=>`
-
-          <div class="money-history">
-
-            <div>
-
-              <div class="money-history-title">
-                ${
-                  item.type==="added"
-                  ?
-                  "Money Added"
-                  :
-                  "Money Spent"
-                }
-              </div>
-
-              <div class="money-history-desc">
-                ${escapeHTML(
-                  item.description
-                )}
-              </div>
-
-              <div class="money-history-date">
-                ${new Date(
-                  item.date
-                ).toLocaleString()}
-              </div>
-
-            </div>
+  }
 
 
-            <div
-              class="money-history-amount"
-              style="
-                color:${
-                  item.type==="added"
-                  ?
-                  "var(--green)"
-                  :
-                  "var(--red)"
-                };
-              "
-            >
+  historyBox.innerHTML=
+    list.map(item=>`
+
+      <div class="money-history">
+
+        <div>
+
+          <div class="money-history-title">
+            ${
+              item.type==="added"
+              ?
+              "Money Added"
+              :
+              "Money Spent"
+            }
+          </div>
+
+          <div class="money-history-desc">
+            ${escapeHTML(
+              item.description
+            )}
+          </div>
+
+          <div class="money-history-date">
+            ${escapeHTML(
+              new Date(
+                item.date
+              ).toLocaleString()
+            )}
+          </div>
+
+        </div>
+
+        <div
+          class="money-history-amount"
+          style="
+            color:
               ${
                 item.type==="added"
                 ?
-                "+"
+                "var(--green)"
                 :
-                "-"
-              }${Number(
-                item.amount
-              ).toFixed(2)} DT
-            </div>
+                "var(--red)"
+              };
+          "
+        >
+          ${
+            item.type==="added"
+            ?
+            "+"
+            :
+            "-"
+          }${Number(
+            item.amount
+          ).toFixed(2)} DT
+        </div>
 
-          </div>
+      </div>
 
-        `).join("");
-
-  }
-
-
-  const moreButton=
-    document.getElementById(
-      "moreHistoryButton"
-    );
-
-
-  if(
-    money.history.length>
-    moneyHistoryLimit
-  ){
-
-    moreButton.style.display="block";
-
-  }else{
-
-    moreButton.style.display="none";
-
-  }
+    `).join("");
 
 }
 
 
 /* =========================
-   MORE MONEY HISTORY
+   MORE HISTORY
 ========================= */
 
 function showMoreHistory(){
 
-  moneyHistoryLimit+=10;
+  moneyHistoryLimit+=5;
 
   renderMoney();
-
-}
-
-
-/* =========================
-   RESET MONEY
-========================= */
-
-function resetMoney(){
-
-  if(!confirm(
-    "Reset all Pocket Money data?"
-  ))return;
-
-
-  money={
-    added:0,
-    spent:0,
-    history:[]
-  };
-
-
-  moneyHistoryLimit=5;
-
-
-  saveJSON(
-    STORAGE.money,
-    money
-  );
-
-
-  renderMoney();
-  renderDashboard();
-
-  drawMoneyChart();
 
   clickSound();
 
@@ -4101,7 +4279,7 @@ function resetMoney(){
 
 
 /* =========================
-   CHART
+   MONEY CHART
 ========================= */
 
 function drawMoneyChart(){
@@ -4111,75 +4289,27 @@ function drawMoneyChart(){
       "moneyChart"
     );
 
+
   if(!canvas)return;
-
-
-  const rect=
-    canvas.getBoundingClientRect();
-
-
-  const cssWidth=
-    Math.max(
-      280,
-      Math.floor(rect.width||600)
-    );
-
-
-  const cssHeight=
-    Math.max(
-      300,
-      Math.floor(cssWidth*.5)
-    );
-
-
-  const dpr=
-    window.devicePixelRatio||1;
-
-
-  canvas.width=
-    cssWidth*dpr;
-
-  canvas.height=
-    cssHeight*dpr;
-
-
-  canvas.style.height=
-    cssHeight+"px";
 
 
   const ctx=
     canvas.getContext("2d");
 
 
-  ctx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
+  const width=
+    canvas.width;
+
+  const height=
+    canvas.height;
 
 
   ctx.clearRect(
     0,
     0,
-    cssWidth,
-    cssHeight
+    width,
+    height
   );
-
-
-  const left=55;
-  const right=20;
-  const top=25;
-  const bottom=45;
-
-
-  const graphWidth=
-    cssWidth-left-right;
-
-  const graphHeight=
-    cssHeight-top-bottom;
 
 
   const history=
@@ -4188,360 +4318,231 @@ function drawMoneyChart(){
       .reverse();
 
 
-  if(!history.length){
+  let balance=0;
 
-    ctx.fillStyle="#777";
-
-    ctx.font="15px Arial";
-
-    ctx.textAlign="center";
-
-    ctx.fillText(
-      "No financial data yet",
-      cssWidth/2,
-      cssHeight/2
-    );
-
-    renderMoneyReport();
-
-    return;
-
-  }
+  const points=[
+    {
+      x:0,
+      y:height-35
+    }
+  ];
 
 
-  let running=0;
+  history.forEach(
+    item=>{
 
-  const points=[];
+      if(item.type==="added"){
+        balance+=
+          Number(item.amount)||0;
+      }else{
+        balance-=
+          Number(item.amount)||0;
+      }
 
 
-  history.forEach(item=>{
-
-    if(item.type==="added"){
-
-      running+=Number(item.amount);
-
-    }else{
-
-      running-=Number(item.amount);
+      points.push({
+        x:0,
+        y:balance
+      });
 
     }
-
-
-    points.push({
-      balance:running,
-      date:item.date
-    });
-
-  });
+  );
 
 
   const values=
     points.map(
-      point=>point.balance
+      p=>p.y
     );
 
 
-  let max=
+  const maxValue=
     Math.max(
-      ...values,
-      10
+      1,
+      ...values
     );
 
 
-  let min=
+  const minValue=
     Math.min(
-      ...values,
-      0
+      0,
+      ...values
     );
 
 
-  if(max===min){
-
-    max+=10;
-    min-=10;
-
-  }
-
-
-  const range=max-min;
-
-
-  /* GRID */
-
-  ctx.strokeStyle="#242424";
-  ctx.lineWidth=1;
-
-
-  for(let i=0;i<=4;i++){
-
-    const y=
-      top+
-      graphHeight/4*i;
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-      left,
-      y
+  const range=
+    Math.max(
+      1,
+      maxValue-minValue
     );
 
-    ctx.lineTo(
-      cssWidth-right,
-      y
-    );
 
-    ctx.stroke();
+  ctx.strokeStyle=
+    "#333";
 
+  ctx.lineWidth=
+    2;
 
-    const value=
-      max-
-      range/4*i;
-
-
-    ctx.fillStyle="#777";
-
-    ctx.font="10px Arial";
-
-    ctx.textAlign="right";
-
-
-    ctx.fillText(
-      value.toFixed(0),
-      left-8,
-      y+4
-    );
-
-  }
-
-
-  /* LINE */
-
-  ctx.strokeStyle="#fff";
-  ctx.lineWidth=2;
 
   ctx.beginPath();
 
+  ctx.moveTo(
+    30,
+    height-35
+  );
 
-  points.forEach((point,index)=>{
-
-    const x=
-      points.length===1
-      ?
-      left+graphWidth/2
-      :
-      left+
-      graphWidth*
-      index/
-      (points.length-1);
-
-
-    const y=
-      top+
-      graphHeight*
-      (max-point.balance)/
-      range;
-
-
-    if(index===0){
-
-      ctx.moveTo(
-        x,
-        y
-      );
-
-    }else{
-
-      ctx.lineTo(
-        x,
-        y
-      );
-
-    }
-
-  });
-
+  ctx.lineTo(
+    width-20,
+    height-35
+  );
 
   ctx.stroke();
 
 
-  /* POINTS */
+  if(history.length){
 
-  ctx.fillStyle="#fff";
+    ctx.strokeStyle=
+      "#fff";
 
+    ctx.lineWidth=
+      5;
 
-  points.forEach((point,index)=>{
+    ctx.lineJoin=
+      "round";
 
-    const x=
-      points.length===1
-      ?
-      left+graphWidth/2
-      :
-      left+
-      graphWidth*
-      index/
-      (points.length-1);
-
-
-    const y=
-      top+
-      graphHeight*
-      (max-point.balance)/
-      range;
-
+    ctx.lineCap=
+      "round";
 
     ctx.beginPath();
 
-    ctx.arc(
-      x,
-      y,
-      4,
-      0,
-      Math.PI*2
-    );
 
-    ctx.fill();
+    history.forEach(
+      (item,index)=>{
 
-  });
-
-
-  /* X LABELS */
-
-  ctx.fillStyle="#777";
-
-  ctx.font="9px Arial";
-
-  ctx.textAlign="center";
+        const x=
+          30+
+          (
+            index/
+            Math.max(
+              1,
+              history.length-1
+            )
+          )*
+          (
+            width-60
+          );
 
 
-  points.forEach((point,index)=>{
+        let running=0;
 
-    const x=
-      points.length===1
-      ?
-      left+graphWidth/2
-      :
-      left+
-      graphWidth*
-      index/
-      (points.length-1);
+        for(
+          let j=0;
+          j<=index;
+          j++
+        ){
 
+          const h=
+            history[j];
 
-    const label=
-      new Date(
-        point.date
-      ).toLocaleDateString(
-        undefined,
-        {
-          month:"short",
-          day:"numeric"
+          if(
+            h.type==="added"
+          ){
+
+            running+=
+              Number(
+                h.amount
+              )||0;
+
+          }else{
+
+            running-=
+              Number(
+                h.amount
+              )||0;
+
+          }
+
         }
-      );
 
 
-    ctx.fillText(
-      label,
-      x,
-      cssHeight-20
+        const y=
+          height-
+          35-
+          (
+            (
+              running-minValue
+            )/
+            range
+          )*
+          (
+            height-70
+          );
+
+
+        if(index===0){
+
+          ctx.moveTo(
+            x,
+            y
+          );
+
+        }else{
+
+          ctx.lineTo(
+            x,
+            y
+          );
+
+        }
+
+      }
     );
 
-  });
 
+    ctx.stroke();
 
-  renderMoneyReport();
+  }
 
-}
-
-
-/* =========================
-   MONEY REPORT
-========================= */
-
-function renderMoneyReport(){
 
   const report=
     document.getElementById(
       "moneyReport"
     );
 
+
   if(!report)return;
 
 
-  const now=
-    new Date();
+  const totalAdded=
+    money.added;
 
 
-  const start=
-    new Date(
-      now
-    );
-
-  start.setDate(
-    now.getDate()-6
-  );
-
-  start.setHours(
-    0,
-    0,
-    0,
-    0
-  );
+  const totalSpent=
+    money.spent;
 
 
-  const weekly=
-    money.history.filter(
-      item=>
-        new Date(item.date)>=start
-    );
-
-
-  const added=
-    weekly
-      .filter(
-        item=>item.type==="added"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+Number(item.amount),
-        0
-      );
-
-
-  const spent=
-    weekly
-      .filter(
-        item=>item.type==="spent"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+Number(item.amount),
-        0
-      );
+  const current=
+    totalAdded-
+    totalSpent;
 
 
   report.innerHTML=`
 
-    <div class="section-title"
-         style="margin-top:0">
-      This Week
-    </div>
+    <b>
+      Financial Report
+    </b>
 
-    <div class="page-sub"
-         style="margin-bottom:0">
-
+    <div
+      class="page-sub"
+      style="margin:8px 0 0"
+    >
       Added:
-      <b>${added.toFixed(2)} DT</b>
-
-      ·
-
+      ${totalAdded.toFixed(2)} DT
+      <br>
       Spent:
-      <b>${spent.toFixed(2)} DT</b>
-
-      ·
-
-      Net:
-      <b>${(added-spent).toFixed(2)} DT</b>
-
+      ${totalSpent.toFixed(2)} DT
+      <br>
+      Current balance:
+      ${current.toFixed(2)} DT
     </div>
 
   `;
@@ -4560,13 +4561,16 @@ function saveNote(){
       "noteInput"
     );
 
-  const text=
+
+  const value=
     input.value.trim();
 
 
-  if(!text){
+  if(!value){
 
-    alert("Write something first.");
+    alert(
+      "Write something first."
+    );
 
     return;
 
@@ -4575,11 +4579,14 @@ function saveNote(){
 
   notes.unshift({
 
-    id:Date.now()+Math.random(),
+    id:
+      Date.now()+Math.random(),
 
-    text:text,
+    content:
+      value,
 
-    date:Date.now()
+    date:
+      Date.now()
 
   });
 
@@ -4606,21 +4613,25 @@ function renderNotes(){
       "notesList"
     );
 
+
   if(!box)return;
 
 
   const search=
-    document.getElementById(
-      "noteSearch"
-    ).value
-      .trim()
-      .toLowerCase();
+    (
+      document.getElementById(
+        "noteSearch"
+      )?.value || ""
+    )
+    .trim()
+    .toLowerCase();
 
 
   const filtered=
     notes.filter(
       note=>
-        note.text
+        !search||
+        note.content
           .toLowerCase()
           .includes(search)
     );
@@ -4639,42 +4650,47 @@ function renderNotes(){
 
 
   box.innerHTML=
-    filtered
-      .map(note=>`
+    filtered.map(
+      note=>`
 
-        <div class="note">
+      <div class="note">
 
-          <div class="note-content">
-            ${escapeHTML(note.text)}
-          </div>
+        <div class="note-content">
+          ${escapeHTML(
+            note.content
+          )}
+        </div>
 
-          <div class="note-date">
-            ${new Date(
+        <div class="note-date">
+          ${escapeHTML(
+            new Date(
               note.date
-            ).toLocaleString()}
-          </div>
+            ).toLocaleString()
+          )}
+        </div>
 
-          <div class="note-buttons">
+        <div class="note-buttons">
 
-            <button
-              class="note-edit"
-              onclick="editNote('${note.id}')"
-            >
-              Edit
-            </button>
+          <button
+            class="note-edit"
+            onclick="editNote('${note.id}')"
+          >
+            Edit
+          </button>
 
-            <button
-              class="note-delete"
-              onclick="deleteNote('${note.id}')"
-            >
-              Delete
-            </button>
-
-          </div>
+          <button
+            class="note-delete"
+            onclick="deleteNote('${note.id}')"
+          >
+            Delete
+          </button>
 
         </div>
 
-      `).join("");
+      </div>
+
+    `
+    ).join("");
 
 }
 
@@ -4684,30 +4700,39 @@ function editNote(id){
   const note=
     notes.find(
       item=>
-        String(item.id)===String(id)
+        String(item.id)===
+        String(id)
     );
+
 
   if(!note)return;
 
 
-  const newText=
+  const value=
     prompt(
-      "Edit note:",
-      note.text
+      "Edit your note:",
+      note.content
     );
 
 
-  if(newText===null)return;
+  if(
+    value===null
+  )return;
 
 
-  const value=
-    newText.trim();
+  const trimmed=
+    value.trim();
 
 
-  if(!value)return;
+  if(!trimmed)return;
 
 
-  note.text=value;
+  note.content=
+    trimmed;
+
+
+  note.date=
+    Date.now();
 
 
   saveJSON(
@@ -4733,7 +4758,8 @@ function deleteNote(id){
   notes=
     notes.filter(
       note=>
-        String(note.id)!==String(id)
+        String(note.id)!==
+        String(id)
     );
 
 
@@ -4761,11 +4787,20 @@ function changeUsername(){
       "newUsername"
     );
 
+
   const value=
     input.value.trim();
 
 
-  if(!value)return;
+  if(!value){
+
+    alert(
+      "Enter a name."
+    );
+
+    return;
+
+  }
 
 
   username=
@@ -4781,366 +4816,35 @@ function changeUsername(){
   );
 
 
-  input.value="";
-
   updateUserUI();
 
+  input.value="";
+
   clickSound();
 
 }
 
 
 /* =========================
-   PLAY FUNCTIONS
-   KEPT FOR EXISTING LOCAL DATA
+   KEYBOARD SHORTCUT
 ========================= */
 
-function saveXO(){
-
-  saveJSON(
-    STORAGE.xo,
-    {
-      board:xoBoard,
-      turn:xoTurn,
-      x:xoXScore,
-      o:xoOScore,
-      d:xoDrawScore
-    }
-  );
-
-}
-
-
-function renderXO(){
-
-  const board=
-    document.getElementById(
-      "xoBoard"
-    );
-
-  if(!board)return;
-
-  board.innerHTML=
-    xoBoard
-      .map((value,index)=>`
-
-        <button
-          class="xo-cell"
-          onclick="playXO(${index})"
-        >
-          ${value}
-        </button>
-
-      `).join("");
-
-
-  document.getElementById(
-    "xoStatus"
-  ).textContent=
-    "PLAYER "+xoTurn+" TURN";
-
-
-  document.getElementById(
-    "xoXScore"
-  ).textContent=
-    xoXScore;
-
-
-  document.getElementById(
-    "xoOScore"
-  ).textContent=
-    xoOScore;
-
-
-  document.getElementById(
-    "xoDrawScore"
-  ).textContent=
-    xoDrawScore;
-
-}
-
-
-function checkWinner(){
-
-  const lines=[
-
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-
-    [0,4,8],
-    [2,4,6]
-
-  ];
-
-
-  for(const line of lines){
-
-    const[a,b,c]=line;
-
+document.addEventListener(
+  "keydown",
+  event=>{
 
     if(
-      xoBoard[a] &&
-      xoBoard[a]===xoBoard[b] &&
-      xoBoard[a]===xoBoard[c]
+      event.key==="Enter" &&
+      document.activeElement?.id===
+      "userNameInput"
     ){
 
-      return xoBoard[a];
+      startWithName();
 
     }
 
   }
-
-
-  if(
-    xoBoard.every(
-      cell=>cell
-    )
-  ){
-
-    return "draw";
-
-  }
-
-
-  return null;
-
-}
-
-
-function playXO(index){
-
-  if(xoBoard[index])return;
-
-
-  xoBoard[index]=xoTurn;
-
-
-  const winner=
-    checkWinner();
-
-
-  if(winner){
-
-    if(winner==="X"){
-
-      xoXScore++;
-
-    }else if(winner==="O"){
-
-      xoOScore++;
-
-    }else{
-
-      xoDrawScore++;
-
-    }
-
-
-    saveXO();
-
-
-    renderXO();
-
-    setTimeout(
-      resetXO,
-      900
-    );
-
-    clickSound();
-
-    return;
-
-  }
-
-
-  xoTurn=
-    xoTurn==="X"
-    ?
-    "O"
-    :
-    "X";
-
-
-  saveXO();
-
-  renderXO();
-
-  clickSound();
-
-}
-
-
-function resetXO(){
-
-  xoBoard=[
-    "","","",
-    "","","",
-    "","",""
-  ];
-
-  xoTurn="X";
-
-  saveXO();
-
-  renderXO();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   HIGHER OR LOWER
-========================= */
-
-function saveHigher(){
-
-  saveJSON(
-    STORAGE.higher,
-    {
-      number:higherNumber,
-      player:higherPlayer,
-      p1:higherScoreOne,
-      p2:higherScoreTwo,
-      round:higherRoundNumber
-    }
-  );
-
-}
-
-
-function renderHigher(){
-
-  const number=
-    document.getElementById(
-      "higherNumber"
-    );
-
-  const status=
-    document.getElementById(
-      "higherStatus"
-    );
-
-  if(!number||!status)return;
-
-
-  number.textContent=
-    higherNumber;
-
-
-  status.textContent=
-    "PLAYER "+
-    higherPlayer+
-    " TURN";
-
-
-  document.getElementById(
-    "higherScore1"
-  ).textContent=
-    higherScoreOne;
-
-
-  document.getElementById(
-    "higherScore2"
-  ).textContent=
-    higherScoreTwo;
-
-
-  document.getElementById(
-    "higherRound"
-  ).textContent=
-    higherRoundNumber;
-
-}
-
-
-function higherGuess(guess){
-
-  const next=
-    Math.floor(
-      Math.random()*100
-    )+1;
-
-
-  let correct=false;
-
-
-  if(guess==="higher"){
-
-    correct=
-      next>higherNumber;
-
-  }else{
-
-    correct=
-      next<higherNumber;
-
-  }
-
-
-  if(correct){
-
-    if(higherPlayer===1){
-
-      higherScoreOne++;
-
-    }else{
-
-      higherScoreTwo++;
-
-    }
-
-  }
-
-
-  higherNumber=next;
-
-
-  higherPlayer=
-    higherPlayer===1
-    ?
-    2
-    :
-    1;
-
-
-  higherRoundNumber++;
-
-
-  saveHigher();
-
-  renderHigher();
-
-  clickSound();
-
-}
-
-
-function resetHigher(){
-
-  higherNumber=50;
-
-  higherPlayer=1;
-
-  higherScoreOne=0;
-
-  higherScoreTwo=0;
-
-  higherRoundNumber=1;
-
-
-  saveHigher();
-
-  renderHigher();
-
-  clickSound();
-
-}
+);
 
 </script>
 
