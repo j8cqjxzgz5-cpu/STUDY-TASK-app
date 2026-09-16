@@ -1049,247 +1049,6 @@ textarea{
 }
 
 /* =========================
-   EMPLOYEES
-========================= */
-
-.employees-card{
-  padding:14px;
-  overflow:hidden;
-}
-
-.employees-table-wrap{
-  width:100%;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  overscroll-behavior-x:contain;
-  border:1px solid var(--line);
-  border-radius:17px;
-  background:#090909;
-}
-
-.employees-table{
-  width:max-content;
-  min-width:100%;
-  border-collapse:separate;
-  border-spacing:0;
-  table-layout:fixed;
-  direction:ltr;
-  user-select:none;
-  -webkit-user-select:none;
-  -webkit-touch-callout:none;
-}
-
-.employees-table th,
-.employees-table td{
-  border-right:1px solid #252525;
-  border-bottom:1px solid #252525;
-}
-
-.employees-table thead th{
-  height:48px;
-  min-width:74px;
-  padding:6px 4px;
-  background:#151515;
-  color:#bdbdbd;
-  font-size:10px;
-  font-weight:900;
-  text-align:center;
-  white-space:nowrap;
-  position:sticky;
-  top:0;
-  z-index:4;
-}
-
-.employees-table thead th:first-child{
-  min-width:76px;
-  background:#101010;
-}
-
-.employees-table .day-head{
-  width:76px;
-  min-width:76px;
-}
-
-.employees-table tbody th{
-  width:76px;
-  min-width:76px;
-  height:74px;
-  padding:5px;
-  background:#111;
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  text-align:center;
-  vertical-align:middle;
-  position:sticky;
-  right:0;
-  z-index:3;
-}
-
-.employees-table td{
-  width:86px;
-  min-width:86px;
-  height:74px;
-  padding:0;
-  background:#0d0d0d;
-  vertical-align:middle;
-  position:relative;
-  transition:background .14s ease,box-shadow .14s ease;
-}
-
-.employees-table tbody tr:last-child th,
-.employees-table tbody tr:last-child td{
-  border-bottom:0;
-}
-
-.employees-table th:last-child,
-.employees-table td:last-child{
-  border-right:0;
-}
-
-.employee-cell{
-  position:relative;
-  width:100%;
-  height:100%;
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:17px 7px 7px;
-  text-align:center;
-  overflow:hidden;
-  touch-action:manipulation;
-}
-
-.employee-cell:active{
-  box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
-}
-
-.employee-text{
-  width:100%;
-  max-height:48px;
-  overflow:hidden;
-  overflow-wrap:anywhere;
-  word-break:break-word;
-  white-space:pre-wrap;
-  color:#fff;
-  font-size:11px;
-  line-height:1.3;
-  font-weight:700;
-  text-align:center;
-  outline:none;
-  cursor:text;
-  user-select:text;
-  -webkit-user-select:text;
-  -webkit-touch-callout:default;
-}
-
-.employee-text:empty::before{
-  content:"Tap to write";
-  color:#4f4f4f;
-  font-size:9px;
-  font-weight:700;
-}
-
-.employee-color-button{
-  position:absolute;
-  top:5px;
-  left:5px;
-  width:22px;
-  height:22px;
-  padding:0;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:7px;
-  background:#1b1b1b;
-  color:#aaa;
-  font-size:10px;
-  line-height:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  touch-action:manipulation;
-}
-
-.employee-color-button:active{
-  transform:scale(.94);
-  opacity:.85;
-}
-
-.employee-palette{
-  position:absolute;
-  top:31px;
-  left:5px;
-  z-index:10;
-  display:flex;
-  gap:5px;
-  padding:6px;
-  border:1px solid #3a3a3a;
-  border-radius:11px;
-  background:#181818;
-  box-shadow:0 12px 28px rgba(0,0,0,.5);
-}
-
-.employee-palette button{
-  width:25px;
-  height:25px;
-  padding:0;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:8px;
-  touch-action:manipulation;
-}
-
-.employee-palette .clear-color{
-  background:#0d0d0d;
-  color:#aaa;
-  font-size:12px;
-}
-
-.employee-green{background:#123322!important}
-.employee-yellow{background:#3a3213!important}
-.employee-orange{background:#3c2515!important}
-.employee-red{background:#3b1717!important}
-.employee-blue{background:#152b42!important}
-.employee-purple{background:#2d2140!important}
-
-.employees-scroll-hint{
-  color:#666;
-  font-size:10px;
-  text-align:center;
-  margin-top:10px;
-}
-
-@media(max-width:520px){
-  .employees-card{
-    margin-left:-1px;
-    margin-right:-1px;
-  }
-
-  .employees-table thead th{
-    min-width:72px;
-  }
-
-  .employees-table td{
-    min-width:82px;
-    width:82px;
-  }
-
-  .employees-table tbody th,
-  .employees-table .day-head{
-    min-width:72px;
-    width:72px;
-  }
-
-  .employee-cell{
-    min-height:70px;
-  }
-
-  .employees-table td{
-    height:70px;
-  }
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
@@ -2214,122 +1973,22 @@ textarea{
     </div>
 
 
-    <div class="card employees-card">
+    <div
+      class="card"
+      style="text-align:center;padding:45px 20px"
+    >
 
-      <div class="employees-table-wrap">
-
-        <table class="employees-table" id="employeesTable">
-
-          <thead>
-            <tr>
-              <th class="day-head">DAY / TIME</th>
-              <th>08–09</th>
-              <th>09–10</th>
-              <th>10–11</th>
-              <th>11–12</th>
-              <th>12–13</th>
-              <th>13–14</th>
-              <th>14–15</th>
-              <th>15–16</th>
-              <th>16–17</th>
-              <th>17–18</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-            <tr data-day="Monday">
-              <th>Monday</th>
-              <td data-day="Monday" data-slot="08-09"></td>
-              <td data-day="Monday" data-slot="09-10"></td>
-              <td data-day="Monday" data-slot="10-11"></td>
-              <td data-day="Monday" data-slot="11-12"></td>
-              <td data-day="Monday" data-slot="12-13"></td>
-              <td data-day="Monday" data-slot="13-14"></td>
-              <td data-day="Monday" data-slot="14-15"></td>
-              <td data-day="Monday" data-slot="15-16"></td>
-              <td data-day="Monday" data-slot="16-17"></td>
-              <td data-day="Monday" data-slot="17-18"></td>
-            </tr>
-
-            <tr data-day="Tuesday">
-              <th>Tuesday</th>
-              <td data-day="Tuesday" data-slot="08-09"></td>
-              <td data-day="Tuesday" data-slot="09-10"></td>
-              <td data-day="Tuesday" data-slot="10-11"></td>
-              <td data-day="Tuesday" data-slot="11-12"></td>
-              <td data-day="Tuesday" data-slot="12-13"></td>
-              <td data-day="Tuesday" data-slot="13-14"></td>
-              <td data-day="Tuesday" data-slot="14-15"></td>
-              <td data-day="Tuesday" data-slot="15-16"></td>
-              <td data-day="Tuesday" data-slot="16-17"></td>
-              <td data-day="Tuesday" data-slot="17-18"></td>
-            </tr>
-
-            <tr data-day="Wednesday">
-              <th>Wednesday</th>
-              <td data-day="Wednesday" data-slot="08-09"></td>
-              <td data-day="Wednesday" data-slot="09-10"></td>
-              <td data-day="Wednesday" data-slot="10-11"></td>
-              <td data-day="Wednesday" data-slot="11-12"></td>
-              <td data-day="Wednesday" data-slot="12-13"></td>
-              <td data-day="Wednesday" data-slot="13-14"></td>
-              <td data-day="Wednesday" data-slot="14-15"></td>
-              <td data-day="Wednesday" data-slot="15-16"></td>
-              <td data-day="Wednesday" data-slot="16-17"></td>
-              <td data-day="Wednesday" data-slot="17-18"></td>
-            </tr>
-
-            <tr data-day="Thursday">
-              <th>Thursday</th>
-              <td data-day="Thursday" data-slot="08-09"></td>
-              <td data-day="Thursday" data-slot="09-10"></td>
-              <td data-day="Thursday" data-slot="10-11"></td>
-              <td data-day="Thursday" data-slot="11-12"></td>
-              <td data-day="Thursday" data-slot="12-13"></td>
-              <td data-day="Thursday" data-slot="13-14"></td>
-              <td data-day="Thursday" data-slot="14-15"></td>
-              <td data-day="Thursday" data-slot="15-16"></td>
-              <td data-day="Thursday" data-slot="16-17"></td>
-              <td data-day="Thursday" data-slot="17-18"></td>
-            </tr>
-
-            <tr data-day="Friday">
-              <th>Friday</th>
-              <td data-day="Friday" data-slot="08-09"></td>
-              <td data-day="Friday" data-slot="09-10"></td>
-              <td data-day="Friday" data-slot="10-11"></td>
-              <td data-day="Friday" data-slot="11-12"></td>
-              <td data-day="Friday" data-slot="12-13"></td>
-              <td data-day="Friday" data-slot="13-14"></td>
-              <td data-day="Friday" data-slot="14-15"></td>
-              <td data-day="Friday" data-slot="15-16"></td>
-              <td data-day="Friday" data-slot="16-17"></td>
-              <td data-day="Friday" data-slot="17-18"></td>
-            </tr>
-
-            <tr data-day="Saturday">
-              <th>Saturday</th>
-              <td data-day="Saturday" data-slot="08-09"></td>
-              <td data-day="Saturday" data-slot="09-10"></td>
-              <td data-day="Saturday" data-slot="10-11"></td>
-              <td data-day="Saturday" data-slot="11-12"></td>
-              <td data-day="Saturday" data-slot="12-13"></td>
-              <td data-day="Saturday" data-slot="13-14"></td>
-              <td data-day="Saturday" data-slot="14-15"></td>
-              <td data-day="Saturday" data-slot="15-16"></td>
-              <td data-day="Saturday" data-slot="16-17"></td>
-              <td data-day="Saturday" data-slot="17-18"></td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
+      <div style="font-size:45px">
+        👥
       </div>
 
-      <div class="employees-scroll-hint">
-        Swipe horizontally to see all hours
+      <h2>
+        Coming Soon
+      </h2>
+
+      <div class="page-sub">
+        Employee management will be added
+        without changing your current STUDY data.
       </div>
 
     </div>
@@ -2694,9 +2353,7 @@ const STORAGE={
 
   quickHidden:"study_quick_hidden",
 
-  points:"study_points",
-
-  employees:"study_employees"
+  points:"study_points"
 
 };
 
@@ -2734,8 +2391,6 @@ let pointData={
   boostUntil:0
 
 };
-
-let employeesData={};
 
 
 /* =========================
@@ -3067,22 +2722,6 @@ function loadAllData(){
       }
     );
 
-  employeesData=
-    loadJSON(
-      STORAGE.employees,
-      {}
-    );
-
-  if(
-    !employeesData ||
-    typeof employeesData!=="object" ||
-    Array.isArray(employeesData)
-  ){
-    employeesData={};
-  }
-
-  renderEmployees();
-
   pointData.balance=
     Number(
       pointData.balance
@@ -3226,46 +2865,30 @@ function showPage(
 
   }
 
-  if(
-    pageId==="employees"
-  ){
-
-    renderEmployees();
-
-  }
-
 }
 
 
 /* =========================
-   TASKS
+   ADD TASK
 ========================= */
 
 function addTask(){
 
-  const nameInput=
+  const name=
     document.getElementById(
       "taskName"
-    );
-
-  const descriptionInput=
-    document.getElementById(
-      "taskDescription"
-    );
-
-  const dateInput=
-    document.getElementById(
-      "taskDate"
-    );
-
-  const name=
-    nameInput.value.trim();
+    ).value.trim();
 
   const description=
-    descriptionInput.value.trim();
+    document.getElementById(
+      "taskDescription"
+    ).value.trim();
 
-  const due=
-    dateInput.value;
+  const date=
+    document.getElementById(
+      "taskDate"
+    ).value;
+
 
   if(!name){
 
@@ -3273,77 +2896,71 @@ function addTask(){
       "Enter a task name."
     );
 
-    nameInput.focus();
-
     return;
 
   }
 
-  if(!due){
+
+  if(!date){
 
     alert(
-      "Choose a date and time."
+      "Choose a date."
     );
 
     return;
 
   }
 
-  const timestamp=
-    new Date(due)
-      .getTime();
 
-  if(
-    !Number.isFinite(timestamp)
-  ){
-
-    alert(
-      "Choose a valid date and time."
-    );
-
-    return;
-
-  }
-
-  tasks.unshift({
+  const task={
 
     id:
       Date.now()+
       Math.random(),
 
-    name:
-      name,
+    name:name,
 
     description:
       description,
 
-    due:
-      timestamp,
+    date:date,
 
-    created:
+    status:"active",
+
+    createdAt:
       Date.now(),
 
-    status:
-      "active",
+    completedAt:null
 
-    completedAt:
-      null,
+  };
 
-    pointsAwarded:
-      0
 
-  });
+  tasks.push(
+    task
+  );
+
 
   saveJSON(
     STORAGE.tasks,
     tasks
   );
 
-  nameInput.value="";
-  descriptionInput.value="";
-  dateInput.value="";
+
+  document.getElementById(
+    "taskName"
+  ).value="";
+
+  document.getElementById(
+    "taskDescription"
+  ).value="";
+
+  document.getElementById(
+    "taskDate"
+  ).value="";
+
 
   renderTasks();
+
   renderDashboard();
 
   clickSound();
@@ -3351,552 +2968,380 @@ function addTask(){
 }
 
 
-function taskStatus(
-  task
+/* =========================
+   COUNTDOWN
+========================= */
+
+function countdownInfo(
+  date
 ){
 
-  if(
-    task.status!=="active"
-  ){
-
-    return "record";
-
-  }
-
-  const remaining=
-    Number(task.due)-
+  const difference=
+    new Date(
+      date
+    ).getTime()
+    -
     Date.now();
 
-  const day=
-    24*60*60*1000;
 
   if(
-    remaining>2*day
+    difference<=0
   ){
 
-    return "green";
+    return{
+
+      text:"OVERDUE",
+
+      color:"red"
+
+    };
 
   }
 
-  if(
-    remaining>day
-  ){
 
-    return "yellow";
-
-  }
-
-  if(
-    remaining>0
-  ){
-
-    return "red";
-
-  }
-
-  return "red";
-
-}
-
-
-function formatRemaining(
-  milliseconds
-){
-
-  if(
-    milliseconds<=0
-  ){
-
-    return "Overdue";
-
-  }
-
-  let seconds=
+  const seconds=
     Math.floor(
-      milliseconds/1000
+      difference/1000
     );
+
 
   const days=
     Math.floor(
       seconds/86400
     );
 
-  seconds%=
-    86400;
 
   const hours=
     Math.floor(
-      seconds/3600
+      (seconds%86400)/3600
     );
 
-  seconds%=
-    3600;
 
   const minutes=
     Math.floor(
-      seconds/60
+      (seconds%3600)/60
     );
 
-  seconds%=
-    60;
+
+  const secs=
+    seconds%60;
+
+
+  let text="";
+
 
   if(days>0){
 
-    return (
+    text+=
       days+
-      "d "+
-      String(hours).padStart(2,"0")+
-      "h "+
-      String(minutes).padStart(2,"0")+
-      "m "+
-      String(seconds).padStart(2,"0")+
-      "s"
-    );
+      "d ";
 
   }
 
-  return (
-    String(hours).padStart(2,"0")+
+
+  text+=
+    String(
+      hours
+    ).padStart(
+      2,
+      "0"
+    )+
     "h "+
-    String(minutes).padStart(2,"0")+
+    String(
+      minutes
+    ).padStart(
+      2,
+      "0"
+    )+
     "m "+
-    String(seconds).padStart(2,"0")+
-    "s"
-  );
-
-}
-
-
-function formatTaskDate(
-  timestamp
-){
-
-  return new Date(
-    timestamp
-  ).toLocaleString(
-    [],
-    {
-      year:"numeric",
-      month:"short",
-      day:"numeric",
-      hour:"2-digit",
-      minute:"2-digit"
-    }
-  );
-
-}
+    String(
+      secs
+    ).padStart(
+      2,
+      "0"
+    )+
+    "s";
 
 
-function pointsForTask(
-  task
-){
+  let color=
+    "green";
 
-  const status=
-    taskStatus(task);
 
   if(
-    status==="green"
+    difference<=3600000
   ){
 
-    return 33;
+    color=
+      "red";
 
-  }
-
-  if(
-    status==="yellow"
+  }else if(
+    difference<=86400000
   ){
 
-    return 22;
+    color=
+      "orange";
+
+  }else if(
+    difference<=172800000
+  ){
+
+    color=
+      "yellow";
 
   }
 
-  return 11;
+
+  return{
+
+    text:text,
+
+    color:color
+
+  };
 
 }
 
 
-function formatPoints(
-  value
+/* =========================
+   ACTIVE TASK HTML
+========================= */
+
+function activeTaskHTML(
+  task,
+  showHideButton
 ){
 
-  const number=
-    Math.max(
-      0,
-      Math.floor(
-        Number(value)||
-        0
-      )
+  const info=
+    countdownInfo(
+      task.date
     );
 
-  return number
-    .toLocaleString(
-      "en-US"
-    );
 
-}
+  return `
 
+    <div
+      class="task"
+      data-task-id="${task.id}"
+    >
 
-function addEarnedPoints(
-  amount,
-  task
-){
-
-  let earned=
-    Number(amount)||
-    0;
-
-  const boostActive=
-    Number(pointData.boostUntil) >
-    Date.now();
-
-  if(boostActive){
-
-    earned=
-      Math.round(
-        earned*1.10
-      );
-
-  }
-
-  pointData.balance+=
-    earned;
-
-  saveJSON(
-    STORAGE.points,
-    pointData
-  );
-
-  renderPointExchange();
-
-  showPointsToast(
-    earned,
-    task
-  );
-
-}
+      ${
+        showHideButton
+        ?
+        `
+          <button
+            class="hide-button"
+            title="Hide from Quick Check"
+            onclick="hideQuickTask('${task.id}')"
+          >
+            ×
+          </button>
+        `
+        :
+        ""
+      }
 
 
-function showPointsToast(
-  amount,
-  task
-){
+      <div class="task-top">
 
-  let toast=
-    document.getElementById(
-      "pointsToast"
-    );
-
-  if(!toast){
-
-    toast=
-      document.createElement(
-        "div"
-      );
-
-    toast.id=
-      "pointsToast";
-
-    toast.className=
-      "points-toast";
-
-    toast.innerHTML=
-      `
-        <div class="points-toast-icon">
-          ✦
+        <div class="task-name">
+          ${escapeHTML(
+            task.name
+          )}
         </div>
 
-        <div>
+        <div
+          class="status status-${info.color}"
+          data-task-status="${task.id}"
+        >
+          ACTIVE
+        </div>
 
-          <div class="points-toast-title">
-            Points earned
+      </div>
+
+
+      ${
+        task.description
+        ?
+        `
+          <div class="task-description">
+            ${escapeHTML(
+              task.description
+            )}
           </div>
+        `
+        :
+        ""
+      }
 
-          <div
-            id="pointsToastText"
-            class="points-toast-text"
-          ></div>
 
-        </div>
-      `;
+      <div class="task-date">
 
-    document.body.appendChild(
-      toast
-    );
+        Due:
+        ${escapeHTML(
+          new Date(
+            task.date
+          ).toLocaleString()
+        )}
 
-  }
+      </div>
 
-  const text=
-    document.getElementById(
-      "pointsToastText"
-    );
 
-  if(text){
+      <div
+        class="countdown ${info.color}"
+        data-countdown="${task.id}"
+      >
+        ⏳ ${info.text}
+      </div>
 
-    text.textContent=
-      "+"+
-      formatPoints(amount)+
-      " points for completing "+
-      (task?.name || "your task");
 
-  }
+      <div class="task-actions">
 
-  toast.classList.add(
-    "show"
-  );
+        <button
+          class="done-button"
+          onclick="finishTask('${task.id}','done')"
+        >
+          ✓ Done
+        </button>
 
-  clearTimeout(
-    toast._timer
-  );
+        <button
+          class="failed-button"
+          onclick="finishTask('${task.id}','failed')"
+        >
+          ✕ Failed
+        </button>
 
-  toast._timer=
-    setTimeout(
-      ()=>{
-        toast.classList.remove(
-          "show"
-        );
-      },
-      2600
-    );
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
-function renderPointExchange(){
+/* =========================
+   RECORD HTML
+========================= */
 
-  const balance=
-    document.getElementById(
-      "pointsBalance"
-    );
-
-  if(balance){
-
-    balance.textContent=
-      formatPoints(
-        pointData.balance
-      );
-
-  }
-
-  const homePoints=
-    document.getElementById(
-      "homePointsBalance"
-    );
-
-  if(homePoints){
-
-    homePoints.textContent=
-      formatPoints(
-        pointData.balance
-      );
-
-  }
-
-  const boost=
-    document.getElementById(
-      "boostStatus"
-    );
-
-  const boostButton=
-    document.getElementById(
-      "exchange200Button"
-    );
-
-  if(boost){
-
-    if(
-      Number(pointData.boostUntil) >
-      Date.now()
-    ){
-
-      boost.classList.remove(
-        "hidden"
-      );
-
-      boost.textContent=
-        "⚡ BOOST ACTIVE · "+
-        formatRemaining(
-          pointData.boostUntil-
-          Date.now()
-        )+
-        " remaining · +10% points";
-
-      if(boostButton){
-
-        boostButton.disabled=true;
-
-      }
-
-    }else{
-
-      boost.classList.add(
-        "hidden"
-      );
-
-      if(boostButton){
-
-        boostButton.disabled=
-          pointData.balance<
-          200;
-
-      }
-
-    }
-
-  }
-
-  const button100=
-    document.getElementById(
-      "exchange100Button"
-    );
-
-  const button66=
-    document.getElementById(
-      "exchange66Button"
-    );
-
-  if(button100){
-
-    button100.disabled=
-      pointData.balance<
-      100;
-
-  }
-
-  if(button66){
-
-    button66.disabled=
-      pointData.balance<
-      66;
-
-  }
-
-}
-
-
-function exchangePoints(
-  cost,
-  reward
+function recordTaskHTML(
+  task
 ){
 
-  if(
-    pointData.balance<
-    cost
-  ){
+  const completed=
+    task.status===
+    "done";
 
-    return;
 
-  }
+  return `
 
-  if(
-    reward==="boost" &&
-    Number(pointData.boostUntil)>
-    Date.now()
-  ){
+    <div
+      class="
+        task
+        ${
+          completed
+          ?
+          "record-completed"
+          :
+          "record-failed"
+        }
+      "
+    >
 
-    return;
+      <button
+        class="hide-button"
+        onclick="deleteRecord('${task.id}')"
+        title="Delete record"
+      >
+        ×
+      </button>
 
-  }
 
-  pointData.balance-=
-    cost;
+      <div class="task-top">
 
-  if(
-    reward==="money1"
-  ){
+        <div class="task-name">
+          ${escapeHTML(
+            task.name
+          )}
+        </div>
 
-    money.added=
-      Number(money.added)||
-      0;
+        <div
+          class="
+            status
+            ${
+              completed
+              ?
+              "status-green"
+              :
+              "status-red"
+            }
+          "
+        >
+          ${
+            completed
+            ?
+            "COMPLETED"
+            :
+            "FAILED"
+          }
+        </div>
 
-    money.added+=1;
+      </div>
 
-    money.history.unshift({
 
-      id:
-        Date.now()+
-        Math.random(),
+      ${
+        task.description
+        ?
+        `
+          <div class="task-description">
+            ${escapeHTML(
+              task.description
+            )}
+          </div>
+        `
+        :
+        ""
+      }
 
-      type:
-        "added",
 
-      amount:
-        1,
+      <div class="task-date">
 
-      description:
-        "Point Exchange · 100 points",
+        Original date:
+        ${escapeHTML(
+          new Date(
+            task.date
+          ).toLocaleString()
+        )}
 
-      date:
-        Date.now()
+      </div>
 
-    });
 
-    saveJSON(
-      STORAGE.money,
-      money
-    );
+      <div class="task-date">
 
-  }
+        Recorded:
+        ${
+          task.completedAt
+          ?
+          escapeHTML(
+            new Date(
+              task.completedAt
+            ).toLocaleString()
+          )
+          :
+          "-"
+        }
 
-  if(
-    reward==="money05"
-  ){
+      </div>
 
-    money.added=
-      Number(money.added)||
-      0;
+    </div>
 
-    money.added+=.5;
-
-    money.history.unshift({
-
-      id:
-        Date.now()+
-        Math.random(),
-
-      type:
-        "added",
-
-      amount:
-        .5,
-
-      description:
-        "Point Exchange · 66 points",
-
-      date:
-        Date.now()
-
-    });
-
-    saveJSON(
-      STORAGE.money,
-      money
-    );
-
-  }
-
-  if(
-    reward==="boost"
-  ){
-
-    pointData.boostUntil=
-      Date.now()+
-      24*60*60*1000;
-
-  }
-
-  saveJSON(
-    STORAGE.points,
-    pointData
-  );
-
-  renderPointExchange();
-  renderMoney();
-  renderDashboard();
-
-  clickSound();
+  `;
 
 }
 
+
+/* =========================
+   RENDER TASKS
+========================= */
 
 function renderTasks(){
 
@@ -3905,7 +3350,7 @@ function renderTasks(){
       "activeTasks"
     );
 
-  const recordBox=
+  const recordsBox=
     document.getElementById(
       "taskRecords"
     );
@@ -3915,9 +3360,10 @@ function renderTasks(){
       "quickTasks"
     );
 
+
   if(
-    !activeBox ||
-    !recordBox ||
+    !activeBox||
+    !recordsBox||
     !quickBox
   ){
 
@@ -3925,19 +3371,35 @@ function renderTasks(){
 
   }
 
+
   const active=
-    tasks.filter(
-      task=>
-        task.status==="active"
-    );
+    tasks
+      .filter(
+        task=>
+          task.status===
+          "active"
+      )
+      .sort(
+        (a,b)=>
+          new Date(a.date)-
+          new Date(b.date)
+      );
+
 
   const records=
-    tasks.filter(
-      task=>
-        task.status!=="active"
-    );
+    tasks
+      .filter(
+        task=>
+          task.status==="done"||
+          task.status==="failed"
+      )
+      .slice()
+      .reverse();
 
-  if(!active.length){
+
+  if(
+    !active.length
+  ){
 
     activeBox.innerHTML=
       `
@@ -3952,58 +3414,87 @@ function renderTasks(){
       active
         .map(
           task=>
-            taskHTML(task)
+            activeTaskHTML(
+              task,
+              false
+            )
         )
         .join("");
 
   }
 
-  if(!records.length){
 
-    recordBox.innerHTML=
+  if(
+    !records.length
+  ){
+
+    recordsBox.innerHTML=
       `
         <div class="empty">
-          No records yet.
+          No task records yet.
         </div>
       `;
 
   }else{
 
-    recordBox.innerHTML=
+    recordsBox.innerHTML=
       records
         .map(
           task=>
-            taskHTML(task,true)
+            recordTaskHTML(
+              task
+            )
         )
         .join("");
 
   }
 
-  const urgent=
+
+  const quickTasks=
     active.filter(
       task=>
-        taskStatus(task)==="red" &&
         !quickHidden.includes(
-          String(task.id)
+          String(
+            task.id
+          )
         )
     );
 
-  if(!urgent.length){
 
-    quickBox.innerHTML=
-      `
-        <div class="empty">
-          No urgent tasks right now.
-        </div>
-      `;
+  if(
+    !quickTasks.length
+  ){
+
+    if(active.length){
+
+      quickBox.innerHTML=
+        `
+          <div class="empty">
+            All active tasks are hidden from Quick Check.
+          </div>
+        `;
+
+    }else{
+
+      quickBox.innerHTML=
+        `
+          <div class="empty">
+            ✓ No active tasks.
+          </div>
+        `;
+
+    }
 
   }else{
 
     quickBox.innerHTML=
-      urgent
+      quickTasks
         .map(
           task=>
-            taskHTML(task)
+            activeTaskHTML(
+              task,
+              true
+            )
         )
         .join("");
 
@@ -4012,265 +3503,818 @@ function renderTasks(){
 }
 
 
-function taskHTML(
-  task,
-  record=false
-){
-
-  const status=
-    taskStatus(task);
-
-  const remaining=
-    Number(task.due)-
-    Date.now();
-
-  const statusLabel=
-    record
-      ? task.status==="completed"
-        ? "COMPLETED"
-        : "FAILED"
-      : status==="green"
-        ? "GREEN"
-        : status==="yellow"
-          ? "YELLOW"
-          : "RED";
-
-  let statusClass=
-    record
-      ? task.status==="completed"
-        ? "status-green"
-        : "status-red"
-      : status==="green"
-        ? "status-green"
-        : status==="yellow"
-          ? "status-yellow"
-          : "status-red";
-
-  let countdownClass=
-    record
-      ? ""
-      : status;
-
-  return `
-    <div class="task ${
-      record
-        ? task.status==="completed"
-          ? "record-completed"
-          : "record-failed"
-        : ""
-    }">
-
-      ${
-        !record
-          ? `
-            <button
-              class="hide-button"
-              onclick="hideQuickTask('${task.id}')"
-            >
-              ×
-            </button>
-          `
-          : ""
-      }
-
-      <div class="task-top">
-
-        <div class="task-name">
-          ${escapeHTML(task.name)}
-        </div>
-
-        <div class="status ${statusClass}">
-          ${statusLabel}
-        </div>
-
-      </div>
-
-      ${
-        task.description
-          ? `
-            <div class="task-description">
-              ${escapeHTML(task.description)}
-            </div>
-          `
-          : ""
-      }
-
-      <div class="task-date">
-        ${formatTaskDate(task.due)}
-      </div>
-
-      ${
-        !record
-          ? `
-            <div class="countdown ${countdownClass}">
-              ${
-                remaining>0
-                  ? "Remaining: "+
-                    formatRemaining(remaining)
-                  : "Overdue: "+
-                    formatRemaining(
-                      Math.abs(remaining)
-                    )
-              }
-            </div>
-
-            <div class="task-actions">
-
-              <button
-                class="done-button"
-                onclick="completeTask('${task.id}')"
-              >
-                ✓ Complete
-              </button>
-
-              <button
-                class="failed-button"
-                onclick="failTask('${task.id}')"
-              >
-                × Failed
-              </button>
-
-            </div>
-          `
-          : `
-            <div class="task-date">
-              ${
-                task.completedAt
-                  ? "Recorded: "+
-                    formatTaskDate(
-                      task.completedAt
-                    )
-                  : ""
-              }
-            </div>
-          `
-      }
-
-    </div>
-  `;
-
-}
-
-
-function completeTask(
-  id
-){
-
-  const task=
-    tasks.find(
-      item=>
-        String(item.id)===
-        String(id)
-    );
-
-  if(!task)return;
-
-  if(
-    task.status!=="active"
-  ){
-
-    return;
-
-  }
-
-  task.status=
-    "completed";
-
-  task.completedAt=
-    Date.now();
-
-  const basePoints=
-    pointsForTask(task);
-
-  const earned=
-    basePoints;
-
-  task.pointsAwarded=
-    earned;
-
-  addEarnedPoints(
-    earned,
-    task
-  );
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-  renderTasks();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-function failTask(
-  id
-){
-
-  const task=
-    tasks.find(
-      item=>
-        String(item.id)===
-        String(id)
-    );
-
-  if(!task)return;
-
-  if(
-    task.status!=="active"
-  ){
-
-    return;
-
-  }
-
-  task.status=
-    "failed";
-
-  task.completedAt=
-    Date.now();
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-  renderTasks();
-  renderDashboard();
-
-  clickSound();
-
-}
-
+/* =========================
+   HIDE QUICK TASK
+========================= */
 
 function hideQuickTask(
   id
 ){
 
-  const value=
+  const stringId=
     String(id);
 
+
   if(
-    !quickHidden.includes(value)
+    !quickHidden.includes(
+      stringId
+    )
   ){
 
-    quickHidden.push(value);
+    quickHidden.push(
+      stringId
+    );
 
   }
+
 
   saveJSON(
     STORAGE.quickHidden,
     quickHidden
   );
 
+
   renderTasks();
 
   clickSound();
 
 }
+
+
+/* =========================
+   FINISH TASK
+========================= */
+
+function finishTask(
+  id,
+  status
+){
+
+  const task=
+    tasks.find(
+      item=>
+        String(
+          item.id
+        )===
+        String(id)
+    );
+
+
+  if(!task)return;
+
+
+  if(
+    task.status!==
+    "active"
+  ){
+
+    return;
+
+  }
+
+
+  const completionInfo=
+    countdownInfo(
+      task.date
+    );
+
+
+  task.status=
+    status;
+
+  task.completedAt=
+    Date.now();
+
+
+  quickHidden=
+    quickHidden.filter(
+      hiddenId=>
+        String(hiddenId)!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  saveJSON(
+    STORAGE.quickHidden,
+    quickHidden
+  );
+
+
+  if(
+    status==="done"
+  ){
+
+    const earned=
+      taskPointValue(
+        completionInfo.color
+      );
+
+
+    if(
+      earned>0
+    ){
+
+      const bonusActive=
+        isBoostActive();
+
+
+      const finalPoints=
+        bonusActive
+        ?
+        Math.round(
+          earned*
+          1.10*
+          10
+        )/10
+        :
+        earned;
+
+
+      pointData.balance+=
+        finalPoints;
+
+
+      saveJSON(
+        STORAGE.points,
+        pointData
+      );
+
+
+      showPointToast(
+        "✨ Points earned",
+        "+"+
+        formatPoints(
+          finalPoints
+        )+
+        " points for completing \""+
+        task.name+
+        "\""+
+        (
+          bonusActive
+          ?
+          " • BOOST +10%"
+          :
+          ""
+        )
+      );
+
+    }
+
+  }
+
+
+  renderTasks();
+
+  renderDashboard();
+
+  renderPointExchange();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   POINTS
+========================= */
+
+function formatPoints(
+  value
+){
+
+  const number=
+    Number(value)||
+    0;
+
+
+  return Number.isInteger(
+    number
+  )
+  ?
+  String(number)
+  :
+  number
+    .toFixed(1)
+    .replace(
+      /\.0$/,
+      ""
+    );
+
+}
+
+
+function isBoostActive(){
+
+  if(
+    !pointData.boostUntil
+  ){
+
+    return false;
+
+  }
+
+
+  if(
+    pointData.boostUntil<=
+    Date.now()
+  ){
+
+    pointData.boostUntil=
+      0;
+
+    saveJSON(
+      STORAGE.points,
+      pointData
+    );
+
+    return false;
+
+  }
+
+
+  return true;
+
+}
+
+
+function taskPointValue(
+  color
+){
+
+  if(
+    color==="green"
+  ){
+
+    return 33;
+
+  }
+
+
+  if(
+    color==="yellow"
+  ){
+
+    return 22;
+
+  }
+
+
+  if(
+    color==="orange"||
+    color==="red"
+  ){
+
+    return 11;
+
+  }
+
+
+  return 0;
+
+}
+
+
+/* =========================
+   RENDER POINT EXCHANGE
+========================= */
+
+function renderPointExchange(){
+
+  const balanceElement=
+    document.getElementById(
+      "pointsBalance"
+    );
+
+
+  if(!balanceElement){
+
+    return;
+
+  }
+
+
+  balanceElement.textContent=
+    formatPoints(
+      pointData.balance
+    );
+
+
+  const homePoints=
+    document.getElementById(
+      "homePointsBalance"
+    );
+
+
+  if(homePoints){
+
+    homePoints.textContent=
+      formatPoints(
+        pointData.balance
+      );
+
+  }
+
+
+  const boost=
+    document.getElementById(
+      "boostStatus"
+    );
+
+
+  if(boost){
+
+    if(
+      isBoostActive()
+    ){
+
+      const remaining=
+        Math.max(
+          0,
+          pointData.boostUntil-
+          Date.now()
+        );
+
+
+      const totalSeconds=
+        Math.floor(
+          remaining/1000
+        );
+
+
+      const hours=
+        Math.floor(
+          totalSeconds/3600
+        );
+
+
+      const minutes=
+        Math.floor(
+          (totalSeconds%3600)/60
+        );
+
+
+      const seconds=
+        totalSeconds%60;
+
+
+      boost.classList
+        .remove("hidden");
+
+
+      boost.textContent=
+        "⚡ BOOST ACTIVE • +10% • "+
+        String(hours)
+          .padStart(2,"0")+
+        "h "+
+        String(minutes)
+          .padStart(2,"0")+
+        "m "+
+        String(seconds)
+          .padStart(2,"0")+
+        "s remaining";
+
+    }else{
+
+      boost.classList
+        .add("hidden");
+
+      boost.textContent="";
+
+    }
+
+  }
+
+
+  const b100=
+    document.getElementById(
+      "exchange100Button"
+    );
+
+  const b66=
+    document.getElementById(
+      "exchange66Button"
+    );
+
+  const b200=
+    document.getElementById(
+      "exchange200Button"
+    );
+
+
+  if(b100){
+
+    b100.disabled=
+      pointData.balance<
+      100;
+
+  }
+
+
+  if(b66){
+
+    b66.disabled=
+      pointData.balance<
+      66;
+
+  }
+
+
+  if(b200){
+
+    b200.disabled=
+      pointData.balance<
+      200;
+
+  }
+
+}
+
+
+/* =========================
+   POINT TOAST
+========================= */
+
+function showPointToast(
+  title,
+  text
+){
+
+  let toast=
+    document.getElementById(
+      "pointsToast"
+    );
+
+
+  if(!toast){
+
+    toast=
+      document.createElement(
+        "div"
+      );
+
+    toast.id=
+      "pointsToast";
+
+    toast.className=
+      "points-toast";
+
+
+    toast.innerHTML=`
+
+      <div class="points-toast-icon">
+        ★
+      </div>
+
+      <div>
+
+        <div class="points-toast-title"></div>
+
+        <div class="points-toast-text"></div>
+
+      </div>
+
+    `;
+
+
+    document.body.appendChild(
+      toast
+    );
+
+  }
+
+
+  toast.querySelector(
+    ".points-toast-title"
+  ).textContent=
+    title;
+
+
+  toast.querySelector(
+    ".points-toast-text"
+  ).textContent=
+    text;
+
+
+  toast.classList.remove(
+    "show"
+  );
+
+
+  void toast.offsetWidth;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    window.pointToastTimer
+  );
+
+
+  window.pointToastTimer=
+    setTimeout(
+      ()=>{
+
+        toast.classList
+          .remove("show");
+
+      },
+      3200
+    );
+
+}
+
+
+/* =========================
+   EXCHANGE
+========================= */
+
+function exchangePoints(
+  cost,
+  type
+){
+
+  if(
+    pointData.balance<
+    cost
+  ){
+
+    showPointToast(
+      "Not enough points",
+      "You need "+
+      formatPoints(
+        cost-
+        pointData.balance
+      )+
+      " more points."
+    );
+
+    return;
+
+  }
+
+
+  pointData.balance-=
+    cost;
+
+
+  if(
+    type==="money1"
+  ){
+
+    money.added+=
+      1;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+
+        Math.random(),
+
+      type:"added",
+
+      amount:1,
+
+      description:
+        "Point Exchange • 100 points → 1 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "💰 Exchange complete",
+      "100 points exchanged for 1 DT."
+    );
+
+
+  }else if(
+    type==="money05"
+  ){
+
+    money.added+=
+      .5;
+
+
+    money.history.unshift({
+
+      id:
+        Date.now()+
+        Math.random(),
+
+      type:"added",
+
+      amount:.5,
+
+      description:
+        "Point Exchange • 66 points → 0.5 DT",
+
+      date:
+        Date.now()
+
+    });
+
+
+    saveMoney();
+
+
+    showPointToast(
+      "🪙 Exchange complete",
+      "66 points exchanged for 0.5 DT."
+    );
+
+
+  }else if(
+    type==="boost"
+  ){
+
+    const base=
+      isBoostActive()
+      ?
+      Math.max(
+        Date.now(),
+        pointData.boostUntil
+      )
+      :
+      Date.now();
+
+
+    pointData.boostUntil=
+      base+
+      24*60*60*1000;
+
+
+    showPointToast(
+      "⚡ BOOST activated",
+      "+10% points for the next 24 hours."
+    );
+
+  }
+
+
+  saveJSON(
+    STORAGE.points,
+    pointData
+  );
+
+
+  renderPointExchange();
+
+  renderMoney();
+
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   DELETE RECORD
+========================= */
+
+function deleteRecord(
+  id
+){
+
+  if(
+    !confirm(
+      "Delete this task record?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  tasks=
+    tasks.filter(
+      task=>
+        String(task.id)!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.tasks,
+    tasks
+  );
+
+
+  renderTasks();
+
+  renderDashboard();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   COUNTDOWN UPDATES
+========================= */
+
+function updateCountdowns(){
+
+  document
+    .querySelectorAll(
+      "[data-countdown]"
+    )
+    .forEach(
+      element=>{
+
+        const id=
+          element.dataset
+            .countdown;
+
+
+        const task=
+          tasks.find(
+            item=>
+              String(
+                item.id
+              )===
+              String(id)
+          );
+
+
+        if(
+          !task||
+          task.status!==
+          "active"
+        ){
+
+          return;
+
+        }
+
+
+        const info=
+          countdownInfo(
+            task.date
+          );
+
+
+        element.textContent=
+          "⏳ "+
+          info.text;
+
+
+        element.className=
+          "countdown "+
+          info.color;
+
+
+        const status=
+          document.querySelector(
+            `[data-task-status="${CSS.escape(String(id))}"]`
+          );
+
+
+        if(status){
+
+          status.className=
+            "status status-"+
+            info.color;
+
+          status.textContent=
+            "ACTIVE";
+
+        }
+
+      }
+    );
+
+}
+
+
+setInterval(
+  updateCountdowns,
+  1000
+);
+
+
+setInterval(
+  ()=>{
+    renderPointExchange();
+  },
+  1000
+);
 
 
 /* =========================
@@ -4282,221 +4326,188 @@ function renderDashboard(){
   const active=
     tasks.filter(
       task=>
-        task.status==="active"
-    ).length;
+        task.status===
+        "active"
+    );
+
 
   const completed=
     tasks.filter(
       task=>
-        task.status==="completed"
-    ).length;
+        task.status===
+        "done"
+    );
 
-  const failed=
+
+  const finished=
     tasks.filter(
       task=>
+        task.status==="done"||
         task.status==="failed"
-    ).length;
+    );
 
-  const totalRecords=
-    completed+
-    failed;
 
-  const success=
-    totalRecords
-      ? Math.round(
-          completed/
-          totalRecords*
-          100
-        )
-      : 0;
+  const successRate=
+    finished.length
+    ?
+    Math.round(
+      completed.length/
+      finished.length*
+      100
+    )
+    :
+    0;
+
 
   const balance=
-    Number(money.added)-
-    Number(money.spent);
+    money.added-
+    money.spent;
 
-  const activeEl=
-    document.getElementById(
-      "dashActive"
-    );
 
-  const successEl=
-    document.getElementById(
-      "dashSuccess"
-    );
+  document.getElementById(
+    "dashActive"
+  ).textContent=
+    active.length;
 
-  const moneyEl=
+
+  document.getElementById(
+    "dashCompleted"
+  ).textContent=
+    completed.length;
+
+
+  document.getElementById(
+    "dashSuccess"
+  ).textContent=
+    successRate+
+    "%";
+
+
+  const moneyElement=
     document.getElementById(
       "dashMoney"
     );
 
-  const completedEl=
-    document.getElementById(
-      "dashCompleted"
-    );
 
-  if(activeEl){
-
-    activeEl.textContent=
-      active;
-
-  }
-
-  if(successEl){
-
-    successEl.textContent=
-      success+
-      "%";
-
-  }
-
-  if(moneyEl){
-
-    moneyEl.textContent=
-      balance.toFixed(2)+
-      " DT";
-
-    moneyEl.className=
-      balance<0
-        ? "red-text"
-        : "green-text";
-
-  }
-
-  if(completedEl){
-
-    completedEl.textContent=
-      completed;
-
-  }
-
-  renderHomeNextTask();
-
-}
+  moneyElement.textContent=
+    balance.toFixed(2)+
+    " DT";
 
 
-function renderHomeNextTask(){
+  moneyElement.className=
+    balance<0
+    ?
+    "red-text"
+    :
+    "green-text";
+
 
   const box=
     document.getElementById(
       "homeNextTask"
     );
 
-  if(!box)return;
 
-  const active=
-    tasks
-      .filter(
-        task=>
-          task.status==="active"
-      )
-      .sort(
-        (a,b)=>
-          Number(a.due)-
-          Number(b.due)
-      );
+  if(
+    !active.length
+  ){
 
-  if(!active.length){
+    box.innerHTML=`
 
-    box.innerHTML=
-      `
-        <div class="card">
-          <div class="empty">
-            No upcoming task.
-          </div>
+      <div class="card">
+
+        <b>
+          🎯 No active tasks
+        </b>
+
+        <div
+          class="page-sub"
+          style="margin:7px 0 0"
+        >
+          Your workspace is clear.
         </div>
-      `;
+
+      </div>
+
+    `;
 
     return;
 
   }
 
-  const task=
-    active[0];
 
-  const status=
-    taskStatus(task);
+  const next=
+    active
+      .slice()
+      .sort(
+        (a,b)=>
+          new Date(a.date)-
+          new Date(b.date)
+      )[0];
 
-  const remaining=
-    Number(task.due)-
-    Date.now();
 
-  box.innerHTML=
-    `
-      <div class="card">
+  const info=
+    countdownInfo(
+      next.date
+    );
 
-        <div class="task-top">
 
-          <div class="task-name">
-            Next task
-          </div>
+  box.innerHTML=`
 
-          <div class="status ${
-            status==="green"
-              ? "status-green"
-              : status==="yellow"
-                ? "status-yellow"
-                : "status-red"
-          }">
-            ${status.toUpperCase()}
-          </div>
+    <div class="card">
 
-        </div>
+      <small style="color:#777">
+        NEXT TASK
+      </small>
 
-        <div
-          class="task-name"
-          style="margin-top:9px"
-        >
-          ${escapeHTML(task.name)}
-        </div>
-
-        <div class="task-date">
-          ${formatTaskDate(task.due)}
-        </div>
-
-        <div class="countdown ${status}">
-          ${
-            remaining>0
-              ? "Remaining: "+
-                formatRemaining(remaining)
-              : "Overdue: "+
-                formatRemaining(
-                  Math.abs(remaining)
-                )
-          }
-        </div>
-
+      <div
+        style="
+          font-size:17px;
+          font-weight:900;
+          margin-top:7px;
+        "
+      >
+        ${escapeHTML(
+          next.name
+        )}
       </div>
-    `;
+
+      <div
+        class="countdown ${info.color}"
+        data-countdown="${next.id}"
+      >
+        ⏳ ${info.text}
+      </div>
+
+    </div>
+
+  `;
 
 }
 
 
 /* =========================
-   MONEY
+   ADD MONEY
 ========================= */
 
 function addMoney(){
 
-  const amountInput=
-    document.getElementById(
-      "moneyAmount"
-    );
-
-  const descriptionInput=
-    document.getElementById(
-      "moneyDescription"
-    );
-
   const amount=
     Number(
-      amountInput.value
+      document.getElementById(
+        "moneyAmount"
+      ).value
     );
 
+
   const description=
-    descriptionInput.value.trim();
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
+
 
   if(
-    !Number.isFinite(amount) ||
+    !amount||
     amount<=0
   ){
 
@@ -4504,27 +4515,14 @@ function addMoney(){
       "Enter a valid amount."
     );
 
-    amountInput.focus();
-
     return;
 
   }
 
-  money.added=
-    Number(money.added)||
-    0;
-
-  money.spent=
-    Number(money.spent)||
-    0;
-
-  money.history=
-    Array.isArray(money.history)
-      ? money.history
-      : [];
 
   money.added+=
     amount;
+
 
   money.history.unshift({
 
@@ -4532,14 +4530,12 @@ function addMoney(){
       Date.now()+
       Math.random(),
 
-    type:
-      "added",
+    type:"added",
 
-    amount:
-      amount,
+    amount:amount,
 
     description:
-      description ||
+      description||
       "Money added",
 
     date:
@@ -4547,44 +4543,34 @@ function addMoney(){
 
   });
 
-  saveJSON(
-    STORAGE.money,
-    money
-  );
 
-  amountInput.value="";
-  descriptionInput.value="";
-
-  renderMoney();
-  renderDashboard();
-
-  clickSound();
+  saveMoney();
 
 }
 
 
+/* =========================
+   SPEND MONEY
+========================= */
+
 function spendMoney(){
-
-  const amountInput=
-    document.getElementById(
-      "moneyAmount"
-    );
-
-  const descriptionInput=
-    document.getElementById(
-      "moneyDescription"
-    );
 
   const amount=
     Number(
-      amountInput.value
+      document.getElementById(
+        "moneyAmount"
+      ).value
     );
 
+
   const description=
-    descriptionInput.value.trim();
+    document.getElementById(
+      "moneyDescription"
+    ).value.trim();
+
 
   if(
-    !Number.isFinite(amount) ||
+    !amount||
     amount<=0
   ){
 
@@ -4592,27 +4578,14 @@ function spendMoney(){
       "Enter a valid amount."
     );
 
-    amountInput.focus();
-
     return;
 
   }
 
-  money.added=
-    Number(money.added)||
-    0;
-
-  money.spent=
-    Number(money.spent)||
-    0;
-
-  money.history=
-    Array.isArray(money.history)
-      ? money.history
-      : [];
 
   money.spent+=
     amount;
+
 
   money.history.unshift({
 
@@ -4620,278 +4593,369 @@ function spendMoney(){
       Date.now()+
       Math.random(),
 
-    type:
-      "spent",
+    type:"spent",
 
-    amount:
-      amount,
+    amount:amount,
 
     description:
-      description ||
-      "Spent today",
+      description||
+      "Money spent",
 
     date:
       Date.now()
 
   });
 
+
+  saveMoney();
+
+}
+
+
+/* =========================
+   SAVE MONEY
+========================= */
+
+function saveMoney(){
+
   saveJSON(
     STORAGE.money,
     money
   );
 
-  amountInput.value="";
-  descriptionInput.value="";
+
+  document.getElementById(
+    "moneyAmount"
+  ).value="";
+
+
+  document.getElementById(
+    "moneyDescription"
+  ).value="";
+
 
   renderMoney();
+
   renderDashboard();
+
+
+  if(
+    document
+      .getElementById(
+        "data"
+      )
+      .classList
+      .contains("active")
+  ){
+
+    drawMoneyChart();
+
+  }
+
 
   clickSound();
 
 }
 
 
+/* =========================
+   RENDER MONEY
+========================= */
+
 function renderMoney(){
 
   const balance=
-    Number(money.added)-
-    Number(money.spent);
+    money.added-
+    money.spent;
 
-  const balanceEl=
-    document.getElementById(
-      "moneyBalance"
-    );
 
-  const addedEl=
-    document.getElementById(
-      "moneyAdded"
-    );
+  document.getElementById(
+    "moneyBalance"
+  ).textContent=
+    balance.toFixed(2)+
+    " DT";
 
-  const spentEl=
-    document.getElementById(
-      "moneySpent"
-    );
+
+  document.getElementById(
+    "moneyBalance"
+  ).style.color=
+    balance<0
+    ?
+    "var(--red)"
+    :
+    "var(--green)";
+
+
+  document.getElementById(
+    "moneyAdded"
+  ).textContent=
+    money.added.toFixed(2)+
+    " DT";
+
+
+  document.getElementById(
+    "moneySpent"
+  ).textContent=
+    money.spent.toFixed(2)+
+    " DT";
+
 
   const progress=
     document.getElementById(
       "moneyProgress"
     );
 
-  const warning=
-    document.getElementById(
-      "debtWarning"
-    );
 
-  if(balanceEl){
+  if(
+    money.added<=0
+  ){
 
-    balanceEl.textContent=
-      balance.toFixed(2)+
-      " DT";
+    progress.style.width=
+      "0%";
 
-  }
-
-  if(addedEl){
-
-    addedEl.textContent=
-      Number(money.added)
-        .toFixed(2)+
-      " DT";
-
-  }
-
-  if(spentEl){
-
-    spentEl.textContent=
-      Number(money.spent)
-        .toFixed(2)+
-      " DT";
-
-  }
-
-  if(progress){
-
-    const total=
-      Number(money.added);
+  }else{
 
     const percent=
-      total>0
-        ? Math.max(
-            0,
-            Math.min(
-              100,
-              balance/
-              total*
-              100
-            )
-          )
-        : 0;
+      Math.max(
+        0,
+        Math.min(
+          100,
+          balance/
+          money.added*
+          100
+        )
+      );
+
 
     progress.style.width=
       percent+
       "%";
 
-    if(balance<0){
+  }
 
-      progress.style.background=
-        "var(--red)";
 
-    }else if(
-      percent<25
-    ){
+  if(
+    balance<0
+  ){
 
-      progress.style.background=
-        "var(--red)";
+    progress.style.background=
+      "var(--red)";
 
-    }else if(
-      percent<50
-    ){
+  }else if(
+    money.added>0 &&
+    balance/
+    money.added<
+    .25
+  ){
 
-      progress.style.background=
-        "var(--yellow)";
+    progress.style.background=
+      "var(--red)";
 
-    }else if(
-      percent<75
-    ){
+  }else if(
+    money.added>0 &&
+    balance/
+    money.added<
+    .5
+  ){
 
-      progress.style.background=
-        "var(--orange)";
+    progress.style.background=
+      "var(--yellow)";
 
-    }else{
+  }else{
 
-      progress.style.background=
-        "var(--green)";
-
-    }
+    progress.style.background=
+      "var(--green)";
 
   }
 
-  if(warning){
 
-    warning.innerHTML=
-      balance<0
-        ? `
-          <div class="debt">
-            ⚠️ DANGER: You are ${Math.abs(balance).toFixed(2)} DT in debt.
-          </div>
-        `
-        : "";
+  const debt=
+    document.getElementById(
+      "debtWarning"
+    );
+
+
+  if(
+    balance<0
+  ){
+
+    debt.innerHTML=`
+
+      <div class="debt">
+
+        ⚠ YOU ARE IN DEBT
+
+        <br>
+
+        ${Math.abs(
+          balance
+        ).toFixed(2)}
+        DT
+
+      </div>
+
+    `;
+
+  }else{
+
+    debt.innerHTML="";
 
   }
+
 
   const historyBox=
     document.getElementById(
       "moneyHistory"
     );
 
-  if(historyBox){
 
-    const history=
-      Array.isArray(money.history)
-        ? money.history
-        : [];
+  if(!historyBox){
 
-    if(!history.length){
-
-      historyBox.innerHTML=
-        `
-          <div class="empty">
-            No money activity yet.
-          </div>
-        `;
-
-    }else{
-
-      const list=
-        history.slice(
-          0,
-          moneyHistoryExpanded
-            ? history.length
-            : moneyHistoryLimit
-        );
-
-      historyBox.innerHTML=
-        list
-          .map(
-            item=>`
-              <div class="money-history">
-
-                <div>
-
-                  <div class="money-history-title">
-                    ${
-                      item.type==="added"
-                        ? "Money Added"
-                        : "Money Spent"
-                    }
-                  </div>
-
-                  <div class="money-history-desc">
-                    ${escapeHTML(item.description || "")}
-                  </div>
-
-                  <div class="money-history-date">
-                    ${escapeHTML(
-                      new Date(
-                        item.date
-                      ).toLocaleString()
-                    )}
-                  </div>
-
-                </div>
-
-                <div
-                  class="money-history-amount ${
-                    item.type==="added"
-                      ? "green-text"
-                      : "red-text"
-                  }"
-                >
-                  ${
-                    item.type==="added"
-                      ? "+"
-                      : "−"
-                  }${Number(item.amount).toFixed(2)} DT
-                </div>
-
-              </div>
-            `
-          )
-          .join("");
-
-    }
+    return;
 
   }
+
+
+  const list=
+    money.history
+      .slice(
+        0,
+        moneyHistoryExpanded
+        ?
+        money.history.length
+        :
+        moneyHistoryLimit
+      );
+
+
+  if(
+    !list.length
+  ){
+
+    historyBox.innerHTML=
+      `
+        <div class="empty">
+          No money activity yet.
+        </div>
+      `;
+
+  }else{
+
+    historyBox.innerHTML=
+      list
+        .map(
+          item=>`
+
+          <div class="money-history">
+
+            <div>
+
+              <div class="money-history-title">
+
+                ${
+                  item.type==="added"
+                  ?
+                  "Money Added"
+                  :
+                  "Money Spent"
+                }
+
+              </div>
+
+              <div class="money-history-desc">
+
+                ${escapeHTML(
+                  item.description
+                )}
+
+              </div>
+
+              <div class="money-history-date">
+
+                ${new Date(
+                  item.date
+                ).toLocaleString()}
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="money-history-amount"
+              style="
+                color:${
+                  item.type==="added"
+                  ?
+                  "var(--green)"
+                  :
+                  "var(--red)"
+                };
+              "
+            >
+
+              ${
+                item.type==="added"
+                ?
+                "+"
+                :
+                "-"
+              }${Number(
+                item.amount
+              ).toFixed(2)} DT
+
+            </div>
+
+          </div>
+
+        `
+        )
+        .join("");
+
+  }
+
 
   const moreButton=
     document.getElementById(
       "moreHistoryButton"
     );
 
-  if(moreButton){
 
-    if(
-      money.history.length<=5
-    ){
+  if(!moreButton){
 
-      moreButton.style.display=
-        "none";
+    return;
 
-    }else{
+  }
 
-      moreButton.style.display=
-        "block";
 
-      moreButton.textContent=
-        moneyHistoryExpanded
-          ? "Show Less"
-          : "Show More";
+  if(
+    money.history.length<=
+    5
+  ){
 
-    }
+    moreButton.style.display=
+      "none";
+
+  }else{
+
+    moreButton.style.display=
+      "block";
+
+    moreButton.textContent=
+      moneyHistoryExpanded
+      ?
+      "Show Less"
+      :
+      "Show More";
 
   }
 
 }
 
+
+/* =========================
+   HISTORY TOGGLE
+========================= */
 
 function toggleMoneyHistory(){
 
@@ -4905,6 +4969,10 @@ function toggleMoneyHistory(){
 }
 
 
+/* =========================
+   RESET MONEY
+========================= */
+
 function resetMoney(){
 
   if(
@@ -4917,22 +4985,36 @@ function resetMoney(){
 
   }
 
+
   money={
+
     added:0,
+
     spent:0,
+
     history:[]
+
   };
+
+
+  moneyHistoryLimit=
+    5;
 
   moneyHistoryExpanded=
     false;
+
 
   saveJSON(
     STORAGE.money,
     money
   );
 
+
   renderMoney();
+
   renderDashboard();
+
+  drawMoneyChart();
 
   clickSound();
 
@@ -4940,118 +5022,196 @@ function resetMoney(){
 
 
 /* =========================
-   MONEY DATA
+   DAILY MONEY DATA
 ========================= */
 
 function drawMoneyChart(){
 
-  const percentEl=
+  const percentElement=
     document.getElementById(
       "dailySpendingPercent"
     );
 
-  const captionEl=
+  const captionElement=
     document.getElementById(
       "dailySpendingCaption"
     );
 
-  if(
-    !percentEl ||
-    !captionEl
-  ){
+
+  if(!percentElement){
 
     return;
 
   }
 
+
   const now=
     new Date();
 
-  const start=
+
+  const startOfDay=
     new Date(
       now.getFullYear(),
       now.getMonth(),
-      now.getDate()
-    )
-    .getTime();
+      now.getDate(),
+      0,
+      0,
+      0,
+      0
+    ).getTime();
 
-  const end=
-    start+
-    24*60*60*1000;
+
+  const endOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23,
+      59,
+      59,
+      999
+    ).getTime();
+
 
   const todayHistory=
-    (
-      Array.isArray(money.history)
-        ? money.history
-        : []
-    )
-    .filter(
-      item=>
-        Number(item.date)>=start &&
-        Number(item.date)<end
+    money.history.filter(
+      item=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+        return(
+          date>=startOfDay &&
+          date<=endOfDay
+        );
+
+      }
     );
 
-  const todayAdded=
-    todayHistory
-      .filter(
-        item=>
-          item.type==="added"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
 
-  const todaySpent=
-    todayHistory
-      .filter(
-        item=>
-          item.type==="spent"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
+
+
+  todayHistory.forEach(
+    item=>{
+
+      const amount=
+        Number(
+          item.amount
+        )||0;
+
+
+      if(
+        item.type==="added"
+      ){
+
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
+
+    }
+  );
+
+
+  /*
+    Today's spending percentage =
+    money spent today /
+    money available to spend today × 100.
+
+    The available amount is the balance before today
+    plus everything added today.
+  */
 
   const beforeTodayAdded=
-    (
-      Array.isArray(money.history)
-        ? money.history
-        : []
-    )
-    .filter(
-      item=>
-        Number(item.date)<start &&
-        item.type==="added"
-    )
-    .reduce(
-      (sum,item)=>
-        sum+
-        Number(item.amount||0),
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="added"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
       0
     );
 
+
   const beforeTodaySpent=
-    (
-      Array.isArray(money.history)
-        ? money.history
-        : []
-    )
-    .filter(
-      item=>
-        Number(item.date)<start &&
-        item.type==="spent"
-    )
-    .reduce(
-      (sum,item)=>
-        sum+
-        Number(item.amount||0),
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="spent"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
       0
     );
+
 
   const availableToday=
     Math.max(
@@ -5061,44 +5221,54 @@ function drawMoneyChart(){
     )+
     todayAdded;
 
+
   const percentage=
     availableToday>0
-      ? Math.min(
-          100,
-          Math.round(
-            todaySpent/
-            availableToday*
-            100
-          )
-        )
-      : 0;
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
+      )
+    )
+    :
+    0;
 
-  percentEl.textContent=
+
+  percentElement.textContent=
     percentage+
     "%";
 
+
   if(
-    todayAdded===0 &&
-    todaySpent===0
+    todayHistory.length
   ){
 
-    captionEl.textContent=
-      "No money activity today.";
+    captionElement.textContent=
+      "Spent "+
+      todaySpent.toFixed(2)+
+      " DT today • Added "+
+      todayAdded.toFixed(2)+
+      " DT today.";
 
   }else{
 
-    captionEl.textContent=
-      todaySpent.toFixed(2)+
-      " DT spent today from "+
-      availableToday.toFixed(2)+
-      " DT available.";
+    captionElement.textContent=
+      "No money activity today.";
 
   }
+
 
   renderMoneyReport();
 
 }
 
+
+/* =========================
+   FINANCIAL REPORT
+========================= */
 
 function renderMoneyReport(){
 
@@ -5107,88 +5277,175 @@ function renderMoneyReport(){
       "moneyReport"
     );
 
+
   if(!box)return;
 
-  const history=
-    Array.isArray(money.history)
-      ? money.history
-      : [];
+
+  const balance=
+    money.added-
+    money.spent;
+
+
+  const transactions=
+    money.history.length;
+
 
   const now=
     new Date();
 
-  const start=
+
+  const startOfDay=
     new Date(
       now.getFullYear(),
       now.getMonth(),
-      now.getDate()
-    )
-    .getTime();
+      now.getDate(),
+      0,
+      0,
+      0,
+      0
+    ).getTime();
 
-  const end=
-    start+
-    24*60*60*1000;
 
-  const today=
-    history.filter(
-      item=>
-        Number(item.date)>=start &&
-        Number(item.date)<end
-    );
+  const endOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23,
+      59,
+      59,
+      999
+    ).getTime();
 
-  const todayAdded=
-    today
-      .filter(
-        item=>
-          item.type==="added"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
 
-  const todaySpent=
-    today
-      .filter(
-        item=>
-          item.type==="spent"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
+
+
+  money.history.forEach(
+    item=>{
+
+      const date=
+        Number(
+          item.date
+        )||0;
+
+
+      if(
+        date<startOfDay||
+        date>endOfDay
+      ){
+
+        return;
+
+      }
+
+
+      const amount=
+        Number(
+          item.amount
+        )||0;
+
+
+      if(
+        item.type==="added"
+      ){
+
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
+
+    }
+  );
+
 
   const beforeTodayAdded=
-    history
-      .filter(
-        item=>
-          Number(item.date)<start &&
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
           item.type==="added"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
 
   const beforeTodaySpent=
-    history
-      .filter(
-        item=>
-          Number(item.date)<start &&
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
           item.type==="spent"
-      )
-      .reduce(
-        (sum,item)=>
-          sum+
-          Number(item.amount||0),
-        0
-      );
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
 
   const availableToday=
     Math.max(
@@ -5198,543 +5455,222 @@ function renderMoneyReport(){
     )+
     todayAdded;
 
-  const spendingRate=
+
+  const percentage=
     availableToday>0
-      ? Math.min(
-          100,
-          Math.round(
-            todaySpent/
-            availableToday*
-            100
-          )
-        )
-      : 0;
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
+      )
+    )
+    :
+    0;
 
-  const balance=
-    Number(money.added)-
-    Number(money.spent);
 
-  box.innerHTML=
-    `
-      <div class="rules-title">
-        Money Report
-      </div>
+  const recent=
+    money.history
+      .slice(
+        0,
+        10
+      );
 
-      <div class="rule-row">
-        <span>Today Added</span>
-        <strong class="green-text">
-          ${todayAdded.toFixed(2)} DT
-        </strong>
-      </div>
 
-      <div class="rule-row">
-        <span>Today Spent</span>
-        <strong class="red-text">
-          ${todaySpent.toFixed(2)} DT
-        </strong>
-      </div>
+  let activityHTML=
+    "";
 
-      <div class="rule-row">
-        <span>Today's Spending Rate</span>
-        <strong>
-          ${spendingRate}%
-        </strong>
-      </div>
 
-      <div class="rule-row">
-        <span>Overall Added</span>
-        <strong class="green-text">
-          ${Number(money.added).toFixed(2)} DT
-        </strong>
-      </div>
+  if(
+    recent.length
+  ){
 
-      <div class="rule-row">
-        <span>Overall Spent</span>
-        <strong class="red-text">
-          ${Number(money.spent).toFixed(2)} DT
-        </strong>
-      </div>
+    activityHTML=`
 
-      <div class="rule-row">
-        <span>Current Balance</span>
-        <strong class="${
-          balance<0
-            ? "red-text"
-            : "green-text"
-        }">
-          ${balance.toFixed(2)} DT
-        </strong>
-      </div>
-
-      <div class="rules-title" style="margin-top:16px">
-        Transactions
+      <div
+        style="
+          margin-top:18px;
+          font-size:13px;
+          font-weight:900;
+        "
+      >
+        Recent Activity
       </div>
 
       ${
-        history.length
-          ? history
-              .slice(0,10)
-              .map(
-                item=>`
-                  <div class="rule-row">
+        recent
+          .map(
+            item=>`
 
-                    <span>
-                      ${escapeHTML(
-                        item.description ||
-                        (
-                          item.type==="added"
-                            ? "Money Added"
-                            : "Money Spent"
-                        )
-                      )}
-                    </span>
+              <div class="money-history">
 
-                    <strong
-                      class="${
-                        item.type==="added"
-                          ? "green-text"
-                          : "red-text"
-                      }"
-                    >
-                      ${
-                        item.type==="added"
-                          ? "+"
-                          : "−"
-                      }${Number(item.amount).toFixed(2)} DT
-                    </strong>
+                <div>
+
+                  <div class="money-history-title">
+
+                    ${
+                      item.type==="added"
+                      ?
+                      "Money Added"
+                      :
+                      "Money Spent"
+                    }
 
                   </div>
-                `
-              )
-              .join("")
-          : `
-              <div class="empty">
-                No transactions yet.
+
+                  <div class="money-history-desc">
+
+                    ${escapeHTML(
+                      item.description
+                    )}
+
+                  </div>
+
+                  <div class="money-history-date">
+
+                    ${escapeHTML(
+                      new Date(
+                        item.date
+                      ).toLocaleString()
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  class="money-history-amount"
+                  style="
+                    color:${
+                      item.type==="added"
+                      ?
+                      "var(--green)"
+                      :
+                      "var(--red)"
+                    };
+                  "
+                >
+
+                  ${
+                    item.type==="added"
+                    ?
+                    "+"
+                    :
+                    "-"
+                  }${Number(
+                    item.amount
+                  ).toFixed(2)} DT
+
+                </div>
+
               </div>
+
             `
+          )
+          .join("")
       }
 
     `;
 
+  }
+
+
+  box.innerHTML=`
+
+    <b>
+      FINANCIAL REPORT
+    </b>
+
+
+    <div
+      class="page-sub"
+      style="margin:10px 0 0"
+    >
+
+      <b>
+        Today
+      </b>
+
+      <br><br>
+
+      Added today:
+      <strong>
+        ${todayAdded.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spent today:
+      <strong>
+        ${todaySpent.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spending rate:
+      <strong>
+        ${percentage}%
+      </strong>
+
+      <br><br>
+
+      <b>
+        Overall
+      </b>
+
+      <br><br>
+
+      Added:
+      <strong>
+        ${money.added.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spent:
+      <strong>
+        ${money.spent.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Current balance:
+      <strong
+        style="
+          color:${
+            balance<0
+            ?
+            "var(--red)"
+            :
+            "var(--green)"
+          }
+        "
+      >
+        ${balance.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Transactions:
+      <strong>
+        ${transactions}
+      </strong>
+
+    </div>
+
+
+    ${activityHTML}
+
+  `;
+
 }
 
 
 /* =========================
-   EMPLOYEES
-========================= */
-
-const EMPLOYEE_DAYS=[
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-
-const EMPLOYEE_SLOTS=[
-  "08-09",
-  "09-10",
-  "10-11",
-  "11-12",
-  "12-13",
-  "13-14",
-  "14-15",
-  "15-16",
-  "16-17",
-  "17-18"
-];
-
-function employeeKey(
-  day,
-  slot
-){
-
-  return day+
-    "_"+
-    slot;
-
-}
-
-function saveEmployees(){
-
-  saveJSON(
-    STORAGE.employees,
-    employeesData
-  );
-
-}
-
-function employeeCellColorClass(
-  color
-){
-
-  const map={
-    green:"employee-green",
-    yellow:"employee-yellow",
-    orange:"employee-orange",
-    red:"employee-red",
-    blue:"employee-blue",
-    purple:"employee-purple"
-  };
-
-  return map[color] || "";
-
-}
-
-function renderEmployees(){
-
-  const table=
-    document.getElementById(
-      "employeesTable"
-    );
-
-  if(!table)return;
-
-  table
-    .querySelectorAll(
-      "td[data-day][data-slot]"
-    )
-    .forEach(
-      cell=>{
-
-        const key=
-          employeeKey(
-            cell.dataset.day,
-            cell.dataset.slot
-          );
-
-        const saved=
-          employeesData[key] || {};
-
-        const color=
-          saved.color || "";
-
-        cell.innerHTML=
-          `
-            <div
-              class="employee-cell ${employeeCellColorClass(color)}"
-              data-key="${escapeHTML(key)}"
-            >
-
-              <button
-                type="button"
-                class="employee-color-button"
-                aria-label="Choose cell color"
-                onclick="openEmployeePalette(event,this,'${key}')"
-              >●</button>
-
-              <div
-                class="employee-text"
-                contenteditable="true"
-                spellcheck="false"
-                role="textbox"
-                data-key="${escapeHTML(key)}"
-                oninput="saveEmployeeText(this)"
-                onkeydown="employeeTextKeydown(event)"
-              >${escapeHTML(saved.text || "")}</div>
-
-              <div
-                class="employee-palette hidden"
-                data-palette="${escapeHTML(key)}"
-              >
-
-                <button
-                  type="button"
-                  class="employee-green"
-                  aria-label="Green"
-                  onclick="setEmployeeColor(event,'${key}','green')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="employee-yellow"
-                  aria-label="Yellow"
-                  onclick="setEmployeeColor(event,'${key}','yellow')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="employee-orange"
-                  aria-label="Orange"
-                  onclick="setEmployeeColor(event,'${key}','orange')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="employee-red"
-                  aria-label="Red"
-                  onclick="setEmployeeColor(event,'${key}','red')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="employee-blue"
-                  aria-label="Blue"
-                  onclick="setEmployeeColor(event,'${key}','blue')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="employee-purple"
-                  aria-label="Purple"
-                  onclick="setEmployeeColor(event,'${key}','purple')"
-                ></button>
-
-                <button
-                  type="button"
-                  class="clear-color"
-                  aria-label="Clear color"
-                  onclick="setEmployeeColor(event,'${key}','')"
-                >×</button>
-
-              </div>
-
-            </div>
-          `;
-
-      }
-    );
-
-}
-
-function openEmployeePalette(
-  event,
-  button,
-  key
-){
-
-  event.preventDefault();
-  event.stopPropagation();
-
-  const active=
-    document.activeElement;
-
-  if(
-    active &&
-    active !== button &&
-    typeof active.blur==="function"
-  ){
-
-    active.blur();
-
-  }
-
-  document
-    .querySelectorAll(
-      ".employee-palette"
-    )
-    .forEach(
-      palette=>{
-
-        if(
-          palette.dataset.palette!==key
-        ){
-
-          palette.classList.add(
-            "hidden"
-          );
-
-        }
-
-      }
-    );
-
-  const palette=
-    button
-      .parentElement
-      .querySelector(
-        ".employee-palette"
-      );
-
-  if(!palette)return;
-
-  palette.classList.toggle(
-    "hidden"
-  );
-
-  clickSound();
-
-}
-
-function setEmployeeColor(
-  event,
-  key,
-  color
-){
-
-  event.preventDefault();
-  event.stopPropagation();
-
-  const cell=
-    document.querySelector(
-      `.employee-cell[data-key="${CSS.escape(key)}"]`
-    );
-
-  if(!cell)return;
-
-  [
-    "employee-green",
-    "employee-yellow",
-    "employee-orange",
-    "employee-red",
-    "employee-blue",
-    "employee-purple"
-  ].forEach(
-    className=>{
-      cell.classList.remove(
-        className
-      );
-    }
-  );
-
-  const colorClass=
-    employeeCellColorClass(
-      color
-    );
-
-  if(colorClass){
-
-    cell.classList.add(
-      colorClass
-    );
-
-  }
-
-  if(!employeesData[key]){
-
-    employeesData[key]={};
-
-  }
-
-  employeesData[key].color=
-    color || "";
-
-  saveEmployees();
-
-  const palette=
-    cell.querySelector(
-      ".employee-palette"
-    );
-
-  if(palette){
-
-    palette.classList.add(
-      "hidden"
-    );
-
-  }
-
-  clickSound();
-
-}
-
-function saveEmployeeText(
-  element
-){
-
-  const key=
-    element.dataset.key;
-
-  if(!key)return;
-
-  if(!employeesData[key]){
-
-    employeesData[key]={};
-
-  }
-
-  const textValue=
-    element.innerText
-      .replace(
-        /\u00a0/g,
-        " "
-      )
-      .replace(
-        /\n{3,}/g,
-        "\n\n"
-      )
-      .slice(
-        0,
-        160
-      );
-
-  employeesData[key].text=
-    textValue;
-
-  saveEmployees();
-
-}
-
-function employeeTextKeydown(
-  event
-){
-
-  if(
-    event.key==="Enter" &&
-    !event.shiftKey
-  ){
-
-    event.preventDefault();
-
-    document.execCommand(
-      "insertLineBreak"
-    );
-
-  }
-
-}
-
-document.addEventListener(
-  "pointerdown",
-  event=>{
-
-    if(
-      event.target.closest(
-        ".employee-color-button,.employee-palette,.employee-text"
-      )
-    ){
-
-      return;
-
-    }
-
-    document
-      .querySelectorAll(
-        ".employee-palette"
-      )
-      .forEach(
-        palette=>{
-          palette.classList.add(
-            "hidden"
-          );
-        }
-      );
-
-  },
-  {
-    passive:true
-  }
-);
-
-document.addEventListener(
-  "visibilitychange",
-  ()=>{
-
-    if(
-      !document.hidden
-    ){
-
-      renderEmployees();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   PROFILE
+   PROFILE / USER NAME
 ========================= */
 
 function changeUsername(){
@@ -5744,14 +5680,21 @@ function changeUsername(){
       "newUsername"
     );
 
+
   const value=
     input.value.trim();
 
+
   if(!value){
+
+    alert(
+      "Enter a name."
+    );
 
     return;
 
   }
+
 
   username=
     value.slice(
@@ -5759,10 +5702,12 @@ function changeUsername(){
       30
     );
 
+
   localStorage.setItem(
     STORAGE.username,
     username
   );
+
 
   updateUserUI();
 
@@ -5784,8 +5729,10 @@ function saveNote(){
       "noteInput"
     );
 
+
   const value=
     input.value.trim();
+
 
   if(!value){
 
