@@ -725,78 +725,146 @@ textarea{
 }
 
 /* =========================
-   GAMES
+   POINTS EXCHANGE
 ========================= */
 
-.scoreboard{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  background:#090909;
-  border-radius:16px;
-  padding:14px;
-  text-align:center;
-  margin-bottom:15px;
+.points-chip{
+  background:#202020;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:8px 11px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  flex-shrink:0;
 }
 
-.scoreboard small{
+.points-icon{
+  font-size:14px;
+}
+
+.points-balance-card{
+  text-align:center;
+}
+
+.points-balance{
+  font-size:44px;
+  font-weight:950;
+  margin:5px 0 12px;
+}
+
+.boost-status{
+  display:inline-block;
+  background:#202020;
+  border:1px solid #333;
+  border-radius:12px;
+  padding:8px 11px;
+  color:#aaa;
+  font-size:11px;
+  font-weight:900;
+}
+
+.boost-status.active{
+  color:var(--green);
+  background:#123322;
+  border-color:#1b4e32;
+}
+
+.points-reward{
+  text-align:left;
+}
+
+.points-reward .menu-button-left{
+  min-width:0;
+}
+
+.points-reward small{
   display:block;
   color:var(--muted);
-  font-size:9px;
-  margin-bottom:6px;
+  font-size:10px;
+  margin-top:4px;
+  font-weight:500;
 }
 
-.scoreboard strong{
-  font-size:19px;
+.points-rules{
+  margin-top:18px;
 }
 
-.xo-board{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
+.points-rule{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+  color:#ddd;
+  font-size:12px;
+  line-height:1.4;
 }
 
-.xo-cell{
-  aspect-ratio:1;
+.points-rule:last-child{
+  border-bottom:0;
+}
+
+.rule-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.rule-dot.green{background:var(--green);}
+.rule-dot.yellow{background:var(--yellow);}
+.rule-dot.red{background:var(--red);}
+.rule-dot.boost{background:#fff;}
+
+.points-toast{
+  position:fixed;
+  z-index:1000;
+  left:50%;
+  bottom:92px;
+  transform:translate(-50%,20px);
+  width:calc(100% - 32px);
+  max-width:420px;
+  background:#151515;
   border:1px solid #333;
-  background:#090909;
-  color:#fff;
-  border-radius:17px;
-  font-size:34px;
-  font-weight:950;
-}
-
-.game-status{
-  text-align:center;
-  padding:15px;
-  background:#090909;
-  border-radius:15px;
-  font-weight:900;
-  margin-bottom:12px;
-}
-
-.big-number{
-  text-align:center;
-  font-size:56px;
-  font-weight:950;
-  background:#090909;
   border-radius:20px;
-  padding:25px;
-  margin:15px 0;
+  padding:13px 15px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  box-shadow:0 12px 35px rgba(0,0,0,.45);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease,transform .2s ease;
 }
 
-.higher-buttons{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
+.points-toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
 }
 
-.higher-buttons button{
-  padding:16px;
-  border:1px solid #333;
-  border-radius:15px;
-  background:#181818;
+.points-toast-icon{
+  width:37px;
+  height:37px;
+  border-radius:12px;
+  background:#fff;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.points-toast-text{
   color:#fff;
-  font-weight:900;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.35;
 }
 
 /* =========================
@@ -1014,6 +1082,15 @@ textarea{
     </div>
 
     <div
+      class="points-chip"
+      onclick="showPage('points')"
+      title="Points Exchange"
+    >
+      <span class="points-icon">★</span>
+      <span id="topPoints">0</span>
+    </div>
+
+    <div
       class="user-chip"
       onclick="showPage('profile')"
     >
@@ -1044,7 +1121,9 @@ textarea{
 
     <div class="hero card">
 
-      <div class="hero-symbol">◆</div>
+      <div class="hero-symbol">
+        ◆
+      </div>
 
       <h1 id="welcomeText">
         Welcome 👋
@@ -1061,26 +1140,57 @@ textarea{
     <div class="dashboard">
 
       <div class="dash-card">
-        <small>ACTIVE TASKS</small>
-        <strong id="dashActive">0</strong>
+
+        <small>
+          ACTIVE TASKS
+        </small>
+
+        <strong id="dashActive">
+          0
+        </strong>
+
       </div>
 
-      <div class="dash-card">
-        <small>SUCCESS RATE</small>
-        <strong id="dashSuccess">0%</strong>
-      </div>
 
       <div class="dash-card">
-        <small>POCKET MONEY</small>
+
+        <small>
+          COMPLETED
+        </small>
+
+        <strong id="dashCompleted">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <small>
+          SUCCESS RATE
+        </small>
+
+        <strong id="dashSuccess">
+          0%
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <small>
+          POCKET MONEY
+        </small>
+
         <strong
           id="dashMoney"
           class="green-text"
-        >0 DT</strong>
-      </div>
+        >
+          0 DT
+        </strong>
 
-      <div class="dash-card">
-        <small>COMPLETED</small>
-        <strong id="dashCompleted">0</strong>
       </div>
 
     </div>
@@ -1089,81 +1199,8 @@ textarea{
     <div id="homeNextTask"></div>
 
 
-    <button
-      class="menu-button"
-      onclick="showPage('quick')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">✓</span>
-        <span>
-          <b>Quick Check</b><br>
-          <small style="color:#777">
-            Check today's active work
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('plan')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">▦</span>
-        <span>
-          <b>Plan</b><br>
-          <small style="color:#777">
-            Organize your tasks
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('money')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">◉</span>
-        <span>
-          <b>Pocket Money</b><br>
-          <small style="color:#777">
-            Track your money
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('settings')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">⚙</span>
-        <span>
-          <b>Settings</b><br>
-          <small style="color:#777">
-            More STUDY tools
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
     <div class="footer">
-      Made in Tunisia 🇹🇳<br>
-      by Jasser Nouaili
+      STUDY · by Jasser Nouaili
     </div>
 
   </section>
@@ -1183,10 +1220,8 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Your current active tasks.
+      Your urgent tasks at a glance.
     </div>
-
-    <div id="quickDebt"></div>
 
     <div id="quickTasks"></div>
 
@@ -1207,32 +1242,38 @@ textarea{
     </div>
 
     <div class="page-sub">
-      Create tasks and keep your work organized.
+      Organize your work and track every deadline.
     </div>
 
 
     <div class="card">
 
-      <label>WORK NAME</label>
+      <label>
+        TASK / WORK NAME
+      </label>
 
       <input
         id="taskName"
         type="text"
-        maxlength="80"
-        placeholder="Example: Mathematics"
+        maxlength="100"
+        placeholder="Example: Study text"
       >
 
 
-      <label>DESCRIPTION</label>
+      <label>
+        DESCRIPTION
+      </label>
 
       <textarea
         id="taskDescription"
-        maxlength="300"
-        placeholder="What do you need to do?"
+        maxlength="500"
+        placeholder="Example: Read and understand the text..."
       ></textarea>
 
 
-      <label>DATE & TIME</label>
+      <label>
+        DATE & TIME
+      </label>
 
       <input
         id="taskDate"
@@ -1508,11 +1549,11 @@ textarea{
 
     <button
       class="menu-button"
-      onclick="showPage('play')"
+      onclick="showPage('points')"
     >
       <span class="menu-button-left">
-        <span class="menu-icon">🎮</span>
-        <b>Play</b>
+        <span class="menu-icon">★</span>
+        <b>Points Exchange</b>
       </span>
       <span class="menu-arrow">›</span>
     </button>
@@ -1666,202 +1707,200 @@ textarea{
 
 
   <!-- =========================
-       PLAY
+       POINTS EXCHANGE
   ========================= -->
 
   <section
-    id="play"
+    id="points"
     class="page"
   >
 
     <div class="page-title">
-      Play
+      Points Exchange
     </div>
 
     <div class="page-sub">
-      Simple games when you need a break.
+      Earn points by completing your tasks and exchange them for rewards.
     </div>
 
+    <div class="card points-balance-card">
 
-    <button
-      class="menu-button"
-      onclick="showPage('xo')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">⭕</span>
-        <b>X / O</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('higher')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">🔢</span>
-        <b>Higher or Lower</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       XO
-  ========================= -->
-
-  <section
-    id="xo"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('play')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      X / O
-    </div>
-
-
-    <div class="scoreboard">
-
-      <div>
-        <small>PLAYER X</small>
-        <strong id="xoXScore">0</strong>
-      </div>
-
-      <div>
-        <small>DRAWS</small>
-        <strong id="xoDrawScore">0</strong>
-      </div>
-
-      <div>
-        <small>PLAYER O</small>
-        <strong id="xoOScore">0</strong>
-      </div>
-
-    </div>
-
-
-    <div
-      id="xoStatus"
-      class="game-status"
-    >
-      PLAYER X TURN
-    </div>
-
-
-    <div
-      id="xoBoard"
-      class="xo-board"
-    ></div>
-
-
-    <button
-      class="secondary"
-      onclick="resetXO()"
-    >
-      New Round
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       HIGHER
-  ========================= -->
-
-  <section
-    id="higher"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('play')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      Higher or Lower
-    </div>
-
-    <div class="page-sub">
-      Guess whether the next number is higher or lower.
-    </div>
-
-
-    <div class="scoreboard">
-
-      <div>
-        <small>PLAYER 1</small>
-        <strong id="higherScore1">0</strong>
-      </div>
-
-      <div>
-        <small>ROUND</small>
-        <strong id="higherRound">1</strong>
-      </div>
-
-      <div>
-        <small>PLAYER 2</small>
-        <strong id="higherScore2">0</strong>
-      </div>
-
-    </div>
-
-
-    <div class="card">
+      <small style="color:#777">
+        YOUR POINTS
+      </small>
 
       <div
-        id="higherStatus"
-        class="game-status"
+        id="pointsBalance"
+        class="points-balance"
       >
-        PLAYER 1 TURN
+        0
       </div>
 
       <div
-        id="higherNumber"
-        class="big-number"
+        id="boostStatus"
+        class="boost-status"
       >
-        50
-      </div>
-
-      <div class="higher-buttons">
-
-        <button
-          onclick="higherGuess('higher')"
-        >
-          ↑ HIGHER
-        </button>
-
-        <button
-          onclick="higherGuess('lower')"
-        >
-          ↓ LOWER
-        </button>
-
+        ⚡ No active Boost
       </div>
 
     </div>
 
 
+    <div class="section-title">
+      Exchange Points
+    </div>
+
+
     <button
-      class="secondary"
-      onclick="resetHigher()"
+      class="menu-button points-reward"
+      onclick="redeemPoints(100,'money1')"
     >
-      Reset Game
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          💰
+        </span>
+
+        <span>
+
+          <b>
+            100 points
+          </b>
+
+          <small>
+            Take 1 DT from your parents
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
     </button>
+
+
+    <button
+      class="menu-button points-reward"
+      onclick="redeemPoints(66,'money05')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          🪙
+        </span>
+
+        <span>
+
+          <b>
+            66 points
+          </b>
+
+          <small>
+            Take 0.5 DT from your parents
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <button
+      class="menu-button points-reward"
+      onclick="redeemPoints(200,'boost')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          ⚡
+        </span>
+
+        <span>
+
+          <b>
+            200 points
+          </b>
+
+          <small>
+            10% Boost for 24 hours
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <div class="card points-rules">
+
+      <div
+        class="section-title"
+        style="margin:0 0 12px"
+      >
+        Points Rules
+      </div>
+
+
+      <div class="points-rule">
+
+        <span class="rule-dot green"></span>
+
+        <span>
+          Complete a green task → <b>+33 points</b>
+        </span>
+
+      </div>
+
+
+      <div class="points-rule">
+
+        <span class="rule-dot yellow"></span>
+
+        <span>
+          Complete a yellow task → <b>+22 points</b>
+        </span>
+
+      </div>
+
+
+      <div class="points-rule">
+
+        <span class="rule-dot red"></span>
+
+        <span>
+          Complete a red task → <b>+11 points</b>
+        </span>
+
+      </div>
+
+
+      <div class="points-rule">
+
+        <span class="rule-dot boost"></span>
+
+        <span>
+          Active Boost → <b>+10% points</b> for 24 hours
+        </span>
+
+      </div>
+
+    </div>
 
   </section>
 
@@ -1917,6 +1956,26 @@ textarea{
     <div id="notesList"></div>
 
   </section>
+
+</div>
+
+
+<div
+  id="pointsToast"
+  class="points-toast"
+>
+
+  <div
+    id="pointsToastIcon"
+    class="points-toast-icon"
+  >
+    ★
+  </div>
+
+  <div
+    id="pointsToastText"
+    class="points-toast-text"
+  ></div>
 
 </div>
 
@@ -1993,7 +2052,8 @@ const STORAGE={
   notes:"study_notes",
   quickHidden:"study_quick_hidden",
   xo:"study_xo",
-  higher:"study_higher"
+  higher:"study_higher",
+  points:"study_points"
 };
 
 
@@ -2015,6 +2075,13 @@ let money={
 let notes=[];
 
 let moneyHistoryLimit=5;
+
+let pointsData={
+  balance:0,
+  boostExpiresAt:0
+};
+
+let pointsToastTimer=null;
 
 
 /* =========================
@@ -2287,6 +2354,22 @@ function loadAllData(){
       []
     );
 
+  pointsData=
+    loadJSON(
+      STORAGE.points,
+      {
+        balance:0,
+        boostExpiresAt:0
+      }
+    );
+
+  pointsData.balance=
+    Number(pointsData.balance)||0;
+
+  pointsData.boostExpiresAt=
+    Number(pointsData.boostExpiresAt)||0;
+
+
   const xoData=
     loadJSON(
       STORAGE.xo,
@@ -2302,6 +2385,7 @@ function loadAllData(){
     xoDrawScore=Number(xoData.d)||0;
 
   }
+
 
   const higherData=
     loadJSON(
@@ -2358,6 +2442,8 @@ function updateUserUI(){
     .textContent=
       "Welcome, "+username+" 👋";
 
+  renderPoints();
+
 }
 
 
@@ -2407,18 +2493,23 @@ function showPage(pageId){
   renderDashboard();
   renderTasks();
   renderMoney();
+  renderPoints();
+
 
   if(pageId==="data"){
     drawMoneyChart();
   }
 
+
   if(pageId==="xo"){
     renderXO();
   }
 
+
   if(pageId==="higher"){
     renderHigher();
   }
+
 
   if(pageId==="notes"){
     renderNotes();
@@ -2962,6 +3053,279 @@ function hideQuickTask(id){
 
 
 /* =========================
+   POINTS SYSTEM
+========================= */
+
+function savePoints(){
+
+  saveJSON(
+    STORAGE.points,
+    pointsData
+  );
+
+}
+
+
+function renderPoints(){
+
+  const balance=
+    Math.round((Number(pointsData.balance)||0)*10)/10;
+
+
+  const top=
+    document.getElementById("topPoints");
+
+  if(top){
+
+    top.textContent=
+      Number.isInteger(balance)
+      ?
+      String(balance)
+      :
+      balance.toFixed(1);
+
+  }
+
+
+  const pageBalance=
+    document.getElementById("pointsBalance");
+
+  if(pageBalance){
+
+    pageBalance.textContent=
+      Number.isInteger(balance)
+      ?
+      String(balance)
+      :
+      balance.toFixed(1);
+
+  }
+
+
+  const boost=
+    document.getElementById("boostStatus");
+
+
+  if(boost){
+
+    const remaining=
+      pointsData.boostExpiresAt-Date.now();
+
+
+    if(remaining>0){
+
+      const totalSeconds=
+        Math.floor(remaining/1000);
+
+      const hours=
+        Math.floor(totalSeconds/3600);
+
+      const minutes=
+        Math.floor(
+          (totalSeconds%3600)/60
+        );
+
+      const seconds=
+        totalSeconds%60;
+
+
+      boost.className=
+        "boost-status active";
+
+      boost.textContent=
+        "⚡ 10% Boost active · "+
+        String(hours).padStart(2,"0")+
+        ":"+
+        String(minutes).padStart(2,"0")+
+        ":"+
+        String(seconds).padStart(2,"0");
+
+    }else{
+
+      if(pointsData.boostExpiresAt!==0){
+
+        pointsData.boostExpiresAt=0;
+
+        savePoints();
+
+      }
+
+      boost.className=
+        "boost-status";
+
+      boost.textContent=
+        "⚡ No active Boost";
+
+    }
+
+  }
+
+}
+
+
+function updatePointsTimer(){
+
+  renderPoints();
+
+}
+
+
+function showPointsToast(icon,message){
+
+  const toast=
+    document.getElementById(
+      "pointsToast"
+    );
+
+  const iconBox=
+    document.getElementById(
+      "pointsToastIcon"
+    );
+
+  const textBox=
+    document.getElementById(
+      "pointsToastText"
+    );
+
+  if(!toast||
+     !iconBox||
+     !textBox)return;
+
+
+  iconBox.textContent=icon;
+
+  textBox.textContent=message;
+
+  toast.classList.add("show");
+
+
+  clearTimeout(
+    pointsToastTimer
+  );
+
+
+  pointsToastTimer=
+    setTimeout(()=>{
+
+      toast.classList.remove("show");
+
+    },3000);
+
+}
+
+
+function addRewardMoney(amount){
+
+  money.added+=amount;
+
+  money.history.unshift({
+
+    id:Date.now()+Math.random(),
+
+    type:"added",
+
+    amount:amount,
+
+    description:"Points Exchange reward",
+
+    date:Date.now()
+
+  });
+
+
+  saveMoney();
+
+}
+
+
+function redeemPoints(cost,reward){
+
+  const current=
+    Number(pointsData.balance)||0;
+
+
+  if(current<cost){
+
+    showPointsToast(
+      "🔒",
+      "You need "+cost+" points for this reward."
+    );
+
+    clickSound();
+
+    return;
+
+  }
+
+
+  pointsData.balance=
+    Math.round(
+      (current-cost)*10
+    )/10;
+
+
+  if(reward==="money1"){
+
+    addRewardMoney(1);
+
+    savePoints();
+
+    renderPoints();
+
+    renderDashboard();
+
+
+    showPointsToast(
+      "💰",
+      "100 points exchanged · 1 DT added to Pocket Money."
+    );
+
+  }else if(reward==="money05"){
+
+    addRewardMoney(.5);
+
+    savePoints();
+
+    renderPoints();
+
+    renderDashboard();
+
+
+    showPointsToast(
+      "🪙",
+      "66 points exchanged · 0.5 DT added to Pocket Money."
+    );
+
+  }else if(reward==="boost"){
+
+    pointsData.boostExpiresAt=
+      Date.now()+24*60*60*1000;
+
+    savePoints();
+
+    renderPoints();
+
+
+    showPointsToast(
+      "⚡",
+      "200 points exchanged · 10% Boost is now active for 24 hours."
+    );
+
+  }
+
+
+  clickSound();
+
+}
+
+
+setInterval(
+  updatePointsTimer,
+  1000
+);
+
+
+/* =========================
    FINISH TASK
 ========================= */
 
@@ -2975,6 +3339,60 @@ function finishTask(id,status){
   if(!task)return;
 
   if(task.status!=="active")return;
+
+
+  let earnedPoints=0;
+
+
+  if(status==="done"){
+
+    const taskInfo=
+      countdownInfo(task.date);
+
+
+    let basePoints=0;
+
+
+    if(taskInfo.color==="green"){
+
+      basePoints=33;
+
+    }else if(taskInfo.color==="yellow"){
+
+      basePoints=22;
+
+    }else{
+
+      basePoints=11;
+
+    }
+
+
+    earnedPoints=basePoints;
+
+
+    if(pointsData.boostExpiresAt>Date.now()){
+
+      earnedPoints=
+        Math.round(
+          basePoints*1.1*10
+        )/10;
+
+    }
+
+
+    pointsData.balance=
+      Math.round(
+        (pointsData.balance+earnedPoints)*10
+      )/10;
+
+
+    saveJSON(
+      STORAGE.points,
+      pointsData
+    );
+
+  }
 
 
   task.status=status;
@@ -3002,6 +3420,18 @@ function finishTask(id,status){
 
   renderTasks();
   renderDashboard();
+  renderPoints();
+
+
+  if(earnedPoints>0){
+
+    showPointsToast(
+      "🎉",
+      "+"+earnedPoints+" points earned!"
+    );
+
+  }
+
 
   clickSound();
 
@@ -3489,7 +3919,7 @@ function renderMoney(){
   }
 
 
-  const debt=
+  const warning=
     document.getElementById(
       "debtWarning"
     );
@@ -3497,23 +3927,17 @@ function renderMoney(){
 
   if(balance<0){
 
-    debt.innerHTML=`
+    warning.innerHTML=`
 
       <div class="debt">
-
-        ⚠ YOU ARE IN DEBT
-
-        <br>
-
-        ${Math.abs(balance).toFixed(2)} DT
-
+        ⚠️ Danger: You are in debt.
       </div>
 
     `;
 
   }else{
 
-    debt.innerHTML="";
+    warning.innerHTML="";
 
   }
 
@@ -3524,10 +3948,7 @@ function renderMoney(){
     );
 
 
-  if(!historyBox)return;
-
-
-  const list=
+  const history=
     money.history
       .slice(
         0,
@@ -3535,72 +3956,74 @@ function renderMoney(){
       );
 
 
-  if(!list.length){
+  if(!history.length){
 
     historyBox.innerHTML=
       `<div class="empty">
-        No money activity yet.
+        No money history yet.
       </div>`;
 
   }else{
 
     historyBox.innerHTML=
-      list.map(item=>`
+      history
+        .map(item=>`
 
-        <div class="money-history">
+          <div class="money-history">
 
-          <div>
+            <div>
 
-            <div class="money-history-title">
+              <div class="money-history-title">
+                ${
+                  item.type==="added"
+                  ?
+                  "Money Added"
+                  :
+                  "Money Spent"
+                }
+              </div>
+
+              <div class="money-history-desc">
+                ${escapeHTML(
+                  item.description
+                )}
+              </div>
+
+              <div class="money-history-date">
+                ${new Date(
+                  item.date
+                ).toLocaleString()}
+              </div>
+
+            </div>
+
+
+            <div
+              class="money-history-amount"
+              style="
+                color:${
+                  item.type==="added"
+                  ?
+                  "var(--green)"
+                  :
+                  "var(--red)"
+                };
+              "
+            >
               ${
                 item.type==="added"
                 ?
-                "Money Added"
+                "+"
                 :
-                "Money Spent"
-              }
-            </div>
-
-            <div class="money-history-desc">
-              ${escapeHTML(
-                item.description
-              )}
-            </div>
-
-            <div class="money-history-date">
-              ${new Date(
-                item.date
-              ).toLocaleString()}
+                "-"
+              }${Number(
+                item.amount
+              ).toFixed(2)} DT
             </div>
 
           </div>
 
-          <div
-            class="money-history-amount"
-            style="
-              color:${
-                item.type==="added"
-                ?
-                "var(--green)"
-                :
-                "var(--red)"
-              };
-            "
-          >
-            ${
-              item.type==="added"
-              ?
-              "+"
-              :
-              "-"
-            }${Number(
-              item.amount
-            ).toFixed(2)} DT
-          </div>
-
-        </div>
-
-      `).join("");
+        `).join("");
 
   }
 
@@ -3779,7 +4202,6 @@ function drawMoneyChart(){
       cssHeight/2
     );
 
-
     renderMoneyReport();
 
     return;
@@ -3824,6 +4246,7 @@ function drawMoneyChart(){
       ...values,
       10
     );
+
 
   let min=
     Math.min(
@@ -3882,6 +4305,7 @@ function drawMoneyChart(){
 
     ctx.textAlign="right";
 
+
     ctx.fillText(
       value.toFixed(0),
       left-8,
@@ -3893,134 +4317,135 @@ function drawMoneyChart(){
 
   /* LINE */
 
-  const step=
-    points.length===1
-    ?
-    0
-    :
-    graphWidth/
-    (points.length-1);
-
+  ctx.strokeStyle="#fff";
+  ctx.lineWidth=2;
 
   ctx.beginPath();
 
 
-  points.forEach(
-    (point,index)=>{
+  points.forEach((point,index)=>{
 
-      const x=
-        points.length===1
-        ?
-        left+graphWidth/2
-        :
-        left+
-        index*step;
-
-
-      const y=
-        top+
-        (
-          max-point.balance
-        )/
-        range*
-        graphHeight;
+    const x=
+      points.length===1
+      ?
+      left+graphWidth/2
+      :
+      left+
+      graphWidth*
+      index/
+      (points.length-1);
 
 
-      if(index===0){
+    const y=
+      top+
+      graphHeight*
+      (max-point.balance)/
+      range;
 
-        ctx.moveTo(x,y);
 
-      }else{
+    if(index===0){
 
-        ctx.lineTo(x,y);
+      ctx.moveTo(
+        x,
+        y
+      );
 
-      }
+    }else{
+
+      ctx.lineTo(
+        x,
+        y
+      );
 
     }
-  );
 
+  });
 
-  ctx.strokeStyle=
-    "#35d07f";
-
-  ctx.lineWidth=3;
 
   ctx.stroke();
 
 
   /* POINTS */
 
-  points.forEach(
-    (point,index)=>{
-
-      const x=
-        points.length===1
-        ?
-        left+graphWidth/2
-        :
-        left+
-        index*step;
+  ctx.fillStyle="#fff";
 
 
-      const y=
-        top+
-        (
-          max-point.balance
-        )/
-        range*
-        graphHeight;
+  points.forEach((point,index)=>{
+
+    const x=
+      points.length===1
+      ?
+      left+graphWidth/2
+      :
+      left+
+      graphWidth*
+      index/
+      (points.length-1);
 
 
-      ctx.beginPath();
+    const y=
+      top+
+      graphHeight*
+      (max-point.balance)/
+      range;
 
-      ctx.arc(
-        x,
-        y,
-        4,
-        0,
-        Math.PI*2
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      4,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+
+  });
+
+
+  /* X LABELS */
+
+  ctx.fillStyle="#777";
+
+  ctx.font="9px Arial";
+
+  ctx.textAlign="center";
+
+
+  points.forEach((point,index)=>{
+
+    const x=
+      points.length===1
+      ?
+      left+graphWidth/2
+      :
+      left+
+      graphWidth*
+      index/
+      (points.length-1);
+
+
+    const label=
+      new Date(
+        point.date
+      ).toLocaleDateString(
+        undefined,
+        {
+          month:"short",
+          day:"numeric"
+        }
       );
 
 
-      ctx.fillStyle=
-        point.balance<0
-        ?
-        "#ff5050"
-        :
-        "#35d07f";
+    ctx.fillText(
+      label,
+      x,
+      cssHeight-20
+    );
 
-      ctx.fill();
-
-
-      if(
-        index===0||
-        index===points.length-1
-      ){
-
-        ctx.fillStyle="#777";
-
-        ctx.font="9px Arial";
-
-        ctx.textAlign="center";
-
-        ctx.fillText(
-          new Date(
-            point.date
-          ).toLocaleDateString(
-            undefined,
-            {
-              day:"2-digit",
-              month:"short"
-            }
-          ),
-          x,
-          cssHeight-18
-        );
-
-      }
-
-    }
-  );
+  });
 
 
   renderMoneyReport();
@@ -4029,157 +4454,97 @@ function drawMoneyChart(){
 
 
 /* =========================
-   REPORT
+   MONEY REPORT
 ========================= */
 
 function renderMoneyReport(){
 
-  const box=
+  const report=
     document.getElementById(
       "moneyReport"
     );
 
-  if(!box)return;
+  if(!report)return;
 
 
-  const balance=
-    money.added-money.spent;
+  const now=
+    new Date();
 
 
-  const transactions=
-    money.history.length;
+  const start=
+    new Date(
+      now
+    );
+
+  start.setDate(
+    now.getDate()-6
+  );
+
+  start.setHours(
+    0,
+    0,
+    0,
+    0
+  );
 
 
-  box.innerHTML=`
+  const weekly=
+    money.history.filter(
+      item=>
+        new Date(item.date)>=start
+    );
 
-    <b>FINANCIAL REPORT</b>
+
+  const added=
+    weekly
+      .filter(
+        item=>item.type==="added"
+      )
+      .reduce(
+        (sum,item)=>
+          sum+Number(item.amount),
+        0
+      );
+
+
+  const spent=
+    weekly
+      .filter(
+        item=>item.type==="spent"
+      )
+      .reduce(
+        (sum,item)=>
+          sum+Number(item.amount),
+        0
+      );
+
+
+  report.innerHTML=`
+
+    <div class="section-title"
+         style="margin-top:0">
+      This Week
+    </div>
 
     <div class="page-sub"
-         style="margin:10px 0 0">
+         style="margin-bottom:0">
 
       Added:
-      <strong>
-        ${money.added.toFixed(2)} DT
-      </strong>
+      <b>${added.toFixed(2)} DT</b>
 
-      <br><br>
+      ·
 
       Spent:
-      <strong>
-        ${money.spent.toFixed(2)} DT
-      </strong>
+      <b>${spent.toFixed(2)} DT</b>
 
-      <br><br>
+      ·
 
-      Current balance:
-      <strong
-        style="
-          color:${
-            balance<0
-            ?
-            "var(--red)"
-            :
-            "var(--green)"
-          }
-        "
-      >
-        ${balance.toFixed(2)} DT
-      </strong>
-
-      <br><br>
-
-      Transactions:
-      <strong>${transactions}</strong>
+      Net:
+      <b>${(added-spent).toFixed(2)} DT</b>
 
     </div>
 
   `;
-
-}
-
-
-/* =========================
-   RESPONSIVE CHART
-========================= */
-
-let chartResizeTimer=null;
-
-window.addEventListener(
-  "resize",
-  ()=>{
-
-    clearTimeout(
-      chartResizeTimer
-    );
-
-    chartResizeTimer=
-      setTimeout(
-        ()=>{
-
-          const dataPage=
-            document.getElementById(
-              "data"
-            );
-
-          if(
-            dataPage &&
-            dataPage.classList.contains(
-              "active"
-            )
-          ){
-
-            drawMoneyChart();
-
-          }
-
-        },
-        100
-      );
-
-  }
-);
-
-
-/* =========================
-   PROFILE / USER NAME
-========================= */
-
-function changeUsername(){
-
-  const input=
-    document.getElementById(
-      "newUsername"
-    );
-
-  const value=
-    input.value.trim();
-
-
-  if(!value){
-
-    alert("Enter a name.");
-
-    return;
-
-  }
-
-
-  username=value.slice(0,30);
-
-
-  localStorage.setItem(
-    STORAGE.username,
-    username
-  );
-
-
-  input.value="";
-
-  updateUserUI();
-
-  renderDashboard();
-
-  clickSound();
 
 }
 
@@ -4194,7 +4559,6 @@ function saveNote(){
     document.getElementById(
       "noteInput"
     );
-
 
   const text=
     input.value.trim();
@@ -4235,10 +4599,6 @@ function saveNote(){
 }
 
 
-/* =========================
-   RENDER NOTES
-========================= */
-
 function renderNotes(){
 
   const box=
@@ -4250,13 +4610,11 @@ function renderNotes(){
 
 
   const search=
-    (
-      document.getElementById(
-        "noteSearch"
-      )?.value || ""
-    )
-    .trim()
-    .toLowerCase();
+    document.getElementById(
+      "noteSearch"
+    ).value
+      .trim()
+      .toLowerCase();
 
 
   const filtered=
@@ -4281,48 +4639,45 @@ function renderNotes(){
 
 
   box.innerHTML=
-    filtered.map(note=>`
+    filtered
+      .map(note=>`
 
-      <div class="note">
+        <div class="note">
 
-        <div class="note-content">
-          ${escapeHTML(note.text)}
+          <div class="note-content">
+            ${escapeHTML(note.text)}
+          </div>
+
+          <div class="note-date">
+            ${new Date(
+              note.date
+            ).toLocaleString()}
+          </div>
+
+          <div class="note-buttons">
+
+            <button
+              class="note-edit"
+              onclick="editNote('${note.id}')"
+            >
+              Edit
+            </button>
+
+            <button
+              class="note-delete"
+              onclick="deleteNote('${note.id}')"
+            >
+              Delete
+            </button>
+
+          </div>
+
         </div>
 
-        <div class="note-date">
-          ${new Date(
-            note.date
-          ).toLocaleString()}
-        </div>
-
-        <div class="note-buttons">
-
-          <button
-            class="note-edit"
-            onclick="editNote('${note.id}')"
-          >
-            Edit
-          </button>
-
-          <button
-            class="note-delete"
-            onclick="deleteNote('${note.id}')"
-          >
-            Delete
-          </button>
-
-        </div>
-
-      </div>
-
-    `).join("");
+      `).join("");
 
 }
 
-
-/* =========================
-   EDIT NOTE
-========================= */
 
 function editNote(id){
 
@@ -4332,34 +4687,27 @@ function editNote(id){
         String(item.id)===String(id)
     );
 
-
   if(!note)return;
 
 
-  const next=
+  const newText=
     prompt(
-      "Edit your note:",
+      "Edit note:",
       note.text
     );
 
 
-  if(next===null)return;
+  if(newText===null)return;
 
 
-  if(!next.trim()){
-
-    alert("A note cannot be empty.");
-
-    return;
-
-  }
+  const value=
+    newText.trim();
 
 
-  note.text=
-    next.trim();
+  if(!value)return;
 
 
-  note.date=Date.now();
+  note.text=value;
 
 
   saveJSON(
@@ -4374,10 +4722,6 @@ function editNote(id){
 
 }
 
-
-/* =========================
-   DELETE NOTE
-========================= */
 
 function deleteNote(id){
 
@@ -4389,8 +4733,7 @@ function deleteNote(id){
   notes=
     notes.filter(
       note=>
-        String(note.id)!==
-        String(id)
+        String(note.id)!==String(id)
     );
 
 
@@ -4408,7 +4751,48 @@ function deleteNote(id){
 
 
 /* =========================
-   XO SAVE
+   PROFILE
+========================= */
+
+function changeUsername(){
+
+  const input=
+    document.getElementById(
+      "newUsername"
+    );
+
+  const value=
+    input.value.trim();
+
+
+  if(!value)return;
+
+
+  username=
+    value.slice(
+      0,
+      30
+    );
+
+
+  localStorage.setItem(
+    STORAGE.username,
+    username
+  );
+
+
+  input.value="";
+
+  updateUserUI();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   PLAY FUNCTIONS
+   KEPT FOR EXISTING LOCAL DATA
 ========================= */
 
 function saveXO(){
@@ -4427,10 +4811,6 @@ function saveXO(){
 }
 
 
-/* =========================
-   XO RENDER
-========================= */
-
 function renderXO(){
 
   const board=
@@ -4440,35 +4820,18 @@ function renderXO(){
 
   if(!board)return;
 
-
   board.innerHTML=
-    xoBoard.map(
-      (value,index)=>`
+    xoBoard
+      .map((value,index)=>`
 
         <button
           class="xo-cell"
-          onclick="xoMove(${index})"
+          onclick="playXO(${index})"
         >
           ${value}
         </button>
 
-      `
-    ).join("");
-
-
-  document.getElementById(
-    "xoXScore"
-  ).textContent=xoXScore;
-
-
-  document.getElementById(
-    "xoOScore"
-  ).textContent=xoOScore;
-
-
-  document.getElementById(
-    "xoDrawScore"
-  ).textContent=xoDrawScore;
+      `).join("");
 
 
   document.getElementById(
@@ -4476,101 +4839,30 @@ function renderXO(){
   ).textContent=
     "PLAYER "+xoTurn+" TURN";
 
-}
+
+  document.getElementById(
+    "xoXScore"
+  ).textContent=
+    xoXScore;
 
 
-/* =========================
-   XO MOVE
-========================= */
-
-function xoMove(index){
-
-  if(xoBoard[index])return;
+  document.getElementById(
+    "xoOScore"
+  ).textContent=
+    xoOScore;
 
 
-  xoBoard[index]=xoTurn;
-
-
-  const winner=
-    checkXOWinner();
-
-
-  if(winner){
-
-    if(winner==="X"){
-      xoXScore++;
-    }else{
-      xoOScore++;
-    }
-
-
-    saveXO();
-
-    renderXO();
-
-    setTimeout(
-      ()=>{
-        alert(
-          "PLAYER "+winner+" WINS!"
-        );
-
-        resetXO();
-
-      },
-      20
-    );
-
-    return;
-
-  }
-
-
-  if(!xoBoard.includes("")){
-
-    xoDrawScore++;
-
-    saveXO();
-
-    renderXO();
-
-    setTimeout(
-      ()=>{
-        alert("DRAW!");
-
-        resetXO();
-
-      },
-      20
-    );
-
-    return;
-
-  }
-
-
-  xoTurn=
-    xoTurn==="X"
-    ?
-    "O"
-    :
-    "X";
-
-
-  saveXO();
-  renderXO();
-
-  clickSound();
+  document.getElementById(
+    "xoDrawScore"
+  ).textContent=
+    xoDrawScore;
 
 }
 
 
-/* =========================
-   XO WINNER
-========================= */
+function checkWinner(){
 
-function checkXOWinner(){
-
-  const wins=[
+  const lines=[
 
     [0,1,2],
     [3,4,5],
@@ -4586,17 +4878,15 @@ function checkXOWinner(){
   ];
 
 
-  for(
-    const combination of wins
-  ){
+  for(const line of lines){
 
-    const[a,b,c]=combination;
+    const[a,b,c]=line;
 
 
     if(
       xoBoard[a] &&
       xoBoard[a]===xoBoard[b] &&
-      xoBoard[b]===xoBoard[c]
+      xoBoard[a]===xoBoard[c]
     ){
 
       return xoBoard[a];
@@ -4606,14 +4896,84 @@ function checkXOWinner(){
   }
 
 
+  if(
+    xoBoard.every(
+      cell=>cell
+    )
+  ){
+
+    return "draw";
+
+  }
+
+
   return null;
 
 }
 
 
-/* =========================
-   RESET XO
-========================= */
+function playXO(index){
+
+  if(xoBoard[index])return;
+
+
+  xoBoard[index]=xoTurn;
+
+
+  const winner=
+    checkWinner();
+
+
+  if(winner){
+
+    if(winner==="X"){
+
+      xoXScore++;
+
+    }else if(winner==="O"){
+
+      xoOScore++;
+
+    }else{
+
+      xoDrawScore++;
+
+    }
+
+
+    saveXO();
+
+
+    renderXO();
+
+    setTimeout(
+      resetXO,
+      900
+    );
+
+    clickSound();
+
+    return;
+
+  }
+
+
+  xoTurn=
+    xoTurn==="X"
+    ?
+    "O"
+    :
+    "X";
+
+
+  saveXO();
+
+  renderXO();
+
+  clickSound();
+
+}
+
 
 function resetXO(){
 
@@ -4625,15 +4985,17 @@ function resetXO(){
 
   xoTurn="X";
 
-
   saveXO();
+
   renderXO();
+
+  clickSound();
 
 }
 
 
 /* =========================
-   HIGHER SAVE
+   HIGHER OR LOWER
 ========================= */
 
 function saveHigher(){
@@ -4652,22 +5014,29 @@ function saveHigher(){
 }
 
 
-/* =========================
-   HIGHER RENDER
-========================= */
-
 function renderHigher(){
 
-  document.getElementById(
-    "higherNumber"
-  ).textContent=
+  const number=
+    document.getElementById(
+      "higherNumber"
+    );
+
+  const status=
+    document.getElementById(
+      "higherStatus"
+    );
+
+  if(!number||!status)return;
+
+
+  number.textContent=
     higherNumber;
 
 
-  document.getElementById(
-    "higherStatus"
-  ).textContent=
-    "PLAYER "+higherPlayer+" TURN";
+  status.textContent=
+    "PLAYER "+
+    higherPlayer+
+    " TURN";
 
 
   document.getElementById(
@@ -4690,11 +5059,7 @@ function renderHigher(){
 }
 
 
-/* =========================
-   HIGHER GUESS
-========================= */
-
-function higherGuess(choice){
+function higherGuess(guess){
 
   const next=
     Math.floor(
@@ -4702,31 +5067,35 @@ function higherGuess(choice){
     )+1;
 
 
-  const correct=
-    choice==="higher"
-    ?
-    next>higherNumber
-    :
-    next<higherNumber;
+  let correct=false;
+
+
+  if(guess==="higher"){
+
+    correct=
+      next>higherNumber;
+
+  }else{
+
+    correct=
+      next<higherNumber;
+
+  }
 
 
   if(correct){
 
     if(higherPlayer===1){
+
       higherScoreOne++;
+
     }else{
+
       higherScoreTwo++;
+
     }
 
   }
-
-
-  const result=
-    correct
-    ?
-    "Correct! 🎉"
-    :
-    "Wrong!";
 
 
   higherNumber=next;
@@ -4740,73 +5109,38 @@ function higherGuess(choice){
     1;
 
 
-  if(higherPlayer===1){
-
-    higherRoundNumber++;
-
-  }
+  higherRoundNumber++;
 
 
   saveHigher();
+
   renderHigher();
-
-
-  setTimeout(
-    ()=>{
-      alert(
-        result+
-        "\n\nNext number: "+
-        next
-      );
-    },
-    20
-  );
-
 
   clickSound();
 
 }
 
 
-/* =========================
-   RESET HIGHER
-========================= */
-
 function resetHigher(){
 
   higherNumber=50;
+
   higherPlayer=1;
+
   higherScoreOne=0;
+
   higherScoreTwo=0;
+
   higherRoundNumber=1;
 
 
   saveHigher();
+
   renderHigher();
 
+  clickSound();
+
 }
-
-
-/* =========================
-   KEYBOARD SHORTCUT
-========================= */
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    if(
-      event.key==="Enter" &&
-      document.activeElement?.id===
-      "userNameInput"
-    ){
-
-      startWithName();
-
-    }
-
-  }
-);
 
 </script>
 
