@@ -4953,95 +4953,74 @@ setInterval(
    STARTUP
 ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
-
-    const savedName =
-      localStorage.getItem(
-        USER_KEY
-      );
-
-    if(savedName){
-
-      showApp();
-
-    }else{
-
-      const setup =
-        document.getElementById(
-          "userSetup"
-        );
-
-      const app =
-        document.getElementById(
-          "app"
-        );
-
-      if(setup){
-        setup.classList.remove(
-          "hidden"
-        );
-      }
-
-      if(app){
-        app.classList.add(
-          "hidden"
-        );
-      }
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   SERVICE WORKER
-========================================================= */
-
-if(
-  "serviceWorker" in navigator
-){
-
-  window.addEventListener(
-    "load",
-    () => {
-
-      navigator.serviceWorker.register(
-        "./sw.js"
-      );
-
-    }
-  );
-
-}
 /* =========================
-   SPLASH SCREEN FIX
+   FINAL STARTUP FIX
 ========================= */
 
-window.addEventListener(
-  "DOMContentLoaded",
-  function(){
+(function(){
+
+  function startStudy(){
 
     const splash =
       document.getElementById("splash");
 
+    const app =
+      document.getElementById("app");
+
+    const userSetup =
+      document.getElementById("userSetup");
+
     if(splash){
+      splash.style.display = "none";
+    }
 
-      setTimeout(
-        function(){
+    const savedName =
+      localStorage.getItem(USER_KEY);
 
-          splash.style.display = "none";
+    if(savedName){
 
-        },
-        1100
-      );
+      if(userSetup){
+        userSetup.classList.add("hidden");
+      }
+
+      if(app){
+        app.classList.remove("hidden");
+      }
+
+      updateUserUI();
+      renderAll();
+
+    }else{
+
+      if(app){
+        app.classList.add("hidden");
+      }
+
+      if(userSetup){
+        userSetup.classList.remove("hidden");
+      }
 
     }
 
   }
-);
+
+  if(
+    document.readyState === "loading"
+  ){
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      startStudy,
+      {once:true}
+    );
+
+  }else{
+
+    startStudy();
+
+  }
+
+})();
 </script>
 
 </body>
