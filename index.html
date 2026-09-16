@@ -75,6 +75,10 @@ textarea{
   flex-direction:column;
 }
 
+.splash-inner{
+  text-align:center;
+}
+
 .splash-logo{
   width:82px;
   height:82px;
@@ -670,20 +674,35 @@ textarea{
 }
 
 /* =========================
-   CHART
+   DATA / DAILY SPENDING
 ========================= */
 
 .chart-card{
-  padding:12px;
+  padding:25px 19px;
   overflow:hidden;
 }
 
-#moneyChart{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:16px;
-  background:#090909;
+.daily-spending-label{
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-align:center;
+}
+
+.daily-spending-percent{
+  font-size:64px;
+  line-height:1;
+  font-weight:950;
+  text-align:center;
+  margin:15px 0 10px;
+}
+
+.daily-spending-caption{
+  color:var(--muted);
+  text-align:center;
+  font-size:12px;
+  line-height:1.5;
 }
 
 /* =========================
@@ -948,6 +967,42 @@ textarea{
 }
 
 /* =========================
+   HOME POINTS
+========================= */
+
+.home-points-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  background:linear-gradient(145deg,#151515,#0d0d0d);
+}
+
+.home-points-label{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.home-points-value{
+  font-size:27px;
+  font-weight:950;
+  margin-top:4px;
+}
+
+.home-points-unit{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:900;
+}
+
+.home-points-arrow{
+  color:#777;
+  font-size:28px;
+}
+
+/* =========================
    BOTTOM NAV
 ========================= */
 
@@ -994,37 +1049,6 @@ textarea{
 }
 
 /* =========================
-   HOME
-========================= */
-
-.home-welcome{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:15px;
-}
-
-/* =========================
-   PLAN
-========================= */
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-}
-
-@media(min-width:540px){
-  .form-grid{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-
-  .form-grid .full{
-    grid-column:1/-1;
-  }
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
@@ -1054,33 +1078,35 @@ textarea{
 
 <div id="splash">
 
-  <div class="splash-logo">
-    S
-  </div>
+  <div class="splash-inner">
 
-  <div class="splash-title">
-    STUDY
-  </div>
+    <div class="splash-logo">
+      S
+    </div>
 
-  <div class="splash-sub">
-    Your personal study workspace
-  </div>
+    <div class="splash-title">
+      STUDY
+    </div>
 
-  <div class="splash-made">
-    by Jasser Naouili
+    <div class="splash-sub">
+      Focus. Plan. Complete.
+    </div>
+
+    <div class="splash-made">
+      Made in Tunisia 🇹🇳<br>
+      by Jasser Nouaili
+    </div>
+
   </div>
 
 </div>
 
 
 <!-- =========================
-     USER SETUP
+     USER NAME
 ========================= -->
 
-<div
-  id="userSetup"
-  class="hidden"
->
+<div id="userSetup" class="hidden">
 
   <div class="setup-card">
 
@@ -1093,8 +1119,8 @@ textarea{
     </div>
 
     <div class="setup-description">
-      Create your local profile to start using your
-      personal study workspace.
+      Create your local profile to start using
+      your personal study workspace.
     </div>
 
     <label>
@@ -1177,28 +1203,19 @@ textarea{
     class="page active"
   >
 
-    <div
-      id="welcomeText"
-      class="home-welcome"
-    >
-      Welcome 👋
-    </div>
-
-
-    <div class="card hero">
+    <div class="hero card">
 
       <div class="hero-symbol">
-        S
+        ◆
       </div>
 
-      <h1>
-        Stay focused.
+      <h1 id="welcomeText">
+        Welcome 👋
       </h1>
 
       <p>
-        Organize your work, track your deadlines,
-        manage your money and keep everything
-        in one simple workspace.
+        Your personal workspace to organize tasks,
+        money, notes and daily progress.
       </p>
 
     </div>
@@ -1222,29 +1239,10 @@ textarea{
       <div class="dash-card">
 
         <small>
-          COMPLETED
-        </small>
-
-        <strong
-          id="dashCompleted"
-          class="green-text"
-        >
-          0
-        </strong>
-
-      </div>
-
-
-      <div class="dash-card">
-
-        <small>
           SUCCESS RATE
         </small>
 
-        <strong
-          id="dashSuccess"
-          class="yellow-text"
-        >
+        <strong id="dashSuccess">
           0%
         </strong>
 
@@ -1254,11 +1252,27 @@ textarea{
       <div class="dash-card">
 
         <small>
-          BALANCE
+          POCKET MONEY
         </small>
 
-        <strong id="dashMoney">
-          0.00 DT
+        <strong
+          id="dashMoney"
+          class="green-text"
+        >
+          0 DT
+        </strong>
+
+      </div>
+
+
+      <div class="dash-card">
+
+        <small>
+          COMPLETED
+        </small>
+
+        <strong id="dashCompleted">
+          0
         </strong>
 
       </div>
@@ -1267,6 +1281,147 @@ textarea{
 
 
     <div id="homeNextTask"></div>
+
+
+    <div
+      class="card home-points-card"
+      onclick="showPage('play')"
+    >
+
+      <div>
+
+        <div class="home-points-label">
+          POINTS
+        </div>
+
+        <div class="home-points-value">
+
+          <span id="homePointsBalance">
+            0
+          </span>
+
+          <span class="home-points-unit">
+            PTS
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="home-points-arrow">
+        ›
+      </div>
+
+    </div>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('quick')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          ✓
+        </span>
+
+        <span>
+
+          <b>
+            Quick Check
+          </b>
+
+          <br>
+
+          <small style="color:#777">
+            Check today's active work
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('plan')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          ▦
+        </span>
+
+        <span>
+
+          <b>
+            Plan
+          </b>
+
+          <br>
+
+          <small style="color:#777">
+            Organize your tasks
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="showPage('settings')"
+    >
+
+      <span class="menu-button-left">
+
+        <span class="menu-icon">
+          ⚙
+        </span>
+
+        <span>
+
+          <b>
+            Settings
+          </b>
+
+          <br>
+
+          <small style="color:#777">
+            More STUDY tools
+          </small>
+
+        </span>
+
+      </span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
+    </button>
+
+
+    <div class="footer">
+      Made in Tunisia 🇹🇳<br>
+      by Jasser Nouaili
+    </div>
 
   </section>
 
@@ -1392,9 +1547,11 @@ textarea{
     <div class="card">
 
       <div class="money-balance">
+
         <span id="moneyBalance">
           0.00 DT
         </span>
+
       </div>
 
 
@@ -1500,6 +1657,7 @@ textarea{
       History
     </div>
 
+
     <div
       id="moneyHistory"
       class="card"
@@ -1507,8 +1665,9 @@ textarea{
 
 
     <button
+      id="moreHistoryButton"
       class="secondary"
-      onclick="showMoreHistory()"
+      onclick="toggleMoneyHistory()"
     >
       Show More
     </button>
@@ -1519,6 +1678,14 @@ textarea{
       onclick="showPage('data')"
     >
       Data
+    </button>
+
+
+    <button
+      class="secondary"
+      onclick="resetMoney()"
+    >
+      Reset Money Data
     </button>
 
   </section>
@@ -1541,22 +1708,35 @@ textarea{
       ← Back
     </button>
 
+
     <div class="page-title">
       Money Data
     </div>
 
     <div class="page-sub">
-      A clear view of your financial progress.
+      A clear view of your daily spending.
     </div>
 
 
     <div class="card chart-card">
 
-      <canvas
-        id="moneyChart"
-        width="900"
-        height="450"
-      ></canvas>
+      <div class="daily-spending-label">
+        TODAY'S SPENDING
+      </div>
+
+      <div
+        id="dailySpendingPercent"
+        class="daily-spending-percent"
+      >
+        0%
+      </div>
+
+      <div
+        id="dailySpendingCaption"
+        class="daily-spending-caption"
+      >
+        No money activity today.
+      </div>
 
     </div>
 
@@ -1591,11 +1771,23 @@ textarea{
       class="menu-button"
       onclick="showPage('profile')"
     >
+
       <span class="menu-button-left">
-        <span class="menu-icon">👤</span>
-        <b>Profile</b>
+
+        <span class="menu-icon">
+          👤
+        </span>
+
+        <b>
+          Profile
+        </b>
+
       </span>
-      <span class="menu-arrow">›</span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
     </button>
 
 
@@ -1603,11 +1795,23 @@ textarea{
       class="menu-button"
       onclick="showPage('play')"
     >
+
       <span class="menu-button-left">
-        <span class="menu-icon">↔️</span>
-        <b>Point Exchange</b>
+
+        <span class="menu-icon">
+          ↔️
+        </span>
+
+        <b>
+          Point Exchange
+        </b>
+
       </span>
-      <span class="menu-arrow">›</span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
     </button>
 
 
@@ -1615,11 +1819,23 @@ textarea{
       class="menu-button"
       onclick="showPage('notes')"
     >
+
       <span class="menu-button-left">
-        <span class="menu-icon">📝</span>
-        <b>Private Notes</b>
+
+        <span class="menu-icon">
+          📝
+        </span>
+
+        <b>
+          Private Notes
+        </b>
+
       </span>
-      <span class="menu-arrow">›</span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
     </button>
 
 
@@ -1627,11 +1843,23 @@ textarea{
       class="menu-button"
       onclick="showPage('employees')"
     >
+
       <span class="menu-button-left">
-        <span class="menu-icon">👥</span>
-        <b>Employees</b>
+
+        <span class="menu-icon">
+          👥
+        </span>
+
+        <b>
+          Employees
+        </b>
+
       </span>
-      <span class="menu-arrow">›</span>
+
+      <span class="menu-arrow">
+        ›
+      </span>
+
     </button>
 
   </section>
@@ -1702,7 +1930,9 @@ textarea{
 
     <div class="card">
 
-      <b>Workspace</b>
+      <b>
+        Workspace
+      </b>
 
       <div
         class="page-sub"
@@ -1799,9 +2029,17 @@ textarea{
       </div>
 
       <div class="points-balance">
-        <span id="pointsBalance">0</span>
-        <span>POINTS</span>
+
+        <span id="pointsBalance">
+          0
+        </span>
+
+        <span>
+          POINTS
+        </span>
+
       </div>
+
 
       <div
         id="boostStatus"
@@ -1819,6 +2057,7 @@ textarea{
     <div class="exchange-card">
 
       <div class="exchange-top">
+
         <div class="exchange-title">
           💰 1 DT
         </div>
@@ -1826,6 +2065,7 @@ textarea{
         <div class="exchange-cost">
           100 POINTS
         </div>
+
       </div>
 
       <div class="exchange-description">
@@ -1846,6 +2086,7 @@ textarea{
     <div class="exchange-card">
 
       <div class="exchange-top">
+
         <div class="exchange-title">
           🪙 0.5 DT
         </div>
@@ -1853,6 +2094,7 @@ textarea{
         <div class="exchange-cost">
           66 POINTS
         </div>
+
       </div>
 
       <div class="exchange-description">
@@ -1873,6 +2115,7 @@ textarea{
     <div class="exchange-card">
 
       <div class="exchange-top">
+
         <div class="exchange-title">
           ⚡ BOOST
         </div>
@@ -1880,6 +2123,7 @@ textarea{
         <div class="exchange-cost">
           200 POINTS
         </div>
+
       </div>
 
       <div class="exchange-description">
@@ -1904,23 +2148,51 @@ textarea{
       </div>
 
       <div class="rule-row">
-        <span>🟢 Green task completed</span>
-        <span class="rule-points">+33</span>
+
+        <span>
+          🟢 Green task completed
+        </span>
+
+        <span class="rule-points">
+          +33
+        </span>
+
       </div>
 
       <div class="rule-row">
-        <span>🟡 Yellow task completed</span>
-        <span class="rule-points">+22</span>
+
+        <span>
+          🟡 Yellow task completed
+        </span>
+
+        <span class="rule-points">
+          +22
+        </span>
+
       </div>
 
       <div class="rule-row">
-        <span>🔴 Red task completed</span>
-        <span class="rule-points">+11</span>
+
+        <span>
+          🔴 Red task completed
+        </span>
+
+        <span class="rule-points">
+          +11
+        </span>
+
       </div>
 
       <div class="rule-row">
-        <span>⚡ Active BOOST</span>
-        <span class="rule-points">+10%</span>
+
+        <span>
+          ⚡ Active BOOST
+        </span>
+
+        <span class="rule-points">
+          +10%
+        </span>
+
       </div>
 
     </div>
@@ -1999,35 +2271,58 @@ textarea{
       class="nav-button active"
       onclick="showPage('home')"
     >
-      <div class="nav-icon">⌂</div>
+
+      <div class="nav-icon">
+        ⌂
+      </div>
+
       Home
+
     </button>
+
 
     <button
       id="nav-quick"
       class="nav-button"
       onclick="showPage('quick')"
     >
-      <div class="nav-icon">✓</div>
+
+      <div class="nav-icon">
+        ✓
+      </div>
+
       Quick
+
     </button>
+
 
     <button
       id="nav-plan"
       class="nav-button"
       onclick="showPage('plan')"
     >
-      <div class="nav-icon">▦</div>
+
+      <div class="nav-icon">
+        ▦
+      </div>
+
       Plan
+
     </button>
+
 
     <button
       id="nav-money"
       class="nav-button"
       onclick="showPage('money')"
     >
-      <div class="nav-icon">◉</div>
+
+      <div class="nav-icon">
+        ◉
+      </div>
+
       Money
+
     </button>
 
   </div>
@@ -2038,23 +2333,28 @@ textarea{
 <script>
 
 /* =========================================================
-   STUDY FINAL
-   No accounts / no passwords.
-   User name is only a local profile name.
+   STUDY
 ========================================================= */
 
 
 /* =========================
-   STORAGE KEYS
+   STORAGE
 ========================= */
 
 const STORAGE={
+
   username:"study_username",
+
   tasks:"study_tasks",
+
   money:"study_money",
+
   notes:"study_notes",
+
   quickHidden:"study_quick_hidden",
+
   points:"study_points"
+
 };
 
 
@@ -2065,40 +2365,59 @@ const STORAGE={
 let username="";
 
 let tasks=[];
+
 let quickHidden=[];
 
-let pointData={
-  balance:0,
-  boostUntil:0
-};
-
 let money={
+
   added:0,
+
   spent:0,
+
   history:[]
+
 };
 
 let notes=[];
 
 let moneyHistoryLimit=5;
 
+let moneyHistoryExpanded=false;
+
+let pointData={
+
+  balance:0,
+
+  boostUntil:0
+
+};
+
 
 /* =========================
    SAFE JSON
 ========================= */
 
-function loadJSON(key,fallback){
+function loadJSON(
+  key,
+  fallback
+){
 
   try{
 
     const value=
-      localStorage.getItem(key);
+      localStorage.getItem(
+        key
+      );
 
     if(!value){
+
       return fallback;
+
     }
 
-    return JSON.parse(value);
+    return JSON.parse(
+      value
+    );
 
   }catch(error){
 
@@ -2109,7 +2428,10 @@ function loadJSON(key,fallback){
 }
 
 
-function saveJSON(key,value){
+function saveJSON(
+  key,
+  value
+){
 
   localStorage.setItem(
     key,
@@ -2123,13 +2445,19 @@ function saveJSON(key,value){
    ESCAPE HTML
 ========================= */
 
-function escapeHTML(value){
+function escapeHTML(
+  value
+){
 
   const div=
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   div.textContent=
-    String(value ?? "");
+    String(
+      value ?? ""
+    );
 
   return div.innerHTML;
 
@@ -2141,6 +2469,7 @@ function escapeHTML(value){
 ========================= */
 
 let audioContext=null;
+
 
 function clickSound(){
 
@@ -2156,8 +2485,13 @@ function clickSound(){
 
     }
 
-    if(audioContext.state==="suspended"){
+    if(
+      audioContext.state===
+      "suspended"
+    ){
+
       audioContext.resume();
+
     }
 
     const oscillator=
@@ -2167,11 +2501,13 @@ function clickSound(){
       audioContext.createGain();
 
     oscillator.connect(gain);
+
     gain.connect(
       audioContext.destination
     );
 
-    oscillator.frequency.value=650;
+    oscillator.frequency.value=
+      650;
 
     gain.gain.setValueAtTime(
       .025,
@@ -2195,7 +2531,7 @@ function clickSound(){
 
 
 /* =========================
-   INITIALIZATION
+   INITIALIZE
 ========================= */
 
 window.addEventListener(
@@ -2206,17 +2542,28 @@ window.addEventListener(
 
 function initialize(){
 
-  setTimeout(()=>{
+  setTimeout(
+    ()=>{
 
-    document.getElementById("splash")
-      .style.display="none";
+      document
+        .getElementById(
+          "splash"
+        )
+        .style.display=
+          "none";
 
-    loadApplication();
+      loadApplication();
 
-  },1100);
+    },
+    1100
+  );
 
 }
 
+
+/* =========================
+   LOAD APPLICATION
+========================= */
 
 function loadApplication(){
 
@@ -2227,11 +2574,19 @@ function loadApplication(){
 
   if(!username){
 
-    document.getElementById("userSetup")
-      .classList.remove("hidden");
+    document
+      .getElementById(
+        "userSetup"
+      )
+      .classList
+      .remove("hidden");
 
-    document.getElementById("app")
-      .classList.add("hidden");
+    document
+      .getElementById(
+        "app"
+      )
+      .classList
+      .add("hidden");
 
     return;
 
@@ -2256,7 +2611,9 @@ function startWithName(){
   const value=
     input.value.trim();
 
-  if(value.length<1){
+  if(
+    value.length<1
+  ){
 
     alert(
       "Please enter your name."
@@ -2269,15 +2626,22 @@ function startWithName(){
   }
 
   username=
-    value.slice(0,30);
+    value.slice(
+      0,
+      30
+    );
 
   localStorage.setItem(
     STORAGE.username,
     username
   );
 
-  document.getElementById("userSetup")
-    .classList.add("hidden");
+  document
+    .getElementById(
+      "userSetup"
+    )
+    .classList
+    .add("hidden");
 
   openApplication();
 
@@ -2287,18 +2651,26 @@ function startWithName(){
 
 
 /* =========================
-   OPEN APP
+   OPEN APPLICATION
 ========================= */
 
 function openApplication(){
 
   loadAllData();
 
-  document.getElementById("app")
-    .classList.remove("hidden");
+  document
+    .getElementById(
+      "app"
+    )
+    .classList
+    .remove("hidden");
 
-  document.getElementById("bottomNav")
-    .classList.remove("hidden");
+  document
+    .getElementById(
+      "bottomNav"
+    )
+    .classList
+    .remove("hidden");
 
   updateUserUI();
 
@@ -2351,10 +2723,14 @@ function loadAllData(){
     );
 
   pointData.balance=
-    Number(pointData.balance)||0;
+    Number(
+      pointData.balance
+    ) || 0;
 
   pointData.boostUntil=
-    Number(pointData.boostUntil)||0;
+    Number(
+      pointData.boostUntil
+    ) || 0;
 
   renderPointExchange();
 
@@ -2397,7 +2773,9 @@ function updateUserUI(){
   document.getElementById(
     "welcomeText"
   ).textContent=
-    "Welcome, "+username+" 👋";
+    "Welcome, "+
+    username+
+    " 👋";
 
 }
 
@@ -2406,27 +2784,42 @@ function updateUserUI(){
    PAGE NAVIGATION
 ========================= */
 
-function showPage(pageId){
+function showPage(
+  pageId
+){
 
   document
-    .querySelectorAll(".page")
-    .forEach(page=>{
-      page.classList.remove("active");
-    });
+    .querySelectorAll(
+      ".page"
+    )
+    .forEach(
+      page=>{
+        page.classList
+          .remove("active");
+      }
+    );
 
   const page=
-    document.getElementById(pageId);
+    document.getElementById(
+      pageId
+    );
 
   if(!page)return;
 
-  page.classList.add("active");
+  page.classList
+    .add("active");
 
 
   document
-    .querySelectorAll(".nav-button")
-    .forEach(button=>{
-      button.classList.remove("active");
-    });
+    .querySelectorAll(
+      ".nav-button"
+    )
+    .forEach(
+      button=>{
+        button.classList
+          .remove("active");
+      }
+    );
 
 
   const nav=
@@ -2435,7 +2828,10 @@ function showPage(pageId){
     );
 
   if(nav){
-    nav.classList.add("active");
+
+    nav.classList
+      .add("active");
+
   }
 
 
@@ -2446,23 +2842,34 @@ function showPage(pageId){
 
 
   renderDashboard();
+
   renderTasks();
+
   renderMoney();
+
   renderPointExchange();
 
-  if(pageId==="data"){
+  if(
+    pageId==="data"
+  ){
+
     drawMoneyChart();
+
   }
 
-  if(pageId==="notes"){
+  if(
+    pageId==="notes"
+  ){
+
     renderNotes();
+
   }
 
 }
 
 
 /* =========================
-   TASK ADD
+   ADD TASK
 ========================= */
 
 function addTask(){
@@ -2482,6 +2889,7 @@ function addTask(){
       "taskDate"
     ).value;
 
+
   if(!name){
 
     alert(
@@ -2491,6 +2899,7 @@ function addTask(){
     return;
 
   }
+
 
   if(!date){
 
@@ -2506,7 +2915,8 @@ function addTask(){
   const task={
 
     id:
-      Date.now()+Math.random(),
+      Date.now()+
+      Math.random(),
 
     name:name,
 
@@ -2525,7 +2935,10 @@ function addTask(){
   };
 
 
-  tasks.push(task);
+  tasks.push(
+    task
+  );
+
 
   saveJSON(
     STORAGE.tasks,
@@ -2547,6 +2960,7 @@ function addTask(){
 
 
   renderTasks();
+
   renderDashboard();
 
   clickSound();
@@ -2558,19 +2972,28 @@ function addTask(){
    COUNTDOWN
 ========================= */
 
-function countdownInfo(date){
+function countdownInfo(
+  date
+){
 
   const difference=
-    new Date(date).getTime()
+    new Date(
+      date
+    ).getTime()
     -
     Date.now();
 
 
-  if(difference<=0){
+  if(
+    difference<=0
+  ){
 
     return{
+
       text:"OVERDUE",
+
       color:"red"
+
     };
 
   }
@@ -2581,20 +3004,24 @@ function countdownInfo(date){
       difference/1000
     );
 
+
   const days=
     Math.floor(
       seconds/86400
     );
+
 
   const hours=
     Math.floor(
       (seconds%86400)/3600
     );
 
+
   const minutes=
     Math.floor(
       (seconds%3600)/60
     );
+
 
   const secs=
     seconds%60;
@@ -2602,49 +3029,81 @@ function countdownInfo(date){
 
   let text="";
 
+
   if(days>0){
+
     text+=
-      days+"d ";
+      days+
+      "d ";
+
   }
 
+
   text+=
-    String(hours).padStart(2,"0")
-    +"h "
-    +
-    String(minutes).padStart(2,"0")
-    +"m "
-    +
-    String(secs).padStart(2,"0")
-    +"s";
+    String(
+      hours
+    ).padStart(
+      2,
+      "0"
+    )+
+    "h "+
+    String(
+      minutes
+    ).padStart(
+      2,
+      "0"
+    )+
+    "m "+
+    String(
+      secs
+    ).padStart(
+      2,
+      "0"
+    )+
+    "s";
 
 
-  let color="green";
+  let color=
+    "green";
 
-  if(difference<=3600000){
 
-    color="red";
+  if(
+    difference<=3600000
+  ){
 
-  }else if(difference<=86400000){
+    color=
+      "red";
 
-    color="orange";
+  }else if(
+    difference<=86400000
+  ){
 
-  }else if(difference<=172800000){
+    color=
+      "orange";
 
-    color="yellow";
+  }else if(
+    difference<=172800000
+  ){
+
+    color=
+      "yellow";
 
   }
 
 
   return{
+
     text:text,
+
     color:color
+
   };
 
 }
 
 
 /* =========================
-   TASK CARD
+   ACTIVE TASK HTML
 ========================= */
 
 function activeTaskHTML(
@@ -2653,7 +3112,10 @@ function activeTaskHTML(
 ){
 
   const info=
-    countdownInfo(task.date);
+    countdownInfo(
+      task.date
+    );
+
 
   return `
 
@@ -2666,13 +3128,13 @@ function activeTaskHTML(
         showHideButton
         ?
         `
-        <button
-          class="hide-button"
-          title="Hide from Quick Check"
-          onclick="hideQuickTask('${task.id}')"
-        >
-          ×
-        </button>
+          <button
+            class="hide-button"
+            title="Hide from Quick Check"
+            onclick="hideQuickTask('${task.id}')"
+          >
+            ×
+          </button>
         `
         :
         ""
@@ -2682,7 +3144,9 @@ function activeTaskHTML(
       <div class="task-top">
 
         <div class="task-name">
-          ${escapeHTML(task.name)}
+          ${escapeHTML(
+            task.name
+          )}
         </div>
 
         <div
@@ -2699,11 +3163,11 @@ function activeTaskHTML(
         task.description
         ?
         `
-        <div class="task-description">
-          ${escapeHTML(
-            task.description
-          )}
-        </div>
+          <div class="task-description">
+            ${escapeHTML(
+              task.description
+            )}
+          </div>
         `
         :
         ""
@@ -2756,24 +3220,31 @@ function activeTaskHTML(
 
 
 /* =========================
-   RECORD CARD
+   RECORD HTML
 ========================= */
 
-function recordTaskHTML(task){
+function recordTaskHTML(
+  task
+){
 
   const completed=
-    task.status==="done";
+    task.status===
+    "done";
+
 
   return `
 
     <div
-      class="task ${
-        completed
-        ?
-        "record-completed"
-        :
-        "record-failed"
-      }"
+      class="
+        task
+        ${
+          completed
+          ?
+          "record-completed"
+          :
+          "record-failed"
+        }
+      "
     >
 
       <button
@@ -2788,19 +3259,23 @@ function recordTaskHTML(task){
       <div class="task-top">
 
         <div class="task-name">
-          ${escapeHTML(task.name)}
+          ${escapeHTML(
+            task.name
+          )}
         </div>
 
-        <div class="
-          status
-          ${
-            completed
-            ?
-            "status-green"
-            :
-            "status-red"
-          }
-        ">
+        <div
+          class="
+            status
+            ${
+              completed
+              ?
+              "status-green"
+              :
+              "status-red"
+            }
+          "
+        >
           ${
             completed
             ?
@@ -2817,11 +3292,11 @@ function recordTaskHTML(task){
         task.description
         ?
         `
-        <div class="task-description">
-          ${escapeHTML(
-            task.description
-          )}
-        </div>
+          <div class="task-description">
+            ${escapeHTML(
+              task.description
+            )}
+          </div>
         `
         :
         ""
@@ -2890,102 +3365,123 @@ function renderTasks(){
     !activeBox||
     !recordsBox||
     !quickBox
-  )return;
+  ){
+
+    return;
+
+  }
 
 
   const active=
     tasks
-      .filter(task=>
-        task.status==="active"
+      .filter(
+        task=>
+          task.status===
+          "active"
       )
       .sort(
         (a,b)=>
-          new Date(a.date)
-          -
+          new Date(a.date)-
           new Date(b.date)
       );
 
 
   const records=
     tasks
-      .filter(task=>
-        task.status==="done"||
-        task.status==="failed"
+      .filter(
+        task=>
+          task.status==="done"||
+          task.status==="failed"
       )
       .slice()
       .reverse();
 
 
-  /* ACTIVE PLAN */
-
-  if(!active.length){
+  if(
+    !active.length
+  ){
 
     activeBox.innerHTML=
-      `<div class="empty">
-        No active tasks.
-      </div>`;
+      `
+        <div class="empty">
+          No active tasks.
+        </div>
+      `;
 
   }else{
 
     activeBox.innerHTML=
       active
-        .map(task=>
-          activeTaskHTML(
-            task,
-            false
-          )
+        .map(
+          task=>
+            activeTaskHTML(
+              task,
+              false
+            )
         )
         .join("");
 
   }
 
 
-  /* RECORDS */
-
-  if(!records.length){
+  if(
+    !records.length
+  ){
 
     recordsBox.innerHTML=
-      `<div class="empty">
-        No task records yet.
-      </div>`;
+      `
+        <div class="empty">
+          No task records yet.
+        </div>
+      `;
 
   }else{
 
     recordsBox.innerHTML=
       records
-        .map(task=>
-          recordTaskHTML(task)
+        .map(
+          task=>
+            recordTaskHTML(
+              task
+            )
         )
         .join("");
 
   }
 
 
-  /* QUICK CHECK */
-
   const quickTasks=
-    active.filter(task=>
-      !quickHidden.includes(
-        String(task.id)
-      )
+    active.filter(
+      task=>
+        !quickHidden.includes(
+          String(
+            task.id
+          )
+        )
     );
 
 
-  if(!quickTasks.length){
+  if(
+    !quickTasks.length
+  ){
 
     if(active.length){
 
       quickBox.innerHTML=
-        `<div class="empty">
-          All active tasks are hidden from Quick Check.
-        </div>`;
+        `
+          <div class="empty">
+            All active tasks are hidden from Quick Check.
+          </div>
+        `;
 
     }else{
 
       quickBox.innerHTML=
-        `<div class="empty">
-          ✓ No active tasks.
-        </div>`;
+        `
+          <div class="empty">
+            ✓ No active tasks.
+          </div>
+        `;
 
     }
 
@@ -2993,11 +3489,12 @@ function renderTasks(){
 
     quickBox.innerHTML=
       quickTasks
-        .map(task=>
-          activeTaskHTML(
-            task,
-            true
-          )
+        .map(
+          task=>
+            activeTaskHTML(
+              task,
+              true
+            )
         )
         .join("");
 
@@ -3010,10 +3507,13 @@ function renderTasks(){
    HIDE QUICK TASK
 ========================= */
 
-function hideQuickTask(id){
+function hideQuickTask(
+  id
+){
 
   const stringId=
     String(id);
+
 
   if(
     !quickHidden.includes(
@@ -3026,6 +3526,7 @@ function hideQuickTask(id){
     );
 
   }
+
 
   saveJSON(
     STORAGE.quickHidden,
@@ -3052,13 +3553,24 @@ function finishTask(
   const task=
     tasks.find(
       item=>
-        String(item.id)===
+        String(
+          item.id
+        )===
         String(id)
     );
 
+
   if(!task)return;
 
-  if(task.status!=="active")return;
+
+  if(
+    task.status!==
+    "active"
+  ){
+
+    return;
+
+  }
 
 
   const completionInfo=
@@ -3067,7 +3579,8 @@ function finishTask(
     );
 
 
-  task.status=status;
+  task.status=
+    status;
 
   task.completedAt=
     Date.now();
@@ -3086,13 +3599,16 @@ function finishTask(
     tasks
   );
 
+
   saveJSON(
     STORAGE.quickHidden,
     quickHidden
   );
 
 
-  if(status==="done"){
+  if(
+    status==="done"
+  ){
 
     const earned=
       taskPointValue(
@@ -3100,7 +3616,9 @@ function finishTask(
       );
 
 
-    if(earned>0){
+    if(
+      earned>0
+    ){
 
       const bonusActive=
         isBoostActive();
@@ -3110,7 +3628,9 @@ function finishTask(
         bonusActive
         ?
         Math.round(
-          earned*1.10*10
+          earned*
+          1.10*
+          10
         )/10
         :
         earned;
@@ -3150,7 +3670,9 @@ function finishTask(
 
 
   renderTasks();
+
   renderDashboard();
+
   renderPointExchange();
 
   clickSound();
@@ -3159,13 +3681,17 @@ function finishTask(
 
 
 /* =========================
-   POINT EXCHANGE
+   POINTS
 ========================= */
 
-function formatPoints(value){
+function formatPoints(
+  value
+){
 
   const number=
-    Number(value)||0;
+    Number(value)||
+    0;
+
 
   return Number.isInteger(
     number
@@ -3185,8 +3711,12 @@ function formatPoints(value){
 
 function isBoostActive(){
 
-  if(!pointData.boostUntil){
+  if(
+    !pointData.boostUntil
+  ){
+
     return false;
+
   }
 
 
@@ -3195,7 +3725,8 @@ function isBoostActive(){
     Date.now()
   ){
 
-    pointData.boostUntil=0;
+    pointData.boostUntil=
+      0;
 
     saveJSON(
       STORAGE.points,
@@ -3212,27 +3743,46 @@ function isBoostActive(){
 }
 
 
-function taskPointValue(color){
+function taskPointValue(
+  color
+){
 
-  if(color==="green"){
+  if(
+    color==="green"
+  ){
+
     return 33;
+
   }
 
-  if(color==="yellow"){
+
+  if(
+    color==="yellow"
+  ){
+
     return 22;
+
   }
+
 
   if(
     color==="orange"||
     color==="red"
   ){
+
     return 11;
+
   }
+
 
   return 0;
 
 }
 
+
+/* =========================
+   RENDER POINT EXCHANGE
+========================= */
 
 function renderPointExchange(){
 
@@ -3241,13 +3791,34 @@ function renderPointExchange(){
       "pointsBalance"
     );
 
-  if(!balanceElement)return;
+
+  if(!balanceElement){
+
+    return;
+
+  }
 
 
   balanceElement.textContent=
     formatPoints(
       pointData.balance
     );
+
+
+  const homePoints=
+    document.getElementById(
+      "homePointsBalance"
+    );
+
+
+  if(homePoints){
+
+    homePoints.textContent=
+      formatPoints(
+        pointData.balance
+      );
+
+  }
 
 
   const boost=
@@ -3258,7 +3829,9 @@ function renderPointExchange(){
 
   if(boost){
 
-    if(isBoostActive()){
+    if(
+      isBoostActive()
+    ){
 
       const remaining=
         Math.max(
@@ -3279,43 +3852,37 @@ function renderPointExchange(){
           totalSeconds/3600
         );
 
+
       const minutes=
         Math.floor(
           (totalSeconds%3600)/60
         );
 
+
       const seconds=
         totalSeconds%60;
 
 
-      boost.classList.remove(
-        "hidden"
-      );
+      boost.classList
+        .remove("hidden");
 
 
       boost.textContent=
         "⚡ BOOST ACTIVE • +10% • "+
-        String(hours).padStart(
-          2,
-          "0"
-        )+
+        String(hours)
+          .padStart(2,"0")+
         "h "+
-        String(minutes).padStart(
-          2,
-          "0"
-        )+
+        String(minutes)
+          .padStart(2,"0")+
         "m "+
-        String(seconds).padStart(
-          2,
-          "0"
-        )+
+        String(seconds)
+          .padStart(2,"0")+
         "s remaining";
 
     }else{
 
-      boost.classList.add(
-        "hidden"
-      );
+      boost.classList
+        .add("hidden");
 
       boost.textContent="";
 
@@ -3340,20 +3907,38 @@ function renderPointExchange(){
     );
 
 
-  if(b100)
+  if(b100){
+
     b100.disabled=
-      pointData.balance<100;
+      pointData.balance<
+      100;
 
-  if(b66)
+  }
+
+
+  if(b66){
+
     b66.disabled=
-      pointData.balance<66;
+      pointData.balance<
+      66;
 
-  if(b200)
+  }
+
+
+  if(b200){
+
     b200.disabled=
-      pointData.balance<200;
+      pointData.balance<
+      200;
+
+  }
 
 }
 
+
+/* =========================
+   POINT TOAST
+========================= */
 
 function showPointToast(
   title,
@@ -3379,6 +3964,7 @@ function showPointToast(
     toast.className=
       "points-toast";
 
+
     toast.innerHTML=`
 
       <div class="points-toast-icon">
@@ -3387,15 +3973,14 @@ function showPointToast(
 
       <div>
 
-        <div class="points-toast-title">
-        </div>
+        <div class="points-toast-title"></div>
 
-        <div class="points-toast-text">
-        </div>
+        <div class="points-toast-text"></div>
 
       </div>
 
     `;
+
 
     document.body.appendChild(
       toast
@@ -3437,15 +4022,20 @@ function showPointToast(
   window.pointToastTimer=
     setTimeout(
       ()=>{
-        toast.classList.remove(
-          "show"
-        );
+
+        toast.classList
+          .remove("show");
+
       },
       3200
     );
 
 }
 
+
+/* =========================
+   EXCHANGE
+========================= */
 
 function exchangePoints(
   cost,
@@ -3461,7 +4051,8 @@ function exchangePoints(
       "Not enough points",
       "You need "+
       formatPoints(
-        cost-pointData.balance
+        cost-
+        pointData.balance
       )+
       " more points."
     );
@@ -3475,15 +4066,19 @@ function exchangePoints(
     cost;
 
 
-  if(type==="money1"){
+  if(
+    type==="money1"
+  ){
 
-    money.added+=1;
+    money.added+=
+      1;
 
 
     money.history.unshift({
 
       id:
-        Date.now()+Math.random(),
+        Date.now()+
+        Math.random(),
 
       type:"added",
 
@@ -3511,17 +4106,19 @@ function exchangePoints(
     type==="money05"
   ){
 
-    money.added+=0.5;
+    money.added+=
+      .5;
 
 
     money.history.unshift({
 
       id:
-        Date.now()+Math.random(),
+        Date.now()+
+        Math.random(),
 
       type:"added",
 
-      amount:0.5,
+      amount:.5,
 
       description:
         "Point Exchange • 66 points → 0.5 DT",
@@ -3576,6 +4173,9 @@ function exchangePoints(
 
 
   renderPointExchange();
+
+  renderMoney();
+
   renderDashboard();
 
   clickSound();
@@ -3587,11 +4187,19 @@ function exchangePoints(
    DELETE RECORD
 ========================= */
 
-function deleteRecord(id){
+function deleteRecord(
+  id
+){
 
-  if(!confirm(
-    "Delete this task record?"
-  ))return;
+  if(
+    !confirm(
+      "Delete this task record?"
+    )
+  ){
+
+    return;
+
+  }
 
 
   tasks=
@@ -3609,6 +4217,7 @@ function deleteRecord(id){
 
 
   renderTasks();
+
   renderDashboard();
 
   clickSound();
@@ -3617,9 +4226,7 @@ function deleteRecord(id){
 
 
 /* =========================
-   COUNTDOWN ONLY
-   IMPORTANT:
-   This does NOT rebuild task cards.
+   COUNTDOWN UPDATES
 ========================= */
 
 function updateCountdowns(){
@@ -3628,59 +4235,70 @@ function updateCountdowns(){
     .querySelectorAll(
       "[data-countdown]"
     )
-    .forEach(element=>{
+    .forEach(
+      element=>{
 
-      const id=
-        element.dataset.countdown;
-
-
-      const task=
-        tasks.find(
-          item=>
-            String(item.id)===
-            String(id)
-        );
+        const id=
+          element.dataset
+            .countdown;
 
 
-      if(
-        !task||
-        task.status!=="active"
-      ){
-        return;
+        const task=
+          tasks.find(
+            item=>
+              String(
+                item.id
+              )===
+              String(id)
+          );
+
+
+        if(
+          !task||
+          task.status!==
+          "active"
+        ){
+
+          return;
+
+        }
+
+
+        const info=
+          countdownInfo(
+            task.date
+          );
+
+
+        element.textContent=
+          "⏳ "+
+          info.text;
+
+
+        element.className=
+          "countdown "+
+          info.color;
+
+
+        const status=
+          document.querySelector(
+            `[data-task-status="${CSS.escape(String(id))}"]`
+          );
+
+
+        if(status){
+
+          status.className=
+            "status status-"+
+            info.color;
+
+          status.textContent=
+            "ACTIVE";
+
+        }
+
       }
-
-
-      const info=
-        countdownInfo(
-          task.date
-        );
-
-
-      element.textContent=
-        "⏳ "+info.text;
-
-
-      element.className=
-        "countdown "+info.color;
-
-
-      const status=
-        document.querySelector(
-          `[data-task-status="${CSS.escape(String(id))}"]`
-        );
-
-
-      if(status){
-
-        status.className=
-          "status status-"+info.color;
-
-        status.textContent=
-          "ACTIVE";
-
-      }
-
-    });
+    );
 
 }
 
@@ -3690,10 +4308,6 @@ setInterval(
   1000
 );
 
-
-/* =========================
-   POINT EXCHANGE CLOCK
-========================= */
 
 setInterval(
   ()=>{
@@ -3712,14 +4326,16 @@ function renderDashboard(){
   const active=
     tasks.filter(
       task=>
-        task.status==="active"
+        task.status===
+        "active"
     );
 
 
   const completed=
     tasks.filter(
       task=>
-        task.status==="done"
+        task.status===
+        "done"
     );
 
 
@@ -3763,7 +4379,8 @@ function renderDashboard(){
   document.getElementById(
     "dashSuccess"
   ).textContent=
-    successRate+"%";
+    successRate+
+    "%";
 
 
   const moneyElement=
@@ -3791,7 +4408,9 @@ function renderDashboard(){
     );
 
 
-  if(!active.length){
+  if(
+    !active.length
+  ){
 
     box.innerHTML=`
 
@@ -3822,8 +4441,7 @@ function renderDashboard(){
       .slice()
       .sort(
         (a,b)=>
-          new Date(a.date)
-          -
+          new Date(a.date)-
           new Date(b.date)
       )[0];
 
@@ -3849,13 +4467,13 @@ function renderDashboard(){
           margin-top:7px;
         "
       >
-        ${escapeHTML(next.name)}
+        ${escapeHTML(
+          next.name
+        )}
       </div>
 
       <div
-        class="
-          countdown ${info.color}
-        "
+        class="countdown ${info.color}"
         data-countdown="${next.id}"
       >
         ⏳ ${info.text}
@@ -3869,7 +4487,7 @@ function renderDashboard(){
 
 
 /* =========================
-   MONEY
+   ADD MONEY
 ========================= */
 
 function addMoney(){
@@ -3909,12 +4527,12 @@ function addMoney(){
   money.history.unshift({
 
     id:
-      Date.now()+Math.random(),
+      Date.now()+
+      Math.random(),
 
     type:"added",
 
-    amount:
-      amount,
+    amount:amount,
 
     description:
       description||
@@ -3972,12 +4590,12 @@ function spendMoney(){
   money.history.unshift({
 
     id:
-      Date.now()+Math.random(),
+      Date.now()+
+      Math.random(),
 
     type:"spent",
 
-    amount:
-      amount,
+    amount:amount,
 
     description:
       description||
@@ -4017,12 +4635,15 @@ function saveMoney(){
 
 
   renderMoney();
+
   renderDashboard();
 
 
   if(
     document
-      .getElementById("data")
+      .getElementById(
+        "data"
+      )
       .classList
       .contains("active")
   ){
@@ -4107,19 +4728,14 @@ function renderMoney(){
 
 
     progress.style.width=
-      percent+"%";
+      percent+
+      "%";
 
   }
 
 
-  if(balance<0){
-
-    progress.style.background=
-      "var(--red)";
-
-  }else if(
-    money.added>0 &&
-    balance/money.added<.25
+  if(
+    balance<0
   ){
 
     progress.style.background=
@@ -4127,7 +4743,19 @@ function renderMoney(){
 
   }else if(
     money.added>0 &&
-    balance/money.added<.5
+    balance/
+    money.added<
+    .25
+  ){
+
+    progress.style.background=
+      "var(--red)";
+
+  }else if(
+    money.added>0 &&
+    balance/
+    money.added<
+    .5
   ){
 
     progress.style.background=
@@ -4147,7 +4775,9 @@ function renderMoney(){
     );
 
 
-  if(balance<0){
+  if(
+    balance<0
+  ){
 
     debt.innerHTML=`
 
@@ -4157,7 +4787,9 @@ function renderMoney(){
 
         <br>
 
-        ${Math.abs(balance).toFixed(2)}
+        ${Math.abs(
+          balance
+        ).toFixed(2)}
         DT
 
       </div>
@@ -4177,99 +4809,158 @@ function renderMoney(){
     );
 
 
-  if(!historyBox)return;
-
-
-  const list=
-    money.history.slice(
-      0,
-      moneyHistoryLimit
-    );
-
-
-  if(!list.length){
-
-    historyBox.innerHTML=
-      `<div class="empty">
-        No money history yet.
-      </div>`;
+  if(!historyBox){
 
     return;
 
   }
 
 
-  historyBox.innerHTML=
-    list.map(item=>`
+  const list=
+    money.history
+      .slice(
+        0,
+        moneyHistoryExpanded
+        ?
+        money.history.length
+        :
+        moneyHistoryLimit
+      );
 
-      <div class="money-history">
 
-        <div>
+  if(
+    !list.length
+  ){
 
-          <div class="money-history-title">
-            ${
-              item.type==="added"
-              ?
-              "Money Added"
-              :
-              "Money Spent"
-            }
-          </div>
-
-          <div class="money-history-desc">
-            ${escapeHTML(
-              item.description
-            )}
-          </div>
-
-          <div class="money-history-date">
-            ${escapeHTML(
-              new Date(
-                item.date
-              ).toLocaleString()
-            )}
-          </div>
-
+    historyBox.innerHTML=
+      `
+        <div class="empty">
+          No money activity yet.
         </div>
+      `;
 
-        <div
-          class="money-history-amount"
-          style="
-            color:
+  }else{
+
+    historyBox.innerHTML=
+      list
+        .map(
+          item=>`
+
+          <div class="money-history">
+
+            <div>
+
+              <div class="money-history-title">
+
+                ${
+                  item.type==="added"
+                  ?
+                  "Money Added"
+                  :
+                  "Money Spent"
+                }
+
+              </div>
+
+              <div class="money-history-desc">
+
+                ${escapeHTML(
+                  item.description
+                )}
+
+              </div>
+
+              <div class="money-history-date">
+
+                ${new Date(
+                  item.date
+                ).toLocaleString()}
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="money-history-amount"
+              style="
+                color:${
+                  item.type==="added"
+                  ?
+                  "var(--green)"
+                  :
+                  "var(--red)"
+                };
+              "
+            >
+
               ${
                 item.type==="added"
                 ?
-                "var(--green)"
+                "+"
                 :
-                "var(--red)"
-              };
-          "
-        >
-          ${
-            item.type==="added"
-            ?
-            "+"
-            :
-            "-"
-          }${Number(
-            item.amount
-          ).toFixed(2)} DT
-        </div>
+                "-"
+              }${Number(
+                item.amount
+              ).toFixed(2)} DT
 
-      </div>
+            </div>
 
-    `).join("");
+          </div>
+
+        `
+        )
+        .join("");
+
+  }
+
+
+  const moreButton=
+    document.getElementById(
+      "moreHistoryButton"
+    );
+
+
+  if(!moreButton){
+
+    return;
+
+  }
+
+
+  if(
+    money.history.length<=
+    5
+  ){
+
+    moreButton.style.display=
+      "none";
+
+  }else{
+
+    moreButton.style.display=
+      "block";
+
+    moreButton.textContent=
+      moneyHistoryExpanded
+      ?
+      "Show Less"
+      :
+      "Show More";
+
+  }
 
 }
 
 
 /* =========================
-   MORE HISTORY
+   HISTORY TOGGLE
 ========================= */
 
-function showMoreHistory(){
+function toggleMoneyHistory(){
 
-  moneyHistoryLimit+=5;
+  moneyHistoryExpanded=
+    !moneyHistoryExpanded;
 
   renderMoney();
 
@@ -4279,271 +4970,699 @@ function showMoreHistory(){
 
 
 /* =========================
-   MONEY CHART
+   RESET MONEY
 ========================= */
 
-function drawMoneyChart(){
-
-  const canvas=
-    document.getElementById(
-      "moneyChart"
-    );
-
-
-  if(!canvas)return;
-
-
-  const ctx=
-    canvas.getContext("2d");
-
-
-  const width=
-    canvas.width;
-
-  const height=
-    canvas.height;
-
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-
-  const history=
-    money.history
-      .slice()
-      .reverse();
-
-
-  let balance=0;
-
-  const points=[
-    {
-      x:0,
-      y:height-35
-    }
-  ];
-
-
-  history.forEach(
-    item=>{
-
-      if(item.type==="added"){
-        balance+=
-          Number(item.amount)||0;
-      }else{
-        balance-=
-          Number(item.amount)||0;
-      }
-
-
-      points.push({
-        x:0,
-        y:balance
-      });
-
-    }
-  );
-
-
-  const values=
-    points.map(
-      p=>p.y
-    );
-
-
-  const maxValue=
-    Math.max(
-      1,
-      ...values
-    );
-
-
-  const minValue=
-    Math.min(
-      0,
-      ...values
-    );
-
-
-  const range=
-    Math.max(
-      1,
-      maxValue-minValue
-    );
-
-
-  ctx.strokeStyle=
-    "#333";
-
-  ctx.lineWidth=
-    2;
-
-
-  ctx.beginPath();
-
-  ctx.moveTo(
-    30,
-    height-35
-  );
-
-  ctx.lineTo(
-    width-20,
-    height-35
-  );
-
-  ctx.stroke();
-
-
-  if(history.length){
-
-    ctx.strokeStyle=
-      "#fff";
-
-    ctx.lineWidth=
-      5;
-
-    ctx.lineJoin=
-      "round";
-
-    ctx.lineCap=
-      "round";
-
-    ctx.beginPath();
-
-
-    history.forEach(
-      (item,index)=>{
-
-        const x=
-          30+
-          (
-            index/
-            Math.max(
-              1,
-              history.length-1
-            )
-          )*
-          (
-            width-60
-          );
-
-
-        let running=0;
-
-        for(
-          let j=0;
-          j<=index;
-          j++
-        ){
-
-          const h=
-            history[j];
-
-          if(
-            h.type==="added"
-          ){
-
-            running+=
-              Number(
-                h.amount
-              )||0;
-
-          }else{
-
-            running-=
-              Number(
-                h.amount
-              )||0;
-
-          }
-
-        }
-
-
-        const y=
-          height-
-          35-
-          (
-            (
-              running-minValue
-            )/
-            range
-          )*
-          (
-            height-70
-          );
-
-
-        if(index===0){
-
-          ctx.moveTo(
-            x,
-            y
-          );
-
-        }else{
-
-          ctx.lineTo(
-            x,
-            y
-          );
-
-        }
-
-      }
-    );
-
-
-    ctx.stroke();
+function resetMoney(){
+
+  if(
+    !confirm(
+      "Reset all Pocket Money data?"
+    )
+  ){
+
+    return;
 
   }
 
 
-  const report=
+  money={
+
+    added:0,
+
+    spent:0,
+
+    history:[]
+
+  };
+
+
+  moneyHistoryLimit=
+    5;
+
+  moneyHistoryExpanded=
+    false;
+
+
+  saveJSON(
+    STORAGE.money,
+    money
+  );
+
+
+  renderMoney();
+
+  renderDashboard();
+
+  drawMoneyChart();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   DAILY MONEY DATA
+========================= */
+
+function drawMoneyChart(){
+
+  const percentElement=
+    document.getElementById(
+      "dailySpendingPercent"
+    );
+
+  const captionElement=
+    document.getElementById(
+      "dailySpendingCaption"
+    );
+
+
+  if(!percentElement){
+
+    return;
+
+  }
+
+
+  const now=
+    new Date();
+
+
+  const startOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      0,
+      0,
+      0,
+      0
+    ).getTime();
+
+
+  const endOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23,
+      59,
+      59,
+      999
+    ).getTime();
+
+
+  const todayHistory=
+    money.history.filter(
+      item=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+        return(
+          date>=startOfDay &&
+          date<=endOfDay
+        );
+
+      }
+    );
+
+
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
+
+
+  todayHistory.forEach(
+    item=>{
+
+      const amount=
+        Number(
+          item.amount
+        )||0;
+
+
+      if(
+        item.type==="added"
+      ){
+
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
+
+    }
+  );
+
+
+  /*
+    Today's spending percentage =
+    money spent today /
+    money available to spend today × 100.
+
+    The available amount is the balance before today
+    plus everything added today.
+  */
+
+  const beforeTodayAdded=
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="added"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
+
+  const beforeTodaySpent=
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="spent"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
+
+  const availableToday=
+    Math.max(
+      0,
+      beforeTodayAdded-
+      beforeTodaySpent
+    )+
+    todayAdded;
+
+
+  const percentage=
+    availableToday>0
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
+      )
+    )
+    :
+    0;
+
+
+  percentElement.textContent=
+    percentage+
+    "%";
+
+
+  if(
+    todayHistory.length
+  ){
+
+    captionElement.textContent=
+      "Spent "+
+      todaySpent.toFixed(2)+
+      " DT today • Added "+
+      todayAdded.toFixed(2)+
+      " DT today.";
+
+  }else{
+
+    captionElement.textContent=
+      "No money activity today.";
+
+  }
+
+
+  renderMoneyReport();
+
+}
+
+
+/* =========================
+   FINANCIAL REPORT
+========================= */
+
+function renderMoneyReport(){
+
+  const box=
     document.getElementById(
       "moneyReport"
     );
 
 
-  if(!report)return;
+  if(!box)return;
 
 
-  const totalAdded=
-    money.added;
-
-
-  const totalSpent=
+  const balance=
+    money.added-
     money.spent;
 
 
-  const current=
-    totalAdded-
-    totalSpent;
+  const transactions=
+    money.history.length;
 
 
-  report.innerHTML=`
+  const now=
+    new Date();
+
+
+  const startOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      0,
+      0,
+      0,
+      0
+    ).getTime();
+
+
+  const endOfDay=
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      23,
+      59,
+      59,
+      999
+    ).getTime();
+
+
+  let todayAdded=
+    0;
+
+  let todaySpent=
+    0;
+
+
+  money.history.forEach(
+    item=>{
+
+      const date=
+        Number(
+          item.date
+        )||0;
+
+
+      if(
+        date<startOfDay||
+        date>endOfDay
+      ){
+
+        return;
+
+      }
+
+
+      const amount=
+        Number(
+          item.amount
+        )||0;
+
+
+      if(
+        item.type==="added"
+      ){
+
+        todayAdded+=
+          amount;
+
+      }
+
+
+      if(
+        item.type==="spent"
+      ){
+
+        todaySpent+=
+          amount;
+
+      }
+
+    }
+  );
+
+
+  const beforeTodayAdded=
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="added"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
+
+  const beforeTodaySpent=
+    money.history.reduce(
+      (
+        sum,
+        item
+      )=>{
+
+        const date=
+          Number(
+            item.date
+          )||0;
+
+
+        if(
+          date<startOfDay &&
+          item.type==="spent"
+        ){
+
+          return(
+            sum+
+            (
+              Number(
+                item.amount
+              )||0
+            )
+          );
+
+        }
+
+
+        return sum;
+
+      },
+      0
+    );
+
+
+  const availableToday=
+    Math.max(
+      0,
+      beforeTodayAdded-
+      beforeTodaySpent
+    )+
+    todayAdded;
+
+
+  const percentage=
+    availableToday>0
+    ?
+    Math.min(
+      100,
+      Math.round(
+        todaySpent/
+        availableToday*
+        100
+      )
+    )
+    :
+    0;
+
+
+  const recent=
+    money.history
+      .slice(
+        0,
+        10
+      );
+
+
+  let activityHTML=
+    "";
+
+
+  if(
+    recent.length
+  ){
+
+    activityHTML=`
+
+      <div
+        style="
+          margin-top:18px;
+          font-size:13px;
+          font-weight:900;
+        "
+      >
+        Recent Activity
+      </div>
+
+      ${
+        recent
+          .map(
+            item=>`
+
+              <div class="money-history">
+
+                <div>
+
+                  <div class="money-history-title">
+
+                    ${
+                      item.type==="added"
+                      ?
+                      "Money Added"
+                      :
+                      "Money Spent"
+                    }
+
+                  </div>
+
+                  <div class="money-history-desc">
+
+                    ${escapeHTML(
+                      item.description
+                    )}
+
+                  </div>
+
+                  <div class="money-history-date">
+
+                    ${escapeHTML(
+                      new Date(
+                        item.date
+                      ).toLocaleString()
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  class="money-history-amount"
+                  style="
+                    color:${
+                      item.type==="added"
+                      ?
+                      "var(--green)"
+                      :
+                      "var(--red)"
+                    };
+                  "
+                >
+
+                  ${
+                    item.type==="added"
+                    ?
+                    "+"
+                    :
+                    "-"
+                  }${Number(
+                    item.amount
+                  ).toFixed(2)} DT
+
+                </div>
+
+              </div>
+
+            `
+          )
+          .join("")
+      }
+
+    `;
+
+  }
+
+
+  box.innerHTML=`
 
     <b>
-      Financial Report
+      FINANCIAL REPORT
     </b>
+
 
     <div
       class="page-sub"
-      style="margin:8px 0 0"
+      style="margin:10px 0 0"
     >
+
+      <b>
+        Today
+      </b>
+
+      <br><br>
+
+      Added today:
+      <strong>
+        ${todayAdded.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spent today:
+      <strong>
+        ${todaySpent.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Spending rate:
+      <strong>
+        ${percentage}%
+      </strong>
+
+      <br><br>
+
+      <b>
+        Overall
+      </b>
+
+      <br><br>
+
       Added:
-      ${totalAdded.toFixed(2)} DT
-      <br>
+      <strong>
+        ${money.added.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
       Spent:
-      ${totalSpent.toFixed(2)} DT
-      <br>
+      <strong>
+        ${money.spent.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
       Current balance:
-      ${current.toFixed(2)} DT
+      <strong
+        style="
+          color:${
+            balance<0
+            ?
+            "var(--red)"
+            :
+            "var(--green)"
+          }
+        "
+      >
+        ${balance.toFixed(2)} DT
+      </strong>
+
+      <br><br>
+
+      Transactions:
+      <strong>
+        ${transactions}
+      </strong>
+
     </div>
+
+
+    ${activityHTML}
 
   `;
 
@@ -4551,233 +5670,7 @@ function drawMoneyChart(){
 
 
 /* =========================
-   NOTES
-========================= */
-
-function saveNote(){
-
-  const input=
-    document.getElementById(
-      "noteInput"
-    );
-
-
-  const value=
-    input.value.trim();
-
-
-  if(!value){
-
-    alert(
-      "Write something first."
-    );
-
-    return;
-
-  }
-
-
-  notes.unshift({
-
-    id:
-      Date.now()+Math.random(),
-
-    content:
-      value,
-
-    date:
-      Date.now()
-
-  });
-
-
-  saveJSON(
-    STORAGE.notes,
-    notes
-  );
-
-
-  input.value="";
-
-  renderNotes();
-
-  clickSound();
-
-}
-
-
-function renderNotes(){
-
-  const box=
-    document.getElementById(
-      "notesList"
-    );
-
-
-  if(!box)return;
-
-
-  const search=
-    (
-      document.getElementById(
-        "noteSearch"
-      )?.value || ""
-    )
-    .trim()
-    .toLowerCase();
-
-
-  const filtered=
-    notes.filter(
-      note=>
-        !search||
-        note.content
-          .toLowerCase()
-          .includes(search)
-    );
-
-
-  if(!filtered.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No notes found.
-      </div>`;
-
-    return;
-
-  }
-
-
-  box.innerHTML=
-    filtered.map(
-      note=>`
-
-      <div class="note">
-
-        <div class="note-content">
-          ${escapeHTML(
-            note.content
-          )}
-        </div>
-
-        <div class="note-date">
-          ${escapeHTML(
-            new Date(
-              note.date
-            ).toLocaleString()
-          )}
-        </div>
-
-        <div class="note-buttons">
-
-          <button
-            class="note-edit"
-            onclick="editNote('${note.id}')"
-          >
-            Edit
-          </button>
-
-          <button
-            class="note-delete"
-            onclick="deleteNote('${note.id}')"
-          >
-            Delete
-          </button>
-
-        </div>
-
-      </div>
-
-    `
-    ).join("");
-
-}
-
-
-function editNote(id){
-
-  const note=
-    notes.find(
-      item=>
-        String(item.id)===
-        String(id)
-    );
-
-
-  if(!note)return;
-
-
-  const value=
-    prompt(
-      "Edit your note:",
-      note.content
-    );
-
-
-  if(
-    value===null
-  )return;
-
-
-  const trimmed=
-    value.trim();
-
-
-  if(!trimmed)return;
-
-
-  note.content=
-    trimmed;
-
-
-  note.date=
-    Date.now();
-
-
-  saveJSON(
-    STORAGE.notes,
-    notes
-  );
-
-
-  renderNotes();
-
-  clickSound();
-
-}
-
-
-function deleteNote(id){
-
-  if(!confirm(
-    "Delete this note?"
-  ))return;
-
-
-  notes=
-    notes.filter(
-      note=>
-        String(note.id)!==
-        String(id)
-    );
-
-
-  saveJSON(
-    STORAGE.notes,
-    notes
-  );
-
-
-  renderNotes();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   PROFILE
+   PROFILE / USER NAME
 ========================= */
 
 function changeUsername(){
@@ -4826,7 +5719,261 @@ function changeUsername(){
 
 
 /* =========================
-   KEYBOARD SHORTCUT
+   NOTES
+========================= */
+
+function saveNote(){
+
+  const input=
+    document.getElementById(
+      "noteInput"
+    );
+
+
+  const value=
+    input.value.trim();
+
+
+  if(!value){
+
+    alert(
+      "Write something first."
+    );
+
+    return;
+
+  }
+
+
+  notes.unshift({
+
+    id:
+      Date.now()+
+      Math.random(),
+
+    content:
+      value,
+
+    date:
+      Date.now()
+
+  });
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  input.value="";
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+function renderNotes(){
+
+  const box=
+    document.getElementById(
+      "notesList"
+    );
+
+
+  if(!box)return;
+
+
+  const search=
+    (
+      document.getElementById(
+        "noteSearch"
+      )?.value ||
+      ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  const filtered=
+    notes.filter(
+      note=>
+        !search||
+        note.content
+          .toLowerCase()
+          .includes(
+            search
+          )
+    );
+
+
+  if(
+    !filtered.length
+  ){
+
+    box.innerHTML=
+      `
+        <div class="empty">
+          No notes found.
+        </div>
+      `;
+
+    return;
+
+  }
+
+
+  box.innerHTML=
+    filtered
+      .map(
+        note=>`
+
+          <div class="note">
+
+            <div class="note-content">
+              ${escapeHTML(
+                note.content
+              )}
+            </div>
+
+            <div class="note-date">
+              ${escapeHTML(
+                new Date(
+                  note.date
+                ).toLocaleString()
+              )}
+            </div>
+
+            <div class="note-buttons">
+
+              <button
+                class="note-edit"
+                onclick="editNote('${note.id}')"
+              >
+                Edit
+              </button>
+
+              <button
+                class="note-delete"
+                onclick="deleteNote('${note.id}')"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        `
+      )
+      .join("");
+
+}
+
+
+function editNote(
+  id
+){
+
+  const note=
+    notes.find(
+      item=>
+        String(
+          item.id
+        )===
+        String(id)
+    );
+
+
+  if(!note)return;
+
+
+  const value=
+    prompt(
+      "Edit your note:",
+      note.content
+    );
+
+
+  if(
+    value===null
+  ){
+
+    return;
+
+  }
+
+
+  const trimmed=
+    value.trim();
+
+
+  if(!trimmed)return;
+
+
+  note.content=
+    trimmed;
+
+
+  note.date=
+    Date.now();
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+function deleteNote(
+  id
+){
+
+  if(
+    !confirm(
+      "Delete this note?"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  notes=
+    notes.filter(
+      note=>
+        String(
+          note.id
+        )!==
+        String(id)
+    );
+
+
+  saveJSON(
+    STORAGE.notes,
+    notes
+  );
+
+
+  renderNotes();
+
+  clickSound();
+
+}
+
+
+/* =========================
+   ENTER KEY
 ========================= */
 
 document.addEventListener(
