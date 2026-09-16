@@ -5016,7 +5016,32 @@ if(
   );
 
 }
+/* =========================
+   SPLASH SCREEN FIX
+========================= */
 
+window.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const splash =
+      document.getElementById("splash");
+
+    if(splash){
+
+      setTimeout(
+        function(){
+
+          splash.style.display = "none";
+
+        },
+        1100
+      );
+
+    }
+
+  }
+);
 </script>
 
 </body>
