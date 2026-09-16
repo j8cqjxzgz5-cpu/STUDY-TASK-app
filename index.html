@@ -1001,971 +1001,1308 @@ textarea{
 
 
 <!-- =========================
-     APPLICATION
+     MAIN APP
 ========================= -->
 
 <div id="app" class="app hidden">
 
-  <header class="header">
+<header class="header">
 
-    <div>
-      <div class="brand">STUDY</div>
-      <div class="brand-sub">Focus. Plan. Complete.</div>
+  <div>
+    <div class="brand">STUDY</div>
+    <div class="brand-sub">Focus. Plan. Complete.</div>
+  </div>
+
+  <div
+    class="user-chip"
+    onclick="openPage('profile')"
+  >
+
+    <div
+      class="avatar"
+      id="headerAvatar"
+    >
+      ?
     </div>
 
     <div
-      class="user-chip"
-      onclick="showPage('profile')"
+      class="user-chip-name"
+      id="headerUserName"
     >
+      User
+    </div>
 
-      <div
-        class="avatar"
-        id="topAvatar"
-      >J</div>
+  </div>
 
-      <div
-        class="user-chip-name"
-        id="topUsername"
-      >User</div>
+</header>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section
+  id="page-home"
+  class="page active"
+>
+
+  <div class="hero card">
+
+    <div class="hero-symbol">S</div>
+
+    <h1>Study smarter.</h1>
+
+    <p>
+      Organize your tasks, track your progress,
+      manage your money and stay focused.
+    </p>
+
+  </div>
+
+
+  <div class="dashboard">
+
+    <div class="dash-card">
+
+      <small>ACTIVE TASKS</small>
+
+      <strong id="dashActiveTasks">
+        0
+      </strong>
 
     </div>
 
-  </header>
+
+    <div class="dash-card">
+
+      <small>COMPLETED</small>
+
+      <strong
+        id="dashCompleted"
+        class="green-text"
+      >
+        0
+      </strong>
+
+    </div>
 
 
-  <!-- =========================
-       HOME
-  ========================= -->
+    <div class="dash-card">
 
-  <section
-    id="home"
-    class="page active"
+      <small>SUCCESS RATE</small>
+
+      <strong
+        id="dashSuccess"
+        class="yellow-text"
+      >
+        0%
+      </strong>
+
+    </div>
+
+
+    <div class="dash-card">
+
+      <small>POCKET MONEY</small>
+
+      <strong id="dashMoney">
+        0 DT
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('enter')"
   >
 
-    <div class="hero card">
+    <div class="menu-button-left">
 
-      <div class="hero-symbol">◆</div>
+      <div class="menu-icon">
+        ✓
+      </div>
 
-      <h1 id="welcomeText">
-        Welcome 👋
-      </h1>
-
-      <p>
-        Your personal workspace to organize tasks,
-        money, notes and daily progress.
-      </p>
+      <div>
+        <strong>Enter</strong>
+        <div class="brand-sub">
+          Your tasks
+        </div>
+      </div>
 
     </div>
 
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('quick')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        !
+      </div>
+
+      <div>
+        <strong>Quick Check</strong>
+        <div class="brand-sub">
+          Urgent tasks
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('plan')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        +
+      </div>
+
+      <div>
+        <strong>Plan</strong>
+        <div class="brand-sub">
+          Create a task
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('money')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        DT
+      </div>
+
+      <div>
+        <strong>Pocket Money</strong>
+        <div class="brand-sub">
+          Manage your balance
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('employees')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        👥
+      </div>
+
+      <div>
+        <strong>Employees</strong>
+        <div class="brand-sub">
+          Schedule
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('play')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        🎮
+      </div>
+
+      <div>
+        <strong>Play</strong>
+        <div class="brand-sub">
+          Games
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('notes')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        🔒
+      </div>
+
+      <div>
+        <strong>Private Notes</strong>
+        <div class="brand-sub">
+          Your private space
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('settings')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        ⚙
+      </div>
+
+      <div>
+        <strong>Settings</strong>
+        <div class="brand-sub">
+          App settings
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <div class="footer">
+    STUDY · Made in Tunisia 🇹🇳
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ENTER
+========================= -->
+
+<section
+  id="page-enter"
+  class="page"
+>
+
+  <div class="page-title">
+    Enter
+  </div>
+
+  <div class="page-sub">
+    Your active tasks
+  </div>
+
+  <div id="enterList"></div>
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     QUICK CHECK
+========================= -->
+
+<section
+  id="page-quick"
+  class="page"
+>
+
+  <div class="page-title">
+    Quick Check
+  </div>
+
+  <div class="page-sub">
+    Urgent tasks that need your attention
+  </div>
+
+  <div id="quickList"></div>
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     PLAN
+========================= -->
+
+<section
+  id="page-plan"
+  class="page"
+>
+
+  <div class="page-title">
+    Plan
+  </div>
+
+  <div class="page-sub">
+    Create and organize your tasks
+  </div>
+
+
+  <div class="card">
+
+    <label>
+      TASK NAME
+    </label>
+
+    <input
+      id="taskName"
+      type="text"
+      placeholder="Task name"
+      autocomplete="off"
+    >
+
+
+    <label>
+      DESCRIPTION
+    </label>
+
+    <textarea
+      id="taskDescription"
+      placeholder="Description"
+    ></textarea>
+
+
+    <label>
+      DATE
+    </label>
+
+    <input
+      id="taskDate"
+      type="date"
+    >
+
+
+    <label>
+      TIME
+    </label>
+
+    <input
+      id="taskTime"
+      type="time"
+    >
+
+
+    <button
+      class="primary"
+      onclick="addTask()"
+    >
+      Add Task
+    </button>
+
+  </div>
+
+
+  <div class="section-title">
+    Active Tasks
+  </div>
+
+  <div id="planList"></div>
+
+
+  <div class="section-title">
+    Task Records
+  </div>
+
+  <div id="recordsList"></div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     MONEY
+========================= -->
+
+<section
+  id="page-money"
+  class="page"
+>
+
+  <div class="page-title">
+    Pocket Money
+  </div>
+
+  <div class="page-sub">
+    Track your money
+  </div>
+
+
+  <div class="card">
+
+    <div class="money-balance">
+      <span id="moneyBalance">
+        0
+      </span>
+      DT
+    </div>
+
+
+    <div class="money-stats">
+
+      <div class="money-stat">
+
+        <small>
+          ADDED
+        </small>
+
+        <strong id="moneyAdded">
+          0 DT
+        </strong>
+
+      </div>
+
+
+      <div class="money-stat">
+
+        <small>
+          SPENT
+        </small>
+
+        <strong id="moneySpent">
+          0 DT
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="progress-track">
+      <div
+        id="moneyProgress"
+        class="progress-bar"
+      ></div>
+    </div>
+
+
+    <div
+      id="debtWarning"
+      class="debt hidden"
+    >
+      ⚠️ Danger: your balance is negative.
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <div class="money-actions">
+
+      <button
+        class="add-money"
+        onclick="addMoney()"
+      >
+        + Add Money
+      </button>
+
+
+      <button
+        class="spend-money"
+        onclick="spendMoney()"
+      >
+        − Spent Today
+      </button>
+
+    </div>
+
+
+    <button
+      class="secondary"
+      onclick="openPage('moneyData')"
+    >
+      Money Data
+    </button>
+
+
+    <button
+      class="secondary"
+      onclick="resetMoney()"
+    >
+      Reset
+    </button>
+
+  </div>
+
+
+  <div class="section-title">
+    History
+  </div>
+
+  <div id="moneyHistory"></div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     MONEY DATA
+========================= -->
+
+<section
+  id="page-moneyData"
+  class="page"
+>
+
+  <div class="page-title">
+    Money Data
+  </div>
+
+  <div class="page-sub">
+    Your spending data
+  </div>
+
+
+  <div class="card chart-card">
+
+    <canvas id="moneyChart"></canvas>
+
+  </div>
+
+
+  <div
+    id="moneyReport"
+    class="card"
+  ></div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('money')"
+  >
+    Back
+  </button>
+
+</section>
+<!-- =========================
+     EMPLOYEES
+========================= -->
+
+<section
+  id="page-employees"
+  class="page"
+>
+
+  <div class="page-title">
+    Employees
+  </div>
+
+  <div class="page-sub">
+    Schedule
+  </div>
+
+
+  <div class="employees-card card">
+
+    <div class="employees-toolbar">
+
+      <div class="employees-info">
+        <strong>Weekly Schedule</strong>
+        <span>
+          Press a cell to edit · Drag to move
+        </span>
+      </div>
+
+      <button
+        class="schedule-reset"
+        onclick="resetEmployeesSchedule()"
+      >
+        Reset
+      </button>
+
+    </div>
+
+
+    <div class="schedule-wrapper">
+
+      <div
+        id="employeesSchedule"
+        class="employees-schedule"
+      ></div>
+
+    </div>
+
+
+    <div class="schedule-help">
+
+      <div>
+        <span class="help-dot green"></span>
+        Custom marked cell
+      </div>
+
+      <div>
+        <span class="help-dot red"></span>
+        Custom marked cell
+      </div>
+
+      <div>
+        <span class="help-dot yellow"></span>
+        Custom marked cell
+      </div>
+
+      <div>
+        <span class="help-dot blue"></span>
+        Custom marked cell
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     PLAY
+========================= -->
+
+<section
+  id="page-play"
+  class="page"
+>
+
+  <div class="page-title">
+    Play
+  </div>
+
+  <div class="page-sub">
+    Choose a game
+  </div>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('xo')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        X
+      </div>
+
+      <div>
+        <strong>X / O</strong>
+        <div class="brand-sub">
+          Play with a friend
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="menu-button"
+    onclick="openPage('higher')"
+  >
+
+    <div class="menu-button-left">
+
+      <div class="menu-icon">
+        ↑
+      </div>
+
+      <div>
+        <strong>Higher or Lower</strong>
+        <div class="brand-sub">
+          Guess the next number
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     X / O
+========================= -->
+
+<section
+  id="page-xo"
+  class="page"
+>
+
+  <div class="page-title">
+    X / O
+  </div>
+
+  <div class="page-sub">
+    Two-player turn-based game
+  </div>
+
+
+  <div class="scoreboard">
+
+    <div>
+      <small>PLAYER X</small>
+      <strong id="xoScoreX">0</strong>
+    </div>
+
+    <div>
+      <small>DRAWS</small>
+      <strong id="xoScoreDraw">0</strong>
+    </div>
+
+    <div>
+      <small>PLAYER O</small>
+      <strong id="xoScoreO">0</strong>
+    </div>
+
+  </div>
+
+
+  <div
+    id="xoStatus"
+    class="game-status"
+  >
+    X's turn
+  </div>
+
+
+  <div
+    id="xoBoard"
+    class="xo-board"
+  >
+
+    <button class="xo-cell" onclick="xoMove(0)"></button>
+    <button class="xo-cell" onclick="xoMove(1)"></button>
+    <button class="xo-cell" onclick="xoMove(2)"></button>
+
+    <button class="xo-cell" onclick="xoMove(3)"></button>
+    <button class="xo-cell" onclick="xoMove(4)"></button>
+    <button class="xo-cell" onclick="xoMove(5)"></button>
+
+    <button class="xo-cell" onclick="xoMove(6)"></button>
+    <button class="xo-cell" onclick="xoMove(7)"></button>
+    <button class="xo-cell" onclick="xoMove(8)"></button>
+
+  </div>
+
+
+  <button
+    class="secondary"
+    onclick="resetXO()"
+  >
+    New Game
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('play')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     HIGHER OR LOWER
+========================= -->
+
+<section
+  id="page-higher"
+  class="page"
+>
+
+  <div class="page-title">
+    Higher or Lower
+  </div>
+
+  <div class="page-sub">
+    Guess whether the next number is higher or lower.
+  </div>
+
+
+  <div class="scoreboard">
+
+    <div>
+      <small>SCORE</small>
+      <strong id="higherScore">0</strong>
+    </div>
+
+    <div>
+      <small>ROUND</small>
+      <strong id="higherRound">1</strong>
+    </div>
+
+    <div>
+      <small>BEST</small>
+      <strong id="higherBest">0</strong>
+    </div>
+
+  </div>
+
+
+  <div
+    id="higherNumber"
+    class="big-number"
+  >
+    50
+  </div>
+
+
+  <div
+    id="higherStatus"
+    class="game-status"
+  >
+    Choose Higher or Lower
+  </div>
+
+
+  <div class="higher-buttons">
+
+    <button onclick="higherGuess('higher')">
+      ↑ Higher
+    </button>
+
+    <button onclick="higherGuess('lower')">
+      ↓ Lower
+    </button>
+
+  </div>
+
+
+  <button
+    class="secondary"
+    onclick="resetHigher()"
+  >
+    New Game
+  </button>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('play')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     PRIVATE NOTES
+========================= -->
+
+<section
+  id="page-notes"
+  class="page"
+>
+
+  <div class="page-title">
+    Private Notes
+  </div>
+
+  <div class="page-sub">
+    Your private space
+  </div>
+
+
+  <div class="card">
+
+    <label>
+      NEW NOTE
+    </label>
+
+    <textarea
+      id="noteInput"
+      placeholder="Write something..."
+    ></textarea>
+
+
+    <button
+      class="primary"
+      onclick="addNote()"
+    >
+      Save Note
+    </button>
+
+  </div>
+
+
+  <div
+    id="notesList"
+  ></div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<section
+  id="page-settings"
+  class="page"
+>
+
+  <div class="page-title">
+    Settings
+  </div>
+
+  <div class="page-sub">
+    Manage your STUDY app
+  </div>
+
+
+  <div class="card">
+
+    <button
+      class="menu-button"
+      onclick="openPage('play')"
+    >
+
+      <div class="menu-button-left">
+
+        <div class="menu-icon">
+          🎮
+        </div>
+
+        <div>
+          <strong>Play</strong>
+          <div class="brand-sub">
+            Games
+          </div>
+        </div>
+
+      </div>
+
+      <div class="menu-arrow">
+        ›
+      </div>
+
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="changeUserName()"
+    >
+
+      <div class="menu-button-left">
+
+        <div class="menu-icon">
+          👤
+        </div>
+
+        <div>
+          <strong>Change Name</strong>
+          <div class="brand-sub">
+            Change your profile name
+          </div>
+        </div>
+
+      </div>
+
+      <div class="menu-arrow">
+        ›
+      </div>
+
+    </button>
+
+
+    <button
+      class="menu-button"
+      onclick="openPage('notes')"
+    >
+
+      <div class="menu-button-left">
+
+        <div class="menu-icon">
+          🔒
+        </div>
+
+        <div>
+          <strong>Private Notes</strong>
+          <div class="brand-sub">
+            Open private notes
+          </div>
+        </div>
+
+      </div>
+
+      <div class="menu-arrow">
+        ›
+      </div>
+
+    </button>
+
+  </div>
+
+
+  <button
+    class="secondary"
+    onclick="openPage('home')"
+  >
+    Back
+  </button>
+
+</section>
+
+
+<!-- =========================
+     PROFILE
+========================= -->
+
+<section
+  id="page-profile"
+  class="page"
+>
+
+  <div class="page-title">
+    Profile
+  </div>
+
+  <div class="card profile">
+
+    <div
+      id="profileAvatar"
+      class="profile-avatar"
+    >
+      ?
+    </div>
+
+    <div
+      id="profileName"
+      class="profile-name"
+    >
+      User
+    </div>
+
+    <div class="profile-sub">
+      STUDY user
+    </div>
+
+  </div>
+
+
+  <div class="card">
 
     <div class="dashboard">
 
       <div class="dash-card">
-        <small>ACTIVE TASKS</small>
-        <strong id="dashActive">0</strong>
-      </div>
-
-      <div class="dash-card">
-        <small>SUCCESS RATE</small>
-        <strong id="dashSuccess">0%</strong>
-      </div>
-
-      <div class="dash-card">
-        <small>POCKET MONEY</small>
-        <strong
-          id="dashMoney"
-          class="green-text"
-        >0 DT</strong>
+        <small>TASKS</small>
+        <strong id="profileTasks">0</strong>
       </div>
 
       <div class="dash-card">
         <small>COMPLETED</small>
-        <strong id="dashCompleted">0</strong>
-      </div>
-
-    </div>
-
-
-    <div id="homeNextTask"></div>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('quick')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">✓</span>
-        <span>
-          <b>Quick Check</b><br>
-          <small style="color:#777">
-            Check today's active work
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('plan')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">▦</span>
-        <span>
-          <b>Plan</b><br>
-          <small style="color:#777">
-            Organize your tasks
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('money')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">◉</span>
-        <span>
-          <b>Pocket Money</b><br>
-          <small style="color:#777">
-            Track your money
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('settings')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">⚙</span>
-        <span>
-          <b>Settings</b><br>
-          <small style="color:#777">
-            More STUDY tools
-          </small>
-        </span>
-      </span>
-
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <div class="footer">
-      Made in Tunisia 🇹🇳<br>
-      by Jasser Nouaili
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       QUICK CHECK
-  ========================= -->
-
-  <section
-    id="quick"
-    class="page"
-  >
-
-    <div class="page-title">
-      Quick Check
-    </div>
-
-    <div class="page-sub">
-      Your current active tasks.
-    </div>
-
-    <div id="quickDebt"></div>
-
-    <div id="quickTasks"></div>
-
-  </section>
-
-
-  <!-- =========================
-       PLAN
-  ========================= -->
-
-  <section
-    id="plan"
-    class="page"
-  >
-
-    <div class="page-title">
-      Plan
-    </div>
-
-    <div class="page-sub">
-      Create tasks and keep your work organized.
-    </div>
-
-
-    <div class="card">
-
-      <label>WORK NAME</label>
-
-      <input
-        id="taskName"
-        type="text"
-        maxlength="80"
-        placeholder="Example: Mathematics"
-      >
-
-
-      <label>DESCRIPTION</label>
-
-      <textarea
-        id="taskDescription"
-        maxlength="300"
-        placeholder="What do you need to do?"
-      ></textarea>
-
-
-      <label>DATE & TIME</label>
-
-      <input
-        id="taskDate"
-        type="datetime-local"
-      >
-
-
-      <button
-        class="primary"
-        onclick="addTask()"
-      >
-        + Add Task
-      </button>
-
-    </div>
-
-
-    <div class="section-title">
-      Active Tasks
-    </div>
-
-    <div id="activeTasks"></div>
-
-
-    <div class="section-title">
-      Task Records
-    </div>
-
-    <div class="page-sub">
-      Finished and failed tasks are stored here.
-    </div>
-
-    <div id="taskRecords"></div>
-
-  </section>
-
-
-  <!-- =========================
-       MONEY
-  ========================= -->
-
-  <section
-    id="money"
-    class="page"
-  >
-
-    <div class="page-title">
-      Pocket Money
-    </div>
-
-    <div class="page-sub">
-      Keep a clear record of your money.
-    </div>
-
-
-    <div class="card">
-
-      <small style="color:#777">
-        CURRENT BALANCE
-      </small>
-
-      <div
-        id="moneyBalance"
-        class="money-balance"
-      >
-        0 DT
-      </div>
-
-
-      <div class="money-stats">
-
-        <div class="money-stat">
-          <small>TOTAL ADDED</small>
-          <strong
-            id="moneyAdded"
-            class="green-text"
-          >0 DT</strong>
-        </div>
-
-        <div class="money-stat">
-          <small>TOTAL SPENT</small>
-          <strong
-            id="moneySpent"
-            class="red-text"
-          >0 DT</strong>
-        </div>
-
-      </div>
-
-
-      <div class="progress-track">
-        <div
-          id="moneyProgress"
-          class="progress-bar"
-        ></div>
-      </div>
-
-
-      <div id="debtWarning"></div>
-
-    </div>
-
-
-    <div class="card">
-
-      <label>AMOUNT</label>
-
-      <input
-        id="moneyAmount"
-        type="number"
-        min="0"
-        step="0.01"
-        placeholder="Example: 20"
-      >
-
-
-      <label>DESCRIPTION</label>
-
-      <input
-        id="moneyDescription"
-        type="text"
-        maxlength="100"
-        placeholder="Example: Lunch"
-      >
-
-
-      <div class="money-actions">
-
-        <button
-          class="add-money"
-          onclick="addMoney()"
+        <strong
+          id="profileCompleted"
+          class="green-text"
         >
-          + Add Money
-        </button>
-
-        <button
-          class="spend-money"
-          onclick="spendMoney()"
-        >
-          − Spend
-        </button>
-
+          0
+        </strong>
       </div>
-
-
-      <button
-        class="secondary"
-        onclick="resetMoney()"
-      >
-        Reset Pocket Money
-      </button>
 
     </div>
 
-
-    <div class="card">
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-      ">
-
-        <div class="section-title" style="
-          margin:0;
-        ">
-          Money History
-        </div>
-
-        <button
-          class="secondary"
-          style="
-            width:auto;
-            margin:0;
-            padding:9px 12px;
-          "
-          onclick="showPage('data')"
-        >
-          Data
-        </button>
-
-      </div>
-
-      <div id="moneyHistory"></div>
-
-      <button
-        id="moreHistoryButton"
-        class="secondary"
-        onclick="showMoreHistory()"
-      >
-        Show More
-      </button>
-
-    </div>
-
-  </section>
+  </div>
 
 
-  <!-- =========================
-       DATA
-  ========================= -->
-
-  <section
-    id="data"
-    class="page"
+  <button
+    class="secondary"
+    onclick="openPage('home')"
   >
+    Back
+  </button>
 
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('money')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      Money Data
-    </div>
-
-    <div class="page-sub">
-      A clear view of your financial progress.
-    </div>
-
-
-    <div class="card chart-card">
-
-      <canvas
-        id="moneyChart"
-        width="900"
-        height="450"
-      ></canvas>
-
-    </div>
-
-
-    <div
-      id="moneyReport"
-      class="card"
-    ></div>
-
-  </section>
-
-
-  <!-- =========================
-       SETTINGS
-  ========================= -->
-
-  <section
-    id="settings"
-    class="page"
-  >
-
-    <div class="page-title">
-      Settings
-    </div>
-
-    <div class="page-sub">
-      Your STUDY tools.
-    </div>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('profile')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">👤</span>
-        <b>Profile</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('play')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">🎮</span>
-        <b>Play</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('notes')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">📝</span>
-        <b>Private Notes</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('employees')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">👥</span>
-        <b>Employees</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       PROFILE
-  ========================= -->
-
-  <section
-    id="profile"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('settings')"
-    >
-      ← Back
-    </button>
-
-
-    <div class="card profile">
-
-      <div
-        id="profileAvatar"
-        class="profile-avatar"
-      >
-        J
-      </div>
-
-      <div
-        id="profileName"
-        class="profile-name"
-      >
-        User
-      </div>
-
-      <div class="profile-sub">
-        STUDY User
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <label>USER NAME</label>
-
-      <input
-        id="newUsername"
-        maxlength="30"
-        placeholder="Change your name"
-      >
-
-      <button
-        class="primary"
-        onclick="changeUsername()"
-      >
-        Save Name
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <b>Workspace</b>
-
-      <div class="page-sub" style="margin:8px 0 0">
-        Your STUDY information is stored locally
-        in this browser.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       EMPLOYEES
-  ========================= -->
-
-  <section
-    id="employees"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('settings')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      Employees
-    </div>
-
-    <div class="page-sub">
-      Management tools.
-    </div>
-
-
-    <div class="card" style="text-align:center;padding:45px 20px">
-
-      <div style="font-size:45px">
-        👥
-      </div>
-
-      <h2>
-        Coming Soon
-      </h2>
-
-      <div class="page-sub">
-        Employee management will be added
-        without changing your current STUDY data.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       PLAY
-  ========================= -->
-
-  <section
-    id="play"
-    class="page"
-  >
-
-    <div class="page-title">
-      Play
-    </div>
-
-    <div class="page-sub">
-      Simple games when you need a break.
-    </div>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('xo')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">⭕</span>
-        <b>X / O</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-
-    <button
-      class="menu-button"
-      onclick="showPage('higher')"
-    >
-      <span class="menu-button-left">
-        <span class="menu-icon">🔢</span>
-        <b>Higher or Lower</b>
-      </span>
-      <span class="menu-arrow">›</span>
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       XO
-  ========================= -->
-
-  <section
-    id="xo"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('play')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      X / O
-    </div>
-
-
-    <div class="scoreboard">
-
-      <div>
-        <small>PLAYER X</small>
-        <strong id="xoXScore">0</strong>
-      </div>
-
-      <div>
-        <small>DRAWS</small>
-        <strong id="xoDrawScore">0</strong>
-      </div>
-
-      <div>
-        <small>PLAYER O</small>
-        <strong id="xoOScore">0</strong>
-      </div>
-
-    </div>
-
-
-    <div
-      id="xoStatus"
-      class="game-status"
-    >
-      PLAYER X TURN
-    </div>
-
-
-    <div
-      id="xoBoard"
-      class="xo-board"
-    ></div>
-
-
-    <button
-      class="secondary"
-      onclick="resetXO()"
-    >
-      New Round
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       HIGHER
-  ========================= -->
-
-  <section
-    id="higher"
-    class="page"
-  >
-
-    <button
-      class="secondary"
-      style="width:auto;margin:0 0 15px"
-      onclick="showPage('play')"
-    >
-      ← Back
-    </button>
-
-    <div class="page-title">
-      Higher or Lower
-    </div>
-
-    <div class="page-sub">
-      Guess whether the next number is higher or lower.
-    </div>
-
-
-    <div class="scoreboard">
-
-      <div>
-        <small>PLAYER 1</small>
-        <strong id="higherScore1">0</strong>
-      </div>
-
-      <div>
-        <small>ROUND</small>
-        <strong id="higherRound">1</strong>
-      </div>
-
-      <div>
-        <small>PLAYER 2</small>
-        <strong id="higherScore2">0</strong>
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <div
-        id="higherStatus"
-        class="game-status"
-      >
-        PLAYER 1 TURN
-      </div>
-
-      <div
-        id="higherNumber"
-        class="big-number"
-      >
-        50
-      </div>
-
-      <div class="higher-buttons">
-
-        <button
-          onclick="higherGuess('higher')"
-        >
-          ↑ HIGHER
-        </button>
-
-        <button
-          onclick="higherGuess('lower')"
-        >
-          ↓ LOWER
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <button
-      class="secondary"
-      onclick="resetHigher()"
-    >
-      Reset Game
-    </button>
-
-  </section>
-
-
-  <!-- =========================
-       NOTES
-  ========================= -->
-
-  <section
-    id="notes"
-    class="page"
-  >
-
-    <div class="page-title">
-      Private Notes
-    </div>
-
-    <div class="page-sub">
-      Personal notes stored in your STUDY workspace.
-    </div>
-
-
-    <div class="card">
-
-      <textarea
-        id="noteInput"
-        maxlength="2000"
-        placeholder="Write a note..."
-      ></textarea>
-
-      <button
-        class="primary"
-        onclick="saveNote()"
-      >
-        Save Note
-      </button>
-
-    </div>
-
-
-    <div class="card">
-
-      <input
-        id="noteSearch"
-        type="text"
-        placeholder="🔍 Search notes..."
-        oninput="renderNotes()"
-      >
-
-    </div>
-
-
-    <div id="notesList"></div>
-
-  </section>
-
-</div>
+</section>
 
 
 <!-- =========================
-     BOTTOM NAV
+     BOTTOM NAVIGATION
 ========================= -->
 
-<div
-  id="bottomNav"
-  class="bottom-nav hidden"
->
+<div class="bottom-nav">
 
   <div class="nav-inner">
 
     <button
-      id="nav-home"
+      id="navHome"
       class="nav-button active"
-      onclick="showPage('home')"
+      onclick="openPage('home')"
     >
-      <div class="nav-icon">⌂</div>
+
+      <div class="nav-icon">
+        ⌂
+      </div>
+
       Home
+
     </button>
 
-    <button
-      id="nav-quick"
-      class="nav-button"
-      onclick="showPage('quick')"
-    >
-      <div class="nav-icon">✓</div>
-      Quick
-    </button>
 
     <button
-      id="nav-plan"
+      id="navPlan"
       class="nav-button"
-      onclick="showPage('plan')"
+      onclick="openPage('plan')"
     >
-      <div class="nav-icon">▦</div>
+
+      <div class="nav-icon">
+        +
+      </div>
+
       Plan
+
     </button>
 
+
     <button
-      id="nav-money"
+      id="navPlay"
       class="nav-button"
-      onclick="showPage('money')"
+      onclick="openPage('play')"
     >
-      <div class="nav-icon">◉</div>
-      Money
+
+      <div class="nav-icon">
+        ◉
+      </div>
+
+      Play
+
+    </button>
+
+
+    <button
+      id="navSettings"
+      class="nav-button"
+      onclick="openPage('settings')"
+    >
+
+      <div class="nav-icon">
+        ⚙
+      </div>
+
+      Settings
+
     </button>
 
   </div>
@@ -1976,2601 +2313,2278 @@ textarea{
 <script>
 
 /* =========================================================
-   STUDY FINAL
-   No accounts / no passwords.
-   User name is only a local profile name.
+   BASIC APP STATE
 ========================================================= */
 
+const TASK_KEY = "studyTasks";
+const MONEY_KEY = "moneyData";
+const NOTES_KEY = "studyNotes";
+const USER_KEY = "studyUserName";
 
-/* =========================
-   STORAGE KEYS
-========================= */
+let currentPage = "home";
 
-const STORAGE={
-  username:"study_username",
-  tasks:"study_tasks",
-  money:"study_money",
-  notes:"study_notes",
-  quickHidden:"study_quick_hidden",
-  xo:"study_xo",
-  higher:"study_higher"
-};
 
-
-/* =========================
-   STATE
-========================= */
-
-let username="";
-
-let tasks=[];
-let quickHidden=[];
-
-let money={
-  added:0,
-  spent:0,
-  history:[]
-};
-
-let notes=[];
-
-let moneyHistoryLimit=5;
-
-
-/* =========================
-   GAMES
-========================= */
-
-let xoBoard=[
-  "","","",
-  "","","",
-  "","",""
-];
-
-let xoTurn="X";
-let xoXScore=0;
-let xoOScore=0;
-let xoDrawScore=0;
-
-let higherNumber=50;
-let higherPlayer=1;
-let higherScoreOne=0;
-let higherScoreTwo=0;
-let higherRoundNumber=1;
-
-
-/* =========================
-   SAFE JSON
-========================= */
-
-function loadJSON(key,fallback){
-
-  try{
-
-    const value=localStorage.getItem(key);
-
-    if(!value){
-      return fallback;
-    }
-
-    return JSON.parse(value);
-
-  }catch(error){
-
-    return fallback;
-
-  }
-
-}
-
-
-function saveJSON(key,value){
-
-  localStorage.setItem(
-    key,
-    JSON.stringify(value)
-  );
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function escapeHTML(value){
-
-  const div=document.createElement("div");
-
-  div.textContent=String(value ?? "");
-
-  return div.innerHTML;
-
-}
-
-
-/* =========================
-   SOUND
-========================= */
-
-let audioContext=null;
-
-function clickSound(){
-
-  try{
-
-    if(!audioContext){
-
-      audioContext=
-        new(
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
-
-    }
-
-    if(audioContext.state==="suspended"){
-      audioContext.resume();
-    }
-
-    const oscillator=
-      audioContext.createOscillator();
-
-    const gain=
-      audioContext.createGain();
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-
-    oscillator.frequency.value=650;
-
-    gain.gain.setValueAtTime(
-      .025,
-      audioContext.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      .001,
-      audioContext.currentTime+.05
-    );
-
-    oscillator.start();
-
-    oscillator.stop(
-      audioContext.currentTime+.05
-    );
-
-  }catch(error){}
-
-}
-
-
-/* =========================
-   INITIALIZATION
-========================= */
-
-window.addEventListener(
-  "DOMContentLoaded",
-  initialize
-);
-
-
-function initialize(){
-
-  setTimeout(()=>{
-
-    document.getElementById("splash")
-      .style.display="none";
-
-    loadApplication();
-
-  },1100);
-
-}
-
-
-function loadApplication(){
-
-  username=
-    localStorage.getItem(
-      STORAGE.username
-    ) || "";
-
-  if(!username){
-
-    document.getElementById("userSetup")
-      .classList.remove("hidden");
-
-    document.getElementById("app")
-      .classList.add("hidden");
-
-    return;
-
-  }
-
-  openApplication();
-
-}
-
-
-/* =========================
-   USER SETUP
-========================= */
-
-function startWithName(){
-
-  const input=
-    document.getElementById("userNameInput");
-
-  const value=
-    input.value.trim();
-
-  if(value.length<1){
-
-    alert("Please enter your name.");
-
-    input.focus();
-
-    return;
-
-  }
-
-  username=value.slice(0,30);
-
-  localStorage.setItem(
-    STORAGE.username,
-    username
-  );
-
-  document.getElementById("userSetup")
-    .classList.add("hidden");
-
-  openApplication();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   OPEN APP
-========================= */
-
-function openApplication(){
-
-  loadAllData();
-
-  document.getElementById("app")
-    .classList.remove("hidden");
-
-  document.getElementById("bottomNav")
-    .classList.remove("hidden");
-
-  updateUserUI();
-
-  showPage("home");
-
-}
-
-
-/* =========================
-   LOAD DATA
-========================= */
-
-function loadAllData(){
-
-  tasks=
-    loadJSON(
-      STORAGE.tasks,
-      []
-    );
-
-  quickHidden=
-    loadJSON(
-      STORAGE.quickHidden,
-      []
-    );
-
-  money=
-    loadJSON(
-      STORAGE.money,
-      {
-        added:0,
-        spent:0,
-        history:[]
-      }
-    );
-
-  notes=
-    loadJSON(
-      STORAGE.notes,
-      []
-    );
-
-  const xoData=
-    loadJSON(
-      STORAGE.xo,
-      null
-    );
-
-  if(xoData){
-
-    xoBoard=xoData.board || xoBoard;
-    xoTurn=xoData.turn || "X";
-    xoXScore=Number(xoData.x)||0;
-    xoOScore=Number(xoData.o)||0;
-    xoDrawScore=Number(xoData.d)||0;
-
-  }
-
-  const higherData=
-    loadJSON(
-      STORAGE.higher,
-      null
-    );
-
-  if(higherData){
-
-    higherNumber=
-      Number(higherData.number)||50;
-
-    higherPlayer=
-      Number(higherData.player)||1;
-
-    higherScoreOne=
-      Number(higherData.p1)||0;
-
-    higherScoreTwo=
-      Number(higherData.p2)||0;
-
-    higherRoundNumber=
-      Number(higherData.round)||1;
-
-  }
-
-}
-
-
-/* =========================
-   USER UI
-========================= */
-
-function updateUserUI(){
-
-  if(!username)return;
-
-  const initial=
-    username.charAt(0).toUpperCase();
-
-  document.getElementById("topUsername")
-    .textContent=username;
-
-  document.getElementById("topAvatar")
-    .textContent=initial;
-
-  document.getElementById("profileName")
-    .textContent=username;
-
-  document.getElementById("profileAvatar")
-    .textContent=initial;
-
-  document.getElementById("welcomeText")
-    .textContent=
-      "Welcome, "+username+" 👋";
-
-}
-
-
-/* =========================
+/* =========================================================
    PAGE NAVIGATION
-========================= */
+========================================================= */
 
-function showPage(pageId){
+function openPage(page){
 
   document
     .querySelectorAll(".page")
-    .forEach(page=>{
-      page.classList.remove("active");
-    });
+    .forEach(p => p.classList.remove("active"));
 
-  const page=
-    document.getElementById(pageId);
+  const target = document.getElementById(
+    "page-" + page
+  );
 
-  if(!page)return;
-
-  page.classList.add("active");
-
-
-  document
-    .querySelectorAll(".nav-button")
-    .forEach(button=>{
-      button.classList.remove("active");
-    });
-
-
-  const nav=
-    document.getElementById(
-      "nav-"+pageId
-    );
-
-  if(nav){
-    nav.classList.add("active");
+  if(target){
+    target.classList.add("active");
   }
 
+  currentPage = page;
+
+  updateNavigation(page);
+
+  if(page === "moneyData"){
+    setTimeout(drawMoneyChart,50);
+  }
+
+  if(page === "employees"){
+    renderEmployeesSchedule();
+  }
+
+  if(page === "notes"){
+    renderNotes();
+  }
+
+  if(page === "profile"){
+    renderProfile();
+  }
 
   window.scrollTo({
     top:0,
     behavior:"auto"
   });
+}
 
 
-  renderDashboard();
-  renderTasks();
-  renderMoney();
+function updateNavigation(page){
 
-  if(pageId==="data"){
-    drawMoneyChart();
+  document
+    .querySelectorAll(".nav-button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  if(
+    page === "home" ||
+    page === "enter" ||
+    page === "quick"
+  ){
+    document
+      .getElementById("navHome")
+      ?.classList.add("active");
   }
 
-  if(pageId==="xo"){
-    renderXO();
+  if(page === "plan"){
+    document
+      .getElementById("navPlan")
+      ?.classList.add("active");
   }
 
-  if(pageId==="higher"){
-    renderHigher();
+  if(
+    page === "play" ||
+    page === "xo" ||
+    page === "higher"
+  ){
+    document
+      .getElementById("navPlay")
+      ?.classList.add("active");
   }
 
-  if(pageId==="notes"){
-    renderNotes();
+  if(
+    page === "settings" ||
+    page === "notes" ||
+    page === "employees" ||
+    page === "profile"
+  ){
+    document
+      .getElementById("navSettings")
+      ?.classList.add("active");
   }
 
 }
 
 
-/* =========================
-   TASK ADD
-========================= */
+/* =========================================================
+   USER
+========================================================= */
+
+function getUserName(){
+
+  return localStorage.getItem(USER_KEY) || "User";
+
+}
+
+
+function startWithName(){
+
+  const input =
+    document.getElementById("userNameInput");
+
+  const name =
+    input.value.trim();
+
+  if(!name){
+    input.focus();
+    return;
+  }
+
+  localStorage.setItem(
+    USER_KEY,
+    name
+  );
+
+  showApp();
+
+}
+
+
+function showApp(){
+
+  document
+    .getElementById("userSetup")
+    .classList.add("hidden");
+
+  document
+    .getElementById("app")
+    .classList.remove("hidden");
+
+  updateUserUI();
+  renderAll();
+
+}
+
+
+function updateUserUI(){
+
+  const name = getUserName();
+
+  const first =
+    name.charAt(0).toUpperCase() || "?";
+
+  const headerName =
+    document.getElementById("headerUserName");
+
+  const headerAvatar =
+    document.getElementById("headerAvatar");
+
+  const profileName =
+    document.getElementById("profileName");
+
+  const profileAvatar =
+    document.getElementById("profileAvatar");
+
+  if(headerName){
+    headerName.textContent = name;
+  }
+
+  if(headerAvatar){
+    headerAvatar.textContent = first;
+  }
+
+  if(profileName){
+    profileName.textContent = name;
+  }
+
+  if(profileAvatar){
+    profileAvatar.textContent = first;
+  }
+
+}
+
+
+function changeUserName(){
+
+  const oldName = getUserName();
+
+  const newName =
+    prompt(
+      "Enter your new name:",
+      oldName
+    );
+
+  if(
+    newName !== null &&
+    newName.trim()
+  ){
+
+    localStorage.setItem(
+      USER_KEY,
+      newName.trim()
+    );
+
+    updateUserUI();
+
+  }
+
+}
+
+
+/* =========================================================
+   TASK DATA
+========================================================= */
+
+function loadTasks(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(TASK_KEY)
+    ) || [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveTasks(tasks){
+
+  localStorage.setItem(
+    TASK_KEY,
+    JSON.stringify(tasks)
+  );
+
+}
+
 
 function addTask(){
 
-  const name=
+  const name =
     document.getElementById("taskName")
-      .value.trim();
+    .value.trim();
 
-  const description=
+  const description =
     document.getElementById("taskDescription")
-      .value.trim();
+    .value.trim();
 
-  const date=
+  const date =
     document.getElementById("taskDate")
-      .value;
+    .value;
 
-  if(!name){
+  const time =
+    document.getElementById("taskTime")
+    .value;
 
-    alert("Enter a task name.");
+  if(!name || !date || !time){
+
+    alert(
+      "Please enter the task name, date and time."
+    );
 
     return;
 
   }
 
-  if(!date){
+  const tasks = loadTasks();
 
-    alert("Choose a date.");
+  tasks.push({
 
-    return;
+    id:
+      Date.now().toString(),
 
-  }
+    name,
 
+    description,
 
-  const task={
+    date,
 
-    id:Date.now()+Math.random(),
+    time,
 
-    name:name,
+    createdAt:
+      new Date().toISOString(),
 
-    description:description,
-
-    date:date,
-
-    status:"active",
-
-    createdAt:Date.now(),
-
-    completedAt:null
-
-  };
-
-
-  tasks.push(task);
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-
-  document.getElementById("taskName")
-    .value="";
-
-  document.getElementById("taskDescription")
-    .value="";
-
-  document.getElementById("taskDate")
-    .value="";
-
-
-  renderTasks();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-function countdownInfo(date){
-
-  const difference=
-    new Date(date).getTime()
-    -
-    Date.now();
-
-
-  if(difference<=0){
-
-    return{
-      text:"OVERDUE",
-      color:"red"
-    };
-
-  }
-
-
-  const seconds=
-    Math.floor(
-      difference/1000
-    );
-
-  const days=
-    Math.floor(
-      seconds/86400
-    );
-
-  const hours=
-    Math.floor(
-      (seconds%86400)/3600
-    );
-
-  const minutes=
-    Math.floor(
-      (seconds%3600)/60
-    );
-
-  const secs=
-    seconds%60;
-
-
-  let text="";
-
-  if(days>0){
-    text+=days+"d ";
-  }
-
-  text+=
-    String(hours).padStart(2,"0")+"h "
-    +
-    String(minutes).padStart(2,"0")+"m "
-    +
-    String(secs).padStart(2,"0")+"s";
-
-
-  let color="green";
-
-  if(difference<=3600000){
-
-    color="red";
-
-  }else if(difference<=86400000){
-
-    color="orange";
-
-  }else if(difference<=172800000){
-
-    color="yellow";
-
-  }
-
-
-  return{
-    text:text,
-    color:color
-  };
-
-}
-
-
-/* =========================
-   TASK CARD
-========================= */
-
-function activeTaskHTML(task,showHideButton){
-
-  const info=
-    countdownInfo(task.date);
-
-  return `
-
-    <div
-      class="task"
-      data-task-id="${task.id}"
-    >
-
-      ${
-        showHideButton
-        ?
-        `
-        <button
-          class="hide-button"
-          title="Hide from Quick Check"
-          onclick="hideQuickTask('${task.id}')"
-        >
-          ×
-        </button>
-        `
-        :
-        ""
-      }
-
-
-      <div class="task-top">
-
-        <div class="task-name">
-          ${escapeHTML(task.name)}
-        </div>
-
-        <div
-          class="status status-${info.color}"
-          data-task-status="${task.id}"
-        >
-          ACTIVE
-        </div>
-
-      </div>
-
-
-      ${
-        task.description
-        ?
-        `
-        <div class="task-description">
-          ${escapeHTML(task.description)}
-        </div>
-        `
-        :
-        ""
-      }
-
-
-      <div class="task-date">
-        📅 ${escapeHTML(
-          new Date(task.date).toLocaleString()
-        )}
-      </div>
-
-
-      <div
-        class="countdown ${info.color}"
-        data-countdown="${task.id}"
-      >
-        ⏳ ${info.text}
-      </div>
-
-
-      <div class="task-actions">
-
-        <button
-          class="done-button"
-          onclick="finishTask('${task.id}','done')"
-        >
-          ✓ Done
-        </button>
-
-        <button
-          class="failed-button"
-          onclick="finishTask('${task.id}','failed')"
-        >
-          ✕ Failed
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   RECORD CARD
-========================= */
-
-function recordTaskHTML(task){
-
-  const completed=
-    task.status==="done";
-
-  return `
-
-    <div
-      class="task ${
-        completed
-        ?
-        "record-completed"
-        :
-        "record-failed"
-      }"
-    >
-
-      <button
-        class="hide-button"
-        onclick="deleteRecord('${task.id}')"
-        title="Delete record"
-      >
-        ×
-      </button>
-
-
-      <div class="task-top">
-
-        <div class="task-name">
-          ${escapeHTML(task.name)}
-        </div>
-
-        <div class="
-          status
-          ${
-            completed
-            ?
-            "status-green"
-            :
-            "status-red"
-          }
-        ">
-          ${
-            completed
-            ?
-            "COMPLETED"
-            :
-            "FAILED"
-          }
-        </div>
-
-      </div>
-
-
-      ${
-        task.description
-        ?
-        `
-        <div class="task-description">
-          ${escapeHTML(task.description)}
-        </div>
-        `
-        :
-        ""
-      }
-
-
-      <div class="task-date">
-        Original date:
-        ${escapeHTML(
-          new Date(task.date).toLocaleString()
-        )}
-      </div>
-
-
-      <div class="task-date">
-        Recorded:
-        ${task.completedAt
-          ?
-          escapeHTML(
-            new Date(
-              task.completedAt
-            ).toLocaleString()
-          )
-          :
-          "-"
-        }
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   RENDER TASKS
-========================= */
-
-function renderTasks(){
-
-  const activeBox=
-    document.getElementById(
-      "activeTasks"
-    );
-
-  const recordsBox=
-    document.getElementById(
-      "taskRecords"
-    );
-
-  const quickBox=
-    document.getElementById(
-      "quickTasks"
-    );
-
-
-  if(!activeBox||
-     !recordsBox||
-     !quickBox)return;
-
-
-  const active=
-    tasks
-      .filter(task=>
-        task.status==="active"
-      )
-      .sort(
-        (a,b)=>
-          new Date(a.date)
-          -
-          new Date(b.date)
-      );
-
-
-  const records=
-    tasks
-      .filter(task=>
-        task.status==="done"||
-        task.status==="failed"
-      )
-      .slice()
-      .reverse();
-
-
-  /* ACTIVE PLAN */
-
-  if(!active.length){
-
-    activeBox.innerHTML=
-      `<div class="empty">
-        No active tasks.
-      </div>`;
-
-  }else{
-
-    activeBox.innerHTML=
-      active
-        .map(task=>
-          activeTaskHTML(
-            task,
-            false
-          )
-        )
-        .join("");
-
-  }
-
-
-  /* RECORDS */
-
-  if(!records.length){
-
-    recordsBox.innerHTML=
-      `<div class="empty">
-        No task records yet.
-      </div>`;
-
-  }else{
-
-    recordsBox.innerHTML=
-      records
-        .map(task=>
-          recordTaskHTML(task)
-        )
-        .join("");
-
-  }
-
-
-  /* QUICK CHECK */
-
-  const quickTasks=
-    active.filter(task=>
-      !quickHidden.includes(
-        String(task.id)
-      )
-    );
-
-
-  if(!quickTasks.length){
-
-    if(active.length){
-
-      quickBox.innerHTML=
-        `<div class="empty">
-          All active tasks are hidden from Quick Check.
-        </div>`;
-
-    }else{
-
-      quickBox.innerHTML=
-        `<div class="empty">
-          ✓ No active tasks.
-        </div>`;
-
-    }
-
-  }else{
-
-    quickBox.innerHTML=
-      quickTasks
-        .map(task=>
-          activeTaskHTML(
-            task,
-            true
-          )
-        )
-        .join("");
-
-  }
-
-}
-
-
-/* =========================
-   HIDE QUICK TASK
-========================= */
-
-function hideQuickTask(id){
-
-  const stringId=String(id);
-
-  if(!quickHidden.includes(stringId)){
-
-    quickHidden.push(stringId);
-
-  }
-
-  saveJSON(
-    STORAGE.quickHidden,
-    quickHidden
-  );
-
-
-  renderTasks();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   FINISH TASK
-========================= */
-
-function finishTask(id,status){
-
-  const task=
-    tasks.find(
-      item=>String(item.id)===String(id)
-    );
-
-  if(!task)return;
-
-  if(task.status!=="active")return;
-
-
-  task.status=status;
-
-  task.completedAt=Date.now();
-
-
-  quickHidden=
-    quickHidden.filter(
-      hiddenId=>
-        String(hiddenId)!==String(id)
-    );
-
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-  saveJSON(
-    STORAGE.quickHidden,
-    quickHidden
-  );
-
-
-  renderTasks();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   DELETE RECORD
-========================= */
-
-function deleteRecord(id){
-
-  if(!confirm(
-    "Delete this task record?"
-  ))return;
-
-
-  tasks=
-    tasks.filter(
-      task=>
-        String(task.id)!==String(id)
-    );
-
-
-  saveJSON(
-    STORAGE.tasks,
-    tasks
-  );
-
-
-  renderTasks();
-  renderDashboard();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   COUNTDOWN ONLY
-   IMPORTANT:
-   This does NOT rebuild task cards.
-========================= */
-
-function updateCountdowns(){
-
-  document
-    .querySelectorAll(
-      "[data-countdown]"
-    )
-    .forEach(element=>{
-
-      const id=
-        element.dataset.countdown;
-
-      const task=
-        tasks.find(
-          item=>
-            String(item.id)===String(id)
-        );
-
-
-      if(!task||
-         task.status!=="active"){
-
-        return;
-
-      }
-
-
-      const info=
-        countdownInfo(task.date);
-
-
-      element.textContent=
-        "⏳ "+info.text;
-
-
-      element.className=
-        "countdown "+info.color;
-
-
-      const status=
-        document.querySelector(
-          `[data-task-status="${CSS.escape(String(id))}"]`
-        );
-
-
-      if(status){
-
-        status.className=
-          "status status-"+info.color;
-
-        status.textContent="ACTIVE";
-
-      }
-
-    });
-
-}
-
-
-setInterval(
-  updateCountdowns,
-  1000
-);
-
-
-/* =========================
-   DASHBOARD
-========================= */
-
-function renderDashboard(){
-
-  const active=
-    tasks.filter(
-      task=>task.status==="active"
-    );
-
-  const completed=
-    tasks.filter(
-      task=>task.status==="done"
-    );
-
-  const finished=
-    tasks.filter(
-      task=>
-        task.status==="done"||
-        task.status==="failed"
-    );
-
-
-  const successRate=
-    finished.length
-    ?
-    Math.round(
-      completed.length/
-      finished.length*
-      100
-    )
-    :
-    0;
-
-
-  const balance=
-    money.added-money.spent;
-
-
-  document.getElementById(
-    "dashActive"
-  ).textContent=
-    active.length;
-
-
-  document.getElementById(
-    "dashCompleted"
-  ).textContent=
-    completed.length;
-
-
-  document.getElementById(
-    "dashSuccess"
-  ).textContent=
-    successRate+"%";
-
-
-  const moneyElement=
-    document.getElementById(
-      "dashMoney"
-    );
-
-  moneyElement.textContent=
-    balance.toFixed(2)+" DT";
-
-
-  moneyElement.className=
-    balance<0
-    ?
-    "red-text"
-    :
-    "green-text";
-
-
-  const box=
-    document.getElementById(
-      "homeNextTask"
-    );
-
-
-  if(!active.length){
-
-    box.innerHTML=`
-
-      <div class="card">
-
-        <b>🎯 No active tasks</b>
-
-        <div class="page-sub"
-             style="margin:7px 0 0">
-          Your workspace is clear.
-        </div>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const next=
-    active
-      .slice()
-      .sort(
-        (a,b)=>
-          new Date(a.date)
-          -
-          new Date(b.date)
-      )[0];
-
-
-  const info=
-    countdownInfo(next.date);
-
-
-  box.innerHTML=`
-
-    <div class="card">
-
-      <small style="color:#777">
-        NEXT TASK
-      </small>
-
-      <div style="
-        font-size:17px;
-        font-weight:900;
-        margin-top:7px;
-      ">
-        ${escapeHTML(next.name)}
-      </div>
-
-      <div class="
-        countdown ${info.color}
-      "
-      data-countdown="${next.id}">
-        ⏳ ${info.text}
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================
-   MONEY
-========================= */
-
-function addMoney(){
-
-  const amount=
-    Number(
-      document.getElementById(
-        "moneyAmount"
-      ).value
-    );
-
-  const description=
-    document.getElementById(
-      "moneyDescription"
-    ).value.trim();
-
-
-  if(!amount||amount<=0){
-
-    alert("Enter a valid amount.");
-
-    return;
-
-  }
-
-
-  money.added+=amount;
-
-
-  money.history.unshift({
-
-    id:Date.now()+Math.random(),
-
-    type:"added",
-
-    amount:amount,
-
-    description:
-      description||"Money added",
-
-    date:Date.now()
+    status:"active"
 
   });
 
+  saveTasks(tasks);
 
-  saveMoney();
+  document.getElementById("taskName").value="";
+  document.getElementById("taskDescription").value="";
+  document.getElementById("taskDate").value="";
+  document.getElementById("taskTime").value="";
 
-}
-
-
-/* =========================
-   SPEND MONEY
-========================= */
-
-function spendMoney(){
-
-  const amount=
-    Number(
-      document.getElementById(
-        "moneyAmount"
-      ).value
-    );
-
-  const description=
-    document.getElementById(
-      "moneyDescription"
-    ).value.trim();
-
-
-  if(!amount||amount<=0){
-
-    alert("Enter a valid amount.");
-
-    return;
-
-  }
-
-
-  money.spent+=amount;
-
-
-  money.history.unshift({
-
-    id:Date.now()+Math.random(),
-
-    type:"spent",
-
-    amount:amount,
-
-    description:
-      description||"Money spent",
-
-    date:Date.now()
-
-  });
-
-
-  saveMoney();
+  renderAll();
 
 }
 
 
-/* =========================
-   SAVE MONEY
-========================= */
+function getTaskDate(task){
 
-function saveMoney(){
-
-  saveJSON(
-    STORAGE.money,
-    money
+  return new Date(
+    `${task.date}T${task.time}:00`
   );
 
-
-  document.getElementById(
-    "moneyAmount"
-  ).value="";
-
-  document.getElementById(
-    "moneyDescription"
-  ).value="";
+}
 
 
-  renderMoney();
-  renderDashboard();
+function taskRemaining(task){
 
-  if(
-    document
-      .getElementById("data")
-      .classList.contains("active")
-  ){
-
-    drawMoneyChart();
-
-  }
-
-  clickSound();
+  return getTaskDate(task).getTime()
+    - Date.now();
 
 }
 
 
-/* =========================
-   RENDER MONEY
-========================= */
+function getTaskStatus(task){
 
-function renderMoney(){
+  const remaining =
+    taskRemaining(task);
 
-  const balance=
-    money.added-money.spent;
+  const day =
+    24 * 60 * 60 * 1000;
 
+  if(remaining <= day){
 
-  document.getElementById(
-    "moneyBalance"
-  ).textContent=
-    balance.toFixed(2)+" DT";
-
-
-  document.getElementById(
-    "moneyBalance"
-  ).style.color=
-    balance<0
-    ?
-    "var(--red)"
-    :
-    "var(--green)";
-
-
-  document.getElementById(
-    "moneyAdded"
-  ).textContent=
-    money.added.toFixed(2)+" DT";
-
-
-  document.getElementById(
-    "moneySpent"
-  ).textContent=
-    money.spent.toFixed(2)+" DT";
-
-
-  const progress=
-    document.getElementById(
-      "moneyProgress"
-    );
-
-
-  if(money.added<=0){
-
-    progress.style.width="0%";
-
-  }else{
-
-    const percent=
-      Math.max(
-        0,
-        Math.min(
-          100,
-          balance/money.added*100
-        )
-      );
-
-    progress.style.width=
-      percent+"%";
+    return "red";
 
   }
 
+  if(remaining <= day * 2){
 
-  if(balance<0){
-
-    progress.style.background=
-      "var(--red)";
-
-  }else if(balance/money.added<.25){
-
-    progress.style.background=
-      "var(--red)";
-
-  }else if(balance/money.added<.5){
-
-    progress.style.background=
-      "var(--yellow)";
-
-  }else{
-
-    progress.style.background=
-      "var(--green)";
+    return "yellow";
 
   }
 
-
-  const debt=
-    document.getElementById(
-      "debtWarning"
-    );
-
-
-  if(balance<0){
-
-    debt.innerHTML=`
-
-      <div class="debt">
-
-        ⚠ YOU ARE IN DEBT
-
-        <br>
-
-        ${Math.abs(balance).toFixed(2)} DT
-
-      </div>
-
-    `;
-
-  }else{
-
-    debt.innerHTML="";
-
-  }
-
-
-  const historyBox=
-    document.getElementById(
-      "moneyHistory"
-    );
-
-
-  if(!historyBox)return;
-
-
-  const list=
-    money.history
-      .slice(
-        0,
-        moneyHistoryLimit
-      );
-
-
-  if(!list.length){
-
-    historyBox.innerHTML=
-      `<div class="empty">
-        No money activity yet.
-      </div>`;
-
-  }else{
-
-    historyBox.innerHTML=
-      list.map(item=>`
-
-        <div class="money-history">
-
-          <div>
-
-            <div class="money-history-title">
-              ${
-                item.type==="added"
-                ?
-                "Money Added"
-                :
-                "Money Spent"
-              }
-            </div>
-
-            <div class="money-history-desc">
-              ${escapeHTML(
-                item.description
-              )}
-            </div>
-
-            <div class="money-history-date">
-              ${new Date(
-                item.date
-              ).toLocaleString()}
-            </div>
-
-          </div>
-
-          <div
-            class="money-history-amount"
-            style="
-              color:${
-                item.type==="added"
-                ?
-                "var(--green)"
-                :
-                "var(--red)"
-              };
-            "
-          >
-            ${
-              item.type==="added"
-              ?
-              "+"
-              :
-              "-"
-            }${Number(
-              item.amount
-            ).toFixed(2)} DT
-          </div>
-
-        </div>
-
-      `).join("");
-
-  }
-
-
-  const moreButton=
-    document.getElementById(
-      "moreHistoryButton"
-    );
-
-
-  if(
-    money.history.length>
-    moneyHistoryLimit
-  ){
-
-    moreButton.style.display="block";
-
-  }else{
-
-    moreButton.style.display="none";
-
-  }
+  return "green";
 
 }
 
 
-/* =========================
-   MORE MONEY HISTORY
-========================= */
+function formatTime(ms){
 
-function showMoreHistory(){
+  if(ms <= 0){
+    return "Due";
+  }
 
-  moneyHistoryLimit+=10;
+  const totalSeconds =
+    Math.floor(ms / 1000);
 
-  renderMoney();
-
-}
-
-
-/* =========================
-   RESET MONEY
-========================= */
-
-function resetMoney(){
-
-  if(!confirm(
-    "Reset all Pocket Money data?"
-  ))return;
-
-
-  money={
-    added:0,
-    spent:0,
-    history:[]
-  };
-
-
-  moneyHistoryLimit=5;
-
-
-  saveJSON(
-    STORAGE.money,
-    money
-  );
-
-
-  renderMoney();
-  renderDashboard();
-
-  drawMoneyChart();
-
-  clickSound();
-
-}
-
-
-/* =========================
-   CHART
-========================= */
-
-function drawMoneyChart(){
-
-  const canvas=
-    document.getElementById(
-      "moneyChart"
+  const days =
+    Math.floor(
+      totalSeconds / 86400
     );
 
-  if(!canvas)return;
-
-
-  const rect=
-    canvas.getBoundingClientRect();
-
-
-  const cssWidth=
-    Math.max(
-      280,
-      Math.floor(rect.width||600)
+  const hours =
+    Math.floor(
+      (totalSeconds % 86400) / 3600
     );
 
-
-  const cssHeight=
-    Math.max(
-      300,
-      Math.floor(cssWidth*.5)
+  const minutes =
+    Math.floor(
+      (totalSeconds % 3600) / 60
     );
 
+  const seconds =
+    totalSeconds % 60;
 
-  const dpr=
-    window.devicePixelRatio||1;
+  if(days > 0){
 
-
-  canvas.width=
-    cssWidth*dpr;
-
-  canvas.height=
-    cssHeight*dpr;
-
-
-  canvas.style.height=
-    cssHeight+"px";
-
-
-  const ctx=
-    canvas.getContext("2d");
-
-
-  ctx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
-
-
-  ctx.clearRect(
-    0,
-    0,
-    cssWidth,
-    cssHeight
-  );
-
-
-  const left=55;
-  const right=20;
-  const top=25;
-  const bottom=45;
-
-
-  const graphWidth=
-    cssWidth-left-right;
-
-  const graphHeight=
-    cssHeight-top-bottom;
-
-
-  const history=
-    money.history
-      .slice()
-      .reverse();
-
-
-  if(!history.length){
-
-    ctx.fillStyle="#777";
-
-    ctx.font="15px Arial";
-
-    ctx.textAlign="center";
-
-    ctx.fillText(
-      "No financial data yet",
-      cssWidth/2,
-      cssHeight/2
-    );
-
-
-    renderMoneyReport();
-
-    return;
+    return `${days}d ${String(hours).padStart(2,"0")}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2,"0")}s`;
 
   }
 
+  return `${String(hours).padStart(2,"0")}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2,"0")}s`;
 
-  let running=0;
-
-  const points=[];
+}
 
 
-  history.forEach(item=>{
+function formatDate(date,time){
 
-    if(item.type==="added"){
+  const d =
+    new Date(`${date}T${time}:00`);
 
-      running+=Number(item.amount);
-
-    }else{
-
-      running-=Number(item.amount);
-
+  return d.toLocaleDateString(
+    undefined,
+    {
+      weekday:"short",
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
     }
-
-
-    points.push({
-      balance:running,
-      date:item.date
-    });
-
-  });
-
-
-  const values=
-    points.map(
-      point=>point.balance
-    );
-
-
-  let max=
-    Math.max(
-      ...values,
-      10
-    );
-
-  let min=
-    Math.min(
-      ...values,
-      0
-    );
-
-
-  if(max===min){
-
-    max+=10;
-    min-=10;
-
-  }
-
-
-  const range=max-min;
-
-
-  /* GRID */
-
-  ctx.strokeStyle="#242424";
-  ctx.lineWidth=1;
-
-
-  for(let i=0;i<=4;i++){
-
-    const y=
-      top+
-      graphHeight/4*i;
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-      left,
-      y
-    );
-
-    ctx.lineTo(
-      cssWidth-right,
-      y
-    );
-
-    ctx.stroke();
-
-
-    const value=
-      max-
-      range/4*i;
-
-
-    ctx.fillStyle="#777";
-
-    ctx.font="10px Arial";
-
-    ctx.textAlign="right";
-
-    ctx.fillText(
-      value.toFixed(0),
-      left-8,
-      y+4
-    );
-
-  }
-
-
-  /* LINE */
-
-  const step=
-    points.length===1
-    ?
-    0
-    :
-    graphWidth/
-    (points.length-1);
-
-
-  ctx.beginPath();
-
-
-  points.forEach(
-    (point,index)=>{
-
-      const x=
-        points.length===1
-        ?
-        left+graphWidth/2
-        :
-        left+
-        index*step;
-
-
-      const y=
-        top+
-        (
-          max-point.balance
-        )/
-        range*
-        graphHeight;
-
-
-      if(index===0){
-
-        ctx.moveTo(x,y);
-
-      }else{
-
-        ctx.lineTo(x,y);
-
-      }
-
-    }
-  );
-
-
-  ctx.strokeStyle=
-    "#35d07f";
-
-  ctx.lineWidth=3;
-
-  ctx.stroke();
-
-
-  /* POINTS */
-
-  points.forEach(
-    (point,index)=>{
-
-      const x=
-        points.length===1
-        ?
-        left+graphWidth/2
-        :
-        left+
-        index*step;
-
-
-      const y=
-        top+
-        (
-          max-point.balance
-        )/
-        range*
-        graphHeight;
-
-
-      ctx.beginPath();
-
-      ctx.arc(
-        x,
-        y,
-        4,
-        0,
-        Math.PI*2
-      );
-
-
-      ctx.fillStyle=
-        point.balance<0
-        ?
-        "#ff5050"
-        :
-        "#35d07f";
-
-      ctx.fill();
-
-
-      if(
-        index===0||
-        index===points.length-1
-      ){
-
-        ctx.fillStyle="#777";
-
-        ctx.font="9px Arial";
-
-        ctx.textAlign="center";
-
-        ctx.fillText(
-          new Date(
-            point.date
-          ).toLocaleDateString(
-            undefined,
-            {
-              day:"2-digit",
-              month:"short"
-            }
-          ),
-          x,
-          cssHeight-18
-        );
-
-      }
-
-    }
-  );
-
-
-  renderMoneyReport();
+  ) + " · " + time;
 
 }
 
 
-/* =========================
-   REPORT
-========================= */
+function completeTask(id){
 
-function renderMoneyReport(){
+  const tasks = loadTasks();
 
-  const box=
-    document.getElementById(
-      "moneyReport"
-    );
+  const task =
+    tasks.find(t => t.id === id);
 
-  if(!box)return;
+  if(!task) return;
 
+  task.status = "completed";
+  task.completedAt =
+    new Date().toISOString();
 
-  const balance=
-    money.added-money.spent;
+  saveTasks(tasks);
 
-
-  const transactions=
-    money.history.length;
-
-
-  box.innerHTML=`
-
-    <b>FINANCIAL REPORT</b>
-
-    <div class="page-sub"
-         style="margin:10px 0 0">
-
-      Added:
-      <strong>
-        ${money.added.toFixed(2)} DT
-      </strong>
-
-      <br><br>
-
-      Spent:
-      <strong>
-        ${money.spent.toFixed(2)} DT
-      </strong>
-
-      <br><br>
-
-      Current balance:
-      <strong
-        style="
-          color:${
-            balance<0
-            ?
-            "var(--red)"
-            :
-            "var(--green)"
-          }
-        "
-      >
-        ${balance.toFixed(2)} DT
-      </strong>
-
-      <br><br>
-
-      Transactions:
-      <strong>${transactions}</strong>
-
-    </div>
-
-  `;
+  renderAll();
 
 }
 
 
-/* =========================
-   RESPONSIVE CHART
-========================= */
+function failTask(id){
 
-let chartResizeTimer=null;
+  const tasks = loadTasks();
 
-window.addEventListener(
-  "resize",
-  ()=>{
+  const task =
+    tasks.find(t => t.id === id);
 
-    clearTimeout(
-      chartResizeTimer
-    );
+  if(!task) return;
 
-    chartResizeTimer=
-      setTimeout(
-        ()=>{
+  task.status = "failed";
+  task.failedAt =
+    new Date().toISOString();
 
-          const dataPage=
-            document.getElementById(
-              "data"
-            );
+  saveTasks(tasks);
 
-          if(
-            dataPage &&
-            dataPage.classList.contains(
-              "active"
-            )
-          ){
-
-            drawMoneyChart();
-
-          }
-
-        },
-        100
-      );
-
-  }
-);
-
-
-/* =========================
-   PROFILE / USER NAME
-========================= */
-
-function changeUsername(){
-
-  const input=
-    document.getElementById(
-      "newUsername"
-    );
-
-  const value=
-    input.value.trim();
-
-
-  if(!value){
-
-    alert("Enter a name.");
-
-    return;
-
-  }
-
-
-  username=value.slice(0,30);
-
-
-  localStorage.setItem(
-    STORAGE.username,
-    username
-  );
-
-
-  input.value="";
-
-  updateUserUI();
-
-  renderDashboard();
-
-  clickSound();
+  renderAll();
 
 }
 
 
-/* =========================
-   NOTES
-========================= */
+function deleteTask(id){
 
-function saveNote(){
+  const tasks =
+    loadTasks()
+      .filter(t => t.id !== id);
 
-  const input=
-    document.getElementById(
-      "noteInput"
-    );
+  saveTasks(tasks);
 
-
-  const text=
-    input.value.trim();
-
-
-  if(!text){
-
-    alert("Write something first.");
-
-    return;
-
-  }
-
-
-  notes.unshift({
-
-    id:Date.now()+Math.random(),
-
-    text:text,
-
-    date:Date.now()
-
-  });
-
-
-  saveJSON(
-    STORAGE.notes,
-    notes
-  );
-
-
-  input.value="";
-
-  renderNotes();
-
-  clickSound();
+  renderAll();
 
 }
 
 
-/* =========================
-   RENDER NOTES
-========================= */
+function createTaskCard(task,record=false){
 
-function renderNotes(){
+  const remaining =
+    taskRemaining(task);
 
-  const box=
-    document.getElementById(
-      "notesList"
-    );
+  const status =
+    getTaskStatus(task);
 
-  if(!box)return;
+  const statusText =
+    status === "red"
+      ? "URGENT"
+      : status === "yellow"
+        ? "2 DAYS"
+        : "ON TRACK";
 
+  const div =
+    document.createElement("div");
 
-  const search=
+  div.className =
+    "task " +
     (
-      document.getElementById(
-        "noteSearch"
-      )?.value || ""
-    )
-    .trim()
-    .toLowerCase();
-
-
-  const filtered=
-    notes.filter(
-      note=>
-        note.text
-          .toLowerCase()
-          .includes(search)
+      task.status === "completed"
+        ? "record-completed"
+        : task.status === "failed"
+          ? "record-failed"
+          : ""
     );
 
+  div.innerHTML = `
 
-  if(!filtered.length){
+    <div class="task-top">
 
-    box.innerHTML=
-      `<div class="empty">
-        No notes found.
-      </div>`;
+      <div>
 
-    return;
-
-  }
-
-
-  box.innerHTML=
-    filtered.map(note=>`
-
-      <div class="note">
-
-        <div class="note-content">
-          ${escapeHTML(note.text)}
+        <div class="task-name">
+          ${escapeHTML(task.name)}
         </div>
 
-        <div class="note-date">
-          ${new Date(
-            note.date
-          ).toLocaleString()}
+        ${
+          task.description
+            ? `
+              <div class="task-description">
+                ${escapeHTML(task.description)}
+              </div>
+            `
+            : ""
+        }
+
+        <div class="task-date">
+          ${formatDate(task.date,task.time)}
         </div>
 
-        <div class="note-buttons">
+      </div>
+
+      <div class="status status-${status}">
+        ${record ? task.status.toUpperCase() : statusText}
+      </div>
+
+    </div>
+
+    ${
+      !record
+      ? `
+        <div class="countdown ${status}">
+          ${formatTime(remaining)}
+        </div>
+
+        <div class="task-actions">
 
           <button
-            class="note-edit"
-            onclick="editNote('${note.id}')"
+            class="done-button"
+            onclick="completeTask('${task.id}')"
           >
-            Edit
+            ✓ Done
           </button>
 
           <button
-            class="note-delete"
-            onclick="deleteNote('${note.id}')"
+            class="failed-button"
+            onclick="failTask('${task.id}')"
+          >
+            ✕ Failed
+          </button>
+
+          <button
+            class="failed-button"
+            onclick="deleteTask('${task.id}')"
           >
             Delete
           </button>
 
         </div>
+      `
+      : `
+        <div class="task-date">
+          ${task.status === "completed"
+            ? "Completed"
+            : "Failed"}
+        </div>
+
+        <div class="task-actions">
+
+          <button
+            class="failed-button"
+            onclick="deleteTask('${task.id}')"
+          >
+            Delete
+          </button>
+
+        </div>
+      `
+    }
+
+  `;
+
+  return div;
+
+}
+
+
+function renderPlan(){
+
+  const list =
+    document.getElementById("planList");
+
+  const records =
+    document.getElementById("recordsList");
+
+  if(!list || !records) return;
+
+  list.innerHTML="";
+  records.innerHTML="";
+
+  const tasks = loadTasks();
+
+  const active =
+    tasks.filter(
+      t => t.status === "active"
+    );
+
+  const finished =
+    tasks.filter(
+      t => t.status !== "active"
+    );
+
+  if(active.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">No active tasks.</div>`;
+
+  }else{
+
+    active.forEach(task => {
+
+      list.appendChild(
+        createTaskCard(task)
+      );
+
+    });
+
+  }
+
+
+  if(finished.length === 0){
+
+    records.innerHTML =
+      `<div class="empty">No task records yet.</div>`;
+
+  }else{
+
+    finished
+      .slice()
+      .reverse()
+      .forEach(task => {
+
+        records.appendChild(
+          createTaskCard(task,true)
+        );
+
+      });
+
+  }
+
+}
+
+
+function renderEnter(){
+
+  const list =
+    document.getElementById("enterList");
+
+  if(!list) return;
+
+  list.innerHTML="";
+
+  const active =
+    loadTasks()
+      .filter(
+        t => t.status === "active"
+      );
+
+  if(active.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">No active tasks.</div>`;
+
+    return;
+
+  }
+
+  active.forEach(task => {
+
+    list.appendChild(
+      createTaskCard(task)
+    );
+
+  });
+
+}
+
+
+function renderQuick(){
+
+  const list =
+    document.getElementById("quickList");
+
+  if(!list) return;
+
+  list.innerHTML="";
+
+  const urgent =
+    loadTasks()
+      .filter(
+        t =>
+          t.status === "active" &&
+          getTaskStatus(t) === "red"
+      );
+
+  if(urgent.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">No urgent tasks.</div>`;
+
+    return;
+
+  }
+
+  urgent.forEach(task => {
+
+    list.appendChild(
+      createTaskCard(task)
+    );
+
+  });
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+  function renderMoney(){
+
+  const data = loadMoney();
+
+  const added =
+    Number(data.added) || 0;
+
+  const spent =
+    Number(data.spent) || 0;
+
+  const remaining =
+    added - spent;
+
+  const remainingEl =
+    document.getElementById("remainingMoney");
+
+  const totalAddedEl =
+    document.getElementById("totalAdded");
+
+  const totalSpentEl =
+    document.getElementById("totalSpent");
+
+  const progressEl =
+    document.getElementById("moneyProgress");
+
+  if(remainingEl){
+    remainingEl.textContent =
+      `${remaining.toFixed(2)} DT`;
+  }
+
+  if(totalAddedEl){
+    totalAddedEl.textContent =
+      `${added.toFixed(2)} DT`;
+  }
+
+  if(totalSpentEl){
+    totalSpentEl.textContent =
+      `${spent.toFixed(2)} DT`;
+  }
+
+  if(progressEl){
+
+    const percentage =
+      added > 0
+        ? Math.max(
+            0,
+            Math.min(
+              100,
+              (remaining / added) * 100
+            )
+          )
+        : 0;
+
+    progressEl.style.width =
+      percentage + "%";
+
+  }
+
+  const moneyCard =
+    document.querySelector(".money-card");
+
+  if(moneyCard){
+
+    moneyCard.classList.remove(
+      "money-red",
+      "money-yellow",
+      "money-orange",
+      "money-green"
+    );
+
+    if(remaining < 0){
+
+      moneyCard.classList.add(
+        "money-red"
+      );
+
+    }else if(added <= 0){
+
+      moneyCard.classList.add(
+        "money-red"
+      );
+
+    }else{
+
+      const percentage =
+        (remaining / added) * 100;
+
+      if(percentage < 25){
+
+        moneyCard.classList.add(
+          "money-red"
+        );
+
+      }else if(percentage < 50){
+
+        moneyCard.classList.add(
+          "money-yellow"
+        );
+
+      }else if(percentage < 75){
+
+        moneyCard.classList.add(
+          "money-orange"
+        );
+
+      }else{
+
+        moneyCard.classList.add(
+          "money-green"
+        );
+
+      }
+
+    }
+
+  }
+
+  const danger =
+    document.getElementById("moneyDanger");
+
+  if(danger){
+
+    if(remaining < 0){
+
+      danger.textContent =
+        `DANGER · You are ${Math.abs(remaining).toFixed(2)} DT in debt.`;
+
+      danger.classList.remove("hidden");
+
+    }else{
+
+      danger.textContent="";
+      danger.classList.add("hidden");
+
+    }
+
+  }
+
+}
+
+
+function loadMoney(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(MONEY_KEY)
+    ) || {
+      added:0,
+      spent:0,
+      history:[]
+    };
+
+  }catch(e){
+
+    return {
+      added:0,
+      spent:0,
+      history:[]
+    };
+
+  }
+
+}
+
+
+function saveMoney(data){
+
+  localStorage.setItem(
+    MONEY_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+
+function addMoney(){
+
+  const input =
+    document.getElementById("moneyAmount");
+
+  if(!input) return;
+
+  const amount =
+    Number(input.value);
+
+  if(
+    !Number.isFinite(amount) ||
+    amount <= 0
+  ){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+  const data =
+    loadMoney();
+
+  data.added =
+    (Number(data.added) || 0) +
+    amount;
+
+  if(!Array.isArray(data.history)){
+    data.history=[];
+  }
+
+  data.history.push({
+
+    type:"added",
+
+    amount,
+
+    date:
+      new Date().toISOString()
+
+  });
+
+  saveMoney(data);
+
+  input.value="";
+
+  renderMoney();
+  renderMoneyHistory();
+
+}
+
+
+function spendMoney(){
+
+  const input =
+    document.getElementById("spendAmount");
+
+  if(!input) return;
+
+  const amount =
+    Number(input.value);
+
+  if(
+    !Number.isFinite(amount) ||
+    amount <= 0
+  ){
+
+    alert("Enter a valid amount.");
+
+    return;
+
+  }
+
+  const data =
+    loadMoney();
+
+  data.spent =
+    (Number(data.spent) || 0) +
+    amount;
+
+  if(!Array.isArray(data.history)){
+    data.history=[];
+  }
+
+  data.history.push({
+
+    type:"spent",
+
+    amount,
+
+    date:
+      new Date().toISOString()
+
+  });
+
+  saveMoney(data);
+
+  input.value="";
+
+  renderMoney();
+  renderMoneyHistory();
+
+}
+
+
+function resetMoney(){
+
+  if(
+    !confirm(
+      "Reset all Pocket Money data?"
+    )
+  ){
+
+    return;
+
+  }
+
+  saveMoney({
+
+    added:0,
+
+    spent:0,
+
+    history:[]
+
+  });
+
+  renderMoney();
+  renderMoneyHistory();
+
+}
+
+
+function renderMoneyHistory(){
+
+  const list =
+    document.getElementById(
+      "moneyHistory"
+    );
+
+  if(!list) return;
+
+  list.innerHTML="";
+
+  const data =
+    loadMoney();
+
+  const history =
+    Array.isArray(data.history)
+      ? data.history.slice().reverse()
+      : [];
+
+  if(history.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">No money history yet.</div>`;
+
+    return;
+
+  }
+
+  history.forEach(item => {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "money-history-item";
+
+    const date =
+      new Date(item.date);
+
+    const type =
+      item.type === "added"
+        ? "Added"
+        : "Spent";
+
+    const sign =
+      item.type === "added"
+        ? "+"
+        : "-";
+
+    div.innerHTML = `
+
+      <div>
+
+        <strong>
+          ${type}
+        </strong>
+
+        <div class="brand-sub">
+          ${date.toLocaleDateString()}
+          ·
+          ${date.toLocaleTimeString(
+            [],
+            {
+              hour:"2-digit",
+              minute:"2-digit"
+            }
+          )}
+        </div>
 
       </div>
 
-    `).join("");
+      <strong>
+        ${sign}${Number(item.amount).toFixed(2)} DT
+      </strong>
+
+    `;
+
+    list.appendChild(div);
+
+  });
 
 }
 
 
-/* =========================
-   EDIT NOTE
-========================= */
+function drawMoneyChart(){
 
-function editNote(id){
-
-  const note=
-    notes.find(
-      item=>
-        String(item.id)===String(id)
+  const canvas =
+    document.getElementById(
+      "moneyChart"
     );
 
+  if(!canvas) return;
 
-  if(!note)return;
+  const ctx =
+    canvas.getContext("2d");
 
+  const data =
+    loadMoney();
 
-  const next=
-    prompt(
-      "Edit your note:",
-      note.text
+  const history =
+    Array.isArray(data.history)
+      ? data.history
+      : [];
+
+  const now =
+    new Date();
+
+  const start =
+    new Date(now);
+
+  start.setDate(
+    start.getDate() - 6
+  );
+
+  start.setHours(
+    0,0,0,0
+  );
+
+  const days=[];
+
+  for(let i=0;i<7;i++){
+
+    const d =
+      new Date(start);
+
+    d.setDate(
+      start.getDate() + i
     );
 
+    days.push(d);
 
-  if(next===null)return;
+  }
+
+  const values =
+    days.map(day => {
+
+      const key =
+        day.toLocaleDateString();
+
+      let total=0;
+
+      history.forEach(item => {
+
+        const itemDate =
+          new Date(item.date);
+
+        if(
+          itemDate.toLocaleDateString()
+          === key
+        ){
+
+          if(item.type === "added"){
+
+            total +=
+              Number(item.amount) || 0;
+
+          }else{
+
+            total -=
+              Number(item.amount) || 0;
+
+          }
+
+        }
+
+      });
+
+      return total;
+
+    });
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+  const ratio =
+    window.devicePixelRatio || 1;
+
+  canvas.width =
+    rect.width * ratio;
+
+  canvas.height =
+    rect.height * ratio;
+
+  ctx.setTransform(
+    ratio,
+    0,
+    0,
+    ratio,
+    0,
+    0
+  );
+
+  const width =
+    rect.width;
+
+  const height =
+    rect.height;
+
+  ctx.clearRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+  const padding=30;
+
+  const chartWidth =
+    width - padding * 2;
+
+  const chartHeight =
+    height - padding * 2;
+
+  const max =
+    Math.max(
+      10,
+      ...values.map(v => Math.abs(v))
+    );
+
+  const min =
+    -max;
+
+  const range =
+    max - min;
+
+  ctx.beginPath();
+
+  values.forEach(
+    (value,index) => {
+
+      const x =
+        padding +
+        (
+          index /
+          Math.max(1,values.length-1)
+        ) *
+        chartWidth;
+
+      const y =
+        padding +
+        (
+          1 -
+          (
+            value - min
+          ) / range
+        ) *
+        chartHeight;
+
+      if(index === 0){
+        ctx.moveTo(x,y);
+      }else{
+        ctx.lineTo(x,y);
+      }
+
+    }
+  );
+
+  ctx.stroke();
+
+  ctx.font =
+    "11px -apple-system, BlinkMacSystemFont, sans-serif";
+
+  ctx.textAlign="center";
+
+  days.forEach(
+    (day,index) => {
+
+      const x =
+        padding +
+        (
+          index /
+          Math.max(1,days.length-1)
+        ) *
+        chartWidth;
+
+      ctx.fillText(
+        day.toLocaleDateString(
+          undefined,
+          {weekday:"short"}
+        ),
+        x,
+        height - 8
+      );
+
+    }
+  );
+
+}
 
 
-  if(!next.trim()){
+/* =========================================================
+   EMPLOYEES SCHEDULE
+========================================================= */
 
-    alert("A note cannot be empty.");
+const EMPLOYEES_KEY =
+  "studyEmployeesSchedule";
+
+const EMPLOYEE_DAYS = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+const EMPLOYEE_HOURS = [
+  "08–09",
+  "09–10",
+  "10–11",
+  "11–12",
+  "12–13",
+  "13–14",
+  "14–15",
+  "15–16",
+  "16–17",
+  "17–18"
+];
+
+
+function loadEmployeesSchedule(){
+
+  try{
+
+    const saved =
+      JSON.parse(
+        localStorage.getItem(
+          EMPLOYEES_KEY
+        )
+      );
+
+    if(
+      saved &&
+      typeof saved === "object"
+    ){
+
+      return saved;
+
+    }
+
+  }catch(e){}
+
+  return {};
+
+}
+
+
+function saveEmployeesSchedule(data){
+
+  localStorage.setItem(
+    EMPLOYEES_KEY,
+    JSON.stringify(data)
+  );
+
+}
+
+
+function employeesCellKey(
+  dayIndex,
+  hourIndex
+){
+
+  return `${dayIndex}_${hourIndex}`;
+
+}
+
+
+function renderEmployeesSchedule(){
+
+  const container =
+    document.getElementById(
+      "employeesSchedule"
+    );
+
+  if(!container) return;
+
+  const data =
+    loadEmployeesSchedule();
+
+  container.innerHTML="";
+
+  const table =
+    document.createElement("table");
+
+  table.className =
+    "employees-table";
+
+
+  const thead =
+    document.createElement("thead");
+
+  const headerRow =
+    document.createElement("tr");
+
+  const emptyHeader =
+    document.createElement("th");
+
+  emptyHeader.className =
+    "time-header";
+
+  emptyHeader.textContent =
+    "TIME";
+
+  headerRow.appendChild(
+    emptyHeader
+  );
+
+
+  EMPLOYEE_DAYS.forEach(day => {
+
+    const th =
+      document.createElement("th");
+
+    th.textContent =
+      day;
+
+    headerRow.appendChild(th);
+
+  });
+
+
+  thead.appendChild(
+    headerRow
+  );
+
+  table.appendChild(
+    thead
+  );
+
+
+  const tbody =
+    document.createElement("tbody");
+
+
+  EMPLOYEE_HOURS.forEach(
+    (hour,hourIndex) => {
+
+      const row =
+        document.createElement("tr");
+
+      const timeCell =
+        document.createElement("th");
+
+      timeCell.className =
+        "schedule-time";
+
+      timeCell.textContent =
+        hour;
+
+      row.appendChild(
+        timeCell
+      );
+
+
+      EMPLOYEE_DAYS.forEach(
+        (day,dayIndex) => {
+
+          const key =
+            employeesCellKey(
+              dayIndex,
+              hourIndex
+            );
+
+          const cell =
+            document.createElement("td");
+
+          cell.className =
+            "schedule-cell";
+
+          cell.dataset.key =
+            key;
+
+          const item =
+            data[key];
+
+          if(item){
+
+            cell.dataset.color =
+              item.color || "";
+
+            if(item.color){
+
+              cell.classList.add(
+                "schedule-" +
+                item.color
+              );
+
+            }
+
+            cell.innerHTML = `
+
+              <div
+                class="schedule-item"
+                draggable="true"
+              >
+                ${escapeHTML(
+                  item.text || ""
+                )}
+              </div>
+
+            `;
+
+          }
+
+
+          cell.addEventListener(
+            "click",
+            function(){
+
+              if(
+                scheduleDragged
+              ){
+
+                scheduleDragged=false;
+                return;
+
+              }
+
+              openEmployeeCellEditor(
+                key
+              );
+
+            }
+          );
+
+
+          cell.addEventListener(
+            "dragover",
+            function(event){
+
+              event.preventDefault();
+
+              cell.classList.add(
+                "schedule-drag-over"
+              );
+
+            }
+          );
+
+
+          cell.addEventListener(
+            "dragleave",
+            function(){
+
+              cell.classList.remove(
+                "schedule-drag-over"
+              );
+
+            }
+          );
+
+
+          cell.addEventListener(
+            "drop",
+            function(event){
+
+              event.preventDefault();
+
+              cell.classList.remove(
+                "schedule-drag-over"
+              );
+
+              const sourceKey =
+                event.dataTransfer
+                  ?.getData(
+                    "text/plain"
+                  );
+
+              if(
+                sourceKey &&
+                sourceKey !== key
+              ){
+
+                moveEmployeeCell(
+                  sourceKey,
+                  key
+                );
+
+              }
+
+            }
+          );
+
+
+          row.appendChild(cell);
+
+        }
+
+      );
+
+      tbody.appendChild(row);
+
+    }
+  );
+
+
+  table.appendChild(
+    tbody
+  );
+
+  container.appendChild(
+    table
+  );
+
+  enableTouchScheduleDrag();
+
+}
+
+
+let scheduleDragged=false;
+
+
+function enableTouchScheduleDrag(){
+
+  document
+    .querySelectorAll(
+      ".schedule-item"
+    )
+    .forEach(item => {
+
+      item.addEventListener(
+        "dragstart",
+        function(event){
+
+          scheduleDragged=true;
+
+          const cell =
+            item.closest(
+              ".schedule-cell"
+            );
+
+          if(
+            cell &&
+            event.dataTransfer
+          ){
+
+            event.dataTransfer.setData(
+              "text/plain",
+              cell.dataset.key
+            );
+
+            event.dataTransfer.effectAllowed =
+              "move";
+
+          }
+
+        }
+      );
+
+
+      item.addEventListener(
+        "dragend",
+        function(){
+
+          setTimeout(
+            () => {
+              scheduleDragged=false;
+            },
+            100
+          );
+
+        }
+      );
+
+
+      let startX=0;
+      let startY=0;
+      let moving=false;
+      let ghost=null;
+
+      item.addEventListener(
+        "pointerdown",
+        function(event){
+
+          if(event.pointerType === "mouse"){
+            return;
+          }
+
+          startX =
+            event.clientX;
+
+          startY =
+            event.clientY;
+
+          moving=false;
+
+        }
+      );
+
+
+      item.addEventListener(
+        "pointermove",
+        function(event){
+
+          if(
+            event.pointerType === "mouse"
+          ){
+            return;
+          }
+
+          const dx =
+            event.clientX - startX;
+
+          const dy =
+            event.clientY - startY;
+
+          if(
+            !moving &&
+            Math.sqrt(
+              dx*dx + dy*dy
+            ) > 12
+          ){
+
+            moving=true;
+
+            ghost =
+              item.cloneNode(true);
+
+            ghost.classList.add(
+              "schedule-touch-ghost"
+            );
+
+            document.body.appendChild(
+              ghost
+            );
+
+          }
+
+          if(
+            moving &&
+            ghost
+          ){
+
+            ghost.style.left =
+              (event.clientX + 8) +
+              "px";
+
+            ghost.style.top =
+              (event.clientY + 8) +
+              "px";
+
+          }
+
+        }
+      );
+
+
+      item.addEventListener(
+        "pointerup",
+        function(event){
+
+          if(
+            event.pointerType === "mouse"
+          ){
+            return;
+          }
+
+          if(!moving){
+            return;
+          }
+
+          scheduleDragged=true;
+
+          const target =
+            document
+              .elementFromPoint(
+                event.clientX,
+                event.clientY
+              )
+              ?.closest(
+                ".schedule-cell"
+              );
+
+          const source =
+            item.closest(
+              ".schedule-cell"
+            );
+
+          if(
+            target &&
+            source &&
+            target !== source
+          ){
+
+            moveEmployeeCell(
+              source.dataset.key,
+              target.dataset.key
+            );
+
+          }
+
+          if(ghost){
+
+            ghost.remove();
+            ghost=null;
+
+          }
+
+          moving=false;
+
+          setTimeout(
+            () => {
+              scheduleDragged=false;
+            },
+            150
+          );
+
+        }
+      );
+
+    });
+
+}
+
+
+function moveEmployeeCell(
+  sourceKey,
+  targetKey
+){
+
+  const data =
+    loadEmployeesSchedule();
+
+  if(
+    !data[sourceKey]
+  ){
 
     return;
 
   }
 
+  const source =
+    data[sourceKey];
 
-  note.text=
-    next.trim();
+  const target =
+    data[targetKey];
 
+  if(target){
 
-  note.date=Date.now();
+    data[sourceKey] =
+      target;
 
+    data[targetKey] =
+      source;
 
-  saveJSON(
-    STORAGE.notes,
-    notes
+  }else{
+
+    data[targetKey] =
+      source;
+
+    delete data[sourceKey];
+
+  }
+
+  saveEmployeesSchedule(
+    data
   );
 
-
-  renderNotes();
-
-  clickSound();
+  renderEmployeesSchedule();
 
 }
 
 
-/* =========================
-   DELETE NOTE
-========================= */
+function openEmployeeCellEditor(
+  key
+){
+
+  const data =
+    loadEmployeesSchedule();
+
+  const item =
+    data[key] || {
+      text:"",
+      color:""
+    };
+
+  const oldText =
+    item.text || "";
+
+  const newText =
+    prompt(
+      "Enter text for this cell:",
+      oldText
+    );
+
+  if(newText === null){
+
+    return;
+
+  }
+
+  const text =
+    newText.trim();
+
+  if(!text){
+
+    delete data[key];
+
+    saveEmployeesSchedule(
+      data
+    );
+
+    renderEmployeesSchedule();
+
+    return;
+
+  }
+
+  const colors = [
+    "",
+    "green",
+    "red",
+    "yellow",
+    "blue",
+    "orange",
+    "purple"
+  ];
+
+  let colorMessage =
+    "Choose color:\n\n" +
+    "0 = None\n" +
+    "1 = Green\n" +
+    "2 = Red\n" +
+    "3 = Yellow\n" +
+    "4 = Blue\n" +
+    "5 = Orange\n" +
+    "6 = Purple";
+
+  const answer =
+    prompt(
+      colorMessage,
+      String(
+        Math.max(
+          0,
+          colors.indexOf(
+            item.color || ""
+          )
+        )
+      )
+    );
+
+  if(answer === null){
+
+    return;
+
+  }
+
+  let colorIndex =
+    Number(answer);
+
+  if(
+    !Number.isInteger(colorIndex) ||
+    colorIndex < 0 ||
+    colorIndex >= colors.length
+  ){
+
+    colorIndex=0;
+
+  }
+
+  data[key] = {
+
+    text,
+
+    color:
+      colors[colorIndex]
+
+  };
+
+  saveEmployeesSchedule(
+    data
+  );
+
+  renderEmployeesSchedule();
+
+}
+
+
+function resetEmployeesSchedule(){
+
+  if(
+    !confirm(
+      "Reset the Employees schedule?"
+    )
+  ){
+
+    return;
+
+  }
+
+  localStorage.removeItem(
+    EMPLOYEES_KEY
+  );
+
+  renderEmployeesSchedule();
+
+}
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+function loadNotes(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        NOTES_KEY
+      )
+    ) || [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveNotes(notes){
+
+  localStorage.setItem(
+    NOTES_KEY,
+    JSON.stringify(notes)
+  );
+
+}
+
+
+function addNote(){
+
+  const input =
+    document.getElementById(
+      "noteInput"
+    );
+
+  if(!input) return;
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    return;
+
+  }
+
+  const notes =
+    loadNotes();
+
+  notes.push({
+
+    id:
+      Date.now().toString(),
+
+    text,
+
+    createdAt:
+      new Date().toISOString()
+
+  });
+
+  saveNotes(notes);
+
+  input.value="";
+
+  renderNotes();
+
+}
+
+
+function renderNotes(){
+
+  const list =
+    document.getElementById(
+      "notesList"
+    );
+
+  if(!list) return;
+
+  list.innerHTML="";
+
+  const notes =
+    loadNotes();
+
+  if(notes.length === 0){
+
+    list.innerHTML =
+      `<div class="empty">No notes yet.</div>`;
+
+    return;
+
+  }
+
+  notes
+    .slice()
+    .reverse()
+    .forEach(note => {
+
+      const div =
+        document.createElement("div");
+
+      div.className =
+        "card note-card";
+
+      div.innerHTML = `
+
+        <div class="note-text">
+          ${escapeHTML(note.text)}
+        </div>
+
+        <button
+          class="failed-button"
+          onclick="deleteNote('${note.id}')"
+        >
+          Delete
+        </button>
+
+      `;
+
+      list.appendChild(div);
+
+    });
+
+}
+
 
 function deleteNote(id){
 
-  if(!confirm(
-    "Delete this note?"
-  ))return;
+  const notes =
+    loadNotes()
+      .filter(
+        note => note.id !== id
+      );
 
-
-  notes=
-    notes.filter(
-      note=>
-        String(note.id)!==
-        String(id)
-    );
-
-
-  saveJSON(
-    STORAGE.notes,
-    notes
-  );
-
+  saveNotes(notes);
 
   renderNotes();
 
-  clickSound();
-
 }
 
 
-/* =========================
-   XO SAVE
-========================= */
+/* =========================================================
+   X / O GAME
+========================================================= */
 
-function saveXO(){
+let xoBoard =
+  ["","","","","","","","",""];
 
-  saveJSON(
-    STORAGE.xo,
-    {
-      board:xoBoard,
-      turn:xoTurn,
-      x:xoXScore,
-      o:xoOScore,
-      d:xoDrawScore
-    }
-  );
+let xoTurn =
+  "X";
 
-}
+let xoScores = {
 
+  X:0,
 
-/* =========================
-   XO RENDER
-========================= */
+  O:0,
 
-function renderXO(){
+  D:0
 
-  const board=
-    document.getElementById(
-      "xoBoard"
-    );
+};
 
-  if(!board)return;
-
-
-  board.innerHTML=
-    xoBoard.map(
-      (value,index)=>`
-
-        <button
-          class="xo-cell"
-          onclick="xoMove(${index})"
-        >
-          ${value}
-        </button>
-
-      `
-    ).join("");
-
-
-  document.getElementById(
-    "xoXScore"
-  ).textContent=xoXScore;
-
-
-  document.getElementById(
-    "xoOScore"
-  ).textContent=xoOScore;
-
-
-  document.getElementById(
-    "xoDrawScore"
-  ).textContent=xoDrawScore;
-
-
-  document.getElementById(
-    "xoStatus"
-  ).textContent=
-    "PLAYER "+xoTurn+" TURN";
-
-}
-
-
-/* =========================
-   XO MOVE
-========================= */
 
 function xoMove(index){
 
-  if(xoBoard[index])return;
+  if(
+    xoBoard[index] ||
+    checkXOWinner()
+  ){
 
+    return;
 
-  xoBoard[index]=xoTurn;
+  }
 
+  xoBoard[index] =
+    xoTurn;
 
-  const winner=
+  renderXO();
+
+  const winner =
     checkXOWinner();
-
 
   if(winner){
 
-    if(winner==="X"){
-      xoXScore++;
-    }else{
-      xoOScore++;
-    }
+    xoScores[winner]++;
 
+    updateXOScores();
 
-    saveXO();
-
-    renderXO();
-
-    setTimeout(
-      ()=>{
-        alert(
-          "PLAYER "+winner+" WINS!"
-        );
-
-        resetXO();
-
-      },
-      20
-    );
+    document.getElementById(
+      "xoStatus"
+    ).textContent =
+      `${winner} wins!`;
 
     return;
 
   }
 
+  if(
+    xoBoard.every(Boolean)
+  ){
 
-  if(!xoBoard.includes("")){
+    xoScores.D++;
 
-    xoDrawScore++;
+    updateXOScores();
 
-    saveXO();
-
-    renderXO();
-
-    setTimeout(
-      ()=>{
-        alert("DRAW!");
-
-        resetXO();
-
-      },
-      20
-    );
+    document.getElementById(
+      "xoStatus"
+    ).textContent =
+      "Draw";
 
     return;
 
   }
 
+  xoTurn =
+    xoTurn === "X"
+      ? "O"
+      : "X";
 
-  xoTurn=
-    xoTurn==="X"
-    ?
-    "O"
-    :
-    "X";
-
-
-  saveXO();
-  renderXO();
-
-  clickSound();
+  document.getElementById(
+    "xoStatus"
+  ).textContent =
+    `${xoTurn}'s turn`;
 
 }
 
 
-/* =========================
-   XO WINNER
-========================= */
-
 function checkXOWinner(){
 
-  const wins=[
+  const wins = [
 
     [0,1,2],
     [3,4,5],
@@ -4585,18 +4599,14 @@ function checkXOWinner(){
 
   ];
 
-
   for(
-    const combination of wins
+    const [a,b,c] of wins
   ){
-
-    const[a,b,c]=combination;
-
 
     if(
       xoBoard[a] &&
-      xoBoard[a]===xoBoard[b] &&
-      xoBoard[b]===xoBoard[c]
+      xoBoard[a] === xoBoard[b] &&
+      xoBoard[a] === xoBoard[c]
     ){
 
       return xoBoard[a];
@@ -4605,208 +4615,407 @@ function checkXOWinner(){
 
   }
 
-
   return null;
 
 }
 
 
-/* =========================
-   RESET XO
-========================= */
+function renderXO(){
+
+  document
+    .querySelectorAll(
+      ".xo-cell"
+    )
+    .forEach(
+      (cell,index) => {
+
+        cell.textContent =
+          xoBoard[index];
+
+      }
+    );
+
+}
+
+
+function updateXOScores(){
+
+  const x =
+    document.getElementById(
+      "xoScoreX"
+    );
+
+  const o =
+    document.getElementById(
+      "xoScoreO"
+    );
+
+  const d =
+    document.getElementById(
+      "xoScoreDraw"
+    );
+
+  if(x) x.textContent =
+    xoScores.X;
+
+  if(o) o.textContent =
+    xoScores.O;
+
+  if(d) d.textContent =
+    xoScores.D;
+
+}
+
 
 function resetXO(){
 
-  xoBoard=[
-    "","","",
-    "","","",
-    "","",""
-  ];
+  xoBoard =
+    ["","","","","","","","",""];
 
   xoTurn="X";
 
+  const status =
+    document.getElementById(
+      "xoStatus"
+    );
 
-  saveXO();
+  if(status){
+    status.textContent =
+      "X's turn";
+  }
+
   renderXO();
 
 }
 
 
-/* =========================
-   HIGHER SAVE
-========================= */
+/* =========================================================
+   HIGHER OR LOWER GAME
+========================================================= */
 
-function saveHigher(){
+let higherCurrent =
+  50;
 
-  saveJSON(
-    STORAGE.higher,
-    {
-      number:higherNumber,
-      player:higherPlayer,
-      p1:higherScoreOne,
-      p2:higherScoreTwo,
-      round:higherRoundNumber
-    }
-  );
+let higherScore =
+  0;
 
-}
+let higherRound =
+  1;
 
-
-/* =========================
-   HIGHER RENDER
-========================= */
-
-function renderHigher(){
-
-  document.getElementById(
-    "higherNumber"
-  ).textContent=
-    higherNumber;
+let higherBest =
+  Number(
+    localStorage.getItem(
+      "higherBest"
+    )
+  ) || 0;
 
 
-  document.getElementById(
-    "higherStatus"
-  ).textContent=
-    "PLAYER "+higherPlayer+" TURN";
+function randomHigherNumber(){
 
-
-  document.getElementById(
-    "higherScore1"
-  ).textContent=
-    higherScoreOne;
-
-
-  document.getElementById(
-    "higherScore2"
-  ).textContent=
-    higherScoreTwo;
-
-
-  document.getElementById(
-    "higherRound"
-  ).textContent=
-    higherRoundNumber;
+  return Math.floor(
+    Math.random() * 100
+  ) + 1;
 
 }
 
 
-/* =========================
-   HIGHER GUESS
-========================= */
+function higherGuess(direction){
 
-function higherGuess(choice){
+  const next =
+    randomHigherNumber();
 
-  const next=
-    Math.floor(
-      Math.random()*100
-    )+1;
+  const correct =
+    direction === "higher"
+      ? next > higherCurrent
+      : next < higherCurrent;
 
-
-  const correct=
-    choice==="higher"
-    ?
-    next>higherNumber
-    :
-    next<higherNumber;
-
+  const status =
+    document.getElementById(
+      "higherStatus"
+    );
 
   if(correct){
 
-    if(higherPlayer===1){
-      higherScoreOne++;
-    }else{
-      higherScoreTwo++;
+    higherScore++;
+    higherRound++;
+
+    if(
+      higherScore > higherBest
+    ){
+
+      higherBest =
+        higherScore;
+
+      localStorage.setItem(
+        "higherBest",
+        higherBest
+      );
+
     }
 
-  }
+    if(status){
 
+      status.textContent =
+        "Correct!";
 
-  const result=
-    correct
-    ?
-    "Correct! 🎉"
-    :
-    "Wrong!";
+    }
 
+  }else{
 
-  higherNumber=next;
+    if(status){
 
+      status.textContent =
+        "Wrong! New round.";
 
-  higherPlayer=
-    higherPlayer===1
-    ?
-    2
-    :
-    1;
+    }
 
-
-  if(higherPlayer===1){
-
-    higherRoundNumber++;
+    higherScore=0;
+    higherRound=1;
 
   }
 
+  higherCurrent =
+    next;
 
-  saveHigher();
   renderHigher();
-
-
-  setTimeout(
-    ()=>{
-      alert(
-        result+
-        "\n\nNext number: "+
-        next
-      );
-    },
-    20
-  );
-
-
-  clickSound();
 
 }
 
 
-/* =========================
-   RESET HIGHER
-========================= */
+function renderHigher(){
+
+  const number =
+    document.getElementById(
+      "higherNumber"
+    );
+
+  const score =
+    document.getElementById(
+      "higherScore"
+    );
+
+  const round =
+    document.getElementById(
+      "higherRound"
+    );
+
+  const best =
+    document.getElementById(
+      "higherBest"
+    );
+
+  if(number){
+    number.textContent =
+      higherCurrent;
+  }
+
+  if(score){
+    score.textContent =
+      higherScore;
+  }
+
+  if(round){
+    round.textContent =
+      higherRound;
+  }
+
+  if(best){
+    best.textContent =
+      higherBest;
+  }
+
+}
+
 
 function resetHigher(){
 
-  higherNumber=50;
-  higherPlayer=1;
-  higherScoreOne=0;
-  higherScoreTwo=0;
-  higherRoundNumber=1;
+  higherCurrent=50;
+  higherScore=0;
+  higherRound=1;
 
+  const status =
+    document.getElementById(
+      "higherStatus"
+    );
 
-  saveHigher();
+  if(status){
+
+    status.textContent =
+      "Choose Higher or Lower";
+
+  }
+
   renderHigher();
 
 }
 
 
-/* =========================
-   KEYBOARD SHORTCUT
-========================= */
+/* =========================================================
+   PROFILE
+========================================================= */
 
-document.addEventListener(
-  "keydown",
-  event=>{
+function renderProfile(){
+
+  const tasks =
+    loadTasks();
+
+  const total =
+    tasks.length;
+
+  const completed =
+    tasks.filter(
+      t => t.status === "completed"
+    ).length;
+
+  const totalEl =
+    document.getElementById(
+      "profileTasks"
+    );
+
+  const completedEl =
+    document.getElementById(
+      "profileCompleted"
+    );
+
+  if(totalEl){
+
+    totalEl.textContent =
+      total;
+
+  }
+
+  if(completedEl){
+
+    completedEl.textContent =
+      completed;
+
+  }
+
+  updateUserUI();
+
+}
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll(){
+
+  updateUserUI();
+
+  renderPlan();
+
+  renderEnter();
+
+  renderQuick();
+
+  renderMoney();
+
+  renderMoneyHistory();
+
+  renderHigher();
+
+  renderXO();
+
+  renderNotes();
+
+  renderProfile();
+
+}
+
+
+/* =========================================================
+   LIVE COUNTDOWN
+========================================================= */
+
+setInterval(
+  function(){
 
     if(
-      event.key==="Enter" &&
-      document.activeElement?.id===
-      "userNameInput"
+      currentPage === "plan" ||
+      currentPage === "enter" ||
+      currentPage === "quick"
     ){
 
-      startWithName();
+      renderPlan();
+      renderEnter();
+      renderQuick();
+
+    }
+
+  },
+  1000
+);
+
+
+/* =========================================================
+   STARTUP
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const savedName =
+      localStorage.getItem(
+        USER_KEY
+      );
+
+    if(savedName){
+
+      showApp();
+
+    }else{
+
+      const setup =
+        document.getElementById(
+          "userSetup"
+        );
+
+      const app =
+        document.getElementById(
+          "app"
+        );
+
+      if(setup){
+        setup.classList.remove(
+          "hidden"
+        );
+      }
+
+      if(app){
+        app.classList.add(
+          "hidden"
+        );
+      }
 
     }
 
   }
 );
+
+
+/* =========================================================
+   SERVICE WORKER
+========================================================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator.serviceWorker.register(
+        "./sw.js"
+      );
+
+    }
+  );
+
+}
 
 </script>
 
